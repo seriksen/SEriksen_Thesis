@@ -1,0 +1,77 @@
+
+\documentclass{ClassSettings}
+
+%
+\begin{document}
+% UoB guidlines:
+%
+% Preliminary pages
+% 
+% The five preliminary pages must be the Title Page, Abstract, Dedication
+% and Acknowledgements, Author's Declaration and Table of Contents.
+% These should be single-sided.
+% 
+% Table of contents, list of tables and illustrative material
+% 
+% The table of contents must list, with page numbers, all chapters,
+ % sections and subsections, the list of references, bibliography, list of
+% abbreviations and appendices. The list of tables and illustrations
+% should follow the table of contents, listing with page numbers the
+% tables, photographs, diagrams, etc., in the order in which they appear
+% in the text.
+% 
+\frontmatter
+\pagenumbering{roman}
+%
+\input{frontmatter/title}
+\clearemptydoublepage
+%
+\input{frontmatter/abstract}
+\clearemptydoublepage
+%
+\input{frontmatter/dedication}
+\clearemptydoublepage
+%
+\input{frontmatter/declaration}
+\clearemptydoublepage
+%
+\renewcommand{\contentsname}{Table of Contents}
+\maxtocdepth{subsection}
+\tableofcontents*
+\addtocontents{toc}{\par\nobreak \mbox{}\hfill{\bf Page}\par\nobreak}
+\clearemptydoublepage
+%
+\listoftables
+\addtocontents{lot}{\par\nobreak\textbf{{\scshape Table} \hfill Page}\par\nobreak}
+\clearemptydoublepage
+%
+\listoffigures
+\addtocontents{lof}{\par\nobreak\textbf{{\scshape Figure} \hfill Page}\par\nobreak}
+\clearemptydoublepage
+%
+%
+% The bulk of the document is delegated to these chapter files in
+% subdirectories.
+\mainmatter
+%
+\import{chapters/chapter01/}{chap01.tex}
+\clearemptydoublepage
+%
+%
+% And the appendix goes here
+\appendix
+\import{chapters/appendices/}{app0A.tex}
+\clearemptydoublepage
+%
+% Apparently the guidelines don't say anything about citations or
+% bibliography styles so I guess we can use anything.
+\backmatter
+\bibliographystyle{siam}
+\refstepcounter{chapter}
+\bibliography{thesisbiblio}
+\clearemptydoublepage
+%
+% Add index
+%\printindex
+%   
+\end{document}

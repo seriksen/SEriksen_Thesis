@@ -20,7 +20,51 @@
 	\SetWatermarkScale{0.3}
 	\SetWatermarkText{\bf Draft: \today}
 \fi
+
+\settrimmedsize{297mm}{210mm}{*}
+\setlength{\trimtop}{0pt} 
+\setlength{\trimedge}{\stockwidth} 
+\addtolength{\trimedge}{-\paperwidth} 
+\settypeblocksize{634pt}{448.13pt}{*} 
+\setulmargins{4cm}{*}{*} 
+\setlrmargins{*}{*}{1.5} 
+\setmarginnotes{17pt}{51pt}{\onelineskip} 
+\setheadfoot{\onelineskip}{2\onelineskip} 
+\setheaderspaces{*}{2\onelineskip}{*} 
+\checkandfixthelayout
 %
+\frenchspacing
+%
+% UoB guidelines:
+%
+% Text should be in double or 1.5 line spacing, and font size should be
+% chosen to ensure clarity and legibility for the main text and for any
+% quotations and footnotes. Margins should allow for eventual hard binding.
+%
+% Note: This is automatically set by memoir class. Nevertheless \OnehalfSpacing 
+% enables double spacing but leaves single spaced for captions for instance. 
+\OnehalfSpacing 
+%
+% Sets numbering division level
+\setsecnumdepth{subsection} 
+\maxsecnumdepth{subsubsection}
+%
+%
+% UoB guidelines:
+%
+% The pages should be numbered consecutively at the bottom centre of the
+% page.
+\makepagestyle{myvf} 
+\makeoddfoot{myvf}{}{\thepage}{} 
+\makeevenfoot{myvf}{}{\thepage}{} 
+\makeheadrule{myvf}{\textwidth}{\normalrulethickness} 
+\makeevenhead{myvf}{\small\textsc{\leftmark}}{}{} 
+\makeoddhead{myvf}{}{}{\small\textsc{\rightmark}}
+\pagestyle{myvf}
+%
+%
+\makeindex
+
 
 \usepackage{import}
 
@@ -83,5 +127,10 @@
 \newtheorem{cor}{Corollary}[chapter]
 \theoremstyle{plain}
 \newtheorem{resu}{Result}[chapter]
+
+
+\DeclareMathOperator{\Lagrangian}{\mathcal{L}}
+\DeclareMathOperator{\Operator}{\mathcal{O}}
+
 
 \endinput

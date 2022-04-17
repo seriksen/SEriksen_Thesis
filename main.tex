@@ -23,16 +23,16 @@
 \frontmatter
 \pagenumbering{roman}
 %
-\input{frontmatter/title}
+\input{Title_Pages/title}
 \clearemptydoublepage
 %
-\input{frontmatter/abstract}
+\input{Title_Pages/abstract}
 \clearemptydoublepage
 %
-\input{frontmatter/dedication}
+\input{Title_Pages/dedication}
 \clearemptydoublepage
 %
-\input{frontmatter/declaration}
+\input{Title_Pages/declaration}
 \clearemptydoublepage
 %
 \renewcommand{\contentsname}{Table of Contents}
@@ -54,21 +54,14 @@
 % subdirectories.
 \mainmatter
 %
-\import{chapters/chapter01/}{chap01.tex}
+\import{Chapters/main}
 \clearemptydoublepage
-%
-%
-% And the appendix goes here
-\appendix
-\import{chapters/appendices/}{app0A.tex}
-\clearemptydoublepage
-%
-% Apparently the guidelines don't say anything about citations or
-% bibliography styles so I guess we can use anything.
+
 \backmatter
 \bibliographystyle{siam}
 \refstepcounter{chapter}
-\bibliography{thesisbiblio}
+%\bibliographystyle{IEEEtran}
+\bibliography{References/References.bib,References/Opticks.bib,References/LZ_References.bib,References/GdLS_Physics.bib,References/EFT_References.bib,References/DarkMatter_Evidence.bib,References/OD_Particle_ID.bib}
 \clearemptydoublepage
 %
 % Add index

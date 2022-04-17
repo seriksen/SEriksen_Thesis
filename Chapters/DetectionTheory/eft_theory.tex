@@ -1,0 +1,106 @@
+\section{Effective Field Theory Searches} \label{eft_theory}
+
+\par
+Although the LZ detector has been built with vanilla dark-matter searches at the forefront of the design, this does not mean that other searches cannot be performed. 
+
+\par
+The assumption that the dark-matter interaction with nucleons overlooks the possible sensitivity to different scenarios such as dark-matter with different spins, and interactions with higher nuclear recoil energies.
+A wide variation in sensitivity to interactions based on detection medium.
+
+\par
+Given the limitations within the standard model, it is natural to ask if there is a possible adaptation to the standard model which would allow to the existence of dark matter - and to explain why we have yet to detect it.
+This naturally leads to the introduction of effect theories - an approximation of the complete underlying theory.
+The primary benefits of this are that it allows for model-dependent analyses.
+
+\par
+Possible the most clear example of an effect field theory in physics is that of Newtonian gravity?
+I actually need to research this bit.
+
+\par
+In the more generalised form, this is General Relatively.
+However, this is expected to be the low energy effective field theory as it is only valid up to Planck scales.
+
+
+\par
+In the case of dark-matter, the underlying theory is not known or is too complex to compute, so instead we look at some approximation.
+
+\par
+An EFT looks at physics at a particular scale in a manner that allows for corrections to arbitrary precision.
+
+
+\par
+The steps for creating an EFT can be boiled down into 4-steps;
+\begin{enumerate}
+    \item Determine the degrees of freedom - not all degrees of freedom are relevant in all cases. For example, a low energy theory does not need to high mass (and so high energy) particles
+    \item Symmetries - this is guided by the degrees of freedom
+    \item Expansion parameters - this is just power counting ie, to what precision are terms needed
+    \item Lagrangian - the simplest Lagrangian can then be developed from the above choices
+\end{enumerate}
+
+
+\section{Dark-Matter EFT}
+\par
+In this section we follow the approach described in XXX where we treat WIMP-nucleon scattering as a four-field interaction comprising of the WIMP field $\chi$, the nucleon field $N$ and the effective operators $\Operator$;
+
+\begin{equation}
+    \Lagrangian_{int} = \chi_{1} \Operator_{\chi} \chi_{2} N_{1} \Operator_{N} N_{2}
+\end{equation}
+Here, $1$ and $2$ indicate incoming and outgoing particles respectively.
+
+\par
+Now, as this theory is non-relativistic, the interaction must be Galilean invariant.
+This leaves us with 4 quantities; the change in momentum $\vec{q}$, the relative velocity of the WIMP $\vec{v}=\vec{v}_{\chi,in} - \vec{v}_{N,in}$, the spin of the WIMP $\vec{S}_{\chi}$ and the spin of the nucleon $\vec{S}_{N}$.
+
+
+% I have these written down as part of it... not clear where I got it from... I think papers
+% spin-dependent, spin-independent, angular-momentum dependent and spin and angular-momentum dependent. 
+
+
+\par
+Galilean invariance momentum and velocity;
+$\Vec{v} = \Vec{v}_{\chi,in} - \Vec{v}_{N,in}$
+
+\par
+Finally we have our set of Galilean-invariant and Hermitian-invariant quantities;
+\begin{enumerate}
+    \item momentum transfer: $i\Vec{q}$
+    \item energy conservation: $\Vec{v}^{\bot}$
+    \item nucleon spin: $\Vec{S}_{N}$
+    \item dark matter spin: $\Vec{S}_{\chi}$
+\end{enumerate}
+
+\par
+The invariant quantities can then be combined to form operators;
+
+\begin{equation}
+\begin{array}{lcl}
+\Operator_{1}=1_{\chi}1_N \\ 
+\Operator_{2}=\left(v^{\perp}\right)^{2} \\
+\Operator_{3}=i \vec{S}_{N} \cdot\left(\frac{\vec{q}}{m_N} \times \vec{v}^{\perp}\right) \\ 
+\Operator_{4}=\vec{S}_{\chi} \cdot \vec{S}_{N} \\ 
+\Operator_{5}=i \vec{S}_{\chi} \cdot(\frac{\vec{q}}{m_N} \times \vec{v}^{\perp}) \\ 
+\Operator_{6}=\left(\vec{S}_{\chi} \cdot \frac{\vec{q}}{m_N}\right)\left(\vec{S}_{N} \cdot \frac{\vec{q}}{m_N}\right) \\
+\Operator_{7}=\vec{S}_{N} \cdot \vec{v}^{\perp} \\
+\Operator_{8}=\vec{S}_{\chi} \cdot \vec{v}^{\perp} \\ 
+\Operator_{9}=i \vec{S}_{\chi} \cdot\left(\vec{S}_{N} \times \frac{\vec{q}}{m_N}\right) \\
+\Operator_{10}=i \vec{S}_{N} \cdot \frac{\vec{q}}{m_N} \\ 
+\Operator_{11}=i \vec{S}_{\chi} \cdot \frac{\vec{q}}{m_N} \\
+\Operator_{12} =\vec{S}_{\chi} \cdot\left(\vec{S}_{N} \times \vec{v}^{\perp}\right) \\
+\Operator_{13} =i\left(\vec{S}_{\chi} \cdot \vec{v}^{\perp}\right)\left(\vec{S}_{N} \cdot \frac{\vec{q}}{m_N}\right) \\ 
+\Operator_{14} =i\left(\vec{S}_{\chi} \cdot \frac{\vec{q}}{m_N}\right)\left(\vec{S}_{N} \cdot \vec{v}^{\perp}\right) \\ 
+\Operator_{15} =-\left(\vec{S}_{\chi} \cdot \frac{\vec{q}}{m_N}\right)\left(\left(\vec{S}_{N} \times \vec{v}^{\perp}\right) \cdot \frac{\vec{q}}{m_N}\right)
+\end{array}
+\label{eq:EFT_Operators}
+\end{equation}
+When it actually comes to using these operators, the $\mathcal{O}_{2}$ is not considered as it is relativistic. 
+Additionally $\mathcal{O}_{16}$ that is mentioned in XXX is a linear combination of $\mathcal{O}_{15}$ and $\mathcal{O}_{12}$ so does not need to be included.
+
+\par
+The final piece of the puzzle is how the WIMPs interactions with isoscalars and isovectors could in fact be different.
+This means that the complete interaction Lagrangian is;
+
+\begin{equation}
+    \Lagrangian_{int} = 
+    \label{eq:HENR_Interaction_Lagrangian}
+\end{equation}
+

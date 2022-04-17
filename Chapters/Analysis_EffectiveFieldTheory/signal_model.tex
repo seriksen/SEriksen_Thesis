@@ -1,0 +1,136 @@
+\section{Signal Model}
+\par
+The actual signal model is actually produced by taking a theoretical event rate spectrum (produced by a Mathematica package - DMFormFactor - developed by XXX) and applying the analysis acceptance and detector response.
+Passing through LZLama or PdfMaker, this turns the above into event observable - S1 and LogS2).
+\par
+DMFormFactor takes performs the calculations described previously.
+Each Xenon isotope is evaluated separately and is weighted by the Xenon abundance before being added together to produce an energy spectrum.
+As mentioned previously, the energy spectrum is dependant upon the choice of coupling and the WIMP mass.
+\par
+The choice has been made to perform analysis in iso-scalar rather than proton-neutron. 
+There is always an argument that one approach is more appropriate than the other
+\par
+In table \ref{tab:DMFormFactor_parameters} the parameters used for this are shown.
+The majority of these values are to match those from previous studies and the Dark Matter community standards.
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{c|c}
+        Parameter   & Value  \\ \hline
+        $\nu_0$     & 220$km s^{-1}$ \\
+        $\nu_{esc}$ & 544$km s^{-1}$ \\
+        $\rho_{0}$     & 0.3 $GeV/cm^{3}$ \\
+        $\nu_E$     & 245 $km s^{-1}$ 
+    \end{tabular}
+    \caption{DMFormFactor parameters used for the standard halo model. CITE XXX}
+    \label{tab:DMFormFactor_parameters}
+\end{table}
+
+
+\par
+A subset of the recoil spectra calculated are shown in Figures \ref{fig:HENR_Spin_Recoil_Spectrum} and \ref{fig:HENR_NotSpin_Recoil_Spectrum}.
+The masses for which the energy spectra were calculated were;
+[5, 7, 10, 12, 14, 21, 33, 50, 100, 200, 400, 1000, 4000] GeV.
+The reason for this is that the shape of the limit produced is fairly well understood, so only a subset of WIMP masses are needed.
+
+\newcommand{\allrecoiloperators}{01s,03s,04s,05s,06s,07s,08s,09s,10s,11s,12s,13s,14s,15s}
+\newcommand{\spinrecoiloperators}{01s,04s,06s,07s,09s,10s,11s,14s}
+\newcommand{\roguerecoiloperators}{03s,05s,08s,12s,13s,15s}
+
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+  \begin{groupplot}[view={0}{90},
+    group style = {group size = 2 by 1}]
+    \nextgroupplot[
+    xlabel=Recoil Energy (keV),
+    ylabel=Differential Rate (kg/day/keV),
+    legend pos=north east,
+    mark size=0pt,
+    xmin=1, xmax=400, xmode=log,
+    ymin=1e-14, ymax=1e3, ymode=log]
+    \foreach \henrop in \spinrecoiloperators{
+                \addplot 
+                    table
+                    %{Data/HENR/Signal/Recoils/dRdEr_EFT_O01s_m5GeV_0.txt};
+                    {Data/HENR/Signal/Recoils/dRdEr_EFT_O\henrop_m5GeV_0.dat};
+            }
+    \nextgroupplot[
+    xlabel=Recoil Energy (keV),
+    legend pos=north east,
+    mark size=0pt,
+    xmin=1, xmax=400, xmode=log,
+    ymin=1e-14, ymax=1e3, ymode=log]
+    \foreach \henrop in \spinrecoiloperators{
+                \addplot
+                    table
+                    %{Data/HENR/Signal/Recoils/dRdEr_EFT_O01s_m5GeV_0.txt};
+                    {Data/HENR/Signal/Recoils/dRdEr_EFT_O\henrop_m21GeV_0.dat};
+            }
+  \end{groupplot}
+\end{tikzpicture}
+\caption{Literal Aids
+\textbf{Left:} $Gd^{156}$ de-excitation path.
+\textbf{Right:} $Gd^{158}$ de-excitation path.
+}
+\label{fig:HENR_Spin_Recoil_Spectrum}
+\end{figure}
+
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+  \begin{groupplot}[view={0}{90},
+    group style = {group size = 2 by 1}]
+    \nextgroupplot[
+    xlabel=Recoil Energy (keV),
+    ylabel=Differential Rate (kg/day/keV),
+    legend pos=north east,
+    mark size=0pt,
+    xmin=1, xmax=400, xmode=log,
+    ymin=1e-14, ymax=1e3, ymode=log]
+    \foreach \henrop in \roguerecoiloperators{
+                \addplot 
+                    table
+                    %{Data/HENR/Signal/Recoils/dRdEr_EFT_O01s_m5GeV_0.txt};
+                    {Data/HENR/Signal/Recoils/dRdEr_EFT_O\henrop_m5GeV_0.dat};
+            }
+    \nextgroupplot[
+    xlabel=Recoil Energy (keV),
+    legend pos=north east,
+    mark size=0pt,
+    xmin=1, xmax=400, xmode=log,
+    ymin=1e-14, ymax=1e3, ymode=log]
+    \foreach \henrop in \roguerecoiloperators{
+                \addplot
+                    table
+                    %{Data/HENR/Signal/Recoils/dRdEr_EFT_O01s_m5GeV_0.txt};
+                    {Data/HENR/Signal/Recoils/dRdEr_EFT_O\henrop_m21GeV_0.dat};
+            }
+  \end{groupplot}
+\end{tikzpicture}
+\caption{Literal Aids
+\textbf{Left:} $Gd^{156}$ de-excitation path.
+\textbf{Right:} $Gd^{158}$ de-excitation path.
+}
+\label{fig:HENR_NotSpin_Recoil_Spectrum}
+\end{figure}
+
+\par
+When performing this analysis, an important choice is the coupling choice.
+
+
+\paragraph{Copied from Billy}
+\par
+To allow for ease of comparison to previous limit setting on the inelastic36
+WIMP-nucleon EFT operators by the XENON collaboration [? ], this analysis was conducted in the isoscalar basis.37
+In the isoscalar basis, the charge densities of the nucleons are effectively averaged such that the interaction becomes38
+indiscriminate to the type of nucleon involved, even though both the isoscalar and proton-neutron basis provide insight.39
+For this WIMP-nucleon EFT, the UV scale governing the physics is far higher than the energies that are probed in the40
+experiment. At these lower energies, the UV interactions have to be reduced to effective ones, which is done at the u,41
+d and s quark level. The assumption is made that the couplings to each quark at these scales are roughly equivalent.42
+Therefore the mass differences of these quarks are negligible at the high-energy scale of the underlying physics, and the43
+interaction would be isoscalar. By performing this analysis in the isoscalar basis, it is possible to test this assumption’s44
+validity. Additionally, by using either an isoscalar or isovector basis, the target’s nuclear state can be considered as45
+isospin symmetric; a property of the strong force that can aid in simplifying the analysis.

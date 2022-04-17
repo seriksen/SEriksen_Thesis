@@ -1,0 +1,61 @@
+\section{Likelihood Implementation}
+\par
+In Section XXX the interactions that can occur are explained.
+In SR1, the outer-detector is as a 'dumb' veto - this means that if any pulse in the OD that is within a given time frame of a Single Scatter in the TPC and is larger in pulseArea and PMT multiplicity that a loose value, then the entire event is vetoed.
+As demonstrated during the TDR studies, this approach should be sufficient to achieve in excess a 95\% neutron rejection efficiency \cite{LZ_TechnicalDesignReview_ref}.
+
+\par
+This simple approach generally works well, but it does not maximise the OD.
+For example, if it were possible to determine the type of or source of an interaction, then the uncertainty on backgrounds could be reduced.
+Additionally, if an event is above the threshold for vetoing but is demonstrating that it is not from a WIMP-like particle, then the event would not have to be vetoed.
+Together any PLR study, described in Section XXX, would be notably improved.
+
+\subsection{How different sources look}
+\par
+A set of simulations were performed using the full-chain simulation chain described in Section XXX.
+The output of this was analysed with LZap to produce a set of RQs.
+The versions of reach software are shown in Table XXX.
+
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{c|c}
+        Software & Version \\ \hline
+        BACCARAT & XXX\\
+        DER & XXX\\
+        LZap & XXX
+    \end{tabular}
+    \caption{TODO...}
+    \label{tab:od_simulation_versions}
+\end{table}
+
+
+\par
+List potential RQs and where they come from (if they aren't been discussed before in the thesis)...
+Then have a section on each of these variables to explain what it actually is.
+Will have to go into information about pulse identification here then.
+\subsubsection{pulseArea}
+The pulse area is one of the most crucial variables used.
+The number of photons detected is directly proportional to the energy of the interaction that occured.
+Something about pulse selection...?
+
+\subsubsection{coincidence}
+More commonly referred to as pulse multiplicity, the coincidence value of a pulse is the number of PMTs which produced a signal that contributed to the pulse.
+Generally this properly scales with the pulse Area, as the more photons produced by an interaction, the more will be detected, and so the more likely is it that any given PMT will see this light.
+Given this, it can be questioned why this variable is used in addition to the pulse area. 
+There are two reasons;
+The first is that the variable must be used anyway for pulse selection in order to exclude after-pulsing.
+The second is that it is a very robust and simple variable, and therefore ideal for early data as it is an easily understood quantity.
+
+\subsubsection{Area Fraction Time over pulse area}
+This variable is the most complicated of the selection.
+The area fraction time, is the time (from the pulse start) to reach 75\% of the pulse integral.
+It is essentially a measure of a limited pulse-width.
+It has useful characteristics that make discrimination possible such as those shown in Fig XXX.
+However, the quantity can be improved by combining it with a second variable; the pulse area.
+This has the advantage of removing the pulse area as an influencing parameter in the value and making the variable more stable.
+In the simplest case, the quantity gives is how fast or slow the pulse decreases after the peak.
+An example of different interactions with this variable can be found in Figure XXX.
+
+\subsection{Signal}
+
+\subsection{Background}

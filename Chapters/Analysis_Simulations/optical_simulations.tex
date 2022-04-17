@@ -1,0 +1,27 @@
+\section{Optical Photon Simulations}
+
+\subsection{S2 Light Map}
+
+\subsection{Graphics Card Simulations}
+
+\par
+Although the probabilistic approach described in the previous section works, it has several significant limiting factors including;
+\begin{enumerate}
+    \item requiring that optical simulations be performed on CPUs at least once
+    \item the maps created are only valid for that given detector set-up 
+\end{enumerate}
+As the photon propagation needs to be performed at least once, it does not scale well to other areas of the LZ detector; for example if a probabilistic map were to be used in the TPC Liquid Xenon, for similar statistics as the Gas Xenon, XXX photons would have to be simulated, which would equate to XXX CPU hours. 
+
+\par
+Instead we can consider more optimal approaches to performing the simulations, and whether invasions in other fields can lend a hand.
+As optical photons are a fairly simple particle to simulation - daughter particles are not produced and interactions of material boundaries are the primary concern.
+Simulations become dominated by intersection calculations; namely \textit{"has the photon reached the edge of this material yet?"}.
+
+\par
+The film and gaming industries have together given developed and improved ray-tracing capabilities which fundamentally are intersection calculations.
+
+
+
+\par
+The LZ collaboration is continuing to develop upon this work with an integration plan into the simulation chain \cite{SEriksen_Opticks_CHEP_2021_ref}.
+Additionally, as this work was performed using NVIDIA OptiX 6.0.0, newer features available in 7.0.0 and newer. TODO CITE

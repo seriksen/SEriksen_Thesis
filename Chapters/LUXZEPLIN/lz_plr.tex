@@ -1,0 +1,85 @@
+\section{PLR}
+\par
+For example, when we set a limit on spin-independent WIMP-nucleon cross section σSI at 90\% confidence level for a given WIMP mass (call the limit σ90CL), we are saying:
+“The model described by background plus signal (where σSI  = σ90CL) generates datasets more inconsistent with that model than our observed data 10\% of the time” (i.e. we exclude that model with Type I Error 10%).
+
+
+
+
+
+
+\par
+In this chapter the statistical statistical technique used by the LZ collaboration is explained.
+A detailed explanation of the coding framework can be found in \cite{LZ_Ibles_LZStats_Thesis_ref}.
+
+\section{Profile Likelihood Ratio Tests}
+\par
+As highlighted, the purpose of the LZ experiment is to discover dark matter by a WIMP interaction.
+In order to actually achieve this, one must determine that the observed data cannot be explained by a background-only scenario.
+
+\par
+As all other direct-dark matter experiments, the LZ collaboration relies upon the Profile Likelihood Ratio (PLR) statistical technique.
+
+
+\subsection{Hypothesis Testing}
+\par
+In direct dark matter searching hypothesis testing is used to discover or exclude a dark matter model in a given observation.
+
+
+
+\section{Model Building}
+\par
+The above has given some recoil spectra that would be expected within natural Xenon (ie, that used in the LUX-ZEPLIN TPC).
+
+\par
+Within LZ, the experimental data will have a selection criteria placed upon it, as described in XXX.
+This leaves the selected events which are parameterised by the observed quantities, namely RQs.
+These observables, $x_{e}$.
+The probability of obtaining a particular event is given by the event probability model which is a parametric family of probability density functions; $f(x_{e}|\theta)$ where $\theta$ is the model parameters.
+
+\section{Statistical Framework}
+With the model described previously, we now turn our attention to how to perform a statistical analysis with this.
+
+\cite{LZ_Ibles_LZStats_Thesis_ref}
+
+Hypothesis testing is used to either to;
+\begin{enumerate}
+    \item determine discovery significance of a model
+    \item exclude a model
+\end{enumerate}
+In practice, models are rarely excluded, rather they are constrained.
+Essentially, which region of parameter space is excluded by that observation.
+
+\par
+A frequentist hypothesis test a comparison of two well-defined hypotheses with the purpose of determining which one is more compatible with the observation.
+The hypotheses generally are refered to as a \emph{null} ($H_{0}$) and \emph{alternative} ($H_{1}$).
+The hypotheses describe a set of processes that could have produced the observation, namely models such as those described in XXX.
+
+\par
+In the exclusion-limit use, $H_{0}$ may describe the signal and background where as $H_{1}$ may describe just the background processes.
+$H_{0}$ is tested with increasing values of the parameter of interest until a value is found above which the hypothesis can be excluded in favour of $H_{1}$.
+
+
+\subsection{Application to LZ quantities}
+\par
+Within LZ, the experimental data will have a selection criteria placed upon it, as described in XXX.
+This leaves the selected events which are parameterised by the observed quantities, namely RQs.
+
+\subsection{Analysis framework}
+\par
+Add flow diagram of how it works for simulation and for real data?
+\subsubsection{Signal}
+\par
+This may not be needed here as it could be done higher up... when the signal model is introduced?
+\subsubsection{Backgrounds}
+\subsubsection{PdfMaker}
+\subsubsection{LZLama}
+\subsubsection{LZStats}
+\par
+LZStats uses a test static defined by the -2log(lambda(mu)) where $\lambda_{\mu}$ is the profile likeliihood ratio for some mu. 
+mu is the poisson mean of the number of events observed in some timescale.
+
+\par
+Given an observation of data - which we assume to be background data only - how big does the signal need to be in order to reject the hypothesis that it is just a background at the 90\% confidence level.
+LZStats \cite{LZ_Ibles_LZStats_Thesis_ref}
+

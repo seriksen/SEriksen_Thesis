@@ -1,0 +1,59 @@
+\section{S2 Light Map}
+\par
+Suppose that a single free electron was to be simulated in the liquid Xenon for it's response.
+Due to the electric field, this electron will accelerate upwards towards the gas layer.
+As it travels through the medium, it may interact with the Xenon, exciting numerous other electrons into being free.
+%A single free electron in the liquid phase can excite numerous other electrons into being free (depending upon energies) as it travels upwards in the electric field.
+Each of these electrons could enter the gas-phase and produce optical photons.
+In this phase, the mean photon yield is $\approx$ 825.
+This number is discussed in more detail in Section \ref{S2RadialVariation}.
+Therefore an initially simple simulation requires several thousand S2 photons to be simulated.
+For more complex simulations (such as are needed for scale tests of the analysis chain), this becomes a bottleneck and an impractical approach.
+
+\par
+In theory, each of these photons can be traced independently but current software and computing infrastructure cannot cope with such parallelism. 
+Instead, a probabilistic map is used to determine the photon hit pattern and arrival time on the PMTs.
+For the S2 signal, this is broken up into two sets of probability density functions (PDF).
+The first, is the likelihood of a photon hitting a given PMT from a given position.
+This is essentially the number of photons which hit this PMT divided by the number of photons which hit any PMT.
+It is a set of 3D histograms (one for each PMT).
+The second is the likely path taken by the photon, as this effects the time it takes for the photon to hit the PMT, and thus the signal.
+This kind of map can only be created by performing simulations of photons inside the gas-phase; where they would be produced during electroluminescence. 
+The information needed is the photon start position, the end position, and the time of flight.
+These maps are created such that they contain the cumulative probabilities.
+
+\par
+For every simulation after the map has been generated, there will be a significant speed increase as the photons themselves no longer need to be simulated.
+However, some processing is still required.
+When a subsequent simulation is performed, the electron paths are stopped once they reach the liquid surface.
+The position of the electron is used to determine the path it would have taken and points along this path are taken to be the photon origin. % to the anode.
+The maps are then used along with random numbers and binary searches to determine which PMT the photon hit (if any) as well as how long it took.
+
+\par
+A notable downside of this approach is that for different scenarios one may wish to investigate (such as using a different purity of Xenon or the temperature and therefore pressure) then a new light map should be used as these factors would affect the S2 photon production.
+
+
+
+\subsubsection{S2 Radial Variation} \label{S2RadialVariation}
+\par
+The electric field originates from three electrodes; a cathode grid just above the bottom PMTs, a gate grid just below the surface of the liquid Xenon, and an anode grid in the gaseous Xenon.
+In previous simulations it was assumed that the anode and gate were both rigid structures and so had a fixed distance, and electric field between them.
+In this case, the number of photons produced in the gas gap by an electron is given by Equation \ref{NoPhotons} and is equal no matter the radius from the centre. 
+\begin{equation}
+    N_{photons/e} = eep \times (\alpha \times E_{gas} \times 1000 - \beta \times P - \gamma) \times d_{gas}
+    \label{NoPhotons}
+\end{equation}
+Where $\alpha$, $\beta$ and $\gamma$ are constants, $E_{gas}$ is the electric field in the gas, P is the pressure of the liquid, and $d_{gas}$ is the distance from the top of the liquid to the anode \cite{NoPhotonsPerElectron}.
+$eep$ is the electron emission probability at the surface.
+%is taken from PiXeY data and fitted to give $eta = -0.03754 \times (eliq^{2}) + 0.5266 \times eliq - 0.84645$, where $eliq$ is the electric field in the liquid Xenon \cite{ElectronExtractionEfficiency}.
+The emission probability is included as we want to use the average number of photons per electron rather than for one just one electron.
+This was known to be incorrect as a stronger signal (more photons) should be achieved in the detector centre.
+Tests conducted at SLAC indicated that there is bending of the wires according to Equation \ref{WireDeflection} due to the electric field.
+\begin{equation}
+    x(r,E) = A \sqrt{ \bigg( 1 + \cos{ \Big( \frac{r \pi}{R} } \Big) \bigg) \bigg( B^2 + r^2 \bigg) } \bigg( e^{(r-C)} + 1 \bigg)^{-1} 
+    \label{WireDeflection}
+\end{equation}
+Where R is the radius of the wire, r is the point on the wire and A, B and C are all of the form: $A(E) = \sum_{j=0}^{M} a_{j} E^{j}$. E is the electric field and $a_{j}$ are constants.
+As such, the electric field is not constant with radius and thus the number of photons produced by electroluminescence is changed.
+I implemented this bending and the electric field change into the simulation package.
+However, as the bending changes the electric field, and the electric field changes the bending, what I implemented remains an approximation.

@@ -133,4 +133,10 @@
 \DeclareMathOperator{\Operator}{\mathcal{O}}
 
 
+\usepackage{tcolorbox}
+\RequirePackage{tikz}
+\usepackage{pgfplots} % for plotting
+\usepgfplotslibrary{fillbetween}
+\usepgfplotslibrary{groupplots}
+
 \endinput

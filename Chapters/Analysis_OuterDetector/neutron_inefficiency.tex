@@ -1,5 +1,6 @@
 \section{Neutron Inefficiency}
-
+\par
+As discussed in Section XXX, neutrons are a particularly important background with the TPC signal produced very similar to the 
 
 
 
@@ -12,3 +13,48 @@
     \item Data AmLi Inefficiency
 \end{enumerate}
 \end{tcolorbox}
+
+\par
+The largest light source resulting from a neutron, that will be seen by the OD PMTs are the neutron capture.
+Therefore this is a valid quantity to measure.
+
+\subsection{Neutron Captures}
+\par
+The ${}^{252}{Cf}$ calibration source used provides a very good indication of the neutron capture times. 
+Spontaneous fission of ${}^{252}{Cf}$ typically results in a number of $\gamma$'s with a combined energy of up to 10MeV which are accompanied by a number of neutrons.
+An example event from the LZ calibration run pre-SR1 is shown in Figure \ref{fig:cf252_event_viewer}.
+This allows for neutrons to be tagged by tagging the fission by coincident $\gamma$'s in a each detector, and assuming later pulses are dominated by neutrons.
+
+\begin{figure}[!htbp]
+\includegraphics[width=10cm]{Figures/NeutronCaptureTime/cf252_eventviewer_5916.png}
+\centering
+\caption{Example event from ${}^{252}{Cf}$ calibration run showing the $\gamma$'s causing coincident pulses in each detector followed by two neutrons being captured in the Outer Detector}
+\label{fig:cf252_event_viewer}
+\end{figure}
+
+\par
+For the other neutron calibration sources, DD and AmLi, the same neutron tagging as described in Section XXX was used, where the NR band is isolated.
+The result of this search is shown in figure XXX - overlaid is the neutron capture sim in the simulations.
+What is apparent is that there is more than one exponential decays in data.
+The simplest explanation is that a portion of the neutrons are being captured on H in either the water or acrylic that is between the source and GdLS.
+In this case, the capture constant would be 220$\mu$s.
+Initially this was excluded by selecting pulses above the H-peak, selecting events above 500phd.
+However, as can be seen in Figure XXX, at least two exponents remain.
+A fit was performed on each of the calibration sources separately, to equation XXX, and the results are summarised in Table \ref{tab:neutron_capture_times}.
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{c|c}
+        Source            &  \\ \hline
+        AmLi (CSD1 700mm) & \\ 
+        DD                & \\
+        ${}^{252}{Cf}$    &
+    \end{tabular}
+    \caption{Neutron capture time on Gadolinium isotopes in GdLS}
+    \label{tab:neutron_capture_times}
+\end{table}
+
+Given that these neutrons are captured releasing in excess of 3MeV, they will have been captured by a Gd-isotope. 
+Therefore what is being observed is most likely that the neutron bounces around in the acrylic, which would likely capture after 220$\mu$s before entering the GdLS to be captured.
+This effect was observed in TODO CITE XXX so is reasonable that it would be seen here as well.
+It could be validated deploying the calibration sources in a number of different locations where the thickness of the acrylic differs, this study may be possible pre-SR2.
+

@@ -138,5 +138,7 @@
 \usepackage{pgfplots} % for plotting
 \usepgfplotslibrary{fillbetween}
 \usepgfplotslibrary{groupplots}
+\usepackage{notoccite} % correct referencing order
+
 
 \endinput

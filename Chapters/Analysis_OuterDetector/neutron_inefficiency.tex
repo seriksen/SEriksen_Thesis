@@ -11,10 +11,11 @@ The calculation is taken a step further here with the detector LCE taken into co
 
 \begin{tcolorbox}[colback=red!5!white, colframe=red!50!black, title=Key Plots]
 \begin{enumerate}
-    \item Simulation Neutron Capture Time
+    \item Simulation Neutron Capture Time; Gd isotopes, H isotopes, break up by AmLi energy?
     \item Data Neutron Capture Time
     \item Simulation Inefficiency
     \item Simulation AmLi Inefficiency
+    \item Rate of neutrons entering the GdLS (from simulations)
     \item Data AmLi Inefficiency
     \item Equation of energy lost from a scatter (why neutron loses hardly any energy so can assume it's already single scattered)
 \end{enumerate}
@@ -26,7 +27,7 @@ Therefore this is a valid quantity to measure.
 
 \subsection{Neutron Captures}
 \par
-The ${}^{252}{Cf}$ calibration source used provides a very good indication of the neutron capture times. 
+Another source that can be used to study the neutron capture time is the ${}^{252}{Cf}$ calibration source.
 Spontaneous fission of ${}^{252}{Cf}$ typically results in a number of $\gamma$'s with a combined energy of up to 10MeV which are accompanied by a number of neutrons.
 An example event from the LZ calibration run pre-SR1 is shown in Figure \ref{fig:cf252_event_viewer}.
 This allows for neutrons to be tagged by tagging the fission by coincident $\gamma$'s in a each detector, and assuming later pulses are dominated by neutrons.
@@ -37,6 +38,22 @@ This allows for neutrons to be tagged by tagging the fission by coincident $\gam
 \caption{Example event from ${}^{252}{Cf}$ calibration run showing the $\gamma$'s causing coincident pulses in each detector followed by two neutrons being captured in the Outer Detector}
 \label{fig:cf252_event_viewer}
 \end{figure}
+
+\par
+Although Figure \ref{fig:cf252_event_viewer} indicates that prompt $\gamma$'s can be used for tagging it does come with a significant caveat; namely that expressed in Figure \ref{fig:fission_fragments_time}.
+There is a non-insignificant probability that $\gamma$'s will be emitted at the same time as a $\gamma$ from a neutron capture is released.
+Additionally the majority of study into prompt $\gamma$'s from fission focus on the first 100ns post-fission and the energy and multiplicity beyond that time is not well theorised. 
+However, 
+
+
+\begin{figure}[!htbp]
+\includegraphics[width=10cm]{Figures/NeutronCaptureTime/fission_fragment_times.png}
+\centering
+\caption{Fission Components time blah blah, Adapted from \cite{cf252_fission_ref}}
+\label{fig:fission_fragments_time}
+\end{figure}
+
+
 
 \par
 For the other neutron calibration sources, DD and AmLi, the same neutron tagging as described in Section XXX was used, where the NR band is isolated.
@@ -64,3 +81,11 @@ Therefore what is being observed is most likely that the neutron bounces around 
 This effect was observed in TODO CITE XXX so is reasonable that it would be seen here as well.
 It could be validated deploying the calibration sources in a number of different locations where the thickness of the acrylic differs, this study may be possible pre-SR2.
 
+
+\par
+The GdLS cocktail used by LZ is similar to that of the DayaBay experiment, and as such, the neutron capture properties should be similar.
+Using Equation XXX which is an extended version of that from DayaBay \cite{Dayabay_neutron_capture_fit_ref} was used to fit to both the thermalisation peak and the subsequent captures.
+
+\begin{equation}
+    N = Y
+\end{equation}

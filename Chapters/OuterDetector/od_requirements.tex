@@ -1,0 +1,86 @@
+\section{OD requirements}
+
+\par
+The performance requirements for the OD are listed in Table \ref{tab:veto_requirements}
+
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{p{0.2\textwidth}p{0.7\textwidth}} %{ c | c {\textwidth} } 
+    \hline
+    {Requirement Number} & {Description} \\ \hline
+    R-160001             & Detection efficiency of 95\% for a 1 MeV neutron that scatters once in the xenon \\
+    R-160005             & Must not veto more than 5\% of the WIMP search live-time
+    \end{tabular}
+    \caption{Selection of Veto Requirements. Adapted from Table 12.2.6 from \cite{LZ_TechnicalDesignReview_ref}}
+    \label{tab:veto_requirements}
+\end{table} 
+
+\par
+Neutron sources that can enter the TPC can originate from a ($\alpha$,n) reactions.
+These are the most dangerous in terms of number expected, but also as only a single neutron will be released.
+The primary other expected neutrons originate from spontaneous fission.
+However multiple neutrons are released, often with higher energies and they are accompanied by $\gamma$'s and $\beta$'s so vetoing these is of less concern.
+
+\begin{figure}[!htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel=Energy (MeV),
+            ylabel=Rate (arb),
+            width=15cm,
+            height=6cm,
+            xmin=0,
+            xmax=10,
+            ymin=0,]
+            \addplot[red, const plot]
+                    table [x=Energy,y=Rate]
+                    {Data/Neutrons/background_neutron_spectrum.dat};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Expected distribution of neutron energies from ($\alpha$,n) and USF neutrons.}
+    \label{fig:simulation_background_neutron_energies}
+\end{figure}
+
+
+\begin{equation}
+    \epsilon = \frac{\mathbf{SS, ROI, FID, Vetos}}{\mathbf{SS, ROI, FID}}
+    \label{eq:neutron_efficiency}
+\end{equation}
+
+
+\subsection{Simulated Efficiency}
+\par
+The neutron efficiency has been calculated before, however given that OD geometry has changed significantly since then it has been re-done and additional detector efficiencies have been taken into account.
+Previously, energy deposit simulations for background neutrons were used. 
+From this, single scatters were isolated by XXX.
+The skin cuts were defined as; XXX
+
+
+\par
+The same method has been applied here, however, the neutron source was changed to be 'post'-single scatter. 
+As the neutron will not lose a significant amount of it's energy upon the scatter, a 1 MeV neutron will typically remain above XXX MeV...
+Additionally, studying the efficiency in this regard allows for the requirement to be directly probed as well as studying how the neutron energy affects the efficiency.
+
+\par
+Figure XXX contains the result of this study alongside the previous result.
+Firstly, it is important to note that the requirement R-160001 remains satisfied.
+Secondly, the energy of the neutron is an important factor in the performance of the veto.
+The energy spectrum for ($\alpha$,n) neutrons is shown in Figure XXX.
+This is 
+
+
+\begin{tcolorbox}[colback=red!5!white, colframe=red!50!black, title=Key Plots]
+\begin{enumerate}
+    \item Simulation Efficiency
+    \item Equation of energy lost from a scatter (why neutron loses hardly any energy so can assume it's already single scattered)
+    \item Neutron capture energy deposits
+    \item alpha,n energies
+\end{enumerate}
+\end{tcolorbox}
+
+\par
+Now
+
+
+\par
+In Chapter \ref{chap:analysis_of_the_od}, the requirements are tested in data.

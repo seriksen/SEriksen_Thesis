@@ -139,6 +139,7 @@
 \usepgfplotslibrary{fillbetween}
 \usepgfplotslibrary{groupplots}
 \usepackage{notoccite} % correct referencing order
+\usepackage{multirow} % for tables
 
 
 \endinput

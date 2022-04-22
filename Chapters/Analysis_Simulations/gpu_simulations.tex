@@ -1,10 +1,11 @@
 \section{Graphics Card Simulations}
 
 \par
-Although the probabilistic approach described in the previous section is sufficient for S2 light, it has several significant limiting factors which make it unsuitable for other areas, including;
+The probabilistic approach described in the previous section created a significant performance increase. 
+However, there are two significant factors which limit the feasibility of using similar methods for the rest of the detector, these are;
 \begin{enumerate}
-    \item requiring that optical simulations be performed at least once
-    \item the maps created are only valid for that given detector set-up 
+    \item Optical propagation is required to be performed at least once
+    \item Something about complexity... and only valid for 1 detector config
 \end{enumerate}
 As the photon propagation needs to be performed at least once, it does not scale well to other areas of the LZ detector; for example if a probabilistic map were to be used in the TPC Liquid Xenon, for similar statistics as the Gas Xenon, XXX photons would have to be simulated, which would equate to XXX CPU hours.
 Although there are ways in which this could be reduced - such as Z-line symmetry - the initial overhead remains impractically high.

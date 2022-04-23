@@ -474,7 +474,7 @@ This however adds an additional
     ylabel={Emission (Arbitrary Units)},]
     \addplot[ybar interval, blue, const plot]
                     table [x=Wavelength,y=Rate]
-                    {Data/GdLS_Physics/Other/gdls_light_output.dat};
+                    {Data/GdLS_Physics/Light_Collection/gdls_light_output.dat};
     \nextgroupplot[
     xmin=300,
     xmax=600,
@@ -482,7 +482,7 @@ This however adds an additional
     ylabel={QE}]
     \addplot[ybar interval, red, const plot]
             table [x=Wavelength,y=QE]
-            {Data/GdLS_Physics/Other/od_pmt_qe.dat};
+            {Data/GdLS_Physics/Light_Collection/od_pmt_qe.dat};
   \end{groupplot}
 \end{tikzpicture}
 \caption{Primary OD detection properties. Top: Light 
@@ -491,3 +491,9 @@ This however adds an additional
 \end{figure}
 
 
+\begin{figure}[!htbp]%
+\centering
+\includegraphics[width=\textwidth]{Data/GdLS_Physics/Light_Collection/od_tanks_lce.pdf}
+\caption{Light Collection Efficiency for 420nm photons}
+\label{fig:od_lce}
+\end{figure}

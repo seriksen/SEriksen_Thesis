@@ -65,8 +65,7 @@ Additionally, studying the efficiency in this regard allows for the requirement 
 Figure XXX contains the result of this study alongside the previous result.
 Firstly, it is important to note that the requirement R-160001 remains satisfied.
 Secondly, the energy of the neutron is an important factor in the performance of the veto.
-The energy spectrum for ($\alpha$,n) neutrons is shown in Figure XXX.
-This is 
+The expected energy spectrum for neutrons is shown in Figure \ref{fig:simulation_background_neutron_energies}.
 
 
 \begin{tcolorbox}[colback=red!5!white, colframe=red!50!black, title=Key Plots]
@@ -75,12 +74,66 @@ This is
     \item Neutron capture energy deposits
     \item alpha,n energies
     \item fraction of gammas that get captured in the OD after SS (AmLi sims)
+    \item fraction of neutrons that get captured in each volume
+    \item time spent in volume vs OD capture time (for all and for Gd-only)
 \end{enumerate}
 \end{tcolorbox}
 
+\subsection{Simulated Calibration Efficiency}
 \par
-Now
+Although the efficiency shown in energy deposit simulations shows that the requirement will be met, it does not necessarily reflect real-world performance.
+Particularly given the propagation effects raised in Section XXX.
+Additionally, during the calibration data taking it will not be possible to have such ideal circumstances to test the neutron tagging performance.
+Therefore, in order to quantify this, two neutron sources were simulated, AmLi and DD, the deployment methods of each are described in Section XXX.
 
+\par
+AmLi is an ($\alpha$,n) source, producing neutrons predominantly under 0.5MeV, the full spectrum is shown in Figure \ref{fig:amli_neutron_energy_spectrum}.
+
+\begin{figure}[!htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel=Energy (MeV),
+            ylabel=Probability,
+            width=15cm,
+            height=6cm,
+            xmin=0,
+            ymin=0,]
+            \addplot[red, const plot]
+                    table [x=Energy,y=Probability]
+                    {Data/Neutrons/amli_neutron_spectrum.dat};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{AmLi neutron energy. Data from \cite{amli_neutron_energy_ref} }
+    \label{fig:amli_neutron_energy_spectrum}
+\end{figure}
+
+
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+  \begin{groupplot}[%view={0}{90},
+    group style = {group size = 2 by 1}]
+    \nextgroupplot[
+    xmin=300,
+    xmax=600,
+    ylabel={Emission (Arbitrary Units)},]
+    \addplot[ybar interval, blue, const plot]
+                    table [x=Wavelength,y=Rate]
+                    {Data/GdLS_Physics/Light_Collection/gdls_light_output.dat};
+    \nextgroupplot[
+    xmin=300,
+    xmax=600,
+    xlabel={Wavelength (nm)}]
+    \addplot[ybar interval, red, const plot]
+            table [x=Wavelength,y=QE]
+            {Data/GdLS_Physics/Light_Collection/od_pmt_qe.dat};
+  \end{groupplot}
+\end{tikzpicture}
+\caption{AmLi simulated efficiency. \textbf{Left:} Energy deposits \textbf{Right:} Complete simulation}
+\label{fig:asdasdasd}
+\end{figure}
 
 \par
 In Chapter \ref{chap:analysis_of_the_od}, the requirements are tested in data.

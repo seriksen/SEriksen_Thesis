@@ -16,12 +16,33 @@ In addition to the assay, a separate cavern gamma study was performed along with
 \end{tcolorbox}
 
 
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{c|c|c}
+        Isotope or Subchain  &  Initial Purification & Improved Purification \\ \hline
+        ${}^{238}U_{e}$      &  $< 1.04$             & $< 0.017$             \\ 
+        ${}^{238}U_{m}$      &  $0.092\pm0.02$       & $0.010\pm0.004$       \\
+        ${}^{235}U_{e}$      &  $0.011$              & $< 0.018$             \\
+        ${}^{235}U_{l}$      &  $0.10\pm0.04$        & $< 0.012$             \\
+        ${}^{232}Th_{e}$     &  $< 0.027$            & $< 0.0036$            \\
+        ${}^{232}Th_{l}$     &  $< 0.020$            & $< 0.0030$            \\
+        ${}^{40}K$           &  $< 0.22$             & $< 0.0092$            \\
+        ${}^{138}La$         &  $< 0.0055$           & $< 0.0017$            \\
+        ${}^{176}Lu$         &  $0.30\pm0.07$        & $0.0081\pm0.0018$     \\
+        ${}^{152}{Gd}$       &  $1.61\pm0.08$        & $1.61\pm0.08$         \\
+        ${}^{152}{Sm}$       &  $1.02\pm0.05$        & $1.02\pm0.05$         \\
+        ${}^{14}{C14}$       &  $4.77\pm0.098$       & $4.77\pm0.098$ 
+    \end{tabular}
+    \caption{Measured activities of GdLS components during LS Screener. Values from Table 4.9 and 6.11 of \cite{scotthaselschwardt_thesis_ref}}
+    \label{tab:gdls_assay_rates}
+\end{table}
+
 \subsection{Energy Scaling}
 \par
 When data and simulations were first compared, as in Figure XXX, it became obvious that the light modelling in the OD significantly different to reality.
 Around 50\% of this difference can be accounted for by a mismatch between the PMT gains simulated against those in the LZap reconstruction database.
 This effect will simply result in smaller pulses and so smaller pulse areas.
-However, the remaining difference is not clear where it is coming from, as it would indicate that the LCE is twice what is currently simulated (Figure XXX).
+However, the remaining difference is not clear where it is coming from, as it would indicate that the LCE is twice what is currently simulated (Figure \ref{fig:od_lce}).
 In the pulse area parameter, this should remain just a linear scaling, though in other parameters (such as number of PMTs receiving light) it may not be linear.
 
 \par

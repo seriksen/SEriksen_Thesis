@@ -1,9 +1,12 @@
 \section{Particle Discrimination}
 \par
-The use of the OD in the data analysis is as a 'dumb' veto.
-This may not in fact be the optimal use of it, as instead it could be used as a neutron capture device 
+Although the use of a active but 'dumb' veto works, and is suitable for SR1, it could be improved by including some form of interaction identification in the OD.
+For example, a Bi-Po interaction, though two pulses may be produced above the energy threshold, given their proximity to each other (in both position and time) they can be identified with relative ease and therefore could be un-vetoed; increasing the number of candidate events as well as the live-time.
 
-There are countless different methods to discriminate different particles
+\par
+There may also be the possibility of discriminating between high energy backgrounds such as neutron captures and cavern gammas.
+This would actually be a discrimination between 1-$\gamma$ vs multiple $\gamma$'s.
+The viability of this discrimination in simulations is explored in this section.
 
 
 \par
@@ -62,12 +65,13 @@ The versions of reach software are shown in Table XXX.
 List potential RQs and where they come from (if they aren't been discussed before in the thesis)...
 Then have a section on each of these variables to explain what it actually is.
 Will have to go into information about pulse identification here then.
-\subsubsection{pulseArea}
+
+\paragraph{pulseArea}
 The pulse area is one of the most crucial variables used.
 The number of photons detected is directly proportional to the energy of the interaction that occured.
 Something about pulse selection...?
 
-\subsubsection{coincidence}
+\paragraph{coincidence}
 More commonly referred to as pulse multiplicity, the coincidence value of a pulse is the number of PMTs which produced a signal that contributed to the pulse.
 Generally this properly scales with the pulse Area, as the more photons produced by an interaction, the more will be detected, and so the more likely is it that any given PMT will see this light.
 Given this, it can be questioned why this variable is used in addition to the pulse area. 
@@ -75,7 +79,7 @@ There are two reasons;
 The first is that the variable must be used anyway for pulse selection in order to exclude after-pulsing.
 The second is that it is a very robust and simple variable, and therefore ideal for early data as it is an easily understood quantity.
 
-\subsubsection{Area Fraction Time over pulse area}
+\paragraph{Area Fraction Time over pulse area}
 This variable is the most complicated of the selection.
 The area fraction time, is the time (from the pulse start) to reach 75\% of the pulse integral.
 It is essentially a measure of a limited pulse-width.

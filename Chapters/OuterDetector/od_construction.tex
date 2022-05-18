@@ -1,4 +1,4 @@
-\section{OD Construction}
+\section{OD Construction} \label{od_construction_sec}
 \par
 Design changes and time on side... only a page or 2
 
@@ -9,7 +9,20 @@ This geometry now implemented is still not complete, for example the PMT conduit
 \begin{figure}[!htbp]
 \includegraphics[width=\textwidth]{Figures/Construction/geometry_differences.png}
 \centering
-\caption{LZ geometry slice from the water tank in. In black: the designed geometry. In Red: changes to the design. OD PMTs are not shown here due to none lying on this plane.}
+\caption{LZ geometry slice as implemented in Geant4 from the water tank in. In black: the designed geometry as in Figure \ref{fig:LZ_Cut_CAD}. In Red: changes to the design including raised Top OD tanks and additional foam. OD PMTs are not shown here due to none lying on this plane.}
 \label{fig:Geometry_Differences}
 \end{figure}
 
+
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{ c | c | c } 
+    \hline
+    \multirow{2}{*}{Volume} & \multicolumn{2}{l}{Percentage captured in volume (\%)} \\ 
+                            & All Neutrons  & SS and FID  \\ \hline
+    volA    & 0.0   & 1232\\
+    volB    & 0.0   &
+    \end{tabular}
+    \caption{Fraction of background neutrons captured in various detector volumes}
+    \label{tab:fraction_of_neutrons_captured_in_volumes}
+\end{table} 

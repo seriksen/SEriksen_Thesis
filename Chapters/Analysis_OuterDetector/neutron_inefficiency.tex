@@ -1,4 +1,4 @@
-\section{Neutron Inefficiency}
+\section{Neutron Efficiency}
 \par
 As discussed in Section XXX, neutrons are a particularly important background with the signal produced in the TPC being indistinguishable from a DM interaction.
 The design motivation for the Outer Detector was to actively veto events which contain neutrons by having a very high tagging efficiency to neutrons.
@@ -28,6 +28,32 @@ The calculation is taken a step further here with the detector LCE taken into co
 The largest light source resulting from a neutron, that will be seen by the OD PMTs are the neutron capture.
 Therefore this is a valid quantity to measure.
 
+
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{c|c|c|c}
+        z position (mm)   & Run IDs   & N. Events & N passing cuts \\ \hline
+        0                 & 8350-8369 & 5,504,700 & X               \\
+        700               & 8304-8317 & 3,688,200 & X               \\ 
+        1400              & 8319-8348 & 7,041,500 & X                
+    \end{tabular}
+    \caption{Summary of AmLi source deployment during post SR1 calibrations}
+    \label{tab:amli_calibration_summary}
+\end{table}
+
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{c|c|c|c}
+        CSD & AmLi Source No. & Activity (n/s) \\ \hline
+        1   & Source-2        & 13.8           \\
+        2   & Source-1        & 9.3            \\ 
+        3   & Source-3        & 11.9                
+    \end{tabular}
+    \caption{AmLi source activities in each CSD}
+    \label{tab:amli_source_activities}
+\end{table}
+
+
 \subsection{Neutron Captures}
 \par
 Another source that can be used to study the neutron capture time is the ${}^{252}{Cf}$ calibration source.
@@ -46,7 +72,7 @@ This allows for neutrons to be tagged by tagging the fission by coincident $\gam
 Although Figure \ref{fig:cf252_event_viewer} indicates that prompt $\gamma$'s can be used for tagging it does come with a significant caveat; namely that expressed in Figure \ref{fig:fission_fragments_time}.
 There is a non-insignificant probability that $\gamma$'s will be emitted at the same time as a $\gamma$ from a neutron capture is released.
 Additionally the majority of study into prompt $\gamma$'s from fission focus on the first 100ns post-fission and the energy and multiplicity beyond that time is not well theorised. 
-However, 
+However, by selecting events which only have a double or triple detector coincidence this can be mitigated.
 
 
 \begin{figure}[!htbp]

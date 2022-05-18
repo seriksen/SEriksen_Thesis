@@ -3,3 +3,29 @@
     \item What an LZ Event is
     \item What LZap is
 \end{enumerate}
+
+\subsection{Triggers}
+\par
+LZ utilises a number of different triggers to determine when data should be recorded, utilising the logic based upon \cite{lux_trigger_logic_ref}.
+The three most significant triggers to analysis are briefly discussed below.
+
+
+\paragraph{S2 Trigger}
+\par
+Triggering off an S2 signal in the TPC
+
+\paragraph{OD Trigger}
+\par
+The OD Trigger is implemented to trigger off of the H-capture.
+
+
+\paragraph{Random Trigger}
+Also often referred to as the heartbeat trigger, data is recorded for a fixed time at a maximum rate of XXX Hz.
+It can act as a measurement of backgrounds as it is a fixed amount of data recorded every now and then.
+
+
+\par
+There are two important features to note;
+Firstly the logic is hierarchical, meaning that the Random Trigger will only record when none of the other triggers have switched.
+Secondly, the DAQ captures an event when it receives a trigger signal unless there is already an event being captured, or the trigger signal arrives during the hold off time of the previous event.
+In practical terms for example, it means that when both the OD Trigger and Random Trigger are active, the Random Trigger will be biased to low energy events as higher energy events are likely to be encompassed by the OD Trigger.

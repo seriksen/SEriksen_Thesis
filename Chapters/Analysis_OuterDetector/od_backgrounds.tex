@@ -1,7 +1,74 @@
 \section{Backgrounds}
 \par
+Using the Random Trigger, rate of various things were set out
+
+\par
 As mentioned in Section XXX (LZ chapter bit), an assay was performed to establish the backgorund rates of all components.
 In addition to the assay, a separate cavern gamma study was performed along with the GdLS.
+
+
+\begin{figure}[!htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel=Data taking week,
+            ylabel=Rate (Hz),
+            width=15cm,
+            height=6cm,
+            xmin=-2,
+            xmax=14,
+            legend style = {column sep = 10pt, legend columns = -1,}]
+            \addplot[red, only marks]
+                    table [x=Week,y=Rate]
+                    {Data/OD_Backgrounds/od_sr1_rate_noise.dat};
+            \addlegendentry{Noise Cut};
+            \addplot[blue, only marks]
+                    table [x=Week,y=Rate]
+                    {Data/OD_Backgrounds/od_sr1_rate_100.dat};
+            \addlegendentry{100keV};
+            \addplot[green, only marks]
+                    table [x=Week,y=Rate]
+                    {Data/OD_Backgrounds/od_sr1_rate_200.dat};
+            \addlegendentry{200keV};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Rate in OD during and before SR1 data taking on a week-by-week basis using the Random Trigger.
+    Week -1 corresponds to the month prior to SR1 when the OD PMT gains were higher.}
+    \label{fig:OD_SR1_Rate}
+\end{figure}
+
+
+\begin{figure}[!htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel=OD Threshold (phe),
+            ylabel=Rate (Hz),
+            width=15cm, height=8cm,
+            xmin=-1, xmax=55,
+            ymin=0, ymax=350,
+            legend pos=north east,
+            grid=major]
+             \addplot+[black, smooth, mark=none]
+                    table [x=Threshold,y=Rate]
+                    {Data/OD_Backgrounds/od_sr1_rate_vs_threshold_smooth_line.dat};
+            \addplot[black, only marks, 
+                     error bar legend,
+                     error bars/.cd,
+                     x dir=both, x explicit, error bar style={color=black}]
+                    table [x=Threshold,y=Rate, x error=XError]
+                    {Data/OD_Backgrounds/od_sr1_rate_vs_threshold_error_bars.dat};
+             \addplot[dashed, mark=none, red] coordinates {(0,100) (60,100)};
+             \addplot[dashed, mark=none, blue] coordinates {(17.6,0) (17.6,350)};
+             \addplot[dashed, mark=none, green] coordinates {(37.5,0) (37.5,350)};
+             \legend{,SR1 Data,$<$100Hz Requirement,100 keV,200 keV}                
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Rate of OD backgrounds during SR1 using the Random Trigger. The noise cut has been applied. 100Hz Requirement is for a 500$\mu$s veto window as proposed in \cite{LZ_TechnicalDesignReview_ref}}
+    \label{fig:od_sr1_rate_vs_threshold}
+\end{figure}
+
+
 
 \begin{tcolorbox}[colback=red!5!white, colframe=red!50!black, title=Key Plots]
 \begin{enumerate}
@@ -12,6 +79,8 @@ In addition to the assay, a separate cavern gamma study was performed along with
     \item Fitted Result
     \item Table of Measured Rates
     \item LCE map?
+    \item OD rate over time
+    \item R vs Z in background data -> get rock gamma positions    
 \end{enumerate}
 \end{tcolorbox}
 
@@ -19,7 +88,8 @@ In addition to the assay, a separate cavern gamma study was performed along with
 \begin{table}[!htbp]
     \centering
     \begin{tabular}{c|c|c}
-        Isotope or Subchain  &  Initial Purification & Improved Purification \\ \hline
+        \multirow{2}{*}{Isotope or Subchain}  &  \multicolumn{2}{c}{GdLS rates (mBq/kg)}      \\ 
+                             &  Initial Purification & Improved Purification \\ \hline
         ${}^{238}U_{e}$      &  $< 1.04$             & $< 0.017$             \\ 
         ${}^{238}U_{m}$      &  $0.092\pm0.02$       & $0.010\pm0.004$       \\
         ${}^{235}U_{e}$      &  $0.011$              & $< 0.018$             \\
@@ -33,22 +103,94 @@ In addition to the assay, a separate cavern gamma study was performed along with
         ${}^{152}{Sm}$       &  $1.02\pm0.05$        & $1.02\pm0.05$         \\
         ${}^{14}{C14}$       &  $4.77\pm0.098$       & $4.77\pm0.098$ 
     \end{tabular}
-    \caption{Measured activities of GdLS components during LS Screener. Values from Table 4.9 and 6.11 of \cite{scotthaselschwardt_thesis_ref}}
+    \caption{Activities of GdLS components during LS Screener testing and those projected from an improved purification technique. Values from Table 4.9 and 6.11 of \cite{scotthaselschwardt_thesis_ref}}
     \label{tab:gdls_assay_rates}
 \end{table}
 
+%\begin{table}[!htbp]
+%    \centering
+%    \begin{tabular}{c|c}
+%        Source                         &  Expected Rate (Hz)                &   \\ \hline
+%        GdLS Internals (improved)      &  $67.3$              & $62.9$             \\ 
+%        GdLS Internals (initial)       &  $42.4$              & $42.2$             \\
+%        Other Detector Components      &  $2.93$              & $2.09$             \\
+%        Cavern $\gamma$                &  $0.10\pm0.04$       & $< 0.012$             
+%    \end{tabular}
+%    \caption{Expected Rate}
+%    \label{tab:gdls_expected_rates}
+%\end{table}
+
 \subsection{Energy Scaling}
 \par
-When data and simulations were first compared, as in Figure XXX, it became obvious that the light modelling in the OD significantly different to reality.
+When data and simulations were first compared, as in Figure XXX, it became obvious that the light modelling in the OD was significantly different to reality.
 Around 50\% of this difference can be accounted for by a mismatch between the PMT gains simulated against those in the LZap reconstruction database.
-This effect will simply result in smaller pulses and so smaller pulse areas.
+This effect simply results in smaller pulses and so smaller pulse areas.
 However, the remaining difference is not clear where it is coming from, as it would indicate that the LCE is twice what is currently simulated (Figure \ref{fig:od_lce}).
 In the pulse area parameter, this should remain just a linear scaling, though in other parameters (such as number of PMTs receiving light) it may not be linear.
 
 \par
 In order to calculate the energy scaling, Th228 data calibration was used. 
 In the decay chain (Figure XXX), Tl208 has a prominent 2.6MeV $\gamma$. 
+There are two simulated sources of this, firstly, from a calibration source, and secondly from the ${}^{232}Th$ cavern-$\gamma$'s as shown in Figure \ref{fig:cavern_gamma_energy_distribution}.
+For cavern-$\gamma$ simulations, the 2.6MeV was extracted using truth information and the resultant phe plotted.
 
 
-Figure XXX shows the background data from random trigger data with the higher simulated rate overlaid.
-Two things are strikingly obvious, firstly, the x-axis is different, with the data going out to significantly higher values.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{Figures/Placeholder.png}
+    \caption{Number of PMTs contributing to a pulse against the phe of the pulse. Or some similar plot like that}
+    \label{fig:OD_coincidence_difference}
+\end{figure}
+
+
+\subsection{Constraints in Data}
+\par
+Though the exact rate of GdLS is not known, it is possible to constrain some of the components observed.
+Notably, decays within the U and Th decay chains where there the second decay has a short enough half-life such that it is within the LZ event window.
+This leaves 3-possible decays, summarised in Table \ref{tab:od_constrainable_decays_in_data}.
+
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{c|c|c|c|c|c}
+        \multirow{2}{*}{Decay Pair (chain)} & \multicolumn{2}{c}{First Decay}    & \multicolumn{3}{c}{Second Decay}    \\ 
+                                            & Decay    & Energy (MeV) & Decay    & Energy (MeV) & half-life ($\mu$s) \\ \hline
+        BiPo-214 (${}^{238}U_{m}$)          & $\beta$  & 3.3          & $\alpha$ & 7.69         & 160   \\ 
+        RnPo-215 (${}^{235}U_{l}$)          & $\alpha$ & 6.76         & $\alpha$ & 7.39         & 1800  \\ 
+        BiPo-212 (${}^{232}Th_{l}$)         & $\beta$  & 2.1          & $\alpha$ & 8.78         & 0.3
+    \end{tabular}
+    \caption{Th and U decay chain pairs with half-lives within the LZ event window of 4.5ms}
+    \label{tab:od_constrainable_decays_in_data}
+\end{table}
+
+\par
+In data these can be searched for by requiring that two pulses be close in time and close in position. 
+The time requirement is dictated by the half-life of the second decay.
+The position requirement is to reduce the impact of coincident interactions and decays in other areas of the OD.
+As the second decay is an $\alpha$ it does not have significant penetrating power so the interaction will be close to where the initial decay was.
+The cuts selected were; the noise cut previously discussed, a maximum position separation as defined by the reconstructed position in Equation \ref{eq:OD_xy_position}.
+The time selection
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{Figures/Placeholder.png}
+    \caption{Rate of BiPo and RnPo decays during SR1.}
+    \label{fig:OD_BiPo_Rate}
+\end{figure}
+
+\par
+One of the difficulties in constraining the rates is that the ~8MeV $\alpha$'s in the chains lie in the region where the OD-trigger becomes active.
+
+\subsection{Fit}
+\par
+Given the mitigation processes described in Section \ref{od_construction_sec}, the contamination is likely to be minimal everywhere. 
+Additionally, given what can be seen in Figure XXX, the improved GdLS purification appears to have worked.
+As the GdLS came from the same batch produced at Brookhaven as used in DayaBay it is reassuring that it matches closely what was seen there
+
+\par
+Instead, what is likely to have happened is that \cite{KamLAND_LS_contaminants_ref}.
+
+\begin{equation}
+    x(y) = \frac{\sum{channel phe * channel x (y)}}{\sum{channel phe}}
+    \label{eq:OD_xy_position}
+\end{equation}

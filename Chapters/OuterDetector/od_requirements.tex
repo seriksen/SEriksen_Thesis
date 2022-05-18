@@ -1,6 +1,9 @@
 \section{OD requirements}
 
 \par
+There are a number of performance requirements which the OD has been designed to meet, all of which can be found in \cite{LZ_TechnicalDesignReview_ref}, 
+
+\par
 The performance requirements for the OD are listed in Table \ref{tab:veto_requirements}
 
 \begin{table}[!htbp]
@@ -62,7 +65,7 @@ As the neutron will not lose a significant amount of it's energy upon the scatte
 Additionally, studying the efficiency in this regard allows for the requirement to be directly probed as well as studying how the neutron energy affects the efficiency.
 
 \par
-Figure XXX contains the result of this study alongside the previous result.
+Figure \ref{fig:neutron_eff_energy_dep_tpc_neutrons} contains the result of this study alongside the previous result.
 Firstly, it is important to note that the requirement R-160001 remains satisfied.
 Secondly, the energy of the neutron is an important factor in the performance of the veto.
 The expected energy spectrum for neutrons is shown in Figure \ref{fig:simulation_background_neutron_energies}.
@@ -75,7 +78,7 @@ The expected energy spectrum for neutrons is shown in Figure \ref{fig:simulation
     \item alpha,n energies
     \item fraction of gammas that get captured in the OD after SS (AmLi sims)
     \item fraction of neutrons that get captured in each volume
-    \item time spent in volume vs OD capture time (for all and for Gd-only)
+    \item time spent in volume vs OD capture time (for all and for Gd-only) to show what causes each component
 \end{enumerate}
 \end{tcolorbox}
 
@@ -109,31 +112,282 @@ AmLi is an ($\alpha$,n) source, producing neutrons predominantly under 0.5MeV, t
 \end{figure}
 
 
+\par
+In Chapter \ref{chap:analysis_of_the_od}, the requirements are tested in data.
+
+
 \begin{figure}[!htbp]%
 \centering
 \begin{tikzpicture}
 \centering
   \begin{groupplot}[%view={0}{90},
-    group style = {group size = 2 by 1}]
+    group style = {group size = 2 by 2,vertical sep=1.5cm}]
     \nextgroupplot[
-    xmin=300,
-    xmax=600,
-    ylabel={Emission (Arbitrary Units)},]
-    \addplot[ybar interval, blue, const plot]
-                    table [x=Wavelength,y=Rate]
-                    {Data/GdLS_Physics/Light_Collection/gdls_light_output.dat};
+            title=TDR background neutrons,
+            ylabel=Efficiency (\%),
+            width=0.5\textwidth, height=6cm,
+            xmin=0, xmax=1000,
+            ymin=85, ymax=100,
+            minor y tick num=4,
+            grid=major]
+            \addplot+[green, mark=none]
+                    table [x=Time,y=Efficiency]
+                    {Data/Neutron_Efficiency/Simulation/od_efficiency_sally_0kev.dat};
+            \addplot[green, only marks, 
+                     error bar legend,
+                     error bars/.cd,
+                     x dir=both, x explicit, error bar style={color=black}]
+                    table [x=Time,y=Efficiency, x error=XError]
+                    {Data/Neutron_Efficiency/Simulation/od_efficiency_sally_0kev.dat};
+                    
+            \addplot+[blue, mark=none]
+                    table [x=Time,y=Efficiency]
+                    {Data/Neutron_Efficiency/Simulation/od_efficiency_sally_100kev.dat};
+            \addplot[blue, only marks, 
+                     error bar legend,
+                     error bars/.cd,
+                     x dir=both, x explicit, error bar style={color=black}]
+                    table [x=Time,y=Efficiency, x error=XError]
+                    {Data/Neutron_Efficiency/Simulation/od_efficiency_sally_100kev.dat};
+                    
+            \addplot+[red, mark=none]
+                    table [x=Time,y=Efficiency]
+                    {Data/Neutron_Efficiency/Simulation/od_efficiency_sally_200kev.dat};
+            \addplot[red, only marks, 
+                     error bar legend,
+                     error bars/.cd,
+                     x dir=both, x explicit, error bar style={color=black}]
+                    table [x=Time,y=Efficiency, x error=XError]
+                    {Data/Neutron_Efficiency/Simulation/od_efficiency_sally_200kev.dat};
+                    
     \nextgroupplot[
-    xmin=300,
-    xmax=600,
-    xlabel={Wavelength (nm)}]
-    \addplot[ybar interval, red, const plot]
-            table [x=Wavelength,y=QE]
-            {Data/GdLS_Physics/Light_Collection/od_pmt_qe.dat};
+            title=100 keV,
+            width=0.5\textwidth, height=6cm,
+            xmin=0, xmax=1000,
+            ymin=85, ymax=100,
+            %yticklabels=\empty,
+            yticklabel pos=right,
+            minor y tick num=4,
+            grid=major]
+            \addplot+[green, smooth, mark=none]
+                    table [x=Time,y=Efficiency]
+                    {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_100kev_threshold_0kev_smooth_line.dat};
+            \addplot[green, only marks, 
+                     error bar legend,
+                     error bars/.cd,
+                     x dir=both, x explicit, error bar style={color=black}]
+                    table [x=Time,y=Efficiency, x error=EfficiencyError]
+                    {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_100kev_threshold_0kev_error_bars.dat};
+                    
+            \addplot+[blue, smooth, mark=none]
+                    table [x=Time,y=Efficiency]
+                    {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_100kev_threshold_100kev_smooth_line.dat};
+            \addplot[blue, only marks, 
+                     error bar legend,
+                     error bars/.cd,
+                     x dir=both, x explicit, error bar style={color=black}]
+                    table [x=Time,y=Efficiency, x error=EfficiencyError]
+                    {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_100kev_threshold_100kev_error_bars.dat};
+                    
+            \addplot+[red, smooth, mark=none]
+                    table [x=Time,y=Efficiency]
+                    {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_100kev_threshold_200kev_smooth_line.dat};
+            \addplot[red, only marks, 
+                     error bar legend,
+                     error bars/.cd,
+                     x dir=both, x explicit, error bar style={color=black}]
+                    table [x=Time,y=Efficiency, x error=EfficiencyError]
+                    {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_100kev_threshold_200kev_error_bars.dat};
+
+    \nextgroupplot[
+            title=1 MeV,
+            xlabel=Veto Window ($\mu$s),
+            ylabel=Efficiency (\%),
+            width=0.5\textwidth, height=6cm,
+            xmin=0, xmax=1000,
+            ymin=85, ymax=100,
+            minor y tick num=4,
+            grid=major,
+            legend style = { column sep = 10pt, legend columns = -1, legend to name = CommonLegend,}]
+            \addplot+[green, smooth, mark=none]
+                    table [x=Time,y=Efficiency]
+                    {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_1mev_threshold_0kev_smooth_line.dat};
+            \addplot[green, only marks, 
+                     error bar legend,
+                     error bars/.cd,
+                     x dir=both, x explicit, error bar style={color=black}]
+                    table [x=Time,y=Efficiency, x error=EfficiencyError]
+                    {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_1mev_threshold_0kev_error_bars.dat};
+                    
+            \addplot+[blue, smooth, mark=none]
+                    table [x=Time,y=Efficiency]
+                    {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_1mev_threshold_100kev_smooth_line.dat};
+            \addplot[blue, only marks, 
+                     error bar legend,
+                     error bars/.cd,
+                     x dir=both, x explicit, error bar style={color=black}]
+                    table [x=Time,y=Efficiency, x error=EfficiencyError]
+                    {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_1mev_threshold_100kev_error_bars.dat};
+                    
+            \addplot+[red, smooth, mark=none]
+                    table [x=Time,y=Efficiency]
+                    {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_1mev_threshold_200kev_smooth_line.dat};
+            \addplot[red, only marks, 
+                     error bar legend,
+                     error bars/.cd,
+                     x dir=both, x explicit, error bar style={color=black}]
+                    table [x=Time,y=Efficiency, x error=EfficiencyError]
+                    {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_1mev_threshold_200kev_error_bars.dat};
+            \legend{,0keV,,100keV,,200keV}                
+    \nextgroupplot[
+            title=6 MeV,
+            xlabel=Veto Window ($\mu$s),
+            width=0.5\textwidth, height=6cm,
+            xmin=0, xmax=1000,
+            ymin=85, ymax=100,
+            %yticklabels=\empty,
+            yticklabel pos=right,
+            minor y tick num=4,
+            grid=major]
+            \addplot+[green, smooth, mark=none]
+                    table [x=Time,y=Efficiency]
+                    {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_6mev_threshold_0kev_smooth_line.dat};
+            \addplot[green, only marks, 
+                     error bar legend,
+                     error bars/.cd,
+                     x dir=both, x explicit, error bar style={color=black}]
+                    table [x=Time,y=Efficiency, x error=EfficiencyError]
+                    {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_6mev_threshold_0kev_error_bars.dat};
+                    
+            \addplot+[blue, smooth, mark=none]
+                    table [x=Time,y=Efficiency]
+                    {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_6mev_threshold_100kev_smooth_line.dat};
+            \addplot[blue, only marks, 
+                     error bar legend,
+                     error bars/.cd,
+                     x dir=both, x explicit, error bar style={color=black}]
+                    table [x=Time,y=Efficiency, x error=EfficiencyError]
+                    {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_6mev_threshold_100kev_error_bars.dat};
+                    
+            \addplot+[red, smooth, mark=none]
+                    table [x=Time,y=Efficiency]
+                    {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_6mev_threshold_200kev_smooth_line.dat};
+            \addplot[red, only marks, 
+                     error bar legend,
+                     error bars/.cd,
+                     x dir=both, x explicit, error bar style={color=black}]
+                    table [x=Time,y=Efficiency, x error=EfficiencyError]
+                    {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_6mev_threshold_200kev_error_bars.dat};
+            \node[] at (axis cs: 600,90) {6 MeV};
   \end{groupplot}
+   \node at ($(group c2r1) - (group c1r1) + (-0.5cm, 6.0cm)$) {\ref{CommonLegend}};
 \end{tikzpicture}
-\caption{AmLi simulated efficiency. \textbf{Left:} Energy deposits \textbf{Right:} Complete simulation}
-\label{fig:asdasdasd}
+\caption{Neutron Veto Efficiency using energy deposits. TDR-era result with incomplete and simpler geometry taken from \cite{sallyshaw_thesis_ref}.}
+\label{fig:neutron_eff_energy_dep_tpc_neutrons}
 \end{figure}
 
 \par
-In Chapter \ref{chap:analysis_of_the_od}, the requirements are tested in data.
+Those this shows that there is good neutron efficiency, it does not tell the full story.
+In fact only XXX \% of the neutrons get captured in the GdLS (from the 1MeV neutrons that start in the fiducial volume), and even if a neutron is captured, the released $\gamma$'s do not have to scatter within the GdLS.
+The energy deposits that are observed come from $\gamma$'s released as a result of captures elsewhere.
+
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{c|c|c|c|c|c|c}
+         \multirow{2}{*}{Neutron Source} & \multicolumn{5}{c|}{Number}                  & \multirow{2}{*}{Veto Eff. (\%)}  \\ 
+                         & Simulated  & Usable     & SS        & FID     & Veto         &                                  \\ \hline
+        energy dep       & 19,310,000 & 19,280,766 & 1,474,033 & 325,080 & 323,319      & 99.4                             \\
+        full propagation & X          & X          &           &         &              & 
+    \end{tabular}
+    \caption{Number of events passing various cuts from AmLi simulation in CSD1.}
+    \label{tab:neutron_simulation_table_of_cuts}
+\end{table}
+
+
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+    \begin{groupplot}[%view={0}{90},
+    group style = {group size = 2 by 2,vertical sep=1.5cm}]
+    \nextgroupplot[
+            xlabel=Veto Window ($\mu$s),
+            ylabel=Efficiency (\%),
+            width=0.5\textwidth, height=6cm,
+            xmin=0, xmax=1000,
+            ymin=85, ymax=100,
+            minor y tick num=4,
+            grid=major,
+            legend style = { column sep = 10pt, legend columns = -1, legend to name = CommonLegend,}]
+            \addplot+[green, mark=none]
+                    table [x=Time,y=Efficiency]
+                    {Data/Neutron_Efficiency/Simulation/edep_amli_neutron_eff_amli_edeps_threshold_0kev_error_bars.dat};
+            \addplot[green, only marks, 
+                     error bar legend,
+                     error bars/.cd,
+                     x dir=both, x explicit, error bar style={color=black}]
+                    table [x=Time,y=Efficiency, x error=EfficiencyError]
+                    {Data/Neutron_Efficiency/Simulation/edep_amli_neutron_eff_amli_edeps_threshold_0kev_error_bars.dat};
+                    
+            \addplot+[blue, mark=none]
+                    table [x=Time,y=Efficiency]
+                    {Data/Neutron_Efficiency/Simulation/edep_amli_neutron_eff_amli_edeps_threshold_100kev_error_bars.dat};
+            \addplot[blue, only marks, 
+                     error bar legend,
+                     error bars/.cd,
+                     x dir=both, x explicit, error bar style={color=black}]
+                    table [x=Time,y=Efficiency, x error=EfficiencyError]
+                    {Data/Neutron_Efficiency/Simulation/edep_amli_neutron_eff_amli_edeps_threshold_100kev_error_bars.dat};
+                    
+            \addplot+[red, mark=none]
+                    table [x=Time,y=Efficiency]
+                    {Data/Neutron_Efficiency/Simulation/edep_amli_neutron_eff_amli_edeps_threshold_200kev_error_bars.dat};
+            \addplot[red, only marks, 
+                     error bar legend,
+                     error bars/.cd,
+                     x dir=both, x explicit, error bar style={color=black}]
+                    table [x=Time,y=Efficiency, x error=EfficiencyError]
+                    {Data/Neutron_Efficiency/Simulation/edep_amli_neutron_eff_amli_edeps_threshold_200kev_error_bars.dat};
+            \legend{,0keV,,100keV,,200keV}
+        \nextgroupplot[
+            xlabel=Veto Window ($\mu$s),
+            width=0.5\textwidth, height=6cm,
+            xmin=0, xmax=1000,
+            ymin=85, ymax=100,
+            yticklabel pos=right,
+            minor y tick num=4,
+            grid=major]
+            \addplot+[green, mark=none]
+                    table [x=Time,y=Efficiency]
+                    {Data/Neutron_Efficiency/Simulation/amli_neutron_eff_0kev_error_bars.dat};
+            \addplot[green, only marks, 
+                     error bar legend,
+                     error bars/.cd,
+                     x dir=both, x explicit, error bar style={color=black}]
+                    table [x=Time,y=Efficiency, x error=EfficiencyError]
+                    {Data/Neutron_Efficiency/Simulation/amli_neutron_eff_0kev_error_bars.dat};
+            \addplot+[blue, mark=none]
+                    table [x=Time,y=Efficiency]
+                    {Data/Neutron_Efficiency/Simulation/amli_neutron_eff_50kev_error_bars.dat};
+            \addplot[blue, only marks, 
+                     error bar legend,
+                     error bars/.cd,
+                     x dir=both, x explicit, error bar style={color=black}]
+                    table [x=Time,y=Efficiency, x error=EfficiencyError]
+                    {Data/Neutron_Efficiency/Simulation/amli_neutron_eff_50kev_error_bars.dat};
+            \addplot+[red, mark=none]
+                    table [x=Time,y=Efficiency]
+                    {Data/Neutron_Efficiency/Simulation/amli_neutron_eff_100kev_error_bars.dat};
+            \addplot[red, only marks, 
+                     error bar legend,
+                     error bars/.cd,
+                     x dir=both, x explicit, error bar style={color=black}]
+                    table [x=Time,y=Efficiency, x error=EfficiencyError]
+                    {Data/Neutron_Efficiency/Simulation/amli_neutron_eff_100kev_error_bars.dat};
+    \end{groupplot}
+     \node at ($(group c2r1) - (group c1r1) + (-0.5cm, 5.0cm)$) {\ref{CommonLegend}};
+\end{tikzpicture}
+    \caption{Simulated AmLi neutron tagging efficiency. \textbf{Left:} energy deposits \textbf{Right:} Complete propagation and event reconstruction}
+    \label{fig:simulated_amli_neutron_efficiency}
+\end{figure}

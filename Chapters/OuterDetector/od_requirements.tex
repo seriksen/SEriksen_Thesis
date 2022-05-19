@@ -208,7 +208,7 @@ In Chapter \ref{chap:analysis_of_the_od}, the requirements are tested in data.
             ymin=85, ymax=100,
             minor y tick num=4,
             grid=major,
-            legend style = { column sep = 10pt, legend columns = -1, legend to name = CommonLegend,}]
+            legend style = { column sep = 10pt, legend columns = -1, legend to name = Simulated_Neutron_Eff_CommonLegend,}]
             \addplot+[green, smooth, mark=none]
                     table [x=Time,y=Efficiency]
                     {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_1mev_threshold_0kev_smooth_line.dat};
@@ -280,7 +280,7 @@ In Chapter \ref{chap:analysis_of_the_od}, the requirements are tested in data.
                     {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_6mev_threshold_200kev_error_bars.dat};
             \node[] at (axis cs: 600,90) {6 MeV};
   \end{groupplot}
-   \node at ($(group c2r1) - (group c1r1) + (-0.5cm, 6.0cm)$) {\ref{CommonLegend}};
+   \node at ($(group c2r1) - (group c1r1) + (-0.5cm, 6.0cm)$) {\ref{Simulated_Neutron_Eff_CommonLegend}};
 \end{tikzpicture}
 \caption{Neutron Veto Efficiency using energy deposits. TDR-era result with incomplete and simpler geometry taken from \cite{sallyshaw_thesis_ref}.}
 \label{fig:neutron_eff_energy_dep_tpc_neutrons}
@@ -319,7 +319,7 @@ The energy deposits that are observed come from $\gamma$'s released as a result 
             ymin=85, ymax=100,
             minor y tick num=4,
             grid=major,
-            legend style = { column sep = 10pt, legend columns = -1, legend to name = CommonLegend,}]
+            legend style = { column sep = 10pt, legend columns = -1, legend to name = Simulated_AmLi_CommonLegend,}]
             \addplot+[green, mark=none]
                     table [x=Time,y=Efficiency]
                     {Data/Neutron_Efficiency/Simulation/edep_amli_neutron_eff_amli_edeps_threshold_0kev_error_bars.dat};
@@ -386,7 +386,7 @@ The energy deposits that are observed come from $\gamma$'s released as a result 
                     table [x=Time,y=Efficiency, x error=EfficiencyError]
                     {Data/Neutron_Efficiency/Simulation/amli_neutron_eff_100kev_error_bars.dat};
     \end{groupplot}
-     \node at ($(group c2r1) - (group c1r1) + (-0.5cm, 5.0cm)$) {\ref{CommonLegend}};
+     \node at ($(group c2r1) - (group c1r1) + (-0.5cm, 5.0cm)$) {\ref{Simulated_AmLi_CommonLegend}};
 \end{tikzpicture}
     \caption{Simulated AmLi neutron tagging efficiency. \textbf{Left:} energy deposits \textbf{Right:} Complete propagation and event reconstruction}
     \label{fig:simulated_amli_neutron_efficiency}

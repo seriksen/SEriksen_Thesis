@@ -152,7 +152,7 @@ This leaves 3-possible decays, summarised in Table \ref{tab:od_constrainable_dec
 \begin{table}[!htbp]
     \centering
     \begin{tabular}{c|c|c|c|c|c}
-        \multirow{2}{*}{Decay Pair (chain)} & \multicolumn{2}{c}{First Decay}    & \multicolumn{3}{c}{Second Decay}    \\ 
+        \multirow{2}{*}{Decay Pair (chain)} & \multicolumn{2}{c|}{First Decay}    & \multicolumn{3}{c}{Second Decay}    \\ 
                                             & Decay    & Energy (MeV) & Decay    & Energy (MeV) & half-life ($\mu$s) \\ \hline
         BiPo-214 (${}^{238}U_{m}$)          & $\beta$  & 3.3          & $\alpha$ & 7.69         & 160   \\ 
         RnPo-215 (${}^{235}U_{l}$)          & $\alpha$ & 6.76         & $\alpha$ & 7.39         & 1800  \\ 
@@ -181,6 +181,19 @@ The time selection
 \par
 One of the difficulties in constraining the rates is that the ~8MeV $\alpha$'s in the chains lie in the region where the OD-trigger becomes active.
 
+
+\subsection{Position Reconstruction}
+\par
+For any pulse it is possible to reconstruct the location of the interaction that caused the pulse by a weighted average.
+This was performed using Equation \ref{eq:OD_xy_position}.
+
+\begin{equation}
+    x(y) = \frac{\sum{\text{channel phe} * \text{channel x (y)}}}{\sum{\text{channel phe}}} \\
+       z = XXX 
+    \label{eq:OD_xy_position}
+\end{equation}
+
+
 \subsection{Fit}
 \par
 Given the mitigation processes described in Section \ref{od_construction_sec}, the contamination is likely to be minimal everywhere. 
@@ -190,7 +203,4 @@ As the GdLS came from the same batch produced at Brookhaven as used in DayaBay i
 \par
 Instead, what is likely to have happened is that \cite{KamLAND_LS_contaminants_ref}.
 
-\begin{equation}
-    x(y) = \frac{\sum{channel phe * channel x (y)}}{\sum{channel phe}}
-    \label{eq:OD_xy_position}
-\end{equation}
+

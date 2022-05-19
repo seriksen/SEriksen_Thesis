@@ -28,7 +28,13 @@ Optical photon simulations fit in to this category as each photon is independent
 Additionally, the physics is relatively simple.
 
 \par
-Something about Chroma etc...
+Before attempting to improve the speed of simulation, it is important to understand why simulation speed is limited on CPUs. 
+LZ particle propagation simulations are performed in BACCARAT, a software package built upon GEANT4, in which the geometry is defined (as shown in Figure XXX).
+GEANT4 geometry is defined as XXX.
+GEANT4 based simulations are relatively slow because XXX.
+
+There have been many different attempts to transfer this part of the simulation on to GPUs, such as Chroma (CITE XXX).
+
 
 
 \par
@@ -151,22 +157,25 @@ The blue, green and red lines towards the bottom of the figure are the axis.}
 To compare the optical photon propagation within the LZ geometry on Opticks with that from BACCARAT, a series of tests were devised.
 As the initial purpose of this project was to simulate S2 photons, two S2 light maps were created using the same number of photons; XXXX million (15 billion I think).
 Using a much of the same geometry as possible the simulations from BACCARAT and Opticks were compared.
+This improvement 
 
 \begin{figure}[!htbp]
 \includegraphics[width=10cm]{Figures/Simulations/LZ_S1_photons_In_Opticks.png}
 \centering
 \caption{TPC of LZ raytraced. Translated from Geant4 GDML file into NPY set using Opticks and viewed within Opticks via the OpenGL Buffer.
-The blue, green and red lines towards the bottom of the figure are the axis.}
+The blue, green and red lines extended outside the OCV are the axis. After each reflection a photons colour has been set to change.}
 \label{fig:OpticksLZTPC_S1_Photons}
 \end{figure}
 
 \par
 On a Tesla T4 GPU, after a 4-minute initialisation time using the serialised geometry, 200,000 photons per second were generated and propagated.
-This marks a 720x improvement over single-core Geant4 propagation where 277 photons per second were generated and propagated for the S2 Light Map or 360x improvement over the expected gain when compared to Geant4
+This marks a 720x improvement over single-core Geant4 propagation where 277 photons per second were generated and propagated for the S2 Light Map or 360x improvement over the expected gain when compared to GEANT4.
+This improvement highlights one of the reasons for choosing an OptiX-based approach rather than pure CUDA, as the improvement would have been closer to 200x such as was shown in \cite{chroma_presentation_ref}.
+However, it still lacks behind the improvement demonstrated using Opticks in (CITE XXX), though this is primarily due to higher grade GPUs being used with RTX-cores.
 
 \par
-The LZ collaboration is continuing to develop upon this work with an integration plan into the simulation chain \cite{SEriksen_Opticks_CHEP_2021_ref}.
+The LZ collaboration is continuing to develop upon this work with an integration plan into the simulation chain \cite{SEriksen_Opticks_CHEP_2021_ref, SEriksen_IoP_2021_talk_ref, lz_status_with_opticks_ref}.
 Additionally, as this work was performed using NVIDIA OptiX 6.5.0, newer features available in 7.0.0+ will allow even greater performance and better use of compute-cluster GPU setup.
 TODO CITE.
 The primary limitation has been upon an improved GDML writer and reader in Geant4, requireing the LZ simulation package to update. 
-However, with the planning for Gen-3 direct detection dark matter experiments, the optical photons will continue to be a limitation and are already being considered \cite{DARWIN_GPU_simulations_2022}.
+However, with the planning for Gen-3 direct detection dark matter experiments, the optical photons will continue to be a limitation and are already being considered \cite{DARWIN_GPU_simulations_2022_ref,  accelerated_bvh_ref}.

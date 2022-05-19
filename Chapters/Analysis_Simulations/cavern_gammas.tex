@@ -27,15 +27,58 @@ Additionally it was noticed that in the previous generator the distribution was 
 The result of this would be that the $\gamma$ distribution is biased to the top and bottom of the detectors more so than it would otherwise be.
 This is highlighted in Figures \ref{fig:cavern_gamma_energy_distribution} and \ref{fig:cavern_gamma_position_distribution}.
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\textwidth]{Figures/Placeholder.png}
-    \caption{$\gamma$ energies in each generator. \textbf{Left:} Previous generator. \textbf{Right:} newly created generator.}
+
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+    \begin{groupplot}[%view={0}{90},
+    group style = {group size = 2 by 1}]
+    \nextgroupplot[
+            xlabel=Energy (keV),
+            ylabel=Rate (Hz/15keV),
+            width=0.5\textwidth, height=6cm,
+            xmin=1e-6, xmax=14000,
+            ymax=10,
+            minor y tick num=4,
+            ymode=log,
+            ]
+            \addplot[green, mark=none]
+                    table [x=Bins,y=Weights]
+                    {Data/Simulation_Analysis/Cavern_Gammas/old_gamma_generator_th232.dat};
+            \addplot[blue, mark=none]
+                    table [x=Bins,y=Weights]
+                    {Data/Simulation_Analysis/Cavern_Gammas/old_gamma_generator_u238.dat};
+            \legend{${}^{232}Th$, ${}^{238}U$}
+            
+        \nextgroupplot[
+            xlabel=Energy (keV),
+            width=0.5\textwidth, height=6cm,
+            xmin=1e-6, xmax=14000,
+            yticklabel pos=right,
+            minor y tick num=4,
+            ymode=log, ymax=10,
+            grid=major]
+            \addplot[green, mark=none]
+                    table [x=Bins,y=Weights]
+                    {Data/Simulation_Analysis/Cavern_Gammas/new_gamma_generator_th232.dat};
+            \addplot[blue, mark=none]
+                    table [x=Bins,y=Weights]
+                    {Data/Simulation_Analysis/Cavern_Gammas/new_gamma_generator_u238.dat};
+            \addplot[red, mark=none]
+                    table [x=Bins,y=Weights]
+                    {Data/Simulation_Analysis/Cavern_Gammas/new_gamma_generator_k40.dat};
+            \legend{${}^{232}Th$, ${}^{238}U$, ${}^{40}K$}
+            
+    \end{groupplot}
+\end{tikzpicture}
+    \caption{Generator $\gamma$ energies. \textbf{Left:} Previous generator. \textbf{Right:} newly created generator.}
     \label{fig:cavern_gamma_energy_distribution}
 \end{figure}
 
 
-\begin{figure}
+
+\begin{figure}[!htbp]
     \centering
     \includegraphics[width=0.5\textwidth]{Figures/Placeholder.png}
     \caption{Simulated cavern $\gamma$ energy deposit locations in the OD normalised to rates from \cite{LZ_Gamma_Ray_Background_ref}. \textbf{Left:} Previous generator. \textbf{Right:} newly created generator.}
@@ -46,13 +89,29 @@ This is highlighted in Figures \ref{fig:cavern_gamma_energy_distribution} and \r
 \par
 
 
-\begin{figure}
+\begin{figure}[!htbp]
     \centering
     \includegraphics[width=0.5\textwidth]{Figures/Placeholder.png}
     \caption{Change in OD rate between different generator versions}
     \label{fig:cavern_gamma_rate_difference}
 \end{figure}
 
+
+
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{c|c|c|c}
+        Generator    & Activity (Bq/kg) & Boost per surface & Generator livetime   \\ \hline
+        ${}^{40}K$   & 216              & 28                & 57.72                \\
+        ${}^{238}U$  & 29.1             & 34                & 60.26                \\
+        ${}^{232}Th$ & 12.5             & 70                & 60.66
+    \end{tabular}
+    \caption{Parameters used in generator creation. Activity rates are from \cite{LZ_Gamma_Ray_Background_ref}.}
+    \label{tab:cavern_gamma_generator_parameters}
+\end{table}
+
+\par
+The livetime for each $\gamma$ can be determined then by $l = \frac{n. \gamma simulated}{n. \gamma in generator} * generator livetime$
 
 \par
 In short, this means that every $\gamma$ in the generator represents 130000 decays from the rock, and so is a significant computational saving.

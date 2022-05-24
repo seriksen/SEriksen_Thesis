@@ -12,13 +12,65 @@ The processes followed the scheme described in \cite{LZ_projected_sensitivity_pa
 \par
 The resultant normalised-to-rate energy spectra for each background considered are shown in Figure XXX.
 
-\begin{figure}[!htbp]
+\begin{figure}[!htbp]%
+\centering
+    \begin{tikzpicture}
     \centering
-    \includegraphics[width=0.5\textwidth]{Figures/Placeholder.png}
+        \begin{groupplot}[view={0}{90},
+            group style = {group size = 2 by 1}]
+            \nextgroupplot[
+            xlabel=Recoil Energy (keV),
+            ylabel=Differential Rate (kg/day/keV),
+            legend pos=north east,
+            mark size=0pt,
+            xmin=0, xmax=2700,
+            ymode=log]
+                \addplot
+                    table[x=Energy,y=Rate]
+                    {Data/HENR/Projected_Sensitivity/Background_Rates/detector_er.dat};
+            %    \addplot
+            %        table[x=Energy,y=Rate]
+            %        {Data/HENR/Projected_Sensitivity/Background_Rates/Xe136.dat};
+            %    \addplot
+            %        table[x=Energy,y=Rate]
+            %        {Data/HENR/Projected_Sensitivity/Background_Rates/Rn222.dat};
+            %    \addplot
+            %        table[x=Energy,y=Rate]
+            %        {Data/HENR/Projected_Sensitivity/Background_Rates/Rn220.dat};
+            %    \addplot
+            %        table[x=Energy,y=Rate]
+            %        {Data/HENR/Projected_Sensitivity/Background_Rates/Solar.dat};
+            %    \addplot
+            %        table[x=Energy,y=Rate]
+            %           {Data/HENR/Projected_Sensitivity/Background_Rates/Kr85.dat};
+                    
+            \nextgroupplot[
+            xlabel=Recoil Energy (keV),
+            legend pos=north east,
+            mark size=0pt,
+            xmin=0, xmax=250,
+            ymode=log]
+                \addplot
+                    table[x=Energy,y=Rate]
+                    {Data/HENR/Projected_Sensitivity/Background_Rates/detector_nr.dat};
+            %    \addplot
+            %        table[x=Energy,y=Rate]
+            %        {Data/HENR/Projected_Sensitivity/Background_Rates/atm.dat};
+            %    \addplot
+            %        table[x=Energy,y=Rate]
+            %        {Data/HENR/Projected_Sensitivity/Background_Rates/DSN_DiffRate.dat};
+            %    \addplot
+            %        table[x=Energy,y=Rate]
+            %        {Data/HENR/Projected_Sensitivity/Background_Rates/hep.dat};
+            %    \addplot
+            %        table[x=Energy,y=Rate]
+            %        {Data/HENR/Projected_Sensitivity/Background_Rates/B8.dat};
+        
+        \end{groupplot}
+    \end{tikzpicture}
     \caption{Backgrounds considered in the PLR}
     \label{fig:sensitivity_paper_backgrounds}
 \end{figure}
-
 
 \par
 Additionally, up to this point it is reasonable to assume that the background is flat as this is below the energy of Xe decays and shells.

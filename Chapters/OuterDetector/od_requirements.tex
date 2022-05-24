@@ -2,9 +2,7 @@
 
 \par
 There are a number of performance requirements which the OD has been designed to meet, all of which can be found in \cite{LZ_TechnicalDesignReview_ref}, 
-
-\par
-The performance requirements for the OD are listed in Table \ref{tab:veto_requirements}
+a subset of which is in Table \ref{tab:veto_requirements}.
 
 \begin{table}[!htbp]
     \centering
@@ -248,7 +246,7 @@ In Chapter \ref{chap:analysis_of_the_od}, the requirements are tested in data.
             %yticklabels=\empty,
             yticklabel pos=right,
             minor y tick num=4,
-            grid=major]
+            grid=major,]
             \addplot+[green, smooth, mark=none]
                     table [x=Time,y=Efficiency]
                     {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_6mev_threshold_0kev_smooth_line.dat};

@@ -6,7 +6,7 @@ a subset of which is in Table \ref{tab:veto_requirements}.
 
 \begin{table}[!htbp]
     \centering
-    \begin{tabular}{p{0.2\textwidth}p{0.7\textwidth}} %{ c | c {\textwidth} } 
+    \begin{tabular}{p{0.3\textwidth}p{0.6\textwidth}} %{ c | c {\textwidth} } 
     \hline
     {Requirement Number} & {Description} \\ \hline
     R-160001             & Detection efficiency of 95\% for a 1 MeV neutron that scatters once in the xenon \\
@@ -131,7 +131,7 @@ In Chapter \ref{chap:analysis_of_the_od}, the requirements are tested in data.
             \addplot+[green, mark=none]
                     table [x=Time,y=Efficiency]
                     {Data/Neutron_Efficiency/Simulation/od_efficiency_sally_0kev.dat};
-            \addplot[green, only marks, 
+            \addplot[green, only marks,  mark size=1pt,
                      error bar legend,
                      error bars/.cd,
                      x dir=both, x explicit, error bar style={color=black}]
@@ -141,7 +141,7 @@ In Chapter \ref{chap:analysis_of_the_od}, the requirements are tested in data.
             \addplot+[blue, mark=none]
                     table [x=Time,y=Efficiency]
                     {Data/Neutron_Efficiency/Simulation/od_efficiency_sally_100kev.dat};
-            \addplot[blue, only marks, 
+            \addplot[blue, only marks,  mark size=1pt,
                      error bar legend,
                      error bars/.cd,
                      x dir=both, x explicit, error bar style={color=black}]
@@ -151,7 +151,7 @@ In Chapter \ref{chap:analysis_of_the_od}, the requirements are tested in data.
             \addplot+[red, mark=none]
                     table [x=Time,y=Efficiency]
                     {Data/Neutron_Efficiency/Simulation/od_efficiency_sally_200kev.dat};
-            \addplot[red, only marks, 
+            \addplot[red, only marks,  mark size=1pt,
                      error bar legend,
                      error bars/.cd,
                      x dir=both, x explicit, error bar style={color=black}]
@@ -170,7 +170,7 @@ In Chapter \ref{chap:analysis_of_the_od}, the requirements are tested in data.
             \addplot+[green, smooth, mark=none]
                     table [x=Time,y=Efficiency]
                     {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_100kev_threshold_0kev_smooth_line.dat};
-            \addplot[green, only marks, 
+            \addplot[green, only marks, mark size=1pt,
                      error bar legend,
                      error bars/.cd,
                      x dir=both, x explicit, error bar style={color=black}]
@@ -180,7 +180,7 @@ In Chapter \ref{chap:analysis_of_the_od}, the requirements are tested in data.
             \addplot+[blue, smooth, mark=none]
                     table [x=Time,y=Efficiency]
                     {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_100kev_threshold_100kev_smooth_line.dat};
-            \addplot[blue, only marks, 
+            \addplot[blue, only marks, mark size=1pt,
                      error bar legend,
                      error bars/.cd,
                      x dir=both, x explicit, error bar style={color=black}]
@@ -190,7 +190,7 @@ In Chapter \ref{chap:analysis_of_the_od}, the requirements are tested in data.
             \addplot+[red, smooth, mark=none]
                     table [x=Time,y=Efficiency]
                     {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_100kev_threshold_200kev_smooth_line.dat};
-            \addplot[red, only marks, 
+            \addplot[red, only marks, mark size=1pt,
                      error bar legend,
                      error bars/.cd,
                      x dir=both, x explicit, error bar style={color=black}]
@@ -210,7 +210,7 @@ In Chapter \ref{chap:analysis_of_the_od}, the requirements are tested in data.
             \addplot+[green, smooth, mark=none]
                     table [x=Time,y=Efficiency]
                     {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_1mev_threshold_0kev_smooth_line.dat};
-            \addplot[green, only marks, 
+            \addplot[green, only marks, mark size=1pt,
                      error bar legend,
                      error bars/.cd,
                      x dir=both, x explicit, error bar style={color=black}]
@@ -220,7 +220,7 @@ In Chapter \ref{chap:analysis_of_the_od}, the requirements are tested in data.
             \addplot+[blue, smooth, mark=none]
                     table [x=Time,y=Efficiency]
                     {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_1mev_threshold_100kev_smooth_line.dat};
-            \addplot[blue, only marks, 
+            \addplot[blue, only marks,  mark size=1pt,
                      error bar legend,
                      error bars/.cd,
                      x dir=both, x explicit, error bar style={color=black}]
@@ -230,7 +230,7 @@ In Chapter \ref{chap:analysis_of_the_od}, the requirements are tested in data.
             \addplot+[red, smooth, mark=none]
                     table [x=Time,y=Efficiency]
                     {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_1mev_threshold_200kev_smooth_line.dat};
-            \addplot[red, only marks, 
+            \addplot[red, only marks, mark size=1pt,
                      error bar legend,
                      error bars/.cd,
                      x dir=both, x explicit, error bar style={color=black}]
@@ -250,7 +250,7 @@ In Chapter \ref{chap:analysis_of_the_od}, the requirements are tested in data.
             \addplot+[green, smooth, mark=none]
                     table [x=Time,y=Efficiency]
                     {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_6mev_threshold_0kev_smooth_line.dat};
-            \addplot[green, only marks, 
+            \addplot[green, only marks, mark size=1pt,
                      error bar legend,
                      error bars/.cd,
                      x dir=both, x explicit, error bar style={color=black}]
@@ -260,7 +260,7 @@ In Chapter \ref{chap:analysis_of_the_od}, the requirements are tested in data.
             \addplot+[blue, smooth, mark=none]
                     table [x=Time,y=Efficiency]
                     {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_6mev_threshold_100kev_smooth_line.dat};
-            \addplot[blue, only marks, 
+            \addplot[blue, only marks, mark size=1pt,
                      error bar legend,
                      error bars/.cd,
                      x dir=both, x explicit, error bar style={color=black}]
@@ -270,7 +270,7 @@ In Chapter \ref{chap:analysis_of_the_od}, the requirements are tested in data.
             \addplot+[red, smooth, mark=none]
                     table [x=Time,y=Efficiency]
                     {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_6mev_threshold_200kev_smooth_line.dat};
-            \addplot[red, only marks, 
+            \addplot[red, only marks, mark size=1pt,
                      error bar legend,
                      error bars/.cd,
                      x dir=both, x explicit, error bar style={color=black}]
@@ -321,7 +321,7 @@ The energy deposits that are observed come from $\gamma$'s released as a result 
             \addplot+[green, mark=none]
                     table [x=Time,y=Efficiency]
                     {Data/Neutron_Efficiency/Simulation/edep_amli_neutron_eff_amli_edeps_threshold_0kev_error_bars.dat};
-            \addplot[green, only marks, 
+            \addplot[green, only marks, mark size=1pt,
                      error bar legend,
                      error bars/.cd,
                      x dir=both, x explicit, error bar style={color=black}]
@@ -331,7 +331,7 @@ The energy deposits that are observed come from $\gamma$'s released as a result 
             \addplot+[blue, mark=none]
                     table [x=Time,y=Efficiency]
                     {Data/Neutron_Efficiency/Simulation/edep_amli_neutron_eff_amli_edeps_threshold_100kev_error_bars.dat};
-            \addplot[blue, only marks, 
+            \addplot[blue, only marks, mark size=1pt,
                      error bar legend,
                      error bars/.cd,
                      x dir=both, x explicit, error bar style={color=black}]
@@ -341,7 +341,7 @@ The energy deposits that are observed come from $\gamma$'s released as a result 
             \addplot+[red, mark=none]
                     table [x=Time,y=Efficiency]
                     {Data/Neutron_Efficiency/Simulation/edep_amli_neutron_eff_amli_edeps_threshold_200kev_error_bars.dat};
-            \addplot[red, only marks, 
+            \addplot[red, only marks, mark size=1pt,
                      error bar legend,
                      error bars/.cd,
                      x dir=both, x explicit, error bar style={color=black}]
@@ -359,7 +359,7 @@ The energy deposits that are observed come from $\gamma$'s released as a result 
             \addplot+[green, mark=none]
                     table [x=Time,y=Efficiency]
                     {Data/Neutron_Efficiency/Simulation/amli_neutron_eff_0kev_error_bars.dat};
-            \addplot[green, only marks, 
+            \addplot[green, only marks, mark size=1pt,
                      error bar legend,
                      error bars/.cd,
                      x dir=both, x explicit, error bar style={color=black}]
@@ -368,7 +368,7 @@ The energy deposits that are observed come from $\gamma$'s released as a result 
             \addplot+[blue, mark=none]
                     table [x=Time,y=Efficiency]
                     {Data/Neutron_Efficiency/Simulation/amli_neutron_eff_50kev_error_bars.dat};
-            \addplot[blue, only marks, 
+            \addplot[blue, only marks, mark size=1pt,
                      error bar legend,
                      error bars/.cd,
                      x dir=both, x explicit, error bar style={color=black}]
@@ -377,7 +377,7 @@ The energy deposits that are observed come from $\gamma$'s released as a result 
             \addplot+[red, mark=none]
                     table [x=Time,y=Efficiency]
                     {Data/Neutron_Efficiency/Simulation/amli_neutron_eff_100kev_error_bars.dat};
-            \addplot[red, only marks, 
+            \addplot[red, only marks, mark size=1pt,
                      error bar legend,
                      error bars/.cd,
                      x dir=both, x explicit, error bar style={color=black}]

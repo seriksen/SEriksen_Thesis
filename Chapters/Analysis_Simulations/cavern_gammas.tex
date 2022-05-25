@@ -1,7 +1,9 @@
 \section{Cavern $\gamma$ Generator}
+\label{sec:cavern_gamma_generator}
 
 \par
 Although the LZ detector has been constructed underground to limit cosmic radiation, it does come with a drawback of being in a mine with a non-negligibly radioactive rock and the shotcreat and gravel within the David Cavern.
+LZ is not unique in this, it is a problem highlighted in a number of other underground experiments \cite{cavern_gamma_annual_modulation_CoGeNT_ref, cavern_gammas_in_Soudan_mine_ref}, with an annual modulation mimicking dark matter potentially seen in \cite{cavern_gamma_annual_modulation_CoGeNT_ref}.
 The rate of this has been measured and can be attributed to the shotcreat and gravel \cite{LZ_Gamma_Ray_Background_ref}. 
 One of the most significant sources of background come not from any internal component but rather from $^{238}U$, $^{232}Th$ and $^{40}K$ decays from the cavern in which the LZ detector exists \cite{LZ_Gamma_Ray_Background_ref}.
 However, this is a computationally intensive process to simulation $\gamma$'s where the majority will not reach the actual detector.
@@ -35,10 +37,14 @@ This motivated the creation of a new generator.
 The parameters of the new generator are shown in Table \ref{tab:cavern_gamma_generator_parameters} and a comparison of the energy distribution of the old and new generators is shown in Figure \ref{fig:cavern_gamma_energy_distribution}.
 Although it can be seen that the previous generators had a maximum $\gamma$ energy of 10MeV, it also highlights a significant change between GEANT4.9.5 and GEANT4.10.3.p02.
 That is, an increased rate above 9MeV.
-These $\gamma$'s are predominately from $O + \alpha \to Ne + \gamma$.
-These are of particular concern as they have the potential to produce large signals in the OD which would trigger a veto.
+These $\gamma$'s are predominately from ($\alpha$,$\gamma$) reactions such as $O + \alpha \to Ne + \gamma$.
+These are of particular concern as they have the potential to mimic dark matter.
+Conversely, they may produce large signals in the OD which would trigger a veto, reducing the detector livetime.
+Since this version of GEANT4, there have been new studies of the ($\alpha$,$\gamma$) cross-section in other underground laboratories, such as in \cite{cavern_gammas_in_Soudan_mine_ref}.
+Generally, very little attention has been given to ($\alpha$,$\gamma$) rates, and so it is possible that the observed rate may differ significantly from that shown here as although in Figure \ref{fig:cavern_gamma_energy_distribution} the largest difference is at higher energy $\gamma$'s, as was shown in the Sudan Mine \cite{cavern_gammas_in_Soudan_mine_ref}, the rate of sub-6MeV $\gamma$'s may also change significantly. 
+
 \par
-The livetime (l) for a simulation can be determined then by $l = \frac{\text{n.} \gamma_{\text{simulated}}}{\text{n.} \gamma_{\text{generator}}} * \text{livetime}_{\text{generator}}$
+The livetime ($l$) for a simulation can be determined then by $l_{\text{simulation}} = \frac{\text{n.} \gamma_{\text{simulated}}}{\text{n.} \gamma_{\text{generator}}} * \text{l}_{\text{generator}}$
 In short, this means that every $\gamma$ in the generator represents roughly 130000 decays from the rock, and so is a significant computational saving.
 
 
@@ -105,7 +111,7 @@ In short, this means that every $\gamma$ in the generator represents roughly 130
 
 
 \par
-Additionally it was noticed during the comparison that in the previous generator the distribution was not a cylinder but rather has mistakenly been created as a table.
+Additionally it was noticed during the comparison that in the previous generator the distribution was not a cylinder but rather had mistakenly been created as a table.
 The result of this is that the $\gamma$ distribution is biased to the top and bottom of the detectors more so than it would otherwise be.
 This is highlighted in Figures \ref{fig:cavern_gamma_energy_distribution} and \ref{fig:cavern_gamma_position_distribution}.
 

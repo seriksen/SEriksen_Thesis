@@ -80,39 +80,6 @@ The expected energy spectrum for neutrons is shown in Figure \ref{fig:simulation
 \end{enumerate}
 \end{tcolorbox}
 
-\subsection{Simulated Calibration Efficiency}
-\par
-Although the efficiency shown in energy deposit simulations shows that the requirement will be met, it does not necessarily reflect real-world performance.
-Particularly given the propagation effects raised in Section XXX.
-Additionally, during the calibration data taking it will not be possible to have such ideal circumstances to test the neutron tagging performance.
-Therefore, in order to quantify this, two neutron sources were simulated, AmLi and DD, the deployment methods of each are described in Section XXX.
-
-\par
-AmLi is an ($\alpha$,n) source, producing neutrons predominantly under 0.5MeV, the full spectrum is shown in Figure \ref{fig:amli_neutron_energy_spectrum}.
-
-\begin{figure}[!htbp]
-    \centering
-    \begin{tikzpicture}
-        \begin{axis}[
-            xlabel=Energy (MeV),
-            ylabel=Probability,
-            width=15cm,
-            height=6cm,
-            xmin=0,
-            ymin=0,]
-            \addplot[red, const plot]
-                    table [x=Energy,y=Probability]
-                    {Data/Neutrons/amli_neutron_spectrum.dat};
-        \end{axis}
-    \end{tikzpicture}
-    \caption{AmLi neutron energy. Data from \cite{amli_neutron_energy_ref} }
-    \label{fig:amli_neutron_energy_spectrum}
-\end{figure}
-
-
-\par
-In Chapter \ref{chap:analysis_of_the_od}, the requirements are tested in data.
-
 
 \begin{figure}[!htbp]%
 \centering
@@ -290,7 +257,61 @@ In fact only XXX \% of the neutrons get captured in the GdLS (from the 1MeV neut
 The energy deposits that are observed come from $\gamma$'s released as a result of captures elsewhere.
 
 
-\begin{table}[]
+
+\par
+Something about where neutrons spend there time...
+
+\subsection{Simulated Calibration Efficiency}
+\par
+Although the efficiency shown in energy deposit simulations shows that the requirement will be met, it will need to be confirmed during the calibration phase.
+Therefore it is important to perform the same analysis with a simulated calibration source, and any differences be understood.
+
+\par
+The source chosen for this was AmLi.
+AmLi is an ($\alpha$,n) source, producing neutrons predominantly under 0.5MeV with the full spectrum is shown in Figure \ref{fig:amli_neutron_energy_spectrum}.
+This source was chosen over other neutron calibration sources (such as DD and ${}^{252}Cf$ as it will be used to tune the TPC interaction finding algorithms.
+It also has the lowest computationally intensive of the available sources, allow for higher statistics in the simulations.
+
+\begin{figure}[!htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel=Energy (MeV),
+            ylabel=Probability,
+            width=15cm,
+            height=6cm,
+            xmin=0,
+            ymin=0,]
+            \addplot[red, const plot]
+                    table [x=Energy,y=Probability]
+                    {Data/Neutrons/amli_neutron_spectrum.dat};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{AmLi neutron energy. Data from \cite{amli_neutron_energy_ref} }
+    \label{fig:amli_neutron_energy_spectrum}
+\end{figure}
+
+\par
+Three source locations were chosen, all in CSD-1;
+\begin{enumerate}
+    \item \textbf{0mm:} In line with the cathode
+    \item \textbf{700mm:} In the centre of the TPC
+    \item \textbf{1400mm:} At the top of the TPC
+\end{enumerate}
+A graphical depiction is shown in Figure \ref{fig:CSD1_Geometry}. 
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\textwidth]{Figures/Geometry/csd1_geometry_black_and_white.png}
+\caption{LZ geometry slice as implemented in GEANT4 from the water tank in. CSD-1 is shown along with the relevant Z-positions for calibration runs.}
+\label{fig:CSD1_Geometry}
+\end{figure}
+
+
+\par
+The result of the simulations are shown in Figure XXX and summarised in Table \ref{tab:amli_neutron_simulations_veto_efficiency}.
+
+\begin{table}[!htbp]
     \centering
     \begin{tabular}{c|c|c|c|c|c|c}
          \multirow{2}{*}{Neutron Source} & \multicolumn{5}{c|}{Number}                  & \multirow{2}{*}{Veto Eff. (\%)}  \\ 
@@ -299,8 +320,14 @@ The energy deposits that are observed come from $\gamma$'s released as a result 
         full propagation & X          & X          &           &         &              & 
     \end{tabular}
     \caption{Number of events passing various cuts from AmLi simulation in CSD1.}
-    \label{tab:neutron_simulation_table_of_cuts}
+    \label{tab:amli_neutron_simulations_veto_efficiency}
 \end{table}
+
+
+
+
+
+
 
 
 \begin{figure}[!htbp]%
@@ -389,3 +416,13 @@ The energy deposits that are observed come from $\gamma$'s released as a result 
     \caption{Simulated AmLi neutron tagging efficiency. \textbf{Left:} energy deposits \textbf{Right:} Complete propagation and event reconstruction}
     \label{fig:simulated_amli_neutron_efficiency.}
 \end{figure}
+
+\par
+Highlighting the difference in
+Additionally, during the calibration data taking it will not be possible to have such ideal circumstances to test the neutron tagging performance.
+Therefore, in order to quantify this, two neutron sources were simulated, AmLi and DD, the deployment methods of each are described in Section XXX.
+
+
+Particularly given the propagation effects raised in Section XXX.
+\par
+In Chapter \ref{chap:analysis_of_the_od}, the requirements are tested in data.

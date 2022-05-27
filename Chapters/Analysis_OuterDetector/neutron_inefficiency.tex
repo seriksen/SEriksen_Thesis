@@ -8,6 +8,16 @@ In this section, the neutron inefficiency is re-calculated with a more accurate 
 The calculation is taken a step further here with the detector LCE taken into consideration, and finally applying to data. 
 
 
+\begin{enumerate}
+    \item \textbf{SS}: Single Scatter cut as determined by the interaction finder, shown to be 98.5\% efficient.
+    \item \textbf{Livetime}: 
+    \item \textbf{S2Cuts}:
+    \item \textbf{S1Cuts}:
+    \item \textbf{FID}: Fiducial Volume
+    \item \textbf{ROI}: Select events that have nuclear recoiled by selecting events within 1-$\sigma$ of the NR band.
+\end{enumerate}
+
+
 
 \begin{tcolorbox}[colback=red!5!white, colframe=red!50!black, title=Key Plots]
 \begin{enumerate}
@@ -32,8 +42,8 @@ Therefore this is a valid quantity to measure.
 \begin{table}[!htbp]
     \centering
     \begin{tabular}{c|c|c|c|c}
-        \multirow{2}{*}{z position (mm)} & \multirow{2}{*}{Run IDs)} & \multicolumn3{c}{Number}  \\ 
-        z position (mm)                  & Run IDs                   & Events    & SS & passing all cuts     \\ \hline
+        \multirow{2}{*}{z position (mm)} & \multirow{2}{*}{Run IDs}  & \multicolumn3{c}{Number}  \\ 
+                                         &                           & Events    & SS & passing all cuts     \\ \hline
         0                                & 8350-8369                 & 5,504,700 & X  & X               \\
         700                              & 8304-8317                 & 3,688,200 & X  & X               \\ 
         1400                             & 8319-8348                 & 7,041,500 & X  & X                

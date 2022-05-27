@@ -1,8 +1,9 @@
 \section{OD requirements}
 
 \par
-There are a number of performance requirements which the OD has been designed to meet, all of which can be found in \cite{LZ_TechnicalDesignReview_ref}, 
-a subset of which is in Table \ref{tab:veto_requirements}.
+As previously stated, the primary purpose of the OD is to act as an active veto for neutrons.
+Practically, this means that there are a number of performance requirements which the OD has to meet, all of which can be found in \cite{LZ_TechnicalDesignReview_ref}.
+A subset, which are address in this Thesis are presented in Table \ref{tab:veto_requirements}.
 
 \begin{table}[!htbp]
     \centering
@@ -12,9 +13,27 @@ a subset of which is in Table \ref{tab:veto_requirements}.
     R-160001             & Detection efficiency of 95\% for a 1 MeV neutron that scatters once in the xenon \\
     R-160005             & Must not veto more than 5\% of the WIMP search live-time
     \end{tabular}
-    \caption{Selection of Veto Requirements. Adapted from Table 12.2.6 from \cite{LZ_TechnicalDesignReview_ref}}
+    \caption{Selection of the OD veto performance requirements. Adapted from Table 12.2.6 from \cite{LZ_TechnicalDesignReview_ref}}
     \label{tab:veto_requirements}
 \end{table} 
+
+\par
+The veto method adopted for SR1 is to act as a 'dumb' veto, as no attempt will be made to determine that cause of light seen in the OD.
+This means that an event will be vetoed if the following two conditions are met;
+
+\begin{enumerate}
+    \item A pulse is seen with an energy above the veto threshold.
+    \item The pulse is within the veto window.
+\end{enumerate}
+
+The two requirements in Table \ref{tab:veto_requirements} are clearly intertwined.
+The veto window and threshold are primarily determined by the background rate in the OD in order to reduce the impact on live-time.
+This does however need to be balanced to maintain a suitable veto efficiency.
+
+\subsection{OD Backgrounds}
+\par
+
+
 
 \par
 Neutron sources that can enter the TPC can originate from a ($\alpha$,n) reactions.
@@ -51,7 +70,9 @@ However multiple neutrons are released, often with higher energies and they are 
 
 \subsection{Simulated Efficiency}
 \par
-The neutron efficiency has been calculated before, however given that OD geometry has changed significantly since then it has been re-done and additional detector efficiencies have been taken into account.
+The neutron efficiency had been calculated in \cite{sallyshaw_thesis_ref}, however that was before construction has begun and so may not reflect the current status.
+It as therefore redone in a similar fashion.
+the OD geometry has changed significantly since then it has been re-done and additional detector efficiencies have been taken into account.
 Previously, energy deposit simulations for background neutrons were used. 
 From this, single scatters were isolated by XXX.
 The skin cuts were defined as; XXX
@@ -77,6 +98,7 @@ The expected energy spectrum for neutrons is shown in Figure \ref{fig:simulation
     \item fraction of gammas that get captured in the OD after SS (AmLi sims)
     \item fraction of neutrons that get captured in each volume
     \item time spent in volume vs OD capture time (for all and for Gd-only) to show what causes each component
+    \item Energy deposited in OD vs veto time
 \end{enumerate}
 \end{tcolorbox}
 
@@ -314,7 +336,7 @@ The result of the simulations are shown in Figure XXX and summarised in Table \r
 \begin{table}[!htbp]
     \centering
     \begin{tabular}{c|c|c|c|c|c|c}
-         \multirow{2}{*}{Neutron Source} & \multicolumn{5}{c|}{Number}                  & \multirow{2}{*}{Veto Eff. (\%)}  \\ 
+         \multirow{2}{*}{Neutron Source} & \multicolumn{5}{c|}{Number passing cut}      & \multirow{2}{*}{Veto Eff. (\%)}  \\ 
                          & Simulated  & Usable     & SS        & FID     & Veto         &                                  \\ \hline
         energy dep       & 19,310,000 & 19,280,766 & 1,474,033 & 325,080 & 323,319      & 99.4                             \\
         full propagation & X          & X          &           &         &              & 

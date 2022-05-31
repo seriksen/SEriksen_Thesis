@@ -1,7 +1,7 @@
 \section{Background Model}
 \par
 The backgrounds were only considered up to 240keV as that is the highest dataset that NEST has been able to calibrate to, and so was limited to this to avoid having to extrapolate.
-This higher energy backgrounds are the same as those used for the LZ projected sensitivity paper \cite{LZ_projected_sensitivity_paper_ref} but with the maximum energy probed being increased (from 50 to 240) which increased the S1 phd from 80 to 350.
+This higher energy backgrounds are the same as those used for the LZ projected sensitivity paper \cite{LZ_projected_sensitivity_paper_ref} but with the maximum energy probed being increased (from 50 to 240) which increased the S1 phd from 80 to 500.
 
 \par
 For this work, only the Detector components were required to be re-analyised as the spectras were not previous probed to the higher energies, however, all of the other sources were.
@@ -73,6 +73,11 @@ The resultant normalised-to-rate energy spectra for each background considered a
 \end{figure}
 
 \par
+Of particular note is the lack of inclusion of $\gamma$-X events.
+In order to account for them, a more advanced PLR is required which takes into account interaction position \cite{billyboxer_thesis_ref, LUX_RUN4_EFT_2021}.
+
+
+\par
 Additionally, up to this point it is reasonable to assume that the background is flat as this is below the energy of Xe decays and shells.
 
 
@@ -81,3 +86,4 @@ Additionally, up to this point it is reasonable to assume that the background is
     \sigma_{SI} = C \times \frac{N_{ob}}{N_{exo}} \times \frac{1}{\frac{1}{\nu_{\chi,N}} \times \pi \times \mu_{Higgs}}
 \end{equation}
 Here $C$ is the conversion from $cm^{2}$ to $GeV$, $\mu_{Higgs}$ is the vaccumn expectation, $\nu_{\chi,N}$ is the reduced mass.
+

@@ -468,7 +468,7 @@ This however adds an additional
 \begin{tikzpicture}
 \centering
   \begin{groupplot}[%view={0}{90},
-    group style = {group size = 1 by 2}]
+    group style = {group size = 2 by 1}]
     \nextgroupplot[
     xmin=300,
     xmax=600,
@@ -480,13 +480,16 @@ This however adds an additional
     xmin=300,
     xmax=600,
     xlabel={Wavelength (nm)},
-    ylabel={QE}]
+    ylabel={QE},
+    yticklabel pos=right,]
     \addplot[ybar interval, red, const plot]
             table [x=Wavelength,y=QE]
             {Data/GdLS_Physics/Light_Collection/od_pmt_qe.dat};
   \end{groupplot}
 \end{tikzpicture}
-\caption{Primary OD detection properties. Top: Light 
+\caption{Primary OD detection properties. 
+\textbf{Left:} Light 
+\textbf{Right:} PMT QE
 }
 \label{fig:od_detection_properties}
 \end{figure}
@@ -500,3 +503,6 @@ This however adds an additional
 \caption{Light Collection Efficiency for 420nm photons originating in GdLS, producing a mean LCE of 7.4\%.}
 \label{fig:od_lce}
 \end{figure}
+
+\par
+With the general consensus being that neutrons predominately collide effectively on H \cite{neutron_thermalisation_and_capture_ref}

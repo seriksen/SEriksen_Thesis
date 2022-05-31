@@ -61,10 +61,18 @@ In addition to the assay, a separate cavern gamma study was performed along with
              \addplot[dashed, mark=none, red] coordinates {(0,100) (60,100)};
              \addplot[dashed, mark=none, blue] coordinates {(17.6,0) (17.6,350)};
              \addplot[dashed, mark=none, green] coordinates {(37.5,0) (37.5,350)};
-             \legend{,SR1 Data,$<$100Hz Requirement,100 keV (17.6 phe),200 keV (37.5 phe)}                
+             
+             \addplot[orange, only marks, 
+                      error bar legend,
+                      error bars/.cd,
+                      y dir=both, y explicit, error bar style={color=orange}]
+                      table [x=Threshold,y=Rate, y error=YError]
+                      {Data/OD_Backgrounds/od_sr1_rate_expected.dat};
+             
+             \legend{,SR1 Data,$<$100Hz Requirement,100 keV (17.6 phe),200 keV (37.5 phe),Expected}                
         \end{axis}
     \end{tikzpicture}
-    \caption{Rate of OD backgrounds during SR1 using the Random Trigger. The noise cut has been applied. 100Hz Requirement is for a 500$\mu$s veto window as proposed in \cite{LZ_TechnicalDesignReview_ref}}
+    \caption{Rate of OD backgrounds during SR1 using the Random Trigger. The noise cut has been applied. 100Hz Requirement is for a 500$\mu$s veto window as proposed in \cite{LZ_TechnicalDesignReview_ref}. Expected values are from Table \ref{tab:od_expected_rates}}
     \label{fig:od_sr1_rate_vs_threshold}
 \end{figure}
 
@@ -88,28 +96,6 @@ This also allowed for the veto window to be increased from 400$\mu$s to 500$\mu$
 \end{enumerate}
 \end{tcolorbox}
 
-
-\begin{table}[!htbp]
-    \centering
-    \begin{tabular}{c|c|c}
-        \multirow{2}{*}{Isotope or Subchain}  &  \multicolumn{2}{c}{GdLS rates (mBq/kg)}      \\ 
-                             &  Initial Purification & Improved Purification \\ \hline
-        ${}^{238}U_{e}$      &  $< 1.04$             & $< 0.017$             \\ 
-        ${}^{238}U_{m}$      &  $0.092\pm0.02$       & $0.010\pm0.004$       \\
-        ${}^{235}U_{e}$      &  $0.011$              & $< 0.018$             \\
-        ${}^{235}U_{l}$      &  $0.10\pm0.04$        & $< 0.012$             \\
-        ${}^{232}Th_{e}$     &  $< 0.027$            & $< 0.0036$            \\
-        ${}^{232}Th_{l}$     &  $< 0.020$            & $< 0.0030$            \\
-        ${}^{40}K$           &  $< 0.22$             & $< 0.0092$            \\
-        ${}^{138}La$         &  $< 0.0055$           & $< 0.0017$            \\
-        ${}^{176}Lu$         &  $0.30\pm0.07$        & $0.0081\pm0.0018$     \\
-        ${}^{152}{Gd}$       &  $1.61\pm0.08$        & $1.61\pm0.08$         \\
-        ${}^{152}{Sm}$       &  $1.02\pm0.05$        & $1.02\pm0.05$         \\
-        ${}^{14}{C14}$       &  $4.77\pm0.098$       & $4.77\pm0.098$ 
-    \end{tabular}
-    \caption{Activities of GdLS components during LS Screener testing and those projected from an improved purification technique. Values from Table 4.9 and 6.11 of \cite{scotthaselschwardt_thesis_ref}}
-    \label{tab:gdls_assay_rates}
-\end{table}
 
 %\begin{table}[!htbp]
 %    \centering
@@ -152,6 +138,7 @@ For cavern-$\gamma$ simulations, the 2.6MeV was extracted using truth informatio
 Though the exact rate of GdLS is not known, it is possible to constrain some of the components observed.
 Notably, decays within the U and Th decay chains where there the second decay has a short enough half-life such that it is within the LZ event window.
 This leaves 3-possible decays, summarised in Table \ref{tab:od_constrainable_decays_in_data}.
+However, in reality only  ${}^{214}Bi \to {}^{214}Po$ and ${}^{219}Rn \to {}^{215}Po$ can be searched for as the interactions from ${}^{212}Bi \to {}^{212}Po$ are close enough together that they will be merged into one pulse.
 
 \begin{table}[!htbp]
     \centering
@@ -167,7 +154,9 @@ This leaves 3-possible decays, summarised in Table \ref{tab:od_constrainable_dec
 \end{table}
 
 \par
-In data these can be searched for by requiring that two pulses be close in time and close in position. 
+The decay pairs can be searched for by looking for pulses which are reconstructed to be close to each other.
+
+These can be searched for by requiring that two pulses be close in time and close in position. 
 The time requirement is dictated by the half-life of the second decay.
 The position requirement is to reduce the impact of coincident interactions and decays in other areas of the OD.
 As the second decay is an $\alpha$ it does not have significant penetrating power so the interaction will be close to where the initial decay was.

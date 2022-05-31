@@ -1,21 +1,24 @@
 \section{Particle Discrimination}
 \par
-Although the use of a active but 'dumb' veto works, and is suitable for SR1, it could be improved by including some form of interaction identification in the OD.
-For example, a Bi-Po interaction, though two pulses may be produced above the energy threshold, given their proximity to each other (in both position and time) they can be identified with relative ease and therefore could be un-vetoed; increasing the number of candidate events as well as the live-time.
+As previously mentioned, the OD has been designed to act as an "active but dumb" veto.
+It could be improved by including some form of interaction identification in the OD.
+For example, the Bi-Po interactions in Section XXX can be identified from two interactions in close proximity to each other with relative ease.
+These events could then be un-vetoed; increasing the number of candidate events as well as the live-time.
 
 \par
-There may also be the possibility of discriminating between high energy backgrounds such as neutron captures and cavern gammas.
+There is also the possibility of discriminating between high energy backgrounds such as neutron captures and cavern-$\gamma$'s.
 This would actually be a discrimination between 1-$\gamma$ vs multiple $\gamma$'s.
-The viability of this discrimination in simulations is explored in this section.
+The viability of this discrimination in simulated datasets is explored in this section.
 
 
+\subsection{Maximum Likelihood Method}
+\par
 \par
 An important point to note is that the ability of any method to discriminate different event types is how the input variables are selected.
 Ideally, each of the input variables would not be correlated with each other.
 This is not the case, particularly as we have limited ourselves to using reduced quantities rather than raw waveforms.
 So rather than doing pulse-shape discrimination, we are looking at some pre-extracted quantities of a given pulse.
 
-\subsection{Maximum Likelihood Method}
 \par
 In shorterned form. 
 For a given event, the likelihood for being of signal type is obtained by multiplying the signal probability densities of all input variables which are assumed to be independent and normalising this by the sum of the signal and background likelihoods.
@@ -31,77 +34,85 @@ where
 \end{equation}
 where $p_{S,(B),k}$ is the signal (background) PDF for the $k^{th}$ input variable $x_k$.
 
+
+\subsection{Variables}
 \par
-In Section XXX the interactions that can occur are explained.
-In SR1, the outer-detector is as a 'dumb' veto - this means that if any pulse in the OD that is within a given time frame of a Single Scatter in the TPC and is larger in pulseArea and PMT multiplicity that a loose value, then the entire event is vetoed.
-As demonstrated during the TDR studies, this approach should be sufficient to achieve in excess a 95\% neutron rejection efficiency \cite{LZ_TechnicalDesignReview_ref}.
+A set of simulations were performed using full-chain propagation; particle propagation and PMT modelling.
+The resultant waveforms were passed to the reconstruction package.
+From the reconstruction, 3 variables were selected to describe a pulse.
+The variables, which are described below, were chosen as they are relatively simple.
+Meaning that there has been limited manipulation of the raw event data.
+Figure XXX shows the variables against one another for a variety of sources.
 
-\par
-This simple approach generally works well, but it does not maximise the OD.
-For example, if it were possible to determine the type of or source of an interaction, then the uncertainty on backgrounds could be reduced.
-Additionally, if an event is above the threshold for vetoing but is demonstrating that it is not from a WIMP-like particle, then the event would not have to be vetoed.
-Together any PLR study, described in Section XXX, would be notably improved.
-
-\subsection{How different sources look}
-\par
-A set of simulations were performed using the full-chain simulation chain described in Section XXX.
-The output of this was analysed with LZap to produce a set of RQs.
-The versions of reach software are shown in Table XXX.
-
-\begin{table}[!htbp]
-    \centering
-    \begin{tabular}{c|c}
-        Software & Version \\ \hline
-        BACCARAT & XXX\\
-        DER & XXX\\
-        LZap & XXX
-    \end{tabular}
-    \caption{TODO...}
-    \label{tab:od_simulation_versions}
-\end{table}
-
-
-\par
-List potential RQs and where they come from (if they aren't been discussed before in the thesis)...
-Then have a section on each of these variables to explain what it actually is.
-Will have to go into information about pulse identification here then.
-
-\paragraph{pulseArea}
-The pulse area is one of the most crucial variables used.
-The number of photons detected is directly proportional to the energy of the interaction that occured.
-Something about pulse selection...?
 
 \paragraph{coincidence}
-More commonly referred to as pulse multiplicity, the coincidence value of a pulse is the number of PMTs which produced a signal that contributed to the pulse.
-Generally this properly scales with the pulse Area, as the more photons produced by an interaction, the more will be detected, and so the more likely is it that any given PMT will see this light.
-Given this, it can be questioned why this variable is used in addition to the pulse area. 
-There are two reasons;
-The first is that the variable must be used anyway for pulse selection in order to exclude after-pulsing.
-The second is that it is a very robust and simple variable, and therefore ideal for early data as it is an easily understood quantity.
+Sometimes referred to as pulse multiplicity, the coincidence value of a pulse is the number of PMTs which produced a signal that contributed to the pulse.
+As the more photons produced, the more will be detected, and so the more likely is it that any given PMT will see this light.
+It is a very robust and simple variable, and therefore ideal to start with.
+A neutron capture will likely have a higher coincidence as the multiple $\gamma$'s can scatter in different areas of the OD.
 
-\paragraph{Area Fraction Time over pulse area}
-This variable is the most complicated of the selection.
-The area fraction time, is the time (from the pulse start) to reach 75\% of the pulse integral.
-It is essentially a measure of a limited pulse-width.
-It has useful characteristics that make discrimination possible such as those shown in Fig XXX.
+
+\paragraph{pulse area}
+The number of photons detected is directly proportional to the energy of the interaction that occurred.
+Combined with the coincidence, it has the potential to isolate unwanted pulses such as those caused by PMT after-pulsing.
+
+
+\paragraph{$\frac{\text{width}}{\text{pulse area}}$}
+This variable is the most complicated of the selection, which gives a pulse-shape.
+The width of a pulse is the time.
+Due to pulse finding limitations, the full reconstructed pulse width was not used.
+Instead, the pulse start time was defined as; the time where 5\% of the pulse integral was reached, and the end time as 75\% of the pulse integral.
+
 However, the quantity can be improved by combining it with a second variable; the pulse area.
 This has the advantage of removing the pulse area as an influencing parameter in the value and making the variable more stable.
 In the simplest case, the quantity gives is how fast or slow the pulse decreases after the peak.
 An example of different interactions with this variable can be found in Figure XXX.
 
-\subsection{Signal}
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Figures/Placeholder.png}
+    \caption{Variables used for particle discrimination}
+    \label{fig:discrimination_variables}
+\end{figure}
 
-\subsection{Background}
+
+\subsection{Performance}
+\par
+For this study, the signal was selected to be neutron captures and the background as cavern-$\gamma$'s
+The neutron captures were simulated by starting thermalised neutrons in the GdLS.
+This meant that only the energy deposits in the OD as a result post-capture were detectable.
+The 
+\par
+The likelihood was performed against a set of simulations which contained a mixture of both neutron captures and cavern-$\gamma$'s in quantities expected \cite{LZ_assay_ref}.
+The neutrons were, as above, thermalised so the only interaction of note are from the result of neutron captures.
 
 
-\begin{tcolorbox}[colback=red!5!white, colframe=red!50!black, title=Key Plots]
-\begin{enumerate}
-    \item Simulation variables (x3)
-    \item ROC Curve with multiple variables
-\end{enumerate}
-\end{tcolorbox}
+
+
+
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Figures/Placeholder.png}
+    \caption{ROC curve of}
+    \label{fig:discrimination_performance}
+\end{figure}
 
 \par
 Although it is possible to use this method with data, it has been impractical given the differences mentioned earlier in this Chapter.
 In order to perform this, a data-driven approach is required and simulation corrections implemented.
 Both of which have not been performed due to time constraints.
+
+
+
+
+
+\par
+Interaction discrimination based upon a likelihood has the potential to improve the OD effectiveness; reducing the dead-time as as result of false vetoes.
+It can also reduce the uncertainties on backgrounds - particularly if combined with detector coincidences on Gd-captures as was done in Section XXX.
+There is scope for additional interesting studies such as seasonal modulation in rates of interactions such as ($\alpha$,$\gamma$) \cite{cavern_gammas_in_Soudan_mine_ref}.
+All of these together can directly improve the sensitivity of LZ to a potential dark matter detection.
+
+\par
+Once data is better understood, it may be possible to implement higher dimensional variables to discriminate interactions.
+Though all of these are subject to an eventual match-up in simulation and data.

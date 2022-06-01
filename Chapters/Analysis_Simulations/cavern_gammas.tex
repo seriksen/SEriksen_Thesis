@@ -66,13 +66,14 @@ In short, this means that every $\gamma$ in the generator represents roughly 130
 \begin{tikzpicture}
 \centering
     \begin{groupplot}[%view={0}{90},
-    group style = {group size = 2 by 1}]
+    group style = {group size = 2 by 1,
+                   horizontal sep=1.0cm}]
     \nextgroupplot[
             xlabel=Energy (keV),
             ylabel=Rate (Hz/15keV),
             width=0.5\textwidth, height=6cm,
             xmin=0, xmax=14000,
-            minor y tick num=4,
+            minor y tick num=8,
             ymode=log, ymin=1e-6, ymax=10,
             grid=major,]
             \addplot[green, mark=none]
@@ -87,7 +88,7 @@ In short, this means that every $\gamma$ in the generator represents roughly 130
             width=0.5\textwidth, height=6cm,
             xmin=0, xmax=14000,
             yticklabel pos=right,
-            minor y tick num=4,
+            minor y tick num=8,
             ymode=log, ymin=1e-6, ymax=10,
             grid=major,
             legend style = { column sep = 10pt, legend columns = -1, legend to name = Cavern_Gamma_CommonLegend,}]

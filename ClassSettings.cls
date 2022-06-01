@@ -138,6 +138,9 @@
 \usepackage{pgfplots} % for plotting
 \usepgfplotslibrary{fillbetween}
 \usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=1.18}
+%\usepgfplotslibrary{external}
+%\tikzexternalize
 \usepackage{notoccite} % correct referencing order
 \usepackage{multirow} % for tables
 

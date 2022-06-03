@@ -92,7 +92,7 @@
 \usepackage{enumerate}					%For enumeration counter
 \usepackage{footnote}					%For footnotes
 \usepackage{microtype}					%Makes pdf look better.
-\usepackage[version=0.96]{pgf}			%PGF/TikZ is a tandem of languages for producing vector graphics from a 
+%\usepackage[version=0.96]{pgf}			%PGF/TikZ is a tandem of languages for producing vector graphics from a 
 
 %Reduce widows  (the last line of a paragraph at the start of a page) and orphans 
 % (the first line of paragraph at the end of a page)
@@ -152,5 +152,9 @@
         \draw[mark repeat=2,mark phase=2,##1]
         plot coordinates {(0cm,0cm) (0.3cm,0cm) (0.6cm,0cm)};%
         }}}
+
+\usepackage{listings}
+\usepackage{mdframed}
+\definecolor{lightgrey}{gray}{0.9}
 
 \endinput

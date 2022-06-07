@@ -158,5 +158,6 @@
 \definecolor{lightgrey}{gray}{0.9}
 
 \usetikzlibrary{shapes,positioning}
+\usepackage{lscape}
 
 \endinput

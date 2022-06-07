@@ -4,85 +4,202 @@
 
 \newcommand{\nodewidth}{1cm}
 \newcommand{\textnodewidth}{0.2cm}
-\newcommand{\nodeminimumwidth}{15pt}
+\newcommand{\nodeminimumwidth}{31pt}
 \newcommand{\nodespacing}{10pt}
 
 
+\begin{landscape}
+\begin{figure}
+    \centering
 
 \begin{tikzpicture}
   [node distance=0.1cm,font=\tiny,text centered, thick]
-  
-  
+
+ 
     % For 3 chains, need 13 across
-    \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth,] (uranium_u234) {${}^{234}_{92}$U $245e^{3}$y};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_u234] (uranium_inv_1) {};
-    \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_inv_1] (uranium_u238) {${}^{238}_{92}$U $4.5e^{9}$y};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_u238] (uranium_inv_3) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_inv_3] (uranium_inv_4) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_inv_4] (uranium_inv_5) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_inv_5] (uranium_inv_6) {};
-    \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_inv_6] (uranium_u235) {${}^{235}_{92}$U $7.0e^{8}$y};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_u235] (uranium_inv_8) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_inv_8] (uranium_inv_9) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_inv_9] (uranium_inv_10) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_inv_10] (uranium_inv_11) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_inv_11] (uranium_inv_12) {};
-    
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of uranium_u234] (protactinium_inv_0) {};
-    \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of protactinium_inv_0] (protactinium_pa234m) {${}^{234m}_{91}$Pa $1.2$m};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of protactinium_pa234m] (protactinium_inv_2) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of protactinium_inv_2] (protactinium_inv_3) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of protactinium_inv_3] (protactinium_inv_4) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of protactinium_inv_4] (protactinium_inv_5) {};
-    \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of protactinium_inv_5] (protactinium_pa231) {${}^{231}_{91}$Pa $3.3e^{4}$y};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of protactinium_pa231] (protactinium_inv_7) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of protactinium_inv_7] (protactinium_inv_8) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of protactinium_inv_8] (protactinium_inv_9) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of protactinium_inv_9] (protactinium_inv_10) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of protactinium_inv_10] (protactinium_inv_11) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of protactinium_inv_11] (protactinium_inv_12) {};
-    
-    \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of protactinium_inv_0] (thorium_th230) {${}^{232}_{90}$Th $7.5e^{3}$y};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of thorium_th230] (thorium_inv_1) {};
-    \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of thorium_inv_1] (thorium_th234) {${}^{234}_{90}$Th $24.1$d};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of thorium_th234] (thorium_inv_3) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of thorium_inv_3] (thorium_inv_4) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of thorium_inv_4] (thorium_inv_5) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of thorium_inv_5] (thorium_pa231) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of thorium_pa231] (thorium_inv_7) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of thorium_inv_7] (thorium_inv_8) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of thorium_inv_8] (thorium_inv_9) {};
-    \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of thorium_inv_9] (thorium_th232) {${}^{232}_{90}$Th $1.4e^{10}$y};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of thorium_th232] (thorium_inv_11) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of thorium_inv_11] (thorium_inv_12) {};
-     
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of thorium_th230] (actinium_inv_0) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of actinium_inv_0] (actinium_inv_1) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of actinium_inv_1] (actinium_inv_2) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of actinium_inv_2] (actinium_inv_3) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of actinium_inv_3] (actinium_inv_4) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of actinium_inv_4] (actinium_inv_5) {};
-    \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of actinium_inv_5] (actinium_ac227) {${}^{227}_{89}$Ac $21.8$y};
-    \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of actinium_ac227] (actinium_inv_7) {spare};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of actinium_inv_7] (actinium_inv_8) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of actinium_inv_8] (actinium_inv_9) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of actinium_inv_9] (actinium_inv_10) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of actinium_inv_10] (actinium_inv_11) {};
-    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of actinium_inv_11] (actinium_inv_12) {};
-     
-     
-  % Now, let us add some braches. 
-  %% No. 1
-  %\draw[tuborg] let
-  %  \p1=(risiko.west), \p2=(finans.east) in
-  %  ($(\x1,\y1+2.5em)$) -- ($(\x2,\y2+2.5em)$) node[above, midway]  {Teori};
-  %% No. 2
-  %\draw[tuborg, decoration={brace}] let \p1=(disk.north), \p2=(makro.south) in
-  %  ($(2, \y1)$) -- ($(2, \y2)$) node[tubnode] {Analyse};
-  %% No. 3
-  %\draw[tuborg, decoration={brace}] let \p1=(perfekt.north), \p2=(emperi.south) in
-  %  ($(2, \y1)$) -- ($(2, \y2)$) node[tubnode] {Problemfelt};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, ] (uranium_node_0) {${}^{234}_{92}$U $245e^{3}$y};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_node_0] (uranium_node_1) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_node_1] (uranium_node_2) {${}^{238}_{92}$U $4.5e^{9}$y};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_node_2] (uranium_node_3) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_node_3] (uranium_node_4) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_node_4] (chain_sep_1) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of chain_sep_1] (uranium_node_5) {${}^{235}_{92}$U $7.0e^{8}$y};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_node_5] (uranium_node_6) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_node_6] (uranium_node_7) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_node_7] (uranium_node_8) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_node_8] (uranium_node_9) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_node_9] (chain_sep_2) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of chain_sep_2] (uranium_node_10) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_node_10] (uranium_node_11) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_node_11] (uranium_node_12) {};
+ 
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of uranium_node_0] (protactinium_node_0) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of uranium_node_1] (protactinium_node_1) {${}^{234m}_{91}$Pa $1.2$m};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of uranium_node_2] (protactinium_node_2) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of uranium_node_3] (protactinium_node_3) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of uranium_node_4] (protactinium_node_4) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of uranium_node_5] (protactinium_node_5) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of uranium_node_6] (protactinium_node_6) {${}^{231}_{91}$Pa $3.3e^{4}$y};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of uranium_node_7] (protactinium_node_7) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of uranium_node_8] (protactinium_node_8) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of uranium_node_9] (protactinium_node_9) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of uranium_node_10] (protactinium_node_10) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of uranium_node_11] (protactinium_node_11) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of uranium_node_12] (protactinium_node_12) {};
+ 
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of protactinium_node_0] (thorium_node_0) {${}^{230}_{90}$Th $75e^{3}$y};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of protactinium_node_1] (thorium_node_1) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of protactinium_node_2] (thorium_node_2) {${}^{234}_{90}$Th $24.1$d};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of protactinium_node_3] (thorium_node_3) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of protactinium_node_4] (thorium_node_4) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of protactinium_node_5] (thorium_node_5) {${}^{231}_{90}$Th $25.5$h};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of protactinium_node_6] (thorium_node_6) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of protactinium_node_7] (thorium_node_7) {${}^{227}_{90}$Th $18.7$d};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of protactinium_node_8] (thorium_node_8) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of protactinium_node_9] (thorium_node_9) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of protactinium_node_10] (thorium_node_10) {${}^{228}_{90}$Th $1.9$y};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of protactinium_node_11] (thorium_node_11) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of protactinium_node_12] (thorium_node_12) {${}^{232}_{90}$Th $1.4e^{10}$y};
+ 
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of thorium_node_0] (actinium_node_0) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of thorium_node_1] (actinium_node_1) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of thorium_node_2] (actinium_node_2) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of thorium_node_3] (actinium_node_3) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of thorium_node_4] (actinium_node_4) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of thorium_node_5] (actinium_node_5) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of thorium_node_6] (actinium_node_6) {${}^{227}_{89}$Ac $21.8$y};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of thorium_node_7] (actinium_node_7) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of thorium_node_8] (actinium_node_8) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of thorium_node_9] (actinium_node_9) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of thorium_node_10] (actinium_node_10) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of thorium_node_11] (actinium_node_11) {${}^{228}_{89}$Ac $6.1$h};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of thorium_node_12] (actinium_node_12) {};
+ 
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of actinium_node_0] (radium_node_0) {${}^{226}_{89}$Ra $1.6e^{3}$y};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of actinium_node_1] (radium_node_1) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of actinium_node_2] (radium_node_2) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of actinium_node_3] (radium_node_3) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of actinium_node_4] (radium_node_4) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of actinium_node_5] (radium_node_5) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of actinium_node_6] (radium_node_6) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of actinium_node_7] (radium_node_7) {${}^{223}_{88}$Ra $11.4$d};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of actinium_node_8] (radium_node_8) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of actinium_node_9] (radium_node_9) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of actinium_node_10] (radium_node_10) {${}^{224}_{88}$Ra $3.6$d};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of actinium_node_11] (radium_node_11) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of actinium_node_12] (radium_node_12) {${}^{228}_{88}$Ra $5.7$y};
+ 
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of radium_node_0] (francium_node_0) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of radium_node_1] (francium_node_1) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of radium_node_2] (francium_node_2) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of radium_node_3] (francium_node_3) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of radium_node_4] (francium_node_4) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of radium_node_5] (francium_node_5) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of radium_node_6] (francium_node_6) {${}^{223}_{87}$Fr $22.0$m};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of radium_node_7] (francium_node_7) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of radium_node_8] (francium_node_8) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of radium_node_9] (francium_node_9) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of radium_node_10] (francium_node_10) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of radium_node_11] (francium_node_11) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of radium_node_12] (francium_node_12) {};
+ 
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of francium_node_0] (radon_node_0) {${}^{222}_{86}$Rn $3.8$d};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of francium_node_1] (radon_node_1) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of francium_node_2] (radon_node_2) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of francium_node_3] (radon_node_3) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of francium_node_4] (radon_node_4) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of francium_node_5] (radon_node_5) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of francium_node_6] (radon_node_6) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of francium_node_7] (radon_node_7) {${}^{219}_{86}$Rn $4.0$s};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of francium_node_8] (radon_node_8) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of francium_node_9] (radon_node_9) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of francium_node_10] (radon_node_10) {${}^{220}_{86}$Rn $55$s};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of francium_node_11] (radon_node_11) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of francium_node_12] (radon_node_12) {};
+ 
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of radon_node_0] (astatine_node_0) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of radon_node_1] (astatine_node_1) {${}^{218}_{85}$At $1.5$s};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of radon_node_2] (astatine_node_2) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of radon_node_3] (astatine_node_3) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of radon_node_4] (astatine_node_4) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of radon_node_5] (astatine_node_5) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of radon_node_6] (astatine_node_6) {${}^{219}_{85}$At $56$s};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of radon_node_7] (astatine_node_7) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of radon_node_8] (astatine_node_8) {${}^{215}_{85}$At $1e^{-4}$s};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of radon_node_9] (astatine_node_9) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of radon_node_10] (astatine_node_10) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of radon_node_11] (astatine_node_11) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of radon_node_12] (astatine_node_12) {};
+ 
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of astatine_node_0] (polonium_node_0) {${}^{218}_{84}$Po $3$m};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of astatine_node_1] (polonium_node_1) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of astatine_node_2] (polonium_node_2) {${}^{214}_{84}$Po $2e^{-8}$s};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of astatine_node_3] (polonium_node_3) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of astatine_node_4] (polonium_node_4) {${}^{210}_{84}$Po $138$d};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of astatine_node_5] (polonium_node_5) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of astatine_node_6] (polonium_node_6) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of astatine_node_7] (polonium_node_7) {${}^{215}_{84}$Po $1.8e^{-3}$s};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of astatine_node_8] (polonium_node_8) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of astatine_node_9] (polonium_node_9) {${}^{211}_{84}$Po $5e^{-5}$s};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of astatine_node_10] (polonium_node_10) {${}^{216}_{84}$Po $0.14$s};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of astatine_node_11] (polonium_node_11) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of astatine_node_12] (polonium_node_12) {${}^{211}_{84}$Po $3e^{-7}$s};
+ 
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of polonium_node_0] (bismuth_node_0) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of polonium_node_1] (bismuth_node_1) {${}^{214}_{83}$Bi $20$m};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of polonium_node_2] (bismuth_node_2) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of polonium_node_3] (bismuth_node_3) {${}^{210}_{83}$Bi $138$d};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of polonium_node_4] (bismuth_node_4) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of polonium_node_5] (bismuth_node_5) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of polonium_node_6] (bismuth_node_6) {${}^{215}_{83}$Bi $8$m};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of polonium_node_7] (bismuth_node_7) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of polonium_node_8] (bismuth_node_8) {${}^{211}_{83}$Bi $2$m};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of polonium_node_9] (bismuth_node_9) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of polonium_node_10] (bismuth_node_10) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of polonium_node_11] (bismuth_node_11) {${}^{212}_{83}$Bi $61$m};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of polonium_node_12] (bismuth_node_12) {};
+ 
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of bismuth_node_0] (lead_node_0) {${}^{214}_{82}$Pb $27$m};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of bismuth_node_1] (lead_node_1) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of bismuth_node_2] (lead_node_2) {${}^{210}_{82}$Pb $22$y};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of bismuth_node_3] (lead_node_3) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of bismuth_node_4] (lead_node_4) {${}^{206}_{82}$Pb stable};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of bismuth_node_5] (lead_node_5) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of bismuth_node_6] (lead_node_6) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of bismuth_node_7] (lead_node_7) {${}^{211}_{82}$Pb $36$m};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of bismuth_node_8] (lead_node_8) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of bismuth_node_9] (lead_node_9) {${}^{207}_{82}$Pb stable};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of bismuth_node_10] (lead_node_10) {${}^{212}_{82}$Pb $11$h};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of bismuth_node_11] (lead_node_11) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of bismuth_node_12] (lead_node_12) {${}^{208}_{82}$Pb stable};
+ 
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of lead_node_0] (thallium_node_0) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of lead_node_1] (thallium_node_1) {${}^{210}_{81}$Tl $1$m};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of lead_node_2] (thallium_node_2) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of lead_node_3] (thallium_node_3) {${}^{206}_{81}$Tl $4$m};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of lead_node_4] (thallium_node_4) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of lead_node_5] (thallium_node_5) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of lead_node_6] (thallium_node_6) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of lead_node_7] (thallium_node_7) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of lead_node_8] (thallium_node_8) {${}^{207}_{81}$Tl $5$m};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of lead_node_9] (thallium_node_9) {};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of lead_node_10] (thallium_node_10) {};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of lead_node_11] (thallium_node_11) {${}^{208}_{81}$Tl $3$m};
+ \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of lead_node_12] (thallium_node_12) {};
+ 
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of thallium_node_2] (mercury_node_2) {${}^{206}_{80}$Hg $8$m};
+ 
+ % Titles
+ \node[rectangle, inner sep=0pt, above=of uranium_node_1] (u238_title) {\large ${}^{238}$U chain};
+ \node[rectangle, inner sep=0pt, above=of uranium_node_6] (u235_title) {\large ${}^{235}$U chain};
+ \node[rectangle, inner sep=0pt, above=of uranium_node_11] (th232_title) {\large ${}^{232}$Th chain};
+
   \end{tikzpicture}
+      \caption{Caption}
+    \label{fig:my_label}
+\end{figure}
+  
+\end{landscape}
   
   \iffalse
   \begin{tikzpicture}

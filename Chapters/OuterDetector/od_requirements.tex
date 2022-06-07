@@ -82,8 +82,42 @@ However, as these were not screened the accuracy is unknown, but gives a 'best-c
 
 \subsubsection{LZ Detector Components}
 \par
-A third source are decays originating from other components which are all contaminated with ${}^{238}U$ and ${}^{232}Th$ at a minimum from exposure to the cavern.
-The most significant other decay of note is ${}^{60}Co$ from the OCV with an expected activity of XXX \cite{LZ_assay_ref}.
+A third source are decays originating from other components which are all contaminated with trace radioimpurities, the vast majority of which were subject to an assay \cite{LZ_assay_ref}.
+These were shown in \cite{scotthaselschwardt_thesis_ref} to contribute as much as 11.9Hz to the OD rate above 200keV with the majority (5.5Hz) from the acrylic tanks and associated support structure.
+Table \ref{tab:gdls_non_assayed_activities} contains the activities of the components that are in closest proximity to the GdLS and were installed as part of the installation described in Section \ref{sec:od_construction_sec}.
+Several materials in the Table were not part of the original assay set in \cite{LZ_assay_ref}.
+The mass estimates of soft materials are the author's own, based upon measurements and logs taken whilst on-site.
+
+\par
+In addition to the measurements in Table \ref{tab:gdls_non_assayed_activities}, the OCV was subject to the cavern air for a prolonged period of time so there may be a build up of Radon dust which is not taken into account.
+
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{c|c|c|c|c|c|c|c}
+        \multirow{2}{*}{Material or Component} & \multirow{2}{*}{Total Mass (kg)} & \multicolumn{6}{c}{Estimated Activity (mBq/kg)}      \\ 
+                    &        & ${}^{238}U_{e}$ & ${}^{238}U_{l}$ & ${}^{232}Th_{e}$ & ${}^{232}Th_{l}$ & ${}^{60}Co$ & ${}^{40}K$ \\ \hline
+        HandiFoam\textsuperscript{\textregistered}   & 15 & 123 & 51 & 31 & 21 & 0 & 62 \\
+        Fir tree Rivets                              & 2  & 52  & 14 & 6  & 8  & 0 & 18 \\
+        3M 2216 Epoxy Adhesive                       & 0.1 & 7102 & 5325 & 26725 & 32111 & 0 & 2779 \\
+        Dowsil 795 silicone sealant                  & 4   & 2120 & 2294 & 243   & 238   & 0 & 720 \\
+        Tyvek                                        & 10  & 6.0  & 2.2  & 0     & 0     & 0 & 5100 \\
+        OCV (and all parts)                          & 1020 & 0.11 & 0.04 & 0.03  & 0.02  & 0 & 0.16 \\
+        polypropylene sheets                         & 3   & 14.0 & 6.90 & 7.9  & 1.8  & 0 & 38.0 \\
+        Styrodur foam                                & 50   & 20.0 & 57.0 & 2.60 & 9.0  & 6.0 & 80 \\ 
+        White foam                                   & 15   & 120 & 12    & 22   & 13   & 0   & 105 \\
+        SAT titanium plates                          & 308 (each) & 0.11 & 0.04 & 0.03  & 0.02  & 0 & 0.16 \\
+        Acrylic Tanks                                & 3140  & 0.0284 & 0.0284 & 0.0244 & 0.0244 & 0 & 2.3 \\
+        Neutron conduits                             & 130  & 0.27 & 0.16 & 0.04 & 0.04 & 0 & 0.4 \\
+    \end{tabular}
+    \caption{Activities of components next to OD acrylic tanks. The activities are from \cite{LZ_assay_ref} unless newer unpublished values were available.
+            Each material activity is given to the 60\% confidence level.}
+    \label{tab:gdls_non_assayed_activities}
+\end{table}
+
+
+
+Additionally, during construction the OCV was exposed to cavern air for a prolonged period of time which undoubtedly will have increased the rate of surface contaminants.
+The most significant other decay of note is ${}^{60}Co$ from the OCV with an expected activity of XXX .
 
 
 \subsubsection{Summary}
@@ -92,6 +126,7 @@ A new set of simulations were performed to attain the expected rate of backgroun
 These estimates are provided in Table \ref{tab:od_expected_rates}.
 The lower rates from Table \ref{tab:gdls_assay_rates} are used to be more representative of what to expect from data.
 The rates of LZ components and Cavern-$\gamma$'s differ here compared to previous background studies such as in \cite{LZ_TechnicalDesignReview_ref,LZ_projected_sensitivity_paper_ref,scotthaselschwardt_thesis_ref} as the simulated OD geometry has improved and more sources have been taken into account.
+Additionally, during filling of the OD tanks the mass of GdLS was measured as 16.8 tonnes, a 500kg decrease on values used in pre-construction analysis. 
 
 \begin{table}[!htbp]
     \centering

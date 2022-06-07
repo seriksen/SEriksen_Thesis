@@ -6,7 +6,6 @@ Using the Random Trigger, rate of various things were set out
 As mentioned in Section XXX (LZ chapter bit), an assay was performed to establish the backgorund rates of all components.
 In addition to the assay, a separate cavern gamma study was performed along with the GdLS.
 
-
 \begin{figure}[!htbp]
     \centering
     \begin{tikzpicture}
@@ -163,6 +162,33 @@ As the second decay is an $\alpha$ it does not have significant penetrating powe
 The cuts selected were; the noise cut previously discussed, a maximum position separation as defined by the reconstructed position in Equation \ref{eq:OD_xy_position}.
 The time selection
 
+\iffalse
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+  \begin{axis}[%point meta max=150,
+    %point meta min=0.0,
+    view={0}{90},
+    ylabel={Kinetic Energy (MeV)},
+    xlabel={Number of Interactions},
+    colorbar,
+    colorbar style={ylabel={Count}},
+    ]
+    \addplot3[
+      surf,
+      shader=flat corner,
+      mesh/cols=94,
+      mesh/ordering=rowwise,
+      point meta = {z<1 ? nan : z}
+    ] file {Data/OD_Backgrounds/od_bipo_rate_200kev_2d.dat};
+\end{axis}
+\end{tikzpicture}
+\caption{The relationship between the number of interactions a neutron has in the scintillator and the neutrons kinetic energy when it enters the liquid scintillator volume for neutrons which are 'captured' in the scintillator volume.
+}
+\label{fig:OD_BiPo_RnPo_rates}
+\end{figure}
+\fi
 
 \begin{figure}
     \centering
@@ -185,6 +211,86 @@ This was performed using Equation \ref{eq:OD_xy_position}.
        z = XXX 
     \label{eq:OD_xy_position}
 \end{equation}
+
+
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+  \begin{groupplot}[%view={0}{90},
+    group style = {group size = 2 by 3,vertical sep=1.5cm,
+                   horizontal sep=1.5cm},
+                   height=8cm, width=0.5\textwidth]
+    \nextgroupplot[
+            title=Pulse Area,
+            ylabel=Rate (Hz),
+            xlabel=Pulse Area,
+            width=\textwidth,
+            height=6cm,
+            %xshift=0.5\textwidth,
+            xmin=0, xmax=2000,
+            ]
+            \addplot [blue] {rnd};
+            
+    \nextgroupplot[group/empty plot]
+
+    \nextgroupplot[title=All pulses,
+            xshift=-0.25\textwidth]
+            \addplot [blue] {rnd};
+
+    \nextgroupplot[title=Region 1,
+                  xshift=-0.5\textwidth,
+                  yshift=1cm,]
+            \addplot [blue] {rnd};
+    
+    \nextgroupplot[title=Region 2]
+            \addplot [blue] {rnd};
+                   
+    \nextgroupplot[title=Region 3]
+            \addplot [blue] {rnd};
+   
+  \end{groupplot}
+\end{tikzpicture}
+\caption{Position Reconstruction of pulses from various regions in pulse area space defined in the top plot. 
+         Each pulse has had the noise cut applied and the position reconstructed using Equation \ref{eq:OD_xy_position}.}
+\label{fig:od_backgrounds_position_reconstruction}
+\end{figure}
+
+
+\par
+As can be seen in Figure \ref{fig:od_backgrounds_position_reconstruction}, events reconstructed to be at the top and bottom of the OD dominate everywhere.
+This supports both Table XXX (Section XXX) and Figure XXX (Section XXX), where Cavern Gammas are expected to be the largest contributor with the largest contribution coming from the bottom.
+
+
+\par
+As a way of suppressing cavern-$\gamma$'s, a slice of events reconstructed to be in the middle of the side tanks was taken.
+The resultant pulse spectrum is shown in Figure \ref{fig:od_data_pulsearea_middle_tank}.
+What is interesting is that two additional features have appeared.
+
+
+\begin{figure}[!htbp]
+    \centering
+    \begin{tikzpicture}
+    
+    \begin{axis}[
+        xlabel=Pulse Area,
+        ylabel=Rate (Hz/5phe),
+        width=15cm, height=10cm,
+        xmin=0, xmax=800,
+        ymin=1e-4, ymode=log,
+        legend pos=north east,
+        grid=major]
+            
+        \addplot[only marks, mark size=0.5pt] 
+            plot[error bars/.cd, x dir=both, x explicit]
+            table[x=pulsearea,y=rate,x error=x_error, y error=y_error]
+            {Data/OD_Backgrounds/od_data_pulsearea_middle_tank_binwidth_5.dat};
+            
+        \end{axis}
+    \end{tikzpicture}
+    \caption{OD pulse area spectrum from pulses reconstructed to the middle of the OD side tanks.}
+    \label{fig:od_data_pulsearea_middle_tank}
+\end{figure}
 
 
 \subsection{Fit}

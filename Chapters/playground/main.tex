@@ -1,0 +1,140 @@
+\chapter{Playground}
+
+\clearpage
+
+\newcommand{\nodewidth}{1cm}
+\newcommand{\textnodewidth}{0.2cm}
+\newcommand{\nodeminimumwidth}{15pt}
+\newcommand{\nodespacing}{10pt}
+
+
+
+\begin{tikzpicture}
+  [node distance=0.1cm,font=\tiny,text centered, thick]
+  
+  
+    % For 3 chains, need 13 across
+    \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth,] (uranium_u234) {${}^{234}_{92}$U $245e^{3}$y};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_u234] (uranium_inv_1) {};
+    \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_inv_1] (uranium_u238) {${}^{238}_{92}$U $4.5e^{9}$y};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_u238] (uranium_inv_3) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_inv_3] (uranium_inv_4) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_inv_4] (uranium_inv_5) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_inv_5] (uranium_inv_6) {};
+    \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_inv_6] (uranium_u235) {${}^{235}_{92}$U $7.0e^{8}$y};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_u235] (uranium_inv_8) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_inv_8] (uranium_inv_9) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_inv_9] (uranium_inv_10) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_inv_10] (uranium_inv_11) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of uranium_inv_11] (uranium_inv_12) {};
+    
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of uranium_u234] (protactinium_inv_0) {};
+    \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of protactinium_inv_0] (protactinium_pa234m) {${}^{234m}_{91}$Pa $1.2$m};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of protactinium_pa234m] (protactinium_inv_2) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of protactinium_inv_2] (protactinium_inv_3) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of protactinium_inv_3] (protactinium_inv_4) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of protactinium_inv_4] (protactinium_inv_5) {};
+    \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of protactinium_inv_5] (protactinium_pa231) {${}^{231}_{91}$Pa $3.3e^{4}$y};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of protactinium_pa231] (protactinium_inv_7) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of protactinium_inv_7] (protactinium_inv_8) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of protactinium_inv_8] (protactinium_inv_9) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of protactinium_inv_9] (protactinium_inv_10) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of protactinium_inv_10] (protactinium_inv_11) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of protactinium_inv_11] (protactinium_inv_12) {};
+    
+    \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of protactinium_inv_0] (thorium_th230) {${}^{232}_{90}$Th $7.5e^{3}$y};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of thorium_th230] (thorium_inv_1) {};
+    \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of thorium_inv_1] (thorium_th234) {${}^{234}_{90}$Th $24.1$d};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of thorium_th234] (thorium_inv_3) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of thorium_inv_3] (thorium_inv_4) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of thorium_inv_4] (thorium_inv_5) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of thorium_inv_5] (thorium_pa231) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of thorium_pa231] (thorium_inv_7) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of thorium_inv_7] (thorium_inv_8) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of thorium_inv_8] (thorium_inv_9) {};
+    \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of thorium_inv_9] (thorium_th232) {${}^{232}_{90}$Th $1.4e^{10}$y};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of thorium_th232] (thorium_inv_11) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of thorium_inv_11] (thorium_inv_12) {};
+     
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of thorium_th230] (actinium_inv_0) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of actinium_inv_0] (actinium_inv_1) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of actinium_inv_1] (actinium_inv_2) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of actinium_inv_2] (actinium_inv_3) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of actinium_inv_3] (actinium_inv_4) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of actinium_inv_4] (actinium_inv_5) {};
+    \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of actinium_inv_5] (actinium_ac227) {${}^{227}_{89}$Ac $21.8$y};
+    \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of actinium_ac227] (actinium_inv_7) {spare};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of actinium_inv_7] (actinium_inv_8) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of actinium_inv_8] (actinium_inv_9) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of actinium_inv_9] (actinium_inv_10) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of actinium_inv_10] (actinium_inv_11) {};
+    \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of actinium_inv_11] (actinium_inv_12) {};
+     
+     
+  % Now, let us add some braches. 
+  %% No. 1
+  %\draw[tuborg] let
+  %  \p1=(risiko.west), \p2=(finans.east) in
+  %  ($(\x1,\y1+2.5em)$) -- ($(\x2,\y2+2.5em)$) node[above, midway]  {Teori};
+  %% No. 2
+  %\draw[tuborg, decoration={brace}] let \p1=(disk.north), \p2=(makro.south) in
+  %  ($(2, \y1)$) -- ($(2, \y2)$) node[tubnode] {Analyse};
+  %% No. 3
+  %\draw[tuborg, decoration={brace}] let \p1=(perfekt.north), \p2=(emperi.south) in
+  %  ($(2, \y1)$) -- ($(2, \y2)$) node[tubnode] {Problemfelt};
+  \end{tikzpicture}
+  
+  \iffalse
+  \begin{tikzpicture}
+  [node distance=0.8cm,font=\tiny,text centered]
+  
+     % Th232 chain
+     \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth] (th232_th232) {${}^{232}_{90}$Th $1.4e^{10}$y};
+     \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of th232_th232] (th232_inv_actinum) {};
+     \node[draw, circle, inner sep=0pt, text width=\nodewidth, below=of th232_inv_actinum] (th232_ra228) {${}^{228}_{88}$Ra $5.7$y};
+     \node[draw, circle, inner sep=0pt, text width=\nodewidth, right=of th232_inv_actinum] (th232_ac228) {${}^{228}_{89}$Ac $6.1$h};
+     \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of th232_th232] (th232_inv_thorium) {};
+     \node[draw, circle, inner sep=0pt, text width=\nodewidth, right=of th232_inv_thorium] (th232_th228) {${}^{228}_{90}$Th $1.9$y};
+     \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, right=of th232_ac228] (th232_inv_actinum_2) {};
+     \node[draw, circle, inner sep=0pt, text width=\nodewidth, below=of th232_inv_actinum_2] (th232_ra224) {${}^{224}_{88}$Ra $3.6$d};
+     \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of th232_ra224] (th232_inv_francium) {};
+     \node[draw, circle, inner sep=0pt, text width=\nodewidth, below=of th232_inv_francium] (th232_rn220) {${}^{220}_{86}$Rn $55$s};
+     \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of th232_rn220] (th232_inv_astatine) {};
+     \node[draw, circle, inner sep=0pt, minimum size=1pt, text width=\nodewidth, below=of th232_inv_astatine] (th232_po216) {${}^{216}_{84}$Po $0.14$s};
+     \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of th232_po216] (th232_inv_bismuth) {};
+     \node[draw, circle, inner sep=0pt, text width=\nodewidth, below=of th232_inv_bismuth] (th232_pb212) {${}^{212}_{82}$Pb $10.6$h};
+     \node[draw, circle, inner sep=0pt, text width=\nodewidth, left=of th232_inv_bismuth] (th232_bi212) {${}^{212}_{83}$Bi $61$m};
+     \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, left=of th232_po216] (th232_inv_polonium) {};
+     \node[draw, circle, inner sep=0pt, text width=\nodewidth, left=of th232_inv_polonium] (th232_po212) {${}^{212}_{84}$Po $3.0e^{-7}$s};
+     \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, left=of th232_pb212] (th232_inv_lead) {};
+     \node[draw, circle, inner sep=0pt, text width=\nodewidth, below=of th232_inv_lead] (th232_tl208) {${}^{208}_{81}$Tl $3.1$m};
+     \node[draw, circle, inner sep=0pt, text width=\nodewidth, left=of th232_inv_lead] (th232_pb208) {${}^{208}_{82}$Pb stable};
+     
+     \draw[-stealth] (th232_th232) to node [above, rotate=90] (th232_th232_decay) {$\alpha$ 4.0 MeV} (th232_ra228);
+     \draw[-stealth] (th232_ra228) to node [above, rotate=90] (th232_ra228_decay) {$\beta$ 46 keV} (th232_ac228);
+     \draw[-stealth] (th232_ac228) to node [above, rotate=90] (th232_ac228_decay) {$\beta$ 2.1 MeV} (th232_th228);
+     \draw[-stealth] (th232_th228) to node [above, rotate=90] (th232_th228_decay) {$\alpha$ 5.4 MeV} (th232_ra224);
+     \draw[-stealth] (th232_ra224) to node [above, rotate=90] (th232_ra224_decay) {$\alpha$ 5.7 MeV} (th232_rn220);
+     \draw[-stealth] (th232_rn220) to node [above, rotate=90] (th232_rn220_decay) {$\alpha$ 6.4 MeV} (th232_po216);
+     \draw[-stealth] (th232_po216) to node [above, rotate=90] (th232_po216_decay) {$\alpha$ 6.8 MeV} (th232_pb212);
+     \draw[-stealth] (th232_pb212) to node [above, rotate=90] (th232_pb212_decay) {$\beta$ 0.6 MeV} (th232_bi212);
+     \draw[-stealth] (th232_bi212) to node [above, rotate=90] (th232_bi212_beta_decay) {$\beta$ 2.3 MeV} (th232_po212);
+     \draw[-stealth] (th232_bi212) to node [above, rotate=90] (th232_bi212_alpha_decay) {$\alpha$ 6.2 MeV} (th232_tl208);
+     \draw[-stealth] (th232_po212) to node [above, rotate=90] (th232_po212_decay) {$\alpha$ 8.8 MeV} (th232_pb208);
+     \draw[-stealth] (th232_tl208) to node [above, rotate=90] (th232_tl208_decay) {$\beta$ 5.0 MeV} (th232_pb208);
+     
+     
+     
+  % Now, let us add some braches. 
+  %% No. 1
+  %\draw[tuborg] let
+  %  \p1=(risiko.west), \p2=(finans.east) in
+  %  ($(\x1,\y1+2.5em)$) -- ($(\x2,\y2+2.5em)$) node[above, midway]  {Teori};
+  %% No. 2
+  %\draw[tuborg, decoration={brace}] let \p1=(disk.north), \p2=(makro.south) in
+  %  ($(2, \y1)$) -- ($(2, \y2)$) node[tubnode] {Analyse};
+  %% No. 3
+  %\draw[tuborg, decoration={brace}] let \p1=(perfekt.north), \p2=(emperi.south) in
+  %  ($(2, \y1)$) -- ($(2, \y2)$) node[tubnode] {Problemfelt};
+  \end{tikzpicture}
+  \fi

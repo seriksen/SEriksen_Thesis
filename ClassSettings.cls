@@ -157,4 +157,6 @@
 \usepackage{mdframed}
 \definecolor{lightgrey}{gray}{0.9}
 
+\usetikzlibrary{shapes,positioning}
+
 \endinput

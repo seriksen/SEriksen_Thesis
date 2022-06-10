@@ -159,5 +159,6 @@
 
 \usetikzlibrary{shapes,positioning}
 \usepackage{lscape}
+\usepackage{anyfontsize}
 
 \endinput

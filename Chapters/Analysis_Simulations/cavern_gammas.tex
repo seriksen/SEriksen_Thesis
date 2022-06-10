@@ -4,8 +4,8 @@
 \par
 Although the LZ detector has been constructed underground to limit cosmic radiation, it does come with a drawback of being in a mine with a non-negligibly radioactive rock and the shotcreat and gravel within the David Cavern.
 LZ is not unique in this, it is a problem highlighted in a number of other underground experiments \cite{cavern_gamma_annual_modulation_CoGeNT_ref, cavern_gammas_in_Soudan_mine_ref}, with an annual modulation mimicking dark matter potentially seen in \cite{cavern_gamma_annual_modulation_CoGeNT_ref}.
-The rate of this has been measured and can be attributed to the shotcreat and gravel \cite{LZ_Gamma_Ray_Background_ref}. 
-One of the most significant sources of background come not from any internal component but rather from $^{238}U$, $^{232}Th$ and $^{40}K$ decays from the cavern in which the LZ detector exists \cite{LZ_Gamma_Ray_Background_ref}.
+The rate of this has been measured and can be attributed to the shotcreat and gravel \cite{LZ_Gamma_Ray_Background_ref} - though the rate had a significant uncertainty.
+One of the most significant sources of background come not from any internal component but rather from $^{238}U$, $^{232}Th$ and $^{40}K$ decays from the cavern in which the LZ detector exists (The decay chains for which can be seen in Figure \ref{fig:decay_chains}).
 However, this is a computationally intensive process to simulation $\gamma$'s where the majority will not reach the actual detector.
 To compensate, a generator for these $\gamma$'s was created - and originally described in \cite{rg_generator_ref} but summarised below.
 The generator is a created by performing simulations of the decay chains originating in the shotcreat and gravel.
@@ -114,7 +114,7 @@ In short, this means that every $\gamma$ in the generator represents roughly 130
 \par
 Additionally it was noticed during the comparison that in the previous generator the distribution was not a cylinder but rather had mistakenly been created as a table.
 The result of this is that the $\gamma$ distribution is biased to the top and bottom of the detectors more so than it would otherwise be.
-This is highlighted in Figures \ref{fig:cavern_gamma_energy_distribution} and \ref{fig:cavern_gamma_position_distribution}.
+The result of this generator is shown in Figures \ref{fig:cavern_gamma_position_distribution}.
 
 
 
@@ -123,16 +123,5 @@ This is highlighted in Figures \ref{fig:cavern_gamma_energy_distribution} and \r
     \includegraphics[width=0.5\textwidth]{Figures/Placeholder.png}
     \caption{Simulated cavern $\gamma$ energy deposit locations in the OD normalised to rates from \cite{LZ_Gamma_Ray_Background_ref}. \textbf{Left:} Previous generator. \textbf{Right:} newly created generator.}
     \label{fig:cavern_gamma_position_distribution}
-\end{figure}
-
-
-\par
-
-
-\begin{figure}[!htbp]
-    \centering
-    \includegraphics[width=0.5\textwidth]{Figures/Placeholder.png}
-    \caption{Change in OD rate between different generator versions}
-    \label{fig:cavern_gamma_rate_difference}
 \end{figure}
 

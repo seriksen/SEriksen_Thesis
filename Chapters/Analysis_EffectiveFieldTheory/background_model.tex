@@ -29,44 +29,57 @@ The resultant normalised-to-rate energy spectra for each background considered a
                 \addplot
                     table[x=Energy,y=Rate]
                     {Data/HENR/Projected_Sensitivity/Background_Rates/detector_er.dat};
-            %    \addplot
-            %        table[x=Energy,y=Rate]
-            %        {Data/HENR/Projected_Sensitivity/Background_Rates/Xe136.dat};
-            %    \addplot
-            %        table[x=Energy,y=Rate]
-            %        {Data/HENR/Projected_Sensitivity/Background_Rates/Rn222.dat};
-            %    \addplot
-            %        table[x=Energy,y=Rate]
-            %        {Data/HENR/Projected_Sensitivity/Background_Rates/Rn220.dat};
-            %    \addplot
-            %        table[x=Energy,y=Rate]
-            %        {Data/HENR/Projected_Sensitivity/Background_Rates/Solar.dat};
-            %    \addplot
-            %        table[x=Energy,y=Rate]
-            %           {Data/HENR/Projected_Sensitivity/Background_Rates/Kr85.dat};
-                    
+      %          \addlegendentry{Det. + Sur. + Env.};
+      %         \addplot
+      %             table[x=Energy,y=Rate]
+      %             {Data/HENR/Projected_Sensitivity/Background_Rates/Xe136.dat};
+      %          \addlegendentry{${}^{136}$Xe}
+      %         \addplot
+      %             table[x=Energy,y=Rate]
+      %             {Data/HENR/Projected_Sensitivity/Background_Rates/Rn222.dat};
+      %          \addlegendentry{${}^{222}$Rn};
+      %         \addplot
+      %             table[x=Energy,y=Rate]
+      %             {Data/HENR/Projected_Sensitivity/Background_Rates/Rn220.dat};
+      %          \addlegendentry{${}^{220}$Rn};
+      %         \addplot
+      %             table[x=Energy,y=Rate]
+      %             {Data/HENR/Projected_Sensitivity/Background_Rates/Solar.dat};
+      %          \addlegendentry{Solar $\nu$};
+      %         \addplot
+      %             table[x=Energy,y=Rate]
+      %                {Data/HENR/Projected_Sensitivity/Background_Rates/Kr85.dat};
+      %          \addlegendentry{${}^{85}$Kr};
+                  
             \nextgroupplot[
             width=0.5\textwidth, height=8cm,
             xlabel=Recoil Energy (keV),
+            yticklabel pos=right,
             legend pos=north east,
             mark size=0pt,
             xmin=0, xmax=250,
+            ymin=1e-12, ymax=,
             ymode=log]
                 \addplot
                     table[x=Energy,y=Rate]
                     {Data/HENR/Projected_Sensitivity/Background_Rates/detector_nr.dat};
-            %    \addplot
-            %        table[x=Energy,y=Rate]
-            %        {Data/HENR/Projected_Sensitivity/Background_Rates/atm.dat};
-            %    \addplot
-            %        table[x=Energy,y=Rate]
-            %        {Data/HENR/Projected_Sensitivity/Background_Rates/DSN_DiffRate.dat};
-            %    \addplot
-            %        table[x=Energy,y=Rate]
-            %        {Data/HENR/Projected_Sensitivity/Background_Rates/hep.dat};
-            %    \addplot
-            %        table[x=Energy,y=Rate]
-            %        {Data/HENR/Projected_Sensitivity/Background_Rates/B8.dat};
+                \addlegendentry{Det. + Sur. + Env.};
+           %     \addplot
+           %         table[x=Energy,y=Rate]
+           %         {Data/HENR/Projected_Sensitivity/Background_Rates/atm.dat};
+           %     \addlegendentry{Atm};
+           %     \addplot
+           %         table[x=Energy,y=Rate]
+           %         {Data/HENR/Projected_Sensitivity/Background_Rates/DSN_DiffRate.dat};
+           %     \addlegendentry{DSN};
+           %     \addplot
+           %         table[x=Energy,y=Rate]
+           %         {Data/HENR/Projected_Sensitivity/Background_Rates/hep.dat};
+           %     \addlegendentry{hep};
+           %     \addplot
+           %         table[x=Energy,y=Rate]
+           %         {Data/HENR/Projected_Sensitivity/Background_Rates/B8.dat};
+           %     \addlegendentry{${}^{8}$B}
         
         \end{groupplot}
     \end{tikzpicture}

@@ -1,15 +1,22 @@
 \section{Backgrounds}
-\par
-Using the Random Trigger, rate of various things were set out
+Things to mention and explain;
+\begin{itemize}
+    \item noise-cut
+    \item energy scale
+\end{itemize}
 
 \par
-As mentioned in Section XXX (LZ chapter bit), an assay was performed to establish the backgorund rates of all components.
-In addition to the assay, a separate cavern gamma study was performed along with the GdLS.
-
+Using the Random Trigger, the rate seen in the OD was observed for a number of months.
+The result of which is shown in Figure \ref{fig:OD_SR1_Rate} along with the date range used for SR1.
+\par
+As time progresses the rate of decreases as the OD stabilises.
+The various fluctuations in the noise-cut has been linked to the chiller system being turned on, suggesting a grounding failure.
+However, as these can be removed with a noise-cut they are not of significant concern.
 \begin{figure}[!htbp]
     \centering
     \begin{tikzpicture}
         \begin{axis}[
+            title=TODO: Replace with dates and errors,
             xlabel=Data taking week,
             ylabel=Rate (Hz),
             width=15cm,
@@ -35,8 +42,12 @@ In addition to the assay, a separate cavern gamma study was performed along with
     Week -1 corresponds to the month prior to SR1 when the OD PMT gains were higher.}
     \label{fig:OD_SR1_Rate}
 \end{figure}
-
-
+\par
+During the SR1 data taking period, the rate-per-phe is shown in Figure \ref{fig:od_sr1_rate_vs_threshold}.
+Overlaid is the expected rate of backgrounds from Table \ref{tab:od_expected_rates}.
+Interestingly the observed rate is below what was anticipated.
+This unexpected result means that the veto threshold could be reduced to 100keV, which should increase the veto tagging efficiency.
+Alternatively, the threshold could be left at 200keV, but the window extended, also increasing the tagging efficiency.
 \begin{figure}[!htbp]
     \centering
     \begin{tikzpicture}
@@ -74,11 +85,9 @@ In addition to the assay, a separate cavern gamma study was performed along with
     \caption{Rate of OD backgrounds during SR1 using the Random Trigger. The noise cut has been applied. 100Hz Requirement is for a 500$\mu$s veto window as proposed in \cite{LZ_TechnicalDesignReview_ref}. Expected values are from Table \ref{tab:od_expected_rates}}
     \label{fig:od_sr1_rate_vs_threshold}
 \end{figure}
-
 \par
-From the background rate during SR1 seen in Figure \ref{fig:od_sr1_rate_vs_threshold}, the veto requirement wasa reduced from 200keV to 100keV.
-This also allowed for the veto window to be increased from 400$\mu$s to 500$\mu$s.
-
+Due to this unexpectedly lower rate, a study was performed in order to understand what backgrounds are (and aren't) being seen.
+This is described in the remainder of this section.
 
 
 \begin{tcolorbox}[colback=red!5!white, colframe=red!50!black, title=Key Plots]
@@ -95,19 +104,6 @@ This also allowed for the veto window to be increased from 400$\mu$s to 500$\mu$
 \end{enumerate}
 \end{tcolorbox}
 
-
-%\begin{table}[!htbp]
-%    \centering
-%    \begin{tabular}{c|c}
-%        Source                         &  Expected Rate (Hz)                &   \\ \hline
-%        GdLS Internals (improved)      &  $67.3$              & $62.9$             \\ 
-%        GdLS Internals (initial)       &  $42.4$              & $42.2$             \\
-%        Other Detector Components      &  $2.93$              & $2.09$             \\
-%        Cavern $\gamma$                &  $0.10\pm0.04$       & $< 0.012$             
-%    \end{tabular}
-%    \caption{Expected Rate}
-%    \label{tab:gdls_expected_rates}
-%\end{table}
 
 \subsection{Energy Scaling}
 \par
@@ -207,8 +203,10 @@ For any pulse it is possible to reconstruct the location of the interaction that
 This was performed using Equation \ref{eq:OD_xy_position}.
 
 \begin{equation}
-    x(y) = \frac{\sum{\text{channel phe} * \text{channel x (y)}}}{\sum{\text{channel phe}}} \\
-       z = XXX 
+    \begin{array}{lcl}
+        x(y) = \frac{\sum{\text{phe}_\text{Ch} * \text{x(y)}_\text{Ch}}}{\sum{\text{phe}_\text{Ch}}} \\
+        z = XXX 
+    \end{array}
     \label{eq:OD_xy_position}
 \end{equation}
 

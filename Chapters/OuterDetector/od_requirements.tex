@@ -138,10 +138,10 @@ The simulations were only performed using energy deposits, no optical propagatio
     \hline
     \multirow{2}{*}{Source} & \multicolumn{4}{c}{Rate (Hz)} \\
                             & All   & $>$ 100 keV & $>$ 200 keV & $>$ 2 MeV \\ \hline
-    Cavern-$\gamma$         & 80.7  & 55.5        & 44.7        & 4.6       \\
-    LZ components           & 29.6  & 25.4        & 21.0        & 0.9       \\
-    GdLS Internals          & 40.2  & 24.5        & 11.9        & 0.0       \\
-    Total                   & 148.2 & 90.3        & 62.7        & 13.2
+    Cavern-$\gamma$         & 80.7$\pm$6  & 55.5$\pm$4  & 35.6$\pm$3  & 2.3$\pm$0.4     \\
+    LZ components           & 29.6$\pm$6  & 25.4$\pm$6  & 21.0$\pm$6  & 0.9$\pm$6       \\
+    GdLS Internals          & 40.2$\pm$6  & 24.5$\pm$6  & 11.9$\pm$6  & 0.0$\pm$6       \\ \hline
+    \textbf{Total}          & 148.2$\pm$6 & 90.3$\pm$6  & 62.7$\pm$6  & 13.2$\pm$6      \\ \hline
     \end{tabular}
     \caption{Expected rate in the OD. !!TODO add uncertainty!!}
     \label{tab:od_expected_rates}
@@ -210,9 +210,9 @@ For this, the efficiency is defined as;
     \epsilon = \frac{\text{events passing}\mathbf{Vetos}}{\text{N. Events}}
     \label{eq:reduced_neutron_efficiency}
 \end{equation}
-The result of this is shown in Figure \ref{neutron_eff_energy_dep_tpc_neutrons} alongside a previous study from the TDR-era \cite{sallyshaw_thesis_ref}.
+The result of this is shown in Figure \ref{fig:neutron_eff_energy_dep_tpc_neutrons} alongside a previous study from the TDR-era \cite{sallyshaw_thesis_ref}.
 The TDR-era efficiency used energy deposition simulations of a subset of background neutrons, the most significant source being the TPC PMTs.
-In Figure \ref{neutron_eff_energy_dep_tpc_neutrons}, three energy thresholds are presented.
+In Figure \ref{fig:neutron_eff_energy_dep_tpc_neutrons}, three energy thresholds are presented.
 This is a requirement on the total amount of energy deposited in the GdLS.
 The TDR plan for the OD threshold was 100keV, however due to concerns regarding ${}^{14}C$ contamination this was raised to 200keV - a requirement further supported from the rate recorded by the LS Screener result \cite{scotthaselschwardt_thesis_ref}. 
 The veto window was previously set to 500$\mu$s and so has been added here as well.
@@ -565,6 +565,7 @@ In Chapter \ref{chap:analysis_of_the_od}, the requirements are tested in data.
             grid=major,
             xmin=0, xmax=1000,
             ymin=85, ymax=100,
+            %legend style={at={(50.0,9.0)},anchor=north west},
             ]
             \addplot+[green, mark=none]
                     table [x=Time,y=Efficiency]

@@ -148,10 +148,17 @@
   /pgfplots/error bar legend/.style={
     legend image code/.code={
         \draw[sharp plot,mark=|,mark repeat=2,mark phase=1,color=black,##1]
-        plot coordinates { (0.0cm, 0.0cm) (0.3cm,0.0cm) (0.6cm, 0.0cm) };%
+        plot coordinates { (0.0cm, 0.0cm) (0.3cm,0.0cm) (0.6cm, 0.0cm) };
+        
+        \draw[sharp plot,mark=-,mark repeat=2,mark phase=1,color=black,##1]
+        plot coordinates { (0.3cm, -0.2cm) (0.3cm,0.2cm) (0.3cm, 0.2cm) };
+        
         \draw[mark repeat=2,mark phase=2,##1]
-        plot coordinates {(0cm,0cm) (0.3cm,0cm) (0.6cm,0cm)};%
-        }}}
+        plot coordinates {(0cm,0cm) (0.3cm,0cm) (0.6cm,0cm)};
+    }
+  }
+}
+
 
 \usepackage{listings}
 \usepackage{mdframed}

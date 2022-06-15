@@ -1,0 +1,18 @@
+\begin{figure}[!htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel=Energy (MeV),
+            ylabel=Probability,
+            width=15cm,
+            height=6cm,
+            xmin=0,
+            ymin=0,]
+            \addplot[red, const plot]
+                    table [x=Energy,y=Probability]
+                    {Data/Neutrons/amli_neutron_spectrum.dat};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{AmLi neutron energy. Data from \cite{amli_neutron_energy_ref} }
+    \label{fig:amli_neutron_energy_spectrum}
+\end{figure}

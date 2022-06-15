@@ -1,0 +1,19 @@
+\begin{figure}[!htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel=Energy (MeV),
+            ylabel=Emission (arbitary units),
+            width=15cm,
+            height=6cm,
+            xmin=0,
+            xmax=10,
+            ymin=0,]
+            \addplot[red, const plot]
+                    table [x=Energy,y=Rate]
+                    {Data/Neutrons/background_neutron_spectrum.dat};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Expected distribution of neutron energies from ($\alpha$,n) and USF neutrons.}
+    \label{fig:simulation_background_neutron_energies}
+\end{figure}

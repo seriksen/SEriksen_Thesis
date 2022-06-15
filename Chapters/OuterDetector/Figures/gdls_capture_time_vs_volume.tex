@@ -1,0 +1,95 @@
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}
+\begin{groupplot}[%
+    group style={group size= 2 by 3, vertical sep=2.5cm,
+    vertical sep=2.0cm},
+    view={0}{90}
+    %legend entries = {plot1,plot2}
+    ]
+
+    % Plot 2
+    \nextgroupplot[width=0.45\textwidth,
+                   xlabel=Time ($\mu$s),]
+    \addplot3[
+        point meta min=-6,
+        point meta max=0,
+		surf,
+		shader=flat corner,
+		colorbar right,
+		colorbar style={ylabel={Portion in Volume}},
+		mesh/cols=81,
+		mesh/ordering=rowwise,
+	   point meta = {z>1 ? nan : z}
+		] file {Data/GdLS_Physics/capture_time_vs_volumes/volume_capture_times_ScintillatorCenter.dat};
+	\node[draw, fill=white] at (axis cs: 1400,0.9) {\large GdLS};
+		
+	\nextgroupplot[colorbar, width=0.45\textwidth, colorbar style={ytick={-6,-5,...,0},}]
+    \addplot3[
+        point meta min=-6,
+        point meta max=0,
+		surf,
+		shader=flat corner,
+		mesh/cols=81,
+		mesh/ordering=rowwise,
+		point meta = {z>1 ? nan : z}
+		] file {Data/GdLS_Physics/capture_time_vs_volumes/volume_capture_times_FoamDisplacer.dat};
+	\node[draw, fill=white] at (axis cs: 1400,0.9) {\large OD Foam};
+		
+	\nextgroupplot[width=0.45\textwidth]
+    \addplot3[
+        point meta min=-4.5,
+        point meta max=0,
+        surf,
+		shader=flat corner,
+		colorbar right,
+		colorbar style={ylabel={Portion in Volume}},
+		mesh/cols=81,
+		mesh/ordering=rowwise,
+	   point meta = {z>1 ? nan : z}
+		] file {Data/GdLS_Physics/capture_time_vs_volumes/volume_capture_times_WaterAndPMTs.dat};
+    \node[draw, fill=white] at (axis cs: 1400,0.9) {\large OD Water};		
+		
+	\nextgroupplot[colorbar, width=0.45\textwidth, colorbar style={ytick={-6,-5,...,0},}]
+    \addplot3[
+		point meta min=-6,
+        point meta max=0,
+        surf,
+		shader=flat corner,
+		mesh/cols=81,
+		mesh/ordering=rowwise,
+		point meta = {z>1 ? nan : z}
+		] file {Data/GdLS_Physics/capture_time_vs_volumes/volume_capture_times_ScintillatorTank.dat};
+	\node[draw, fill=white] at (axis cs: 1400,0.9) {\large Acrylic Tanks};
+		
+	\nextgroupplot[width=0.45\textwidth]
+    \addplot3[
+        point meta min=-6,
+        point meta max=0,
+        surf,
+		shader=flat corner,
+		colorbar right,
+		colorbar style={ylabel={Portion in Volume}},
+		mesh/cols=81,
+		mesh/ordering=rowwise,
+	   point meta = {z>1 ? nan : z}
+		] file {Data/GdLS_Physics/capture_time_vs_volumes/volume_capture_times_LiquidXenonTarget.dat};
+    \node[draw, fill=white] at (axis cs: 1400,0.9) {\large TPC Xenon};
+		
+	\nextgroupplot[colorbar, width=0.45\textwidth, colorbar style={ytick={-6,-5,...,0},}]]
+    \addplot3[
+        point meta min=-6,
+        point meta max=0,
+        surf,
+		shader=flat corner,
+		mesh/cols=81,
+		mesh/ordering=rowwise,
+		point meta = {z>1 ? nan : z}
+		] file {Data/GdLS_Physics/capture_time_vs_volumes/volume_capture_times_LiquidSkinXenon.dat};
+	\node[draw, fill=white] at (axis cs: 1400,0.9) {\large Skin Xenon};
+	
+\end{groupplot}
+\end{tikzpicture}
+\caption{Fraction of time spent in various detector regions against the capture time in the GdLS. Here OD Foam refers to all displacement foam between the OCV and acrylic tanks.}
+\label{fig:gdls_capture_time_vs_volume}
+\end{figure}

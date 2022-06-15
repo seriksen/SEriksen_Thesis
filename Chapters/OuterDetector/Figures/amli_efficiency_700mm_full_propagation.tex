@@ -1,0 +1,47 @@
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+    \begin{axis}[
+            xlabel=Energy (MeV),
+            ylabel=Probability,
+            width=15cm,
+            height=6cm,
+            grid=major,
+            xmin=0, xmax=1000,
+            ymin=85, ymax=100,
+            %legend style={at={(50.0,9.0)},anchor=north west},
+            ]
+            \addplot+[green, mark=none]
+                    table [x=Time,y=Efficiency]
+                    {Data/Neutron_Efficiency/Simulation/amli_neutron_eff_0kev_error_bars.dat};
+            \addplot[green, only marks, mark size=2pt,
+                     error bar legend,
+                     error bars/.cd,
+                     x dir=both, x explicit, error bar style={color=black}]
+                    table [x=Time,y=Efficiency, x error=EfficiencyError]
+                    {Data/Neutron_Efficiency/Simulation/amli_neutron_eff_0kev_error_bars.dat};
+            \addplot+[blue, mark=none]
+                    table [x=Time,y=Efficiency]
+                    {Data/Neutron_Efficiency/Simulation/amli_neutron_eff_50kev_error_bars.dat};
+            \addplot[blue, only marks, mark size=2pt,
+                     error bar legend,
+                     error bars/.cd,
+                     x dir=both, x explicit, error bar style={color=black}]
+                    table [x=Time,y=Efficiency, x error=EfficiencyError]
+                    {Data/Neutron_Efficiency/Simulation/amli_neutron_eff_50kev_error_bars.dat};
+            \addplot+[red, mark=none]
+                    table [x=Time,y=Efficiency]
+                    {Data/Neutron_Efficiency/Simulation/amli_neutron_eff_100kev_error_bars.dat};
+            \addplot[red, only marks, mark size=2pt,
+                     error bar legend,
+                     error bars/.cd,
+                     x dir=both, x explicit, error bar style={color=black}]
+                    table [x=Time,y=Efficiency, x error=EfficiencyError]
+                    {Data/Neutron_Efficiency/Simulation/amli_neutron_eff_100kev_error_bars.dat};
+            \legend{,0keV,,100keV,,200keV}
+            \end{axis}
+\end{tikzpicture}
+    \caption{Simulated AmLi neutron tagging efficiency for CSD-1 at 700mm.}
+    \label{fig:simulated_amli_neutron_efficiency.}
+\end{figure}

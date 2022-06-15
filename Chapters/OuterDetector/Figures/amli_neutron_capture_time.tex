@@ -1,0 +1,35 @@
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+    \begin{axis}[
+            xlabel=Time ($\mu$s),
+            ylabel=Normalised Count,
+            width=15cm,
+            height=8cm,
+            grid=major,
+            xmin=0, xmax=1500,
+            ymode=log, ymin=1e-7
+            %legend style={at={(50.0,9.0)},anchor=north west},
+            ]
+            
+            \addplot[blue, const plot]
+                    table [x=time,y=count]
+                    {Data/GdLS_Physics/neutron_capture_time/amli_capture_time_z0mm.dat};
+            
+            \addplot[red, const plot]
+                    table [x=time,y=count]
+                    {Data/GdLS_Physics/neutron_capture_time/amli_capture_time_z700mm.dat};
+            
+            \addplot[green, const plot]
+                    table [x=time,y=count]
+                    {Data/GdLS_Physics/neutron_capture_time/amli_capture_time_z1400mm.dat};
+            
+            \legend{0mm, 700mm, 1400mm};
+            
+        
+    \end{axis}
+\end{tikzpicture}
+\caption{Simulated neutron capture time in the GdLS for AmLi events at various locations in CSD-1.}
+\label{fig:simulated_amli_capture_time}
+\end{figure}

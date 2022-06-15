@@ -1,0 +1,23 @@
+\begin{figure}
+	\begin{tikzpicture}
+		\centering
+		\begin{axis}[%point meta max=150,
+			%point meta min=0.0,
+			view={0}{90},
+			ylabel={Cross-Section (barns)},
+			xlabel={Incident Energy (MeV)},
+			width=15cm,
+			height=8cm,
+			ymode=log,
+			xmode=log,
+			]
+			\addplot[blue] table[x=energy,y=barns] {Data/GdLS_Physics/capture_cross_sections/h.dat};
+			\addplot[orange] table[x=energy,y=barns] {Data/GdLS_Physics/capture_cross_sections/gd155.dat};
+			\addplot[green] table[x=energy,y=barns] {Data/GdLS_Physics/capture_cross_sections/gd157.dat};
+			\legend{H, ${}^{155}$Gd, ${}^{157}$Gd};
+		\end{axis}
+	\end{tikzpicture}
+\caption{Capture cross sections for the most significant capture particles in GdLS cocktail. Values from \cite{endf_bv3_ref}}
+\label{fig:gdls_capture_cross_sections}
+\end{figure}
+		

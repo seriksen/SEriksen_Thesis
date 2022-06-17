@@ -1,0 +1,48 @@
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+    \begin{groupplot}[%view={0}{90},
+    group style = {group size = 2 by 1,
+                   horizontal sep=1.0cm}]
+    \nextgroupplot[
+            xlabel=Energy (keV),
+            ylabel=Rate (Hz/15keV),
+            width=0.5\textwidth, height=8cm,
+            xmin=0, xmax=14000,
+            minor y tick num=8,
+            ymode=log, ymin=1e-6, ymax=10,
+            grid=major,]
+            \addplot[green, mark=none]
+                    table [x=Bins,y=Weights]
+                    {Data/Simulation_Analysis/Cavern_Gammas/old_gamma_generator_th232.dat};
+            \addplot[blue, mark=none]
+                    table [x=Bins,y=Weights]
+                    {Data/Simulation_Analysis/Cavern_Gammas/old_gamma_generator_u238.dat};
+
+        \nextgroupplot[
+            xlabel=Energy (keV),
+            width=0.5\textwidth, height=8cm,
+            xmin=0, xmax=14000,
+            yticklabel pos=right,
+            minor y tick num=8,
+            ymode=log, ymin=1e-6, ymax=10,
+            grid=major,
+            legend style = { column sep = 10pt, legend columns = -1, legend to name = Cavern_Gamma_CommonLegend,}]
+            \addplot[green, mark=none]
+                    table [x=Bins,y=Weights]
+                    {Data/Simulation_Analysis/Cavern_Gammas/new_gamma_generator_th232.dat};
+            \addplot[blue, mark=none]
+                    table [x=Bins,y=Weights]
+                    {Data/Simulation_Analysis/Cavern_Gammas/new_gamma_generator_u238.dat};
+            \addplot[red, mark=none]
+                    table [x=Bins,y=Weights]
+                    {Data/Simulation_Analysis/Cavern_Gammas/new_gamma_generator_k40.dat};
+            \legend{${}^{232}Th$, ${}^{238}U$, ${}^{40}K$}
+            
+    \end{groupplot}
+    \node at ($(group c2r1) - (group c1r1) + (-0.5cm, 5.0cm)$) {\ref{Cavern_Gamma_CommonLegend}};
+\end{tikzpicture}
+\caption{Generator $\gamma$ energies. \textbf{Left:} Previous generator. \textbf{Right:} This work.}
+\label{fig:cavern_gamma_energy_distribution}
+\end{figure}

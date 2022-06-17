@@ -1,17 +1,4 @@
 \section{OD requirements}
-
-\begin{tcolorbox}[colback=red!5!white, colframe=red!50!black, title=Key Plots]
-\begin{enumerate}
-    \item Simulation Efficiency
-    \item Neutron capture energy deposits
-    \item alpha,n energies
-    \item fraction of gammas that get captured in the OD after SS (AmLi sims)
-    \item fraction of neutrons that get captured in each volume
-    \item time spent in volume vs OD capture time (for all and for Gd-only) to show what causes each component
-    \item Energy deposited in OD vs veto time
-\end{enumerate}
-\end{tcolorbox}
-
 \par
 As previously stated, the primary purpose of the OD is to act as an active veto for neutrons.
 Practically, this means that there are a number of performance requirements which the OD has to meet, all of which can be found in \cite{LZ_TechnicalDesignReview_ref}.
@@ -43,20 +30,23 @@ This does however need to be balanced to maintain a suitable veto efficiency.
 \subsection{OD Backgrounds}
 \par
 A background in the OD is any event that is not what it was designed to detect and veto - so any event that is not a neutron or $\gamma$ that has scattered once in the TPC.
-There are three significant sources of backgrounds are; Cavern-$\gamma$'s, impurities in the GdLS and other detector components.
-Additionally, during data-taking electronic noise will contribute to the background rate, however this is not taken into account here. 
+There are three significant sources of backgrounds for the OD; Cavern-$\gamma$'s, impurities in the GdLS and other LZ detector components.
+Additionally, during data-taking electronic noise will contribute to the background rate. 
 
 \subsubsection{GdLS impurities}
 \par
-In order to ascertain the rate of internal contaminants expected, a campaign was undertaken \cite{scotthaselschwardt_thesis_ref} to determine this expected rate.
-The results from this are shown in table \ref{tab:gdls_assay_rates}.
+In order to ascertain the rate of internal contaminants expected, a campaign was undertaken \cite{scotthaselschwardt_thesis_ref} to determine this, the results from which are shown in Table \ref{tab:gdls_assay_rates}.
 The decay chains and associated sub-chains are shown in Figure \ref{fig:decay_chains}.
 
 \par
-One of the key outcomes of the screener campaign were the high ${}^{235}U$ rate.
+One of the key outcomes of the screener campaign was the high ${}^{235}U$ rate.
 As such, the method of doping the LS was altered, which aimed to reduce the contamination.
 The expected rates from this are also shown in Table \ref{tab:gdls_assay_rates}.
 However, as these were not screened the accuracy is unknown, but gives a 'best-case'.
+The high ${}^{14}{C}$ rate prompted the veto threshold to be set to 200keV (100keV was originally proposed).
+
+\par
+During filling of the OD tanks the mass of GdLS was measured as 16.8 tonnes, a 500kg decrease on values used in pre-construction analysis, which will reduce the rate expected by $\approx$3\%.
 
 
 \begin{table}[!htbp]
@@ -74,8 +64,8 @@ However, as these were not screened the accuracy is unknown, but gives a 'best-c
         ${}^{138}La$         &  $< 0.0055$           & $< 0.0017$            \\
         ${}^{176}Lu$         &  $0.30\pm0.07$        & $0.0081\pm0.0018$     \\
         ${}^{152}{Gd}$       &  $1.61\pm0.08$        & $1.61\pm0.08$         \\
-        ${}^{152}{Sm}$       &  $1.02\pm0.05$        & $1.02\pm0.05$         \\
-        ${}^{14}{C14}$       &  $4.77\pm0.098$       & $4.77\pm0.098$ 
+        ${}^{147}{Sm}$       &  $1.02\pm0.05$        & $1.02\pm0.05$         \\
+        ${}^{14}{C}$         &  $4.77\pm0.098$       & $4.77\pm0.098$ 
     \end{tabular}
     \caption{Activities of GdLS components during LS Screener testing and those projected from an improved purification technique. Values from Table 4.9 and 6.11 of \cite{scotthaselschwardt_thesis_ref}}
     \label{tab:gdls_assay_rates}
@@ -86,22 +76,18 @@ However, as these were not screened the accuracy is unknown, but gives a 'best-c
 
 \subsubsection{Cavern-$\gamma$'s}
 \par
-Due to the results of the LS Screener campaign, a dedicated Cavern-$\gamma$ study was undertaken as mentioned in Section \ref{sec:cavern_gamma_generator}.
+Another outcome of the LS Screener campaign was the requirement for a dedicated Cavern-$\gamma$ study which was mentioned in Section \ref{sec:cavern_gamma_generator}.
 This showed that the rate of these $\gamma$'s may in fact be $\approx$50\% of what was anticipated in the TDR \cite{LZ_TechnicalDesignReview_ref} (See Table \ref{tab:cavern_gamma_generator_parameters}).
-Despite this reduction, they are expected to be the dominant background above 2MeV, but uncertainty on the rate is a mild cause of concern.
-
-\par
-As mentioned Section \ref{sec:cavern_gamma_generator}, the frequent opening of the valves on the tanks will have allowed for cavern-air and dust to enter the tanks.
-Quantifying this  will not be possible without damaging the tanks, but it may be an unexpected feature in data.
+Despite this reduction, they are expected to be the dominant background above 2MeV, but uncertainty on the rate is a concern.
 
 \subsubsection{LZ Detector Components}
 \par
 A third source are decays originating from other components which are all contaminated with trace radioimpurities, the vast majority of which were subject to an assay \cite{LZ_assay_ref}.
 These were shown in \cite{scotthaselschwardt_thesis_ref} to contribute as much as 11.9Hz to the OD rate above 200keV with the majority (5.5Hz) from the acrylic tanks and associated support structure.
 Table \ref{tab:gdls_non_assayed_activities} contains the activities of the components that are in closest proximity to the GdLS and were installed as part of the installation described in Section \ref{sec:od_construction_sec}.
-Several materials in the Table were not part of the original assay set in \cite{LZ_assay_ref}.
+Several materials in the table were not part of the original assay set.
 The mass estimates of soft materials are the author's own, based upon measurements and logs taken whilst on-site.
-In addition to the measurements in Table \ref{tab:gdls_non_assayed_activities}, the OCV was subject to the cavern air for a prolonged period of time so there may be a build up of Radon dust which is not taken into account.
+The simulations were only performed using energy deposits, no optical propagation, with those properties accounted for, the observed rate may be lower.
 
 \begin{table}[!htbp]
     \centering
@@ -126,31 +112,35 @@ In addition to the measurements in Table \ref{tab:gdls_non_assayed_activities}, 
     \label{tab:gdls_non_assayed_activities}
 \end{table}
 
+\par
+In addition to the measurements in Table \ref{tab:gdls_non_assayed_activities}, the OCV was subject to the cavern air for a prolonged period of time so there may be a build up of Radon dust which is not taken into account.
+Similarly, the frequent opening of the valves on the OD tanks (as mentioned in Section \ref{sec:cavern_gamma_generator}) will have allowed for cavern-air and dust to enter the tanks.
+Quantifying this will not be possible without damaging the tanks, but it may be an unexpected feature in data.
+
 
 \subsubsection{Summary}
 \par
-A new set of simulations were performed to attain the expected rate of backgrounds.
-These anticipated rates per keV are shown in Figure \ref{fig:OD_estimated_background_rate}, a summary of the key energy thresholds are provided in Table \ref{tab:od_expected_rates}.
-The lower rates from Table \ref{tab:gdls_assay_rates} are used to be more representative of what to expect from data.
-The rates of LZ components and Cavern-$\gamma$'s differ here compared to previous background studies such as in \cite{LZ_TechnicalDesignReview_ref,LZ_projected_sensitivity_paper_ref,sallyshaw_thesis_ref,scotthaselschwardt_thesis_ref} as the simulated OD geometry has improved and more sources have been taken into account.
-Additionally, during filling of the OD tanks the mass of GdLS was measured as 16.8 tonnes, a 500kg decrease on values used in pre-construction analysis. 
-The simulations were only performed using energy deposits, no optical propagation, with those properties accounted for, the observed rate may be lower.
+A new set of simulations were performed to determine the expected rate of backgrounds in the OD.
+These anticipated rates at key energy thresholds are provided in Table \ref{tab:od_expected_rates}.
+There have been numerous pre-construction studies to determine the expected background rate in the OD including \cite{LZ_TechnicalDesignReview_ref,LZ_projected_sensitivity_paper_ref,sallyshaw_thesis_ref,scotthaselschwardt_thesis_ref,lz_od_taup_2019_ref}, each of which has a significantly different value from between 56Hz and 230Hz above 200keV.
+\par
+The rates of LZ components and Cavern-$\gamma$'s differ here compared to previous background studies as the simulated OD geometry has improved and more sources have been taken into account.
+Assuming that the thresholds predicted with the improved purification of the GdLS, it may be possible for the veto threshold to be reduced to 100keV.
 
 \begin{table}[!htbp]
     \centering
     \begin{tabular}{c|c|c|c|c} %{ c | c {\textwidth} } 
     \hline
     \multirow{2}{*}{Source} & \multicolumn{4}{c}{Rate (Hz)} \\
-                            & All   & $>$ 100 keV & $>$ 200 keV & $>$ 2 MeV \\ \hline
-    Cavern-$\gamma$         & 80.7$\pm$6  & 55.5$\pm$4  & 35.6$\pm$3  & 2.3$\pm$0.4     \\
-    LZ components           & 29.6$\pm$6  & 25.4$\pm$6  & 21.0$\pm$6  & 0.9$\pm$6       \\
-    GdLS Internals          & 40.2$\pm$6  & 24.5$\pm$6  & 11.9$\pm$6  & 0.0$\pm$6       \\ \hline
-    \textbf{Total}          & 148.2$\pm$6 & 90.3$\pm$6  & 62.7$\pm$6  & 13.2$\pm$6      \\ \hline
+                            & All          & $>$ 100 keV   & $>$ 200 keV   & $>$ 2 MeV \\ \hline
+    Cavern-$\gamma$         & 80.7$\pm$6.2 & 55.5$\pm$4.0  & 35.6$\pm$5.0  & 2.3$\pm$0.4     \\
+    LZ components           & 29.6$\pm$6   & 25.4$\pm$6.1  & 5.0$\pm$0.2   & 0.01$\pm$0.01   \\
+    GdLS Internals          & 40.2$\pm$6   & 32.5$\pm$6.0  & 22.1$\pm$1.8  & 0.01$\pm$0.01   \\ \hline
+    \textbf{Total}          & 148.2$\pm$6  & 90.3$\pm$6    & 62.7$\pm$5.3  & 2.3$\pm$0.4      \\ \hline
     \end{tabular}
-    \caption{Expected rate in the OD. !!TODO add uncertainty!!}
+    \caption{Expected rate in the OD with improved GdLS purification.}
     \label{tab:od_expected_rates}
 \end{table} 
-
 
 \begin{figure}
     \centering
@@ -163,30 +153,29 @@ The simulations were only performed using energy deposits, no optical propagatio
 
 \subsection{Efficiency}
 \par
-Neutron sources that can enter the TPC can originate from a ($\alpha$,n) reactions.
-These are the most dangerous in terms of number expected, but also as only a single neutron will be released.
-The primary other expected neutrons originate from spontaneous fission predominant from uranium (USF).
-However multiple neutrons are released \cite{usf_ref}, often with higher energies and they are accompanied by $\gamma$'s and $\beta$'s so vetoing these is of less concern.
+The most prevalent neutron sources that can enter the TPC are from ($\alpha$,n) reactions and spontaneous fission.
+($\alpha$,n) are the most dangerous in terms of number expected, but also as only a single neutron will be released.
+Neutrons from spontaneous fission predominantly from uranium (USF) are of less concern as multiple neutrons are released \cite{usf_ref}, often with higher energies and they are accompanied by $\gamma$'s and $\beta$'s so vetoing these is of less concern.
 The neutron energy distribution expected in LZ is shown in Figure \ref{fig:simulation_background_neutron_energies}.
 \input{Chapters/OuterDetector/Figures/background_neutron_energies}
 
 \par
-A neutron only needs to be vetoed if it scatters once in the TPC (SS), depositing energy an amount of energy in the region of intersect (ROI) in the fiducial region of the Xenon (FID).
-The efficiency, $\epsilon$, of this is defined as;
+A neutron only needs to be vetoed if it scatters once in the TPC (\textbf{SS}), depositing energy an amount of energy in the region of intersect (\textbf{ROI}) in the fiducial region of the Xenon (\textbf{FID}).
+The efficiency, $\epsilon$, of vetoing these events is defined as;
 \begin{equation}
     \epsilon = \frac{\text{events passing}\mathbf{SS, ROI, FID, Vetos}}{\text{events passing}\mathbf{SS, ROI, FID}}
     \label{eq:neutron_efficiency}
 \end{equation}
 
 \par
-In order to determine this, simulations of the background neutrons from ($\alpha$,n) and USF could have been performed.
-They are fairly computationally intensive, with the majority not meeting the criteria of SS, FID and ROI.
-Instead, simulations of neutrons that start in the FID were performed.
-This simulated neutrons 'post-SS' and assuming the deposit would have been in the ROI.
-The neutron scatter on Xenon follows the same as mentioned above, XXX
+Previously, simulations of a limited background neutron sample demonstrated that a 97\% efficiency could be achieved with a 200keV veto threshold and 500$\mu$s veto window \cite{LZ_TechnicalDesignReview_ref}.
+Since the OD geometry was significantly altered as described in Section \ref{sec:od_construction_sec}, this has been performed again here.
+Rather than simulations of background neutrons from ($\alpha$,n) and USF, mono-energetic neutrons that originate inside the TPC \textbf{FID} region simulations were used.
+Essentially this meant that each neutron was in a 'post-\textbf{SS}' state, having already scattered.
+
 \par
-The FID was defined as in \cite{LZ_TechnicalDesignReview_ref}, to be a cylinder inside the TPC; 1.5cm above to cathode and 9cm before the anode.
-The volume extends out 68.8cm radially.
+The \textbf{FID} was defined as in \cite{LZ_TechnicalDesignReview_ref}, to be a cylinder inside the TPC; 1.5cm above to cathode and 9cm before the anode.
+The volume extends out 68.8cm radially to be 1.5cm from the TPC wall.
 
 \par
 The simulations performed used energy deposits only primarily for the computational saving, the probability of a 1MeV neutron passing the SS is 0.005-0.0007\footnote{This is from TDR-era simulations which had a lot of neutron-scatter related physics disabled in the simulation.} \cite{sallyshaw_thesis_ref}.
@@ -196,12 +185,8 @@ For this, the efficiency is defined as;
     \epsilon = \frac{\text{events passing}\mathbf{Vetos}}{\text{N. Events}}
     \label{eq:reduced_neutron_efficiency}
 \end{equation}
-The result of this is shown in Figure \ref{fig:neutron_eff_energy_dep_tpc_neutrons} alongside a previous study from the TDR-era \cite{sallyshaw_thesis_ref}.
-The TDR-era efficiency used energy deposition simulations of a subset of background neutrons, the most significant source being the TPC PMTs.
-In Figure \ref{fig:neutron_eff_energy_dep_tpc_neutrons}, three energy thresholds are presented.
-This is a requirement on the total amount of energy deposited in the GdLS.
-The TDR plan for the OD threshold was 100keV, however due to concerns regarding ${}^{14}C$ contamination this was raised to 200keV - a requirement further supported from the rate recorded by the LS Screener result \cite{scotthaselschwardt_thesis_ref}. 
-The veto window was previously set to 500$\mu$s and so has been added here as well.
+The result are shown in Figure \ref{fig:neutron_eff_energy_dep_tpc_neutrons} alongside a previous study from the TDR-era.
+In Figure \ref{fig:neutron_eff_energy_dep_tpc_neutrons}, three energy thresholds are presented which refer to the total energy deposited in the GdLS.
 
 \input{Chapters/OuterDetector/Figures/tpc_neutron_efficiency}
 
@@ -209,27 +194,27 @@ The veto window was previously set to 500$\mu$s and so has been added here as we
 Figure \ref{fig:neutron_eff_energy_dep_tpc_neutrons} provides two results.
 The first, and possibly most importantly is that it is expected that the requirement R-160001 remains satisfied and a veto window of 500$\mu$s remains adequate.
 Secondly, the energy of the neutron may be an important factor in the performance of the veto.
-Not only will the neutron reach the GdLS faster, the higher energy it has, but it also has that much more energy to loose via potentially more detectable scatters\footnote{A proton scatter taking $\approx$50\% of the neutrons energy} before being captured.
+Not only will the neutron reach the GdLS faster, the higher energy it has, but it also has that much more energy to lose via potentially more detectable scatters\footnote{A proton scatter taking $\approx$50\% of the neutrons energy} before being captured.
 As to whether this is detectable in data will depend upon the true light collection efficiency being high enough to overcome quenching.
 
 \subsection{Simulated Calibration Efficiency}
 \par
 The efficiency shown in Figure \ref{fig:neutron_eff_energy_dep_tpc_neutrons} shows that the requirement will be met but it will need to be confirmed using a calibration source.
 LZ has four neutron sources available during calibration which are summarised in Table \ref{tab:LZ_Used_Calibration_Sources}.
-The source chosen for this was AmLi, an ($\alpha$,n) source.
+In this section the veto efficiency from AmLi, an ($\alpha$,n) source, is calculated.
 AmLi produces neutrons predominantly under 0.5MeV with the full spectrum is shown in Figure \ref{fig:amli_neutron_energy_spectrum}.
+Of the four neutron sources designated for SR1 it is the most flexible and clean; flexible as it can be placed inside the cyrovessel (inside a CSD), but it also has a very low $\gamma$ rate that can escape the source housing.
 
 \input{Chapters/OuterDetector/Figures/amli_neutron_energy}
 
 \par
-Simulations were performed of energy depositions only, where the AmLi source was set inside CSD-1.
-Three source locations were chosen;
+Simulations were again performed of energy depositions only, where the AmLi source was set inside CSD-1.
+Three source locations were chosen which are listed below. A graphical depiction is shown in Figure \ref{fig:CSD1_Geometry}. 
 \begin{enumerate}
     \item \textbf{0mm:} In line with the cathode
     \item \textbf{700mm:} In the centre of the TPC
     \item \textbf{1400mm:} At the top of the TPC
 \end{enumerate}
-A graphical depiction is shown in Figure \ref{fig:CSD1_Geometry}. 
 
 \begin{figure}[!htbp]
 \centering
@@ -238,57 +223,40 @@ A graphical depiction is shown in Figure \ref{fig:CSD1_Geometry}.
 \label{fig:CSD1_Geometry}
 \end{figure}
 
+
 \par
-A single scatter is generally a cluster of activity close enough together that it cannot be distinguished.
-The result from LUX \cite{lux_position_reconstruction_ref}, scaled to LZ as per \cite{LZ_TechnicalDesignReview_ref} give a definition of a single scatter as ${\sigma}_{z}<0.3$cm and ${\sigma}_{r}<3.0$cm.
-The \textbf{SS} cut is defined as this.
+The \textbf{SS} cut was defined as a cluster of activity close enough together that it cannot be distinguished and can be defined in energy deposit simulations as the energy-weighted variance in position being less than the detector spatial resolution.
+This was determined from the result from LUX \cite{lux_position_reconstruction_ref}, scaled to LZ as per \cite{LZ_TechnicalDesignReview_ref} to give; ${\sigma}_{z}<0.2$cm and ${\sigma}_{r}<3.0$cm.
 The \textbf{FID} and skin are handled as before.
 The result of the simulations are shown in Figure \ref{fig:simulated_amli_neutron_efficiency}.
-
-
 \input{Chapters/OuterDetector/Figures/amli_efficiency_all_positions}
+
+\par
+Perhaps unexpectedly, the veto efficiency varies depending upon the height of the source.
+Part of the reason for this is shown in Figure \ref{fig:simulated_amli_capture_time} where the time it takes for the neutron to capture in the GdLS is shown.
+In high-$H$ materials, such the foam and acrylic, can effectively moderate and bound the neutron in that material.
+The effect of this per volume can be seen in Figure \ref{fig:simulated_neutron_capture_time_vs_volume}.
+In the capture constant this reflects itself as 2 exponential; one for a neutron that rapidly enters the GdLS and is moderated and captured there, and one for when the neutron is bouncing in a high-$H$ material before entering the GdLS.
+In the latter case, the capture time constant is close to 200$\mu$s, corresponding to high-$H$ materials.
+\par
+Something about the ratio of the 1st and 2nd expo.
+Add the fit...? to compare to data in next chapter.
+
+\par
+The efficiency for an AmLi source at 0mm is the first time the 95\% veto requirement is not met, yet it met for 1400mm despite appearing to be in geometrically similar locations.
+The difference can be account for in the reduced volume of the BATs compared to TATs + YBe plug, with area below the OCV being occupied by steel legs, water and foam.
+Additionally, the Skin detector volume is also smaller below the TPC.
 
 
 \input{Chapters/OuterDetector/Figures/amli_neutron_capture_time}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\textwidth]{Figures/Placeholder.png}
-    \caption{Neutron capture time in the GdLS from AmLi CSD-1 700mm depending upon volume the neutron spent time in.}
-    \label{fig:simulated_neutron_capture_time_vs_volume}
-\end{figure}
-
-
+\input{Chapters/OuterDetector/Figures/gdls_capture_time_vs_volume}
 
 \par
-In addition to the
-Additionally, during the calibration data taking it will not be possible to have such ideal circumstances to test the neutron tagging performance.
-Therefore, in order to quantify this, two neutron sources were simulated, AmLi and DD, the deployment methods of each are described in Section XXX.
-
-
-Particularly given the propagation effects raised in Section XXX.
-\par
-In Chapter \ref{chap:analysis_of_the_od}, the requirements are tested in data.
-
-\begin{table}[!htbp]
-    \centering
-    \begin{tabular}{c|c|c|c|c|c|c}
-         \multirow{2}{*}{Neutron Source} & \multicolumn{5}{c|}{Number passing cut}      & \multirow{2}{*}{Veto Eff. (\%)}  \\ 
-                         & Simulated  & Usable     & SS        & FID     & Veto         &                                  \\ \hline
-        energy dep       & 19,310,000 & 19,280,766 & 1,474,033 & 325,080 & 323,319      & 99.4                             \\
-        1400mm ede       & 19,310,000 & 19,280,766 & 1,474,033 & 325,080 & 323,319      & 99.4                             \\
-        700mm edep       & 19,310,000 & 19,280,766 & 1,474,033 & 325,080 & 323,319      & 99.4                             \\
-        0mm edep         & 19,310,000 & 19,280,766 & 1,474,033 & 325,080 & 323,319      & 99.4                             \\
-        700mm optical    & X          & X          &           &         &              & 
-    \end{tabular}
-    \caption{Number of events passing various cuts from AmLi simulation in CSD-1.}
-    \label{tab:amli_neutron_simulations_veto_efficiency}
-\end{table}
-
-
+In practice any energy deposit will have to result in optical photons which are subject to the light collection efficiency (shown in Figure \ref{fig:od_lce}) for a photon to reach a PMT and the efficiency of the PMT to generate a signal (shown in Figure \ref{fig:od_pmt_qe}).
+In order to determine the effect of this, full-propagation simulations were formed using the tools described in \cite{lz_simulations_ref}.
+This is shown in Figure \ref{fig:simulated_amli_full_propagation_efficiency} for AmLi at 700mm. 
+This position was chosen as the energy deposit efficiency was closest to that of a 1MeV neutron.
+The neutron efficiency in this case never reaches the performance requirement at any energy threshold; reducing to 91\% for a 200keV threshold and 500$\mu$s window.
 
 \input{Chapters/OuterDetector/Figures/amli_efficiency_700mm_full_propagation}
-
-\clearpage
-
-\input{Chapters/OuterDetector/Figures/gdls_capture_time_vs_volume}

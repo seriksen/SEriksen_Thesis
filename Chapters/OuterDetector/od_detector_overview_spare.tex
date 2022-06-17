@@ -2,20 +2,46 @@
 
 \par
 The Outer Detector (OD) has been designed as part of an active veto system - as an anti-coincidence detector to efficiently tag background events that would otherwise appear in the WIMP analysis.
-This allows for a larger portion of the TPC Xenon to be used, increasing the \textbf{FID} from 3.2 to 5.6 tonnes \cite{LZ_TechnicalDesignReview_ref}.
+This allows for a larger portion of the TPC Xenon to be used for a WIMP search as the background rate is reduced, increasing the \textbf{FID} from 3.2 to 5.6 tonnes \cite{LZ_TechnicalDesignReview_ref}.
+
+
+
+\subsection{GdLS}
+\par
+The core of the OD is the ability to capture neutrons.
+This is done by a liquid scintillator doped with natural gadolinium (GdLS)
+The components of this cocktail are detailed in Table \ref{tab:GdLS_Components}.
+
+\begin{itemize}
+    \item 
+\end{itemize}
+
 
 \par
 The OD is broken up into two parts; a volume of ultra-pure water and a scintillor layer.
 Both volumes are made active by an array of PMTs.
 
-
+\subsection{Water and PMTs}
 \par
-The OD is filled with a Gadolinium-doped Liquid Scintillator (GdLS).
-The as the liquid scintillator is comprised of linear akylbenze (LAB) - the generic term for this class of chemical compositions.
+The outermost region of the OD is a Tyvek curtain, separating the OD from the edge of the water tank.
+Attached the Tyvek wall, 120 Hamamatsu R5912 8"-diameter PMTs point inwards.
+For an 420nm incident photon the PMT quantum efficiency is in excess of 25\%, with the full wavelength shown in Figure \ref{fig:od_pmt_qe}.
 
+\input{Chapters/OuterDetector/Figures/od_pmt_qe}
+
+\subsection{Tyvek}
+\par
+The OD is entirely encased by Tyvek paper to improve light collection efficiency. 
+In dominant scintillation wavelengths (400-500nm), the reflectivity remains above 80\% in water \cite{tyvek_thesis_ref,tyvek_reflectivity_ref}. 
+Tyvek was selected over other reflective boundaries (such as Lumirror{\texttrademark} due to it's.
+Other options
+
+
+
+\subsection{Acrylic Tanks}
 \par
 The scintillator is housed in ten ultra-violet transparent acrylic tanks.
-Four side tanks (SATs) that curve around the OCV, three bottom tanks (BATs) under the OCV between it's legs, two top tanks (TATs), and a final smaller tank - the YBe plug which is removable to be replaced by the YbE source.
+Four side tanks (SATs) that curve around the OCV, three bottom tanks (BATs) under the OCV between it's legs, two top tanks (TATs), and a final smaller tank - the YBe plug which is removable to be replaced by the YBe source.
 Between the SATs and OCV, foam pieces are installed to displace water.
 Figure \ref{fig:LZ_OD_Tanks} shows each of the tanks positions.
 Details of the construction of the tanks can be found in \cite{scotthaselschwardt_thesis_ref}.
@@ -37,6 +63,14 @@ The GdLS is combined with TMHA (the chelating agent) and dissolved in the LS.
 The components of this cocktail are summarised in Table \ref{tab:GdLS_Components}.
 
 
+\subsection{Scintillator}
+\par
+The scintillation cocktail which fills the OD tanks made up of five ingredients.
+
+
+
+
+is a linear alkylbenzene (LAB).
 
 In this, neutron capture happens on the hydrogen; $n + p \xrightarrow{} d + \gamma$ with a capture constant of 200$\mu$s \cite{LZ_TechnicalDesignReview_ref}.
 The hydrogen capture produces a single 2.2MeV $\gamma$.
@@ -120,146 +154,7 @@ Now, if the nucleus is a hard sphere, so independent of $\theta$, then an elasti
 If A = 1 (so is a proton), then it reduces further to $E^{'} = \frac{1}{2}E$, meaning that the neutron loses half its energy on average.
 The scattered proton has energy $E - E^{'}$ and is quenched.
 
-
-
-\subsection{Neutrons in GdLS}
-
-\subsubsection{background neutrons}
-\par
-Maybe this and DD neutrons into a separate section before GdLS section?
-
-\subsubsection{DD neutrons}
-\par
-10,000 DD simulations have been done - a mono-energetic neutron source which LZ will be using for calibration purposes.
-Neutrons are emitted at 2.45MeV.
-
-\par
-From these simulations (performed on BACCARAT release 6.2.1).
-Table \ref{tab:Where_neutrons_go} shows the number neutrons which enter the scintillator and have their final stage there.
-The vast majority of the neutrons emitted enter and are captured in the parts of the detector immediately surrounding where it originated.
-Importantly, only 23\% of neutrons which remain in the detector finish in the scintillator.
-This could be Gd-capture, H-capture, or something else.
-
-\begin{table}[!htbp]
-    \centering
-    \begin{tabular}{c | c | c  }
-    \hline
-    {Final Volume}  & {Where all go (\%)} & {Where all go - ignoring OutOfWorld (\%)} \\ \hline
-    WaterAndPMTs & 33.59 & 42.55 \\
-    OutOfWorld & 21.06 & - \ \\
-    ScintillatorCenter & 18.75 & 23.75 \\
-    PVCNeutronTube & 15.06 & 19.08 \\
-    LiquidXenonTarget & 2.39 & 3.03 \\
-    ScintillatorTank & 2.16 & 2.74 \\
-    OuterTitaniumVessel & 1.93 & 2.44 \\
-    LiquidSkinXenon & 1.27 & 1.61 \\
-    InnerTitaniumVessel & 1.19 & 1.51 \\
-    WaterTank & 1.12 & 1.42 \\
-    SteelNeutronTubeCaps & 0.8 & 1.01 \\
-    Other & 0.68 & 0.86 
-    \end{tabular}
-    \caption{The volume within the detector where DD neutrons have their final step. OutOfWorld indicates that the neutron left the detector area and so the simulation stopped as it's path is not relevant. Other refers to any other part of the detector.}
-    \label{tab:Where_neutrons_go}
-\end{table} 
-
-\par
-Focusing on the neutrons which finish in the scintillator volume, we can in Table \ref{tab:Where_gdls_neutrons_go} that 78\% of neutrons which enter the GdLS end there.
-However, it is also interesting to note that 702 neutrons (37\%) enter the scintillator, then leave the scintillator, then enter again (and then die there).
-
-\begin{table}[!htbp]
-    \centering
-    \begin{tabular}{c | c | c | c }
-    \hline
-    {Neutron Description}  & {Raw Number} & {Percentage (\%)} & {Percentage remaining in detector (\%)} \\ \hline
-    Enters GdLS            &     2406     & 24.06                           & 30.4788 \\
-    Dies in GdLS           &     1875     & 18.75                           & 23.7522 \\
-    Enters and Dies        &     1875     & 77.9302                         & 77.9302
-    
-    \end{tabular}
-    \caption{What happens to neutrons which enter the scintillator volume.}
-    \label{tab:Where_gdls_neutrons_go}
-\end{table} 
-
-\par
-Figure \ref{fig:dd_neutron_gdls_kinetic_energy_vs_number_of_interactions} shows that on average a neutron will have 27 interactions in the scintillator (excluding transportation steps).
-
-%\pgfplotsset{
-%  /pgfplots/colormap={coldredux}{
-%    [1cm]
-%    rgb255(0cm)=(255,255,255)
-%    rgb255(1cm)=(0,192,255)
-%    rgb255(3cm)=(0,0,255)
-%    rgb255(6cm)=(0,0,0)
-%  }
-%}
-
-\begin{figure}[!htbp]%
-\centering
-\begin{tikzpicture}
-\centering
-  \begin{axis}[%point meta max=150,
-    %point meta min=0.0,
-    view={0}{90},
-    ylabel={Kinetic Energy (MeV)},
-    xlabel={Number of Interactions},
-    colorbar,
-    colorbar style={ylabel={Count}},
-    ]
-    \addplot3[
-      surf,
-      shader=flat corner,
-      mesh/cols=51,
-      mesh/ordering=rowwise,
-      point meta = {z<1 ? nan : z}
-    ] file {Data/GdLS_Physics/Pre_Capture/dd_neutrons_gdls_initial_keV_vs_n_interactions.txt};
-\end{axis}
-\end{tikzpicture}
-\caption{The relationship between the number of interactions a neutron has in the scintillator and the neutrons kinetic energy when it enters the liquid scintillator volume for neutrons which are 'captured' in the scintillator volume.
-}
-\label{fig:dd_neutron_gdls_kinetic_energy_vs_number_of_interactions}
-\end{figure}
-
-
-\begin{figure}[!htbp]%
-\centering
-\begin{tikzpicture}
-\centering
-  \begin{axis}[%point meta max=150,
-    %point meta min=0.0,
-    view={0}{90},
-    ylabel={Distance before capture (mm)},
-    xlabel={Number of Interactions},
-    colorbar,
-    colorbar style={ylabel={Count}},]
-    \addplot3[
-      surf,
-      shader=flat corner,
-      mesh/cols=119,
-      mesh/ordering=rowwise,
-      point meta = {z<1 ? nan : z}
-    ] file {Data/GdLS_Physics/Pre_Capture/dd_neutrons_gdls_distance_travelled_vs_n_interactions.txt};
-\end{axis}
-\end{tikzpicture}
-\caption{The relationship between the number of interactions a neutron has in the scintillator and the neutrons kinetic energy when it enters the liquid scintillator volume for neutrons which are 'captured' in the scintillator volume.
-}
-\label{fig:dd_neutron_gdls_distance_vs_number_of_interactions}
-\end{figure}
-
-
-
-\par
-Plots to do:
-
-\begin{itemize}
-    \item time before capture
-    \item captured on what (hydrogen or Gd)
-    \item time vs kinE
-    \item distance vs kinE
-    \item fraction captured by Gd vs H
-\end{itemize}
-
-
-\subsection{Gd Neutron Capture}
+\section{Neutron Capture}
 \par
 After the neutron capture the gadolinium enters an excited state. 
 For $Gd^{156}$ this is 8536.39keV and for $Gd^{158}$ is 7937.39keV.
@@ -275,7 +170,7 @@ This energy is released as follows;
 \end{enumerate}
 
 
-\subsubsection{Dicebox Simulations}
+\subsection{Dicebox Simulations}
 \par
 Geant4 is unable so accurately simulate accurately some $\gamma$-decay from excited nuclei.
 LUX-ZELPIN circumvented this by using DICEBOX - a monte-carlo package for simulating these decays.
@@ -412,31 +307,7 @@ The proportion of the energy transferred directly to $\gamma$'s vs via internal 
 Given what has been determined above, it is worth looking at the $\gamma$ spectrum, shown in Figure \ref{fig:Gd_capture_resulting_gamma_spectrum}.
 
 
-\begin{figure}[!htbp]
-    \centering
-    \begin{tikzpicture}
-        \begin{axis}[title=$\gamma$ energy spectrum from $Gd^{155}$ and $Gd^{157}$ neutron captures,
-            xlabel=Energy (KeV),
-            ylabel=,
-            width=15cm,
-            height=6cm,
-            xmin=0,
-            xmax=8000,
-            ymin=0,
-            legend pos=north east,]
-            \addplot[red, const plot]
-                    table [x=Lower,y=Weight]
-                    {Data/GdLS_Physics/DICEBOX/gd156_gamma_spectrum.txt};
-                \addlegendentry{$Gd^{156}$};
-            \addplot[blue, const plot]
-                    table [x=Lower,y=Weight]
-                    {Data/GdLS_Physics/DICEBOX/gd158_gamma_spectrum.txt};
-                \addlegendentry{$Gd^{158}$};
-        \end{axis}
-    \end{tikzpicture}
-    \caption{DICEBOX simulation of the energy released by $\gamma$'s from nuclei de-excitation after neutron capture, going from $Gd^{155} \xrightarrow{} Gd^{156}$ or $Gd^{157} \xrightarrow{} Gd^{158}$}
-    \label{fig:Gd_capture_resulting_gamma_spectrum}
-\end{figure}
+\input{Chapters/OuterDetector/Figures/gd_capture_gamma_energies}
 
 
 \input{Chapters/OuterDetector/Figures/gdls_capture_cross_sections}
@@ -561,3 +432,5 @@ With the general consensus being that neutrons predominately collide effectively
     \label{fig:GdLS_energy_deposits_post_capture}
 \end{figure}
 
+
+\input{Chapters/OuterDetector/Figures/neutron_capture_volumes}

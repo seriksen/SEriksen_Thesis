@@ -1,0 +1,19 @@
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+  \begin{axis}[
+    width=0.5\textwidth,
+    height=8cm,
+    xmin=300,
+    xmax=600,
+    xlabel={Wavelength (nm)},
+    ylabel={QE},]
+    \addplot[ybar interval, red, const plot]
+            table [x=Wavelength,y=QE]
+            {Data/GdLS_Physics/Light_Collection/od_pmt_qe.dat};
+  \end{axis}
+\end{tikzpicture}
+\caption{Hamamatsu R5912 8" PMT quantum efficiency \cite{hamamatsu_r5912_ref}}
+\label{fig:od_pmt_qe}
+\end{figure}

@@ -1,11 +1,11 @@
 \section{Graphics Card Simulations}
 
 \par
-The probabilistic approach described in the previous section created a significant performance increase. 
+The probabilistic approach described in the Section \ref{sec:s2lightmap} created a significant performance improvement. 
 However, there are several significant factors which limit the feasibility of using similar methods for the rest of the detector, including;
 \begin{itemize}
-    \item Optical propagation is required to be performed at least once
-    \item Other regions of the detector contain significantly more complex geometry
+    \item Optical propagation being required to be performed at least once
+    \item Other regions of the detector containing significantly more complex geometry
 \end{itemize}
 For example, if a probabilistic map were to be applied to the entire TPC Liquid Xenon region, several weeks worth of a full cluster would be required in order to produce the equivalent statistics.
 Although there are ways in which this could be reduced - such as Z-line symmetry - the initial overhead remains impractically high.
@@ -33,7 +33,7 @@ These functions have to account for all relevant calculations that relate to a s
 \par
 All of the solids in a scene are contained within a geometry tree.
 The top of the tree contains the 'world' volume, inside which there are daughter volumes (which do not overlap with each other).
-These volumes can contain there own daughters, and so on.
+These volumes can contain their own daughters, and so on.
 To the user, this structure is often less obvious with solids connected to each other by logical volumes (LV) and physical volumes (PV).
 LVs contain information associated with a solid such as material. 
 PVs can contain one or more LV which are given positions are rotations inside of it. 
@@ -45,14 +45,14 @@ As each daughter is a subtraction in volume of it's parent, the number of intera
 Even so the number of sibling volumes is often a reliable indicator of particle tracking performance.
 Therefore it is logical to for the tree to be as narrow as possible to reduce the number of sibling volumes.
 This can be at odds with how a detector is designed, such as if a solid has to have holes for other solids to pass through.
-The problem with this is that interior of the solid isn't fully defined by the volume anymore\footnote{An example of this in LZ geometry are the calibration tubes, passing through the water tank, outer detector, and OCV}.
+The problem with this is that the interior of the solid isn't fully defined by the volume anymore\footnote{An example of this in LZ geometry are the calibration tubes, passing through the water tank, outer detector, and OCV}.
 In this case, the geometry tree is widened so that volumes inside become siblings of the problem volume, which in turn increases the number of intersection calculations.
 This must be the case to enforce the requirement that each volume is contained entirely by it's mother volume and that it does not overlap with siblings.
 \par
 GEANT4 in part mitigates this by separating the geometry tree nodes into perpendicular facing boxes, called voxels \cite{geant4_voxel_ref} which are not part of the detector volumes.
 During particle propagation, the voxels are checked first for intersections.
 If there is an intersection, the detector volumes contained within that voxel are then checked.
-Though useful, the voxels are limited to a single level, is performed iterative (1 axis at a time) to save memory and so can hit computation speed.
+Though useful, the voxels are limited to a single tree level, with the check performed iteratively (1 axis at a time) to save memory and so can hit computation speed.
 The GEANT4 approach can be summarised as;
 \begin{quote}
     A detector is a tree of nested solids, each composed of some material and mathematically implemented by a particular C++ class.
@@ -62,7 +62,7 @@ The GEANT4 approach can be summarised as;
 \par
 In addition to particle tracking, the GEANT4 must also handle particle interactions inside a volume which can result in daughter particles that also need to be tracked.
 However, in LZ the bottleneck is in the photon propagation, taking up in excess of 95\% of computing time (after using the S2 Light Map).
-Optical photon simulations are relatively simple in that no daughter particles that need to be tracked.
+Optical photon simulations are relatively simple in that no daughter particles need to be tracked.
 There is some probability of a photon being absorbed and re-emitted during propagation, but otherwise photon propagation can be simplified to travelling in a straight line until they reach a boundary.
 The simulation is therefore dominated by intersection calculations, or \textit{"has the photon reached the edge of this volume yet?"}.
 Therefore increasing the number of these intersection calculations per second will decrease the overall simulation time.
@@ -84,8 +84,7 @@ To some extent this can be mitigated by increasing the density of the of primiti
 The complete geometry is typically defined as a union of non-intersecting closed meshes.
 \par
 As the geometry structure is broken during tessellation there is no geometry tree which can be navigated.
-As a result, Chroma implements a bounding volume hierarchy (BVH) tree structure, a method well used in industry \cite{real_time_collision_detection_ref}.
-Crucially, as it is well tested there efficient ways of navigating it.
+As a result, Chroma implements a bounding volume hierarchy (BVH) tree structure, a method well used in industry \cite{real_time_collision_detection_ref}, and well tested so there efficient ways of navigating it.
 In a BVH, the lead nodes contain subsets of primitive lists.
 To determine if there is an intersection in a BVH, starting at the root node a test is done for an intersection with the box associated with that node.
 If an intersection is found, the children are tested for an intersection - analogous to the GEANT4 voxel approach.
@@ -138,7 +137,7 @@ However, OptiX does not allow for recursive intersection programs, so Opticks us
 \par
 The resultant Opticks geometry tree is a set of binary trees with primitive leaves and operator nodes.
 Practically speaking this is as a NumPy serialised arrays, where each solid is defined by it's own binary tree \cite{Opticks_Paper_2017_ref}, and these trees are indexed together based upon the structure.
-The nodes contain an rotations.
+These nodes are where rotations are defined.
 Opticks navigates the binary tree via bitwise manipulation\footnote{parent $=i >> 1$, left child $= i << 1$, right child $(i<<1)+1$}.
 This means that the tree height should be kept relatively low in order to reduce the number of bits required to navigate it.
 As such, Opticks has a limit of 7 as $(1 << (7 + 1)) - 1 = 255$ which allows for comparison with 256-bit CPU approaches as well not limiting memory use.
@@ -223,8 +222,8 @@ These complemented primitives are conceptually "inside-out", but are implemented
 \label{fig:UnionSolidBinaryTree}
 \end{figure}
 \par
-This approach works for most unbalanced trees, however it does work for some of LZs components.
-Around the PMTs in the TPC exists a titanium plate and PTFE lining.
+This approach works for most unbalanced trees, however it doesn't work for some of LZs components.
+For example, around the PMTs in the TPC exists a titanium plate and PTFE lining.
 The titanium plate holds the PMTs in place, and the PTFE creates a reflective surface for photons on top of the titanium.
 As the solids must have space for each PMT they are implemented as one solid with each hole subtracted out.
 The tree for this (as defined in GEANT4) is shown in Figure \ref{fig:Opticks_unbalanced_shape}.

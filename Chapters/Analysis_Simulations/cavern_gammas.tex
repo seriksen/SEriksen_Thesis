@@ -11,11 +11,11 @@ To compensate, a generator for these $\gamma$'s was created - and originally des
 The generator is a created by performing simulations of the decay chains originating in the shotcreat and gravel.
 The $\gamma$'s which reach a pre-defined surface are saved.
 A second stage simulation is then performed where each of the saved $\gamma$'s is generated a number of times and then saved at another pre-defined surface.
-This boost occurs a number of times, until a generator surface.
+This boost occurs a number of times, until the final stage where the $\gamma$'s which reach that surface are used in the generator.
 When subsequent simulations are performed, these saved $\gamma$'s are randomly sampled. 
 
 \par
-In order to perform the For the creation of the generator additional cavern properties are added to the simulation.
+For the creation of the generator additional cavern properties are added to the simulation.
 Namely; a steel pyramid and gravel beneath the water tank, and a layer of shotcreat.
 These adaptions are shown in Figure \ref{fig:Cavern_Geometry}.
 
@@ -27,9 +27,9 @@ These adaptions are shown in Figure \ref{fig:Cavern_Geometry}.
 \end{figure}
 
 \par
-Although as mentioned in \cite{scotthaselschwardt_thesis_ref}, a generator for the Davis Cavern $\gamma$'s existed, it had a number of flaws.
-Firstly, no $\gamma$ below 2MeV was saved.
-This meant that $^{40}K$ was not included and so the resultant expected rates being lower than expected.
+Although as mentioned in \cite{lz_simulations_ref}, a generator for the Davis Cavern $\gamma$'s existed, it had a number of flaws.
+Firstly, no $\gamma$ below 2MeV were included.
+This meant that $^{40}K$ was not included and there was a bias to higher energy events and therefore a higher rate.
 Additionally, the generator was created using a version of GEANT4 which the rest of the simulation chain had moved on from; GEANT4.9.5 to GEANT4.10.3.p02. 
 This motivated the creation of a new generator.
 
@@ -61,67 +61,19 @@ In short, this means that every $\gamma$ in the generator represents roughly 130
 \end{table}
 
 
-\begin{figure}[!htbp]%
-\centering
-\begin{tikzpicture}
-\centering
-    \begin{groupplot}[%view={0}{90},
-    group style = {group size = 2 by 1,
-                   horizontal sep=1.0cm}]
-    \nextgroupplot[
-            xlabel=Energy (keV),
-            ylabel=Rate (Hz/15keV),
-            width=0.5\textwidth, height=8cm,
-            xmin=0, xmax=14000,
-            minor y tick num=8,
-            ymode=log, ymin=1e-6, ymax=10,
-            grid=major,]
-            \addplot[green, mark=none]
-                    table [x=Bins,y=Weights]
-                    {Data/Simulation_Analysis/Cavern_Gammas/old_gamma_generator_th232.dat};
-            \addplot[blue, mark=none]
-                    table [x=Bins,y=Weights]
-                    {Data/Simulation_Analysis/Cavern_Gammas/old_gamma_generator_u238.dat};
-
-        \nextgroupplot[
-            xlabel=Energy (keV),
-            width=0.5\textwidth, height=8cm,
-            xmin=0, xmax=14000,
-            yticklabel pos=right,
-            minor y tick num=8,
-            ymode=log, ymin=1e-6, ymax=10,
-            grid=major,
-            legend style = { column sep = 10pt, legend columns = -1, legend to name = Cavern_Gamma_CommonLegend,}]
-            \addplot[green, mark=none]
-                    table [x=Bins,y=Weights]
-                    {Data/Simulation_Analysis/Cavern_Gammas/new_gamma_generator_th232.dat};
-            \addplot[blue, mark=none]
-                    table [x=Bins,y=Weights]
-                    {Data/Simulation_Analysis/Cavern_Gammas/new_gamma_generator_u238.dat};
-            \addplot[red, mark=none]
-                    table [x=Bins,y=Weights]
-                    {Data/Simulation_Analysis/Cavern_Gammas/new_gamma_generator_k40.dat};
-            \legend{${}^{232}Th$, ${}^{238}U$, ${}^{40}K$}
-            
-    \end{groupplot}
-    \node at ($(group c2r1) - (group c1r1) + (-0.5cm, 5.0cm)$) {\ref{Cavern_Gamma_CommonLegend}};
-\end{tikzpicture}
-\caption{Generator $\gamma$ energies. \textbf{Left:} Previous generator. \textbf{Right:} This work.}
-\label{fig:cavern_gamma_energy_distribution}
-\end{figure}
+\input{Chapters/Analysis_Simulations/Figures/cavern_gamma_energies}
 
 
 \par
 Additionally it was noticed during the comparison that in the previous generator the distribution was not a cylinder but rather had mistakenly been created as a table.
 The result of this is that the $\gamma$ distribution is biased to the top and bottom of the detectors more so than it would otherwise be.
-The result of this generator is shown in Figures \ref{fig:cavern_gamma_position_distribution}.
+The energy deposit distribution from the newly created generator is shown in Figures \ref{fig:cavern_gamma_position_distribution}.
 
-
-
-\begin{figure}[!htbp]
+\begin{figure}
     \centering
-    \includegraphics[width=0.5\textwidth]{Figures/Placeholder.png}
-    \caption{Simulated cavern $\gamma$ energy deposit locations in the OD normalised to rates from \cite{LZ_Gamma_Ray_Background_ref}. \textbf{Left:} Previous generator. \textbf{Right:} newly created generator.}
+    \resizebox{\textwidth}{!}{
+\input{Data/Simulation_Analysis/Cavern_Gammas/cavern_gamma_deposit_positions}
+}
+    \caption{Simulated cavern-$\gamma$ energy deposit locations normalised to rates.}
     \label{fig:cavern_gamma_position_distribution}
 \end{figure}
-

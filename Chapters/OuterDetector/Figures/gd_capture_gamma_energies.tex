@@ -1,0 +1,26 @@
+\begin{figure}[!htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            %title=$\gamma$ energy spectrum from $Gd^{155}$ and $Gd^{157}$ neutron captures,
+            xlabel=Energy (KeV),
+            ylabel=Emission Proportion,
+            width=15cm,
+            height=6cm,
+            xmin=0,
+            xmax=8000,
+            ymin=0,
+            legend pos=north east,]
+            \addplot[red, const plot]
+                    table [x=Lower,y=Weight]
+                    {Data/GdLS_Physics/DICEBOX/gd156_gamma_spectrum.txt};
+                \addlegendentry{${}^{156}Gd$};
+            \addplot[blue, const plot]
+                    table [x=Lower,y=Weight]
+                    {Data/GdLS_Physics/DICEBOX/gd158_gamma_spectrum.txt};
+                \addlegendentry{${}^{158}Gd$};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{DICEBOX simulation of the energy released by $\gamma$'s from nuclei de-excitation after neutron capture, going from ${}^{155}Gd \xrightarrow{} {}^{156}Gd$ or ${}^{157}Gd \xrightarrow{} {}^{158}Gd$}
+    \label{fig:gd_capture_resulting_gamma_spectrum}
+\end{figure}

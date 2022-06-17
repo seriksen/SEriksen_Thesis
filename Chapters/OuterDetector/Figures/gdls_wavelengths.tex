@@ -1,0 +1,18 @@
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+  \begin{groupplot}[%view={0}{90},
+    group style = {group size = 1 by 1}]
+    \nextgroupplot[
+    xmin=300,
+    xmax=600,
+    ylabel={Emission (Arbitrary Units)},]
+    \addplot[ybar interval, blue, const plot]
+                    table [x=Wavelength,y=Rate]
+                    {Data/GdLS_Physics/Light_Collection/gdls_light_output.dat};
+  \end{groupplot}
+\end{tikzpicture}
+\caption{Primary OD detection properties}
+\label{fig:od_detection_properties}
+\end{figure}

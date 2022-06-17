@@ -1,0 +1,85 @@
+\section{Detector Overview} \label{OD_detector_overview}
+
+
+\subsection{OD Scintillator}
+Bullet points to write a few sentenses to
+\begin{itemize}
+    \item LS
+    \item birks law
+    \item proton recoil
+    \item sctinillator wavelength
+    \item GdLS
+    \item cross sections
+    \item dicebox simulatoins
+    \item complete cocktail
+    \item 
+\end{itemize}
+
+
+\begin{equation}
+    \frac{dL}{dx} = S \frac{\frac{dE}{dx}}{1 + k_{B}\frac{dE}{dx} + C\frac{dE}{dx}^2}
+    \label{eq:birkslaw}
+\end{equation}
+Here, L is the the light yield, S is the scintillation efficiency, $\frac{dE}{dx}$ is the energy loss of the particle per path length, and $k_{B}$ and $C$ are Birk's law parameters.
+The parameters for GdLS are shown in table \ref{tab:Birks_law_parameters}.
+
+
+\input{Chapters/OuterDetector/Figures/gdls_wavelengths}
+
+
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{c | c | c | c }
+                   & S (photons/MeV) & $k_{B}$ & $C$ \\ \hline
+    $\alpha$       &                 & 4.63E-3 & 1.77E-6 \\
+    $\beta/\gamma$ & 9,000           & 0.03    & 0 \\ 
+    proton         &                 & 8.26E-3 & 0
+    \end{tabular}
+    \caption{GdLS parameters for Birk's law}
+    \label{tab:Birks_law_parameters}
+\end{table} 
+
+\par
+In the lab-frame, the ratio between a neutrons initial energy ($E$) and final energy ($E'$) when colliding with an at rest nucleus of mass A follows;
+\begin{equation}
+    \frac{E'}{E} = \frac{A^2 + 1 + 2A\cos{\theta}}{(A + 1)^2}
+\end{equation}
+where $\theta$ is the scattering angle in the CoM.
+Now, if the nucleus is a hard sphere, so independent of $\theta$, then an elastic scatter follows
+\begin{equation}
+    E^{'} = E(\frac{A-1}{1})^{2}
+\end{equation}
+If A = 1 (so is a proton), then it reduces further to $E^{'} = \frac{1}{2}E$, meaning that the neutron loses half its energy on average.
+The scattered proton has energy $E - E^{'}$ and is quenched.
+Neutrons predominately collide effectively on Hydrogen atoms \cite{neutron_thermalisation_and_capture_ref}.
+
+
+\input{Chapters/OuterDetector/Figures/gdls_capture_cross_sections}
+
+\par
+Once a neutron is captured on gadolinium, the new isotope de-excited with the following energy.
+The de-excitation can follow as either direct $\gamma$ emission or internal-conversion resulting in ejected auger electrons or characteristic x-rays.
+When the simulation framework was setup for the LZ experiment, GEANT4 was not adequate for modelling high atomic mass de-excitation's where there are in excess of $10^{6}$ cascade combinations \cite{ucsb_gdls_dicebox_simulations_ref}.
+As such LZ incorporated DICEBOX \cite{dicebox_simulations_ref} simulations, which should give a more adequate blah blah blah \cite{lz_simulations_ref}.
+\par
+The proportion of how the energy is dissipated in the isotope is shown in Figure \ref{fig:od_gdls_dicebox_deexcitation}, and the resultant $\gamma$ spectrum in Figure \ref{fig:gd_capture_resulting_gamma_spectrum}
+
+\input{Chapters/OuterDetector/Figures/gdls_gd_deexcitation_steps}
+
+\input{Chapters/OuterDetector/Figures/gd_capture_gamma_energies}
+
+
+\subsection{Acrylic Tanks}
+
+\subsection{OD PMTs}
+
+\subsection{Tyvek}
+
+\begin{figure}[!htbp]
+\centering
+\resizebox{\textwidth}{!}{
+\input{Data/GdLS_Physics/Light_Collection/od_tanks_lce}
+}
+\caption{Light Collection Efficiency for 420nm photons originating in GdLS, producing a mean LCE of 7.4\%.}
+\label{fig:od_lce}
+\end{figure}

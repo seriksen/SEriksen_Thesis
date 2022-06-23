@@ -10,7 +10,7 @@
 
     % Plot 2
     \nextgroupplot[width=0.45\textwidth,
-                   xlabel=Time ($\mu$s),]
+                  ylabel=Volume time / Capture Time, ]
     \addplot3[
         point meta min=-6,
         point meta max=0,
@@ -36,7 +36,8 @@
 		] file {Data/GdLS_Physics/capture_time_vs_volumes/volume_capture_times_FoamDisplacer.dat};
 	\node[draw, fill=white] at (axis cs: 1400,0.9) {\large OD Foam};
 		
-	\nextgroupplot[width=0.45\textwidth]
+	\nextgroupplot[width=0.45\textwidth,
+	               ylabel=Volume time / Capture Time,]
     \addplot3[
         point meta min=-4.5,
         point meta max=0,
@@ -62,7 +63,9 @@
 		] file {Data/GdLS_Physics/capture_time_vs_volumes/volume_capture_times_ScintillatorTank.dat};
 	\node[draw, fill=white] at (axis cs: 1400,0.9) {\large Acrylic Tanks};
 		
-	\nextgroupplot[width=0.45\textwidth]
+	\nextgroupplot[width=0.45\textwidth,
+	               ylabel=Volume time / Capture Time,
+	               xlabel=Capture Time ($\mu$s),]
     \addplot3[
         point meta min=-6,
         point meta max=0,
@@ -76,7 +79,8 @@
 		] file {Data/GdLS_Physics/capture_time_vs_volumes/volume_capture_times_LiquidXenonTarget.dat};
     \node[draw, fill=white] at (axis cs: 1400,0.9) {\large TPC Xenon};
 		
-	\nextgroupplot[colorbar, width=0.45\textwidth, colorbar style={ytick={-6,-5,...,0},}]]
+	\nextgroupplot[colorbar, width=0.45\textwidth, colorbar style={ytick={-6,-5,...,0},},
+	               xlabel=Capture Time ($\mu$s),]
     \addplot3[
         point meta min=-6,
         point meta max=0,

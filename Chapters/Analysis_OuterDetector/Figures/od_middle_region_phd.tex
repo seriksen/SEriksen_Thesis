@@ -1,0 +1,23 @@
+\begin{figure}[!htbp]
+    \centering
+    \begin{tikzpicture}
+    
+    \begin{axis}[
+        xlabel=Pulse Area,
+        ylabel=Rate (Hz/5phe),
+        width=15cm, height=10cm,
+        xmin=0, xmax=800,
+        ymin=1e-4, ymode=log,
+        legend pos=north east,
+        grid=major]
+            
+        \addplot[only marks, mark size=0.5pt] 
+            plot[error bars/.cd, x dir=both, x explicit]
+            table[x=pulsearea,y=rate,x error=x_error, y error=y_error]
+            {Data/OD_Backgrounds/od_data_pulsearea_middle_tank_binwidth_5.dat};
+            
+        \end{axis}
+    \end{tikzpicture}
+    \caption{OD pulse area spectrum from pulses reconstructed to the middle of the OD side tanks.}
+    \label{fig:od_data_pulsearea_middle_tank}
+\end{figure}

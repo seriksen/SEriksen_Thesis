@@ -1,0 +1,37 @@
+\begin{figure}[!htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            xlabel=OD Threshold (phe),
+            ylabel=Rate (Hz),
+            width=15cm, height=8cm,
+            xmin=-1, xmax=55,
+            ymin=0, ymax=350,
+            legend pos=north east,
+            grid=major]
+             \addplot+[black, smooth, mark=none]
+                    table [x=Threshold,y=Rate]
+                    {Data/OD_Backgrounds/od_sr1_rate_vs_threshold_smooth_line.dat};
+            \addplot[black, only marks, 
+                     error bar legend,
+                     error bars/.cd,
+                     x dir=both, x explicit, error bar style={color=black}]
+                    table [x=Threshold,y=Rate, x error=XError]
+                    {Data/OD_Backgrounds/od_sr1_rate_vs_threshold_error_bars.dat};
+             \addplot[dashed, mark=none, red] coordinates {(0,100) (60,100)};
+             \addplot[dashed, mark=none, blue] coordinates {(17.6,0) (17.6,350)};
+             \addplot[dashed, mark=none, green] coordinates {(37.5,0) (37.5,350)};
+             
+             \addplot[orange, only marks, 
+                      error bar legend,
+                      error bars/.cd,
+                      y dir=both, y explicit, error bar style={color=orange}]
+                      table [x=Threshold,y=Rate, y error=YError]
+                      {Data/OD_Backgrounds/od_sr1_rate_expected.dat};
+             
+             \legend{,SR1 Data,$<$100Hz Requirement,100 keV (17.6 phe),200 keV (37.5 phe),Expected}                
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Rate of OD backgrounds during SR1 using the Random Trigger. The noise cut has been applied. 100Hz Requirement is for a 500$\mu$s veto window as proposed in \cite{LZ_TechnicalDesignReview_ref}. Expected values are from Table \ref{tab:od_expected_rates}}
+    \label{fig:od_sr1_rate_vs_threshold}
+\end{figure}

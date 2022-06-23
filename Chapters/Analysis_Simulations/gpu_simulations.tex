@@ -242,7 +242,7 @@ The basic creation process is shown in Figure \ref{fig:Opticks_PTFE_primative}.
 In order the simplify the primitive code, the 3D shapes were reduced to 2D-intersections.
 3D is then introduced by duplicating adding a Z-range in which the intersection needs to be evaluated.
 Additional details of this approach at at \cite{optix_primitive_code_ref}.
-Given the depth of these primitives, they were also likely a hold up in GEANT4 simulations, particularly the S2 light simulations mentioned in Section \ref{s2lightmap}.
+Given the depth of these primitives, they were also likely a hold up in GEANT4 simulations, particularly the S2 light simulations mentioned in Section \ref{sec:s2lightmap}.
 In a branch of LZ code using GEANT4.10.6, these 4 solids were converted into G4MultiUnion solids which have built-in optimisation \cite{multiunion_ref}\footnote{At time of writing, LZ code uses GEANT4.10.3.p02 and this feature was introduced in GEANT4.10.4}.
 This provided a 56\% decrease in simulation time.
 \begin{figure}[!htbp]
@@ -273,7 +273,7 @@ NVIDIA OptiX 6.5.0 and CUDA 10.2 were chosen as they were the newest fully suppo
 Making use of NVIDIA container runtime to access the GPU, the container was successfully run - with graphics - on a range of computing resources.
 This allowed for integration into the LZ framework to begin, the plan for which is described in \cite{SEriksen_Opticks_CHEP_2021_ref,lz_status_with_opticks_ref}.
 \par
-As the geometry was cut down during the conversion, the most valuable test that could be performed was a comparison to the S2 Light Map (Section \ref{s2lightmap}).
+As the geometry was cut down during the conversion, the most valuable test that could be performed was a comparison to the S2 Light Map (Section \ref{sec:s2lightmap}).
 For this, 200,000 photons per generated as a photon bomb as shown in Figure \ref{fig:OpticksLZTPC_S1_Photons}.
 On a Tesla T4 GPU, after a 4-minute initialisation time using the serialised geometry, 200,000 photons per second were generated and propagated.
 This marks a 720x improvement over single-core Geant4 propagation where 277 photons per second were generated and propagated for the S2 Light Map or 360x improvement over the expected gain when compared to GEANT4.

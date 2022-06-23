@@ -6,10 +6,10 @@
     group style = {group size = 2 by 1}]
     
     \nextgroupplot[
-            xlabel=N. Steps,
-            ylabel=,
-            width=0.45\textwidth,
-            height=6cm,
+            xlabel=N. decay steps,
+            ylabel=Proportion of events,
+            width=0.5\textwidth,
+            height=8cm,
             xmin=0,
             xmax=13,
             ymin=0,
@@ -25,11 +25,13 @@
     
     \nextgroupplot[
             xlabel=Energy Transfer location,
-            ylabel=Percentage of steps,
-            width=0.45\textwidth,
-            height=6cm,
+            ylabel=Proportion of events,
+            yticklabel pos=right,
+            width=0.5\textwidth,
+            height=8cm,
             xtick=data,
-            xticklabels from table={Data/GdLS_Physics/DICEBOX/gd158_energy_conversion_to_shells.txt}{Label}]
+            xticklabels from table={Data/GdLS_Physics/DICEBOX/gd158_energy_conversion_to_shells.txt}{Label},
+            xticklabel style={rotate=45},]
             \addplot[red, const plot]
                     table [x=Bins, y=Weight]
                     {Data/GdLS_Physics/DICEBOX/gd158_energy_conversion_to_shells.txt};

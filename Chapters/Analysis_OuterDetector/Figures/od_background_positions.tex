@@ -1,0 +1,42 @@
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+  \begin{groupplot}[%view={0}{90},
+    group style = {group size = 2 by 3,vertical sep=1.5cm,
+                   horizontal sep=1.5cm},
+                   height=8cm, width=0.5\textwidth]
+    \nextgroupplot[
+            title=Pulse Area,
+            ylabel=Rate (Hz),
+            xlabel=Pulse Area,
+            width=\textwidth,
+            height=6cm,
+            %xshift=0.5\textwidth,
+            xmin=0, xmax=2000,
+            ]
+            \addplot [blue] {rnd};
+            
+    \nextgroupplot[group/empty plot]
+
+    \nextgroupplot[title=All pulses,
+            xshift=-0.25\textwidth]
+            \addplot [blue] {rnd};
+
+    \nextgroupplot[title=Region 1,
+                  xshift=-0.5\textwidth,
+                  yshift=1cm,]
+            \addplot [blue] {rnd};
+    
+    \nextgroupplot[title=Region 2]
+            \addplot [blue] {rnd};
+                   
+    \nextgroupplot[title=Region 3]
+            \addplot [blue] {rnd};
+   
+  \end{groupplot}
+\end{tikzpicture}
+\caption{Position Reconstruction of pulses from various regions in pulse area space defined in the top plot. 
+         Each pulse has had the noise cut applied and the position reconstructed using Equation \ref{eq:OD_xy_position}.}
+\label{fig:od_backgrounds_position_reconstruction}
+\end{figure}

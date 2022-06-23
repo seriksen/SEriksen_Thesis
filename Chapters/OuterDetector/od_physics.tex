@@ -1,0 +1,76 @@
+\section{Interaction Detection}
+\label{sec:od_physics}
+\par
+An energy deposit in the GdLS will produce a light yield that can be described by Birk's Law \cite{birks_law_ref};
+\begin{equation} 
+    \frac{dL}{dx} = S \frac{\frac{dE}{dx}}{1 + k_{B}\frac{dE}{dx} + C\frac{dE}{dx}^2}
+    \label{eq:birkslaw}
+\end{equation}
+Here, L is the the light yield, S is the scintillation efficiency, $\frac{dE}{dx}$ is the energy loss of the particle per path length, and $k_{B}$ and $C$ are Birk's law parameters which differ depending upon the source; $\gamma$'s, electron recoils, etc...
+These parameters have been well studied for cocktails of similar makeup to the LZ GdLS with identical PPO and bis-MSB concentrations \cite{ls_alpha_quenching_ref,ls_proton_quenching_ref}.
+The low amount of Gadolinium-doping means that these should not differ significantly from that.
+The parameters for GdLS are shown in table \ref{tab:Birks_law_parameters}.
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{c | c | c | c }
+                   & S (photons/MeV) & $k_{B}$ & $C$ \\ \hline
+    $\alpha$       &                 & 4.63E-3 & 1.77E-6 \\
+    $\beta/\gamma$ & 9,000           & 0.03    & 0 \\ 
+    proton         &                 & 8.26E-3 & 0
+    \end{tabular}
+    \caption{GdLS parameters for Birk's law for the LZ OD.}
+    \label{tab:Birks_law_parameters}
+\end{table} 
+
+\par
+The source of the interactions will generally be quenched, with $\alpha$'s producing the least amount of light per energy deposited.
+This is summarised in Figure \ref{fig:gdls_quenching}.
+
+\begin{figure}[!htbp]%
+    \centering
+    \includegraphics[height=8cm]{Figures/Placeholder.png}
+    \caption{Quenching}
+    \label{fig:gdls_quenching}
+\end{figure}
+
+\subsection{Neutron Propagation}
+\par
+In the lab-frame, the ratio between a neutrons initial energy ($E$) and final energy ($E'$) when colliding with an at rest nucleus of mass A follows;
+\begin{equation}
+    \frac{E'}{E} = \frac{A^2 + 1 + 2A\cos{\theta}}{(A + 1)^2}
+\end{equation}
+where $\theta$ is the scattering angle in the CoM.
+Now, if the nucleus is a hard sphere, so independent of $\theta$, then an elastic scatter follows
+\begin{equation}
+    E^{'} = E(\frac{A-1}{1})^{2}
+\end{equation}
+If A = 1 (so is a proton), then it reduces further to $E^{'} = \frac{1}{2}E$, meaning that the neutron loses half its energy on average.
+The scattered proton has energy $E - E^{'}$ and is quenched.
+Neutrons predominately collide effectively on Hydrogen atoms \cite{neutron_thermalisation_and_capture_ref}.
+
+\par
+Once thermalised, a neutron a neutron will capture most often on a Gadolinium isotope (87\% of the time), and a Hydrogen on the remainder\footnote{Other isotopes can capture the neutron but the probability is sufficiently low that they are not included here.}.
+Despite only making up a small fraction of the GdLS cocktail, the capture cross-section of Gadolinium is orders of magnitude above that of Hydrogen to suffice, as can be seen in Figure \ref{fig:gdls_capture_cross_sections}.
+
+\input{Chapters/OuterDetector/Figures/gdls_capture_cross_sections}
+
+\par
+Once a neutron is captured, the new isotope de-excites as either direct $\gamma$ emission or internal-conversion resulting in ejected auger electrons or characteristic x-rays.
+For a n-H capture, a single 2.2MeV $\gamma$ is emitted, which may leave the GdLS without scattering, and so the neutron is not detected.
+However, n-Gd capture produces $\approx$ 8MeV worth of particles, typically as a number of $\gamma$'s.
+Between the excited and ground states of the Gadolinium isotopes ${}^{156}$Gd and ${}^{158}$Gd there are in excess of $10^{6}$ levels.
+When the simulation framework was setup for the LZ experiment, GEANT4 was not adequate for modelling high atomic mass de-excitation's where there are a huge number of possible cascade combinations \cite{ucsb_gdls_dicebox_simulations_ref}, and it has not been a problem for other experiments which used Gadolinium-doped LS, such as DayaBay \cite{dayabay_overview_ref} and RENO \cite{reno_overview_ref}, as the quantity of scintillator is large enough that the entirety of the de-excitation energy is generally deposited in the medium.
+However, the LZ OD is significantly thinner than those, with a non-insignificant probably of not all of the energy being deposited in the GdLS.
+As such LZ incorporated DICEBOX \cite{dicebox_simulations_ref} simulations, which are sampled allowing for a more realistic simulation \cite{lz_simulations_ref}.
+A detailed comparison of the DICEBOX result against GEANT4 can be found in \cite{ucsb_gdls_dicebox_simulations_ref}.
+
+
+\par
+Using DICEBOX, the proportion of how the energy is dissipated in the isotope is shown in Figure \ref{fig:od_gdls_dicebox_deexcitation}, and the resultant $\gamma$ spectrum in Figure \ref{fig:gd_capture_resulting_gamma_spectrum}.
+For both ${}^{156}Gd$ and ${}^{158}Gd$ the de-excitation occurs in an average of 4-5 steps, with the vast majority of the energy going directly to $\gamma$-emission.
+Because of this, the de-excitation of Gadolinium is often quoted as "4.7 $\gamma$'s".
+This highlights the importance of doping the scintillator as there is a much higher probability of being able to observe a n-Gd capture with multiple $\gamma$'s than it is a n-H capture with a single $\gamma$.
+
+\input{Chapters/OuterDetector/Figures/gdls_gd_deexcitation_steps}
+
+\input{Chapters/OuterDetector/Figures/gd_capture_gamma_energies}

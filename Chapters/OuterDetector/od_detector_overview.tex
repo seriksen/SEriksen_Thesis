@@ -1,79 +1,133 @@
 \section{Detector Overview} \label{OD_detector_overview}
+\par
+As mentioned in Section XXX, the Outer Detector is an active veto used to increase the usable Xenon volume in the TPC.
+In this section, a detailed explanation of the OD is provided.
+
+\subsection{Function}
+\par
+As previously discussed, it is possible that a dark matter candidate will scatter once in the target medium and then leave the experiment.
+Other sources are able to interact in the target medium, such and neutrons and $\gamma$'s, mimicking dark matter.
+However there is a reasonably probability of these scattering before or after they enter the TPC volume.
+LZ makes use of this feature using anti-coincidence veto detectors, the Skin and Outer Detector (OD);
+\begin{itemize}
+    \item \textbf{Skin}: a Xenon skin that surrounds the TPC inside the cryovessel.
+    \item \textbf{OD}: a liquid scintillator held in acrylic tanks around the cryovessel which surrounded by ultra pure water.
+\end{itemize}
+Each of these detectors are made active by PMTs.
+\par
+If an interaction is detected in either of these within some window around when a single scatter is observed in the TPC then the event can be tagged as a background.
+These detectors also allow for a continuous characterisation of backgrounds in the proximity of LZ which can be fed into parameterising background models.
+
+
+\par
+The OD is of vital importance as 46\% of neutrons with enter the TPC will capture in the OD as shown in Figure \ref{fig:simulated_neutron_capture_volumes}.
+A working veto is vital to LZ being a significant step forward in dark matter direct-detection sensitivity.
+\input{Chapters/OuterDetector/Figures/neutron_capture_volumes}
 
 
 \subsection{OD Scintillator}
-Bullet points to write a few sentenses to
-\begin{itemize}
-    \item LS
-    \item birks law
-    \item proton recoil
-    \item sctinillator wavelength
-    \item GdLS
-    \item cross sections
-    \item dicebox simulatoins
-    \item complete cocktail
-    \item 
-\end{itemize}
-
-
-\begin{equation}
-    \frac{dL}{dx} = S \frac{\frac{dE}{dx}}{1 + k_{B}\frac{dE}{dx} + C\frac{dE}{dx}^2}
-    \label{eq:birkslaw}
-\end{equation}
-Here, L is the the light yield, S is the scintillation efficiency, $\frac{dE}{dx}$ is the energy loss of the particle per path length, and $k_{B}$ and $C$ are Birk's law parameters.
-The parameters for GdLS are shown in table \ref{tab:Birks_law_parameters}.
-
+\par
+The liquid scintillator (LS) contains three components; a solvent made from linear-alkylbenzene (LAB), a fluor of 2,5-diphenyloxazole (PPO), and a wavelength shifter of 1,4-bis(2-methylstyryl(benzene)) (bis-MSB).
+Energy deposited in the LS will excite LAB molecules, which will generally transfer it's energy to the fluor. 
+The fluor will emit an light at a wavelength peaking below 380nm which is not ideal for detection due to self-absorption.
+This scintillation is absorbed bis-MSB and emitted at a better wavelength (in terms of detectability), as it is less absorbed by the LS and matches closer the PMT response (discussed later in this section), peaking at around 410-425nm.
+The absorption length and emission spectrum are shown in Figure \ref{fig:od_detection_properties}.
+Importantly, the absorption length of the GdLS increases from 1m to in excess of 10m in that range - and continues to rise.
 
 \input{Chapters/OuterDetector/Figures/gdls_wavelengths}
 
+\par
+To improved neutron capture and reduce the veto window length, the LS is doped with 0.1\% by mass (0.23 - 0.34\% by number) Gadolinium.
+This is dissolved into the LS via a chelating agent 3,5,5-trimethylhexanoic acid (TMHA), with three TMHA ions per Gd creating $Gd({C}_{9}{H}_{17}{O}_{2})_{3}$.
+The GdLS used in LZ was produced in a batch used for DayaBay, the details of doping can be found in \cite{dayabay_gd_doping_ref}.
+The complete cocktail of components in the GdLS is shown in Table \ref{tab:GdLS_Components}.
 
 \begin{table}[!htbp]
     \centering
-    \begin{tabular}{c | c | c | c }
-                   & S (photons/MeV) & $k_{B}$ & $C$ \\ \hline
-    $\alpha$       &                 & 4.63E-3 & 1.77E-6 \\
-    $\beta/\gamma$ & 9,000           & 0.03    & 0 \\ 
-    proton         &                 & 8.26E-3 & 0
+    \begin{tabular}{c | c | c | c}
+    \hline
+    {Component (shortname)} & {Purpose} & {Weight (g/mol)} & {Mass (g)} \\ \hline
+    $C_{17.14}H_{28.28}$ (LAB) & n,g & 234.4  & 853.55 \\
+    $C_{15}H_{11}NO$ (PPO) & primary wavelength shifter & 221.3 & 3.00 \\
+    $C_{24}H_{22}$ (Bis-MSB) & wavelength shifter & 310.4 & 0.015 \\
+    $C_{9}H_{17}O^{-}_{2}$ (TMHA) & chelation agent & 157.2 & 2.58 \\
+    natural gadolinium (Gd) & neutron capture & 157.3 & 0.86 
     \end{tabular}
-    \caption{GdLS parameters for Birk's law}
-    \label{tab:Birks_law_parameters}
+    \caption{Components in 1L of GdLS}
+    \label{tab:GdLS_Components}
 \end{table} 
-
 \par
-In the lab-frame, the ratio between a neutrons initial energy ($E$) and final energy ($E'$) when colliding with an at rest nucleus of mass A follows;
-\begin{equation}
-    \frac{E'}{E} = \frac{A^2 + 1 + 2A\cos{\theta}}{(A + 1)^2}
-\end{equation}
-where $\theta$ is the scattering angle in the CoM.
-Now, if the nucleus is a hard sphere, so independent of $\theta$, then an elastic scatter follows
-\begin{equation}
-    E^{'} = E(\frac{A-1}{1})^{2}
-\end{equation}
-If A = 1 (so is a proton), then it reduces further to $E^{'} = \frac{1}{2}E$, meaning that the neutron loses half its energy on average.
-The scattered proton has energy $E - E^{'}$ and is quenched.
-Neutrons predominately collide effectively on Hydrogen atoms \cite{neutron_thermalisation_and_capture_ref}.
-
-
-\input{Chapters/OuterDetector/Figures/gdls_capture_cross_sections}
-
-\par
-Once a neutron is captured on gadolinium, the new isotope de-excited with the following energy.
-The de-excitation can follow as either direct $\gamma$ emission or internal-conversion resulting in ejected auger electrons or characteristic x-rays.
-When the simulation framework was setup for the LZ experiment, GEANT4 was not adequate for modelling high atomic mass de-excitation's where there are in excess of $10^{6}$ cascade combinations \cite{ucsb_gdls_dicebox_simulations_ref}.
-As such LZ incorporated DICEBOX \cite{dicebox_simulations_ref} simulations, which should give a more adequate blah blah blah \cite{lz_simulations_ref}.
-\par
-The proportion of how the energy is dissipated in the isotope is shown in Figure \ref{fig:od_gdls_dicebox_deexcitation}, and the resultant $\gamma$ spectrum in Figure \ref{fig:gd_capture_resulting_gamma_spectrum}
-
-\input{Chapters/OuterDetector/Figures/gdls_gd_deexcitation_steps}
-
-\input{Chapters/OuterDetector/Figures/gd_capture_gamma_energies}
+Although only a small amount of Gadolinium is added, it is sufficient to reduce the neutron capture time down from $\approx$218$\mu$s of pure LAB (TODO CITE XXX) down to $\approx$28$\mu$s \cite{ucsb_gdls_dicebox_simulations_ref}.
 
 
 \subsection{Acrylic Tanks}
+\par
+The GdLS is contained in a total of ten ultra-violet transparent acrylic tanks providing nearly a complete 4$\pi$ coverage around the OCV.
+Four side tanks (SATs) that curve around the OCV, three bottom tanks (BATs) under the OCV between it's legs, two top tanks (TATs), and a final smaller tank - the YBe plug which is removable to be replaced by the YBe source.
+Between the SATs and OCV, foam pieces are installed to displace water.
+Figure \ref{fig:LZ_OD_Tanks} shows each of the tanks positions.
+Details of the construction of the tanks can be found in \cite{scotthaselschwardt_thesis_ref}.
+\begin{figure}
+    \centering
+    \includegraphics[height=10cm]{Figures/LZ/OD_Tanks_CAD.png}
+    \caption{Exploded view of the OD acrylic tanks.}
+    \label{fig:LZ_OD_Tanks}
+\end{figure}
+
+\par
+The shape of the OCV includes a large flange halfway down it. 
+This means that the SATs cannot be placed next to the OCV wall and the area will fill with water.
+In order to reduce this foam is placed between the OCV and SATs.
+This is shown in more detail in Section \ref{sec:od_construction_sec}.
 
 \subsection{OD PMTs}
+\par
+The OD is made active by an array of 120 Hamamatsu R5912 8"-diameter PMTs suspended in water $\approx$80cm from the acrylic tanks.
+The PMTs are arranged as 20-ladders spaced evenly around the water tank as shown in Figure \ref{fig:od_pmt_placement}.
+These PMTs are biased to provide an gain on the input of in-excess of $10^{5}$.
+Every PMT has a quantum efficiency - essentially the number of detected electrons against the number of incident photons - which for the dominant wavelengths put out by the GdLS is around 20\%, as shown in Figure \ref{fig:od_pmt_qe}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{Figures/Placeholder.png}
+    \caption{Hamamatsu R5912 PMT placement in the OD around the water tank.}
+    \label{fig:od_pmt_placement}
+\end{figure}
+
+\input{Chapters/OuterDetector/Figures/od_pmt_qe}
+
+
+\par
+Each PMT was tested in Korea to asserting the voltage required for each gain and to ensure the noise from each PMT was within the requirements.
+A number of these PMTs failed something or another (need to ask Ryan).
+The replacements were taken to Brandeis University where the gains, dark-rates and single-photoelecon (SPE) level.
+These were performed by placing the a PMT in a light-tight dark box, and pulsing a single LED based upon a development kit for the OCS system \cite{lz_ocs_system_ref}.
+The setup is shown in Figure \ref{fig:od_pmt_brandeis_measurements}.
+Several of the PMTs tested had lower dark-rates at the required gain and so replaced several PMTs of a higher rate.
+
+\begin{figure}[!htbp]
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[height=6cm, width=\linewidth]{Figures/OD_PMTs/od_pmt_in_dark_box.JPG}
+  \end{subfigure}
+  \begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[height=6cm, width=\linewidth]{Figures/OD_PMTs/sam_holding_od_pmt.JPG}
+  \end{subfigure}
+\caption{Photograph of R5192 PMT measurements. \textbf{Left}: PMT in dark box with white LED pointing at it. \textbf{Right}: Author (for scale) placing the PMT inside the dark box.}
+\label{fig:od_pmt_brandeis_measurements}
+\end{figure}
+
 
 \subsection{Tyvek}
+\par
+To increase the amount of light collected by the PMTs, OD is encased in Tyvek.
+In dominant scintillation wavelengths (400-500nm), the reflectivity remains above 80\% in water \cite{tyvek_thesis_ref,tyvek_reflectivity_ref}. 
+Tyvek was selected over other reflective boundaries (such as Lumirror{\texttrademark}) due to it's lower radioactivity.
+Details of the Tyvek placement are discussed in Section \ref{sec:od_construction_sec}.
+\par
+With the addition of a high-reflectivity surface the light collection efficiency in the OD tanks is on average 7.4\%, but with some significant variability as shown in Figure \ref{fig:od_lce}.
+This LCE map is what is expected after the design changes discussed in the next Section \ref{sec:od_construction_sec}.
 
 \begin{figure}[!htbp]
 \centering

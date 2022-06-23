@@ -5,6 +5,8 @@ Things to mention and explain;
     \item energy scale
 \end{itemize}
 
+The SPE and energy scale details can be found in \cite{ewanfraser_thesis_ref}.
+
 \par
 Using the Random Trigger, the rate seen in the OD was observed for a number of months.
 The result of which is shown in Figure \ref{fig:OD_SR1_Rate} along with the date range used for SR1.
@@ -12,118 +14,17 @@ The result of which is shown in Figure \ref{fig:OD_SR1_Rate} along with the date
 As time progresses the rate of decreases as the OD stabilises.
 The various fluctuations in the noise-cut has been linked to the chiller system being turned on, suggesting a grounding failure.
 However, as these can be removed with a noise-cut they are not of significant concern.
-\begin{figure}[!htbp]
-    \centering
-   \begin{tikzpicture}
-        \begin{axis}[
-        date coordinates in=x,
-        %xtick=data,
-        xticklabel style=
-        {rotate=90,anchor=near xticklabel},
-        xticklabel=\month.\year,
-        xlabel={Date},
-        %ymin=247, ymax=250,
-        y tick label style={/pgf/number format/1000 sep=},
-        extra y tick style={grid=major, tick label style={xshift=-1cm}},
-        ylabel={Rate (Hz)},
-        date ZERO=2009-08-18,% <- improves precision!
-        width=15cm,
-        height=6cm,
-        ]
-        \addplot[smooth, error bar legend,
-                 error bars/.cd,
-                 y dir=both, y explicit, error bar style={color=orange}] table[x=date,y=noise, y error=noise_error] {Data/OD_Backgrounds/random_trig_rates.txt};
-                 
-        \addplot[smooth, error bar legend,
-                 error bars/.cd,
-                 y dir=both, y explicit, error bar style={color=orange}] table[x=date,y=100kev, y error=200kev_error] {Data/OD_Backgrounds/random_trig_rates.txt};
-        
-        \addplot[smooth, error bar legend,
-                 error bars/.cd,
-                 y dir=both, y explicit, error bar style={color=orange}] table[x=date,y=200kev, y error=200kev_error] {Data/OD_Backgrounds/random_trig_rates.txt};
-                 
-        \end{axis}
-    \end{tikzpicture}
-    \caption{Rate in OD during and before SR1 data taking on a week-by-week basis using the Random Trigger.
-    Week -1 corresponds to the month prior to SR1 when the OD PMT gains were higher.}
-    \label{fig:OD_SR1_Rate_spare}
-\end{figure}
-%\par
+\input{Chapters/Analysis_OuterDetector/Figures/od_sr1_background_rate}
 
-
-\begin{figure}[!htbp]
-    \centering
-    \begin{tikzpicture}
-        \begin{axis}[
-            title=TODO: Replace with dates and errors,
-            xlabel=Data taking week,
-            ylabel=Rate (Hz),
-            width=15cm,
-            height=6cm,
-            xmin=-2,
-            xmax=14,
-            legend style = {column sep = 10pt, legend columns = -1,}]
-            \addplot[red, only marks]
-                    table [x=Week,y=Rate]
-                    {Data/OD_Backgrounds/od_sr1_rate_noise.dat};
-            \addlegendentry{Noise Cut};
-            \addplot[blue, only marks]
-                    table [x=Week,y=Rate]
-                    {Data/OD_Backgrounds/od_sr1_rate_100.dat};
-            \addlegendentry{100keV};
-            \addplot[green, only marks]
-                    table [x=Week,y=Rate]
-                    {Data/OD_Backgrounds/od_sr1_rate_200.dat};
-            \addlegendentry{200keV};
-        \end{axis}
-    \end{tikzpicture}
-    \caption{Rate in OD during and before SR1 data taking on a week-by-week basis using the Random Trigger.
-    Week -1 corresponds to the month prior to SR1 when the OD PMT gains were higher.}
-    \label{fig:OD_SR1_Rate}
-\end{figure}
 \par
 During the SR1 data taking period, the rate-per-phe is shown in Figure \ref{fig:od_sr1_rate_vs_threshold}.
 Overlaid is the expected rate of backgrounds from Table \ref{tab:od_expected_rates}.
 Interestingly the observed rate is below what was anticipated.
 This unexpected result means that the veto threshold could be reduced to 100keV, which should increase the veto tagging efficiency.
 Alternatively, the threshold could be left at 200keV, but the window extended, also increasing the tagging efficiency.
-\begin{figure}[!htbp]
-    \centering
-    \begin{tikzpicture}
-        \begin{axis}[
-            xlabel=OD Threshold (phe),
-            ylabel=Rate (Hz),
-            width=15cm, height=8cm,
-            xmin=-1, xmax=55,
-            ymin=0, ymax=350,
-            legend pos=north east,
-            grid=major]
-             \addplot+[black, smooth, mark=none]
-                    table [x=Threshold,y=Rate]
-                    {Data/OD_Backgrounds/od_sr1_rate_vs_threshold_smooth_line.dat};
-            \addplot[black, only marks, 
-                     error bar legend,
-                     error bars/.cd,
-                     x dir=both, x explicit, error bar style={color=black}]
-                    table [x=Threshold,y=Rate, x error=XError]
-                    {Data/OD_Backgrounds/od_sr1_rate_vs_threshold_error_bars.dat};
-             \addplot[dashed, mark=none, red] coordinates {(0,100) (60,100)};
-             \addplot[dashed, mark=none, blue] coordinates {(17.6,0) (17.6,350)};
-             \addplot[dashed, mark=none, green] coordinates {(37.5,0) (37.5,350)};
-             
-             \addplot[orange, only marks, 
-                      error bar legend,
-                      error bars/.cd,
-                      y dir=both, y explicit, error bar style={color=orange}]
-                      table [x=Threshold,y=Rate, y error=YError]
-                      {Data/OD_Backgrounds/od_sr1_rate_expected.dat};
-             
-             \legend{,SR1 Data,$<$100Hz Requirement,100 keV (17.6 phe),200 keV (37.5 phe),Expected}                
-        \end{axis}
-    \end{tikzpicture}
-    \caption{Rate of OD backgrounds during SR1 using the Random Trigger. The noise cut has been applied. 100Hz Requirement is for a 500$\mu$s veto window as proposed in \cite{LZ_TechnicalDesignReview_ref}. Expected values are from Table \ref{tab:od_expected_rates}}
-    \label{fig:od_sr1_rate_vs_threshold}
-\end{figure}
+
+\input{Chapters/Analysis_OuterDetector/Figures/od_rate_vs_threshold}
+
 \par
 Due to this unexpectedly lower rate, a study was performed in order to understand what backgrounds are (and aren't) being seen.
 This is described in the remainder of this section.
@@ -154,7 +55,7 @@ In the pulse area parameter, this should remain just a linear scaling, though in
 
 \par
 In order to calculate the energy scaling, Th228 data calibration was used. 
-In the decay chain (Figure XXX), Tl208 has a prominent 2.6MeV $\gamma$. 
+In the decay chain (Figure \ref{fig:decay_chains}), Tl208 has a prominent 2.6MeV $\gamma$. 
 There are two simulated sources of this, firstly, from a calibration source, and secondly from the ${}^{232}Th$ cavern-$\gamma$'s as shown in Figure \ref{fig:cavern_gamma_energy_distribution}.
 For cavern-$\gamma$ simulations, the 2.6MeV was extracted using truth information and the resultant phe plotted.
 
@@ -250,53 +151,12 @@ This was performed using Equation \ref{eq:OD_xy_position}.
 \end{equation}
 
 
-\begin{figure}[!htbp]%
-\centering
-\begin{tikzpicture}
-\centering
-  \begin{groupplot}[%view={0}{90},
-    group style = {group size = 2 by 3,vertical sep=1.5cm,
-                   horizontal sep=1.5cm},
-                   height=8cm, width=0.5\textwidth]
-    \nextgroupplot[
-            title=Pulse Area,
-            ylabel=Rate (Hz),
-            xlabel=Pulse Area,
-            width=\textwidth,
-            height=6cm,
-            %xshift=0.5\textwidth,
-            xmin=0, xmax=2000,
-            ]
-            \addplot [blue] {rnd};
-            
-    \nextgroupplot[group/empty plot]
-
-    \nextgroupplot[title=All pulses,
-            xshift=-0.25\textwidth]
-            \addplot [blue] {rnd};
-
-    \nextgroupplot[title=Region 1,
-                  xshift=-0.5\textwidth,
-                  yshift=1cm,]
-            \addplot [blue] {rnd};
-    
-    \nextgroupplot[title=Region 2]
-            \addplot [blue] {rnd};
-                   
-    \nextgroupplot[title=Region 3]
-            \addplot [blue] {rnd};
-   
-  \end{groupplot}
-\end{tikzpicture}
-\caption{Position Reconstruction of pulses from various regions in pulse area space defined in the top plot. 
-         Each pulse has had the noise cut applied and the position reconstructed using Equation \ref{eq:OD_xy_position}.}
-\label{fig:od_backgrounds_position_reconstruction}
-\end{figure}
+\input{Chapters/Analysis_OuterDetector/Figures/od_background_positions}
 
 
 \par
 As can be seen in Figure \ref{fig:od_backgrounds_position_reconstruction}, events reconstructed to be at the top and bottom of the OD dominate everywhere.
-This supports both Table XXX (Section XXX) and Figure XXX (Section XXX), where Cavern Gammas are expected to be the largest contributor with the largest contribution coming from the bottom.
+This supports both Table \ref{tab:od_expected_rates} and Figure \ref{fig:OD_estimated_background_rate} (Section \ref{sec:simulated_od_requirements}), where Cavern Gammas are expected to be the largest contributor with the largest contribution coming from the bottom.
 
 
 \par
@@ -305,29 +165,7 @@ The resultant pulse spectrum is shown in Figure \ref{fig:od_data_pulsearea_middl
 What is interesting is that two additional features have appeared.
 
 
-\begin{figure}[!htbp]
-    \centering
-    \begin{tikzpicture}
-    
-    \begin{axis}[
-        xlabel=Pulse Area,
-        ylabel=Rate (Hz/5phe),
-        width=15cm, height=10cm,
-        xmin=0, xmax=800,
-        ymin=1e-4, ymode=log,
-        legend pos=north east,
-        grid=major]
-            
-        \addplot[only marks, mark size=0.5pt] 
-            plot[error bars/.cd, x dir=both, x explicit]
-            table[x=pulsearea,y=rate,x error=x_error, y error=y_error]
-            {Data/OD_Backgrounds/od_data_pulsearea_middle_tank_binwidth_5.dat};
-            
-        \end{axis}
-    \end{tikzpicture}
-    \caption{OD pulse area spectrum from pulses reconstructed to the middle of the OD side tanks.}
-    \label{fig:od_data_pulsearea_middle_tank}
-\end{figure}
+\input{Chapters/Analysis_OuterDetector/Figures/od_middle_region_phd}
 
 
 \subsection{Fit}

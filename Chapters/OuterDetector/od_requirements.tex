@@ -1,4 +1,5 @@
 \section{OD requirements}
+\label{sec:simulated_od_requirements}
 \par
 As previously stated, the primary purpose of the OD is to act as an active veto for neutrons.
 Practically, this means that there are a number of performance requirements which the OD has to meet, all of which can be found in \cite{LZ_TechnicalDesignReview_ref}.
@@ -39,7 +40,7 @@ In order to ascertain the rate of internal contaminants expected, a campaign was
 The decay chains and associated sub-chains are shown in Figure \ref{fig:decay_chains}.
 
 \par
-One of the key outcomes of the screener campaign was the high ${}^{235}U$ rate.
+One of the key discoveries of the screener campaign was the high ${}^{235}U$ rate.
 As such, the method of doping the LS was altered, which aimed to reduce the contamination.
 The expected rates from this are also shown in Table \ref{tab:gdls_assay_rates}.
 However, as these were not screened the accuracy is unknown, but gives a 'best-case'.
@@ -235,12 +236,35 @@ The result of the simulations are shown in Figure \ref{fig:simulated_amli_neutro
 Perhaps unexpectedly, the veto efficiency varies depending upon the height of the source.
 Part of the reason for this is shown in Figure \ref{fig:simulated_amli_capture_time} where the time it takes for the neutron to capture in the GdLS is shown.
 In high-$H$ materials, such the foam and acrylic, can effectively moderate and bound the neutron in that material.
-The effect of this per volume can be seen in Figure \ref{fig:simulated_neutron_capture_time_vs_volume}.
+The effect of this per volume can be seen in Figure \ref{fig:gdls_capture_time_vs_volume}.
 In the capture constant this reflects itself as 2 exponential; one for a neutron that rapidly enters the GdLS and is moderated and captured there, and one for when the neutron is bouncing in a high-$H$ material before entering the GdLS.
 In the latter case, the capture time constant is close to 200$\mu$s, corresponding to high-$H$ materials.
 \par
-Something about the ratio of the 1st and 2nd expo.
-Add the fit...? to compare to data in next chapter.
+The both the pure-LS and GdLS neutron capture times are well measured, with the most applicable for LZ from DayaBay, where the capture was modelled by Equation \ref{eq:neutron_capture_time} (Equation 15 in \cite{Dayabay_neutron_capture_fit_ref});
+\begin{equation}
+    N_{Gd}(t) = N_{0,Gd} \times [(1+\alpha)\frac{1}{\tau_{Gd}}e^{\frac{-1}{\tau_{Gd}}} - \alpha\frac{1}{\tau_{0}}e^{\frac{-t}{\tau_{0}}}] + C_{1} \\
+\label{eq:neutron_capture_time}
+\end{equation}
+where the Gadolinium capture can be constrained by two time constants $\tau_{Gd}$, which represents the capture of thermal neutrons and $\tau_{0}$ for neutrons captured before thermalisation\footnote{This is actually neutrons from inverse $\beta$-decay with energies $\mathcal{O}$(0.015)MeV being captured before scattering enough to thermalise.}. 
+$\alpha$ is simply a there to balance to two terms.
+Given the much smaller volume of GdLS and the materials around it, there are most likely three exponents which contribute significantly to the capture time originating from; neutrons which enter the GdLS rapidly and thermalise and capture there, neutrons which scatter a lot in the foam before entering the GdLS, and neutrons which scatter in the acrylic multiple times before entering the GdLS.
+The various neutron capture times for these mediums are shown in Table \ref{tab:medium_neutron_capture_time}.
+
+\begin{table}
+\centering
+\begin{tabular}{c|c}
+    Medium  & Neutron Capture Time ($\mu$s)  \\ \hline
+    GdLS    & 28 \cite{ucsb_gdls_dicebox_simulations_ref}  \\
+    Water   & 202 \cite{snoplus_neutron_capture_time_on_water_ref}  \\
+    Foam    & XX   \\
+    Acrylic & XX  
+\end{tabular}
+\label{tab:medium_neutron_capture_time}
+\caption{Neutron capture time in pure and infinite mediums.}
+\end{table}
+
+Given that the neutrons are being captured in the GdLS, the measured capture time from all mediums (except GdLS) will be lower than in Table \ref{tab:medium_neutron_capture_time}. 
+GdLS will be greater as the neutron not in infinite GdLS, but must travel through mediums less able to capture neutrons and so the effective capture time the neutron experiences will differ.
 
 \par
 The efficiency for an AmLi source at 0mm is the first time the 95\% veto requirement is not met, yet it met for 1400mm despite appearing to be in geometrically similar locations.

@@ -84,7 +84,7 @@ However, in reality only  ${}^{214}Bi \to {}^{214}Po$ and ${}^{219}Rn \to {}^{21
         ${}^{219}Rn \to {}^{215}Po$ (${}^{235}U_{l}$)          & $\alpha$ & 6.76         & $\alpha$ & 7.39         & 1800  \\ 
         ${}^{212}Bi \to {}^{212}Po$ (${}^{232}Th_{l}$)         & $\beta$  & 2.1          & $\alpha$ & 8.78         & 0.3
     \end{tabular}
-    \caption{Th and U decay chain pairs with half-lives within the LZ event window of 4.5ms}
+    \caption{Th and U decay chain pairs with half-lives within the LZ event window of 4.5ms. See Figure \ref{fig:decay_chains} for the complete Decay Chains.}
     \label{tab:od_constrainable_decays_in_data}
 \end{table}
 
@@ -140,15 +140,14 @@ One of the difficulties in constraining the rates is that the ~8MeV $\alpha$'s i
 \subsection{Position Reconstruction}
 \par
 For any pulse it is possible to reconstruct the location of the interaction that caused the pulse by a weighted average.
-This was performed using Equation \ref{eq:OD_xy_position}.
+This was performed using a simple weighted distribution (Equation \ref{eq:OD_xy_position});
 
 \begin{equation}
-    \begin{array}{lcl}
-        x(y) = \frac{\sum{\text{phe}_\text{Ch} * \text{x(y)}_\text{Ch}}}{\sum{\text{phe}_\text{Ch}}} \\
-        z = XXX 
-    \end{array}
-    \label{eq:OD_xy_position}
+    x = \frac{\sum{\text{Ch}_{\text{phe}} * \text{Ch}_\text{x}}}{\sum{\text{Ch}_\text{phe}}} 
+\label{eq:OD_xy_position}
 \end{equation}
+Due to limited pre-SR1 calibrations, an insufficient variety of calibration sources were used at varying x-y-z positions in order to adequately determine the resolution of this approach, but it is something a future calibration campaign may be able to tackle. 
+However, this provides an insight not-thought possible based upon optical simulations.
 
 
 \input{Chapters/Analysis_OuterDetector/Figures/od_background_positions}

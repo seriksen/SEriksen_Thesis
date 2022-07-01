@@ -1,0 +1,22 @@
+\section{OD Energy Scale} \label{sec:od_energy_scale}
+\par
+After construction and the filling of the OD, the SPE for each PMT was checked using the OD optical calibration system (OCS) described in \cite{lz_ocs_system_ref}.
+A detailed description of the PMT monitoring during the commissioning and SR1 can be found in the works of E. Fraser \cite{ewanfraser_thesis_ref}. 
+\par
+During this period, an energy calibration of the OD was performed.
+Again, details of the methodology are described in \cite{ewanfraser_thesis_ref} but summarised below.
+As mentioned in Sec. \ref{sec:lz_detector_chapter}, a variety of calibration sources were available with output a range of particles at different energies.
+$\gamma$ sources were lowered into the CSD's to the 700mm level (see Fig. \ref{fig:CSD1_Geometry}) and the number of photo electrons measured.
+The empirical formula for the non-linear energy response of the scintillator from DayaBay \cite{dayabay_antineutrino_oscillation_ref, ls_nonlinear_energy_response_ref}, shown in Eq. \ref{eq:ls_light_response}, was used to fit to these points.
+\begin{equation}
+    \frac{E_{vis}}{E_{true}} = \frac{p_0  + p_3 \times E_true}{1 + p_1 \times e^{p_2 \times E_{true}}}
+    \label{eq:ls_light_response}
+\end{equation}
+The fit and the translation from photons detected to energy are shown in Fig. \ref{fig:od_energy_scale}.
+
+\input{Chapters/Analysis_OuterDetector/Figures/od_energy_scale}
+
+\par
+The fit 
+Although this provides a good result for SR1, as the calibrations were only performed at a single position, the varying light collection efficiency around the OD was not taken into account (see Fig. \ref{fig:od_lce}).
+

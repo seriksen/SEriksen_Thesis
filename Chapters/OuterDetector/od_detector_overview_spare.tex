@@ -10,7 +10,7 @@ This allows for a larger portion of the TPC Xenon to be used for a WIMP search a
 \par
 The core of the OD is the ability to capture neutrons.
 This is done by a liquid scintillator doped with natural gadolinium (GdLS)
-The components of this cocktail are detailed in Table \ref{tab:GdLS_Components}.
+The components of this cocktail are detailed in \autoref{tab:GdLS_Components}.
 
 \begin{itemize}
     \item 
@@ -25,7 +25,7 @@ Both volumes are made active by an array of PMTs.
 \par
 The outermost region of the OD is a Tyvek curtain, separating the OD from the edge of the water tank.
 Attached the Tyvek wall, 120 Hamamatsu R5912 8"-diameter PMTs point inwards.
-For an 420nm incident photon the PMT quantum efficiency is in excess of 25\%, with the full wavelength shown in Figure \ref{fig:od_pmt_qe}.
+For an 420nm incident photon the PMT quantum efficiency is in excess of 25\%, with the full wavelength shown in \autoref{fig:od_pmt_qe}.
 
 \input{Chapters/OuterDetector/Figures/od_pmt_qe}
 
@@ -43,7 +43,7 @@ Other options
 The scintillator is housed in ten ultra-violet transparent acrylic tanks.
 Four side tanks (SATs) that curve around the OCV, three bottom tanks (BATs) under the OCV between it's legs, two top tanks (TATs), and a final smaller tank - the YBe plug which is removable to be replaced by the YBe source.
 Between the SATs and OCV, foam pieces are installed to displace water.
-Figure \ref{fig:LZ_OD_Tanks} shows each of the tanks positions.
+\autoref{fig:LZ_OD_Tanks} shows each of the tanks positions.
 Details of the construction of the tanks can be found in \cite{scotthaselschwardt_thesis_ref}.
 \begin{figure}
     \centering
@@ -60,7 +60,7 @@ This is doped with 0.1\% by mass (0.23 - 0.34\% by number) Gadolinium.
 
 \par
 The GdLS is combined with TMHA (the chelating agent) and dissolved in the LS.
-The components of this cocktail are summarised in Table \ref{tab:GdLS_Components}.
+The components of this cocktail are summarised in \autoref{tab:GdLS_Components}.
 
 
 \subsection{Scintillator}
@@ -99,7 +99,7 @@ The reason for the second shifter is that the wavelength emitted is absorbed les
 Importantly, the absorption length of the GdLS increases from 1m to in excess of 10m in that range - and continues to rise.
 
 \par
-The complete chemical components in the GdLS is shown in Table \ref{tab:GdLS_Components}.
+The complete chemical components in the GdLS is shown in \autoref{tab:GdLS_Components}.
 
 \begin{table}[!htbp]
     \centering
@@ -117,7 +117,7 @@ The complete chemical components in the GdLS is shown in Table \ref{tab:GdLS_Com
 \end{table} 
 
 \par
-Table \ref{tab:Gadolinium_abundances_and_crosssections} contains the natural abundances of gadolinium.
+\autoref{tab:Gadolinium_abundances_and_crosssections} contains the natural abundances of gadolinium.
 
 \begin{table}[!htbp]
     \centering
@@ -179,7 +179,7 @@ The results of these simulations are summarised in this section, and are selecte
 The simulation process performed by LZ collaborators can be found in \cite{ucsb_gdls_dicebox_simulations_ref}.
 
 \par
-Figure \ref{fig:Gd_capture_resulting_particle_count} shows the number of discrete packets of energy over which the energy is released after the capture.
+\autoref{fig:Gd_capture_resulting_particle_count} shows the number of discrete packets of energy over which the energy is released after the capture.
 The mean value of this (from the 10 million simulations) is 4.654 and 4.754 for $Gd^{156}$ and $Gd^{158}$ respectively.
 This is why it is often quoted that the neutron capture releases 4.7 $\gamma$'s.
 
@@ -211,11 +211,11 @@ This is why it is often quoted that the neutron capture releases 4.7 $\gamma$'s.
 
 \par
 The simulation encompasses both $\gamma$-emission from the nucleus directly as well as the transfer of energy to an electron (internal conversion).
-Where the energy goes within the atom is shown in Table \ref{tab:Gd_internal_energy_conversion}.
+Where the energy goes within the atom is shown in \autoref{tab:Gd_internal_energy_conversion}.
 It shows that there is also a gamma emitted and that roughly 30\% of the time only $\gamma$'s are emitted, however it is most likely that energy is also passed to a shell electron.
 From this, we can conclude that the dominant emission from the neutron capture are $\gamma$'s, with auger electrons and x-rays comprising a much smaller percentage of the emission.
 \par
-A less useful Figure is Figure \ref{fig:Gd_capture_energy_conversion_shells} shows where the energy goes in terms of electron shells. 
+A less useful Figure is \autoref{fig:Gd_capture_energy_conversion_shells} shows where the energy goes in terms of electron shells. 
 
 \begin{table}[!htbp]
     \centering
@@ -256,7 +256,7 @@ A less useful Figure is Figure \ref{fig:Gd_capture_energy_conversion_shells} sho
 \end{figure}
 
 \par
-The proportion of the energy transferred directly to $\gamma$'s vs via internal conversion is shown in Figure \ref{fig:Gd_deexcitation_energy_fractions}.
+The proportion of the energy transferred directly to $\gamma$'s vs via internal conversion is shown in \autoref{fig:Gd_deexcitation_energy_fractions}.
 
 \begin{figure}[!htbp]%
 \centering
@@ -304,7 +304,7 @@ The proportion of the energy transferred directly to $\gamma$'s vs via internal 
 
 
 \par
-Given what has been determined above, it is worth looking at the $\gamma$ spectrum, shown in Figure \ref{fig:Gd_capture_resulting_gamma_spectrum}.
+Given what has been determined above, it is worth looking at the $\gamma$ spectrum, shown in \autoref{fig:Gd_capture_resulting_gamma_spectrum}.
 
 
 \input{Chapters/OuterDetector/Figures/gd_capture_gamma_energies}
@@ -316,14 +316,14 @@ Given what has been determined above, it is worth looking at the $\gamma$ spectr
 
 \section{Released Particles}
 \par
-The particles released as a result of the neutron capture ($\gamma$'s and $e^{-}$'s) then follow Birk's law, shown in equation \ref{eq:birkslaw}.
+The particles released as a result of the neutron capture ($\gamma$'s and $e^{-}$'s) then follow Birk's law, shown in \autoref{eq:birkslaw}.
 
 \begin{equation}
     \frac{dL}{dx} = S \frac{\frac{dE}{dx}}{1 + k_{B}\frac{dE}{dx} + C\frac{dE}{dx}^2}
     \label{eq:birkslaw}
 \end{equation}
 Here, L is the the light yield, S is the scintillation efficiency, $\frac{dE}{dx}$ is the energy loss of the particle per path length, and $k_{B}$ and $C$ are Birk's law parameters.
-The parameters for GdLS are shown in table \ref{tab:Birks_law_parameters}.
+The parameters for GdLS are shown in \autoref{tab:Birks_law_parameters}.
 
 
 \begin{table}[!htbp]

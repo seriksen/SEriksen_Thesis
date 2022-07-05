@@ -1,13 +1,13 @@
 \section{S2 Light Map}
 \label{sec:s2lightmap}
 \par
-Suppose that a single free electron was to be simulated in the liquid Xenon for its response.
+Suppose that a single free electron was to be simulated in the liquid Xenon.
 Due to the electric field, this electron will accelerate upwards towards the gas layer.
 As it travels through the medium, it may interact with the Xenon, exciting numerous other electrons into being free.
 %A single free electron in the liquid phase can excite numerous other electrons into being free (depending upon energies) as it travels upwards in the electric field.
-Each of these electrons could enter the gas-phase and produce optical photons.
+Each of these electrons could also enter the gas-phase and produce optical photons.
 In this phase, the mean photon yield is $\approx$ 825.
-This number is discussed in more detail in Section \ref{S2RadialVariation}.
+This number is discussed in more detail in \autoref{sec:s2radialvariation}.
 Therefore an initially simple simulation requires several thousand S2 photons to be simulated.
 For more complex simulations (such as those that are needed for scale tests of the analysis chain), this becomes a bottleneck and an impractical approach.
 
@@ -35,21 +35,21 @@ A notable downside of this approach is that for different scenarios one may wish
 
 
 
-\subsection{S2 Radial Variation} \label{S2RadialVariation}
+\subsection{S2 Radial Variation} \label{sec:s2radialvariation}
 \par
 The electric field originates from three electrodes; a cathode grid just above the bottom PMTs, a gate grid just below the surface of the liquid Xenon, and an anode grid in the gaseous Xenon.
 In previous simulations it was assumed that the anode and gate were both rigid structures and so had a fixed distance, and electric field between them.
-In this case, the number of photons produced in the gas gap by an electron is given by Equation \ref{NoPhotons} and is equal no matter the radius from the centre. 
+In this case, the number of photons produced in the gas gap by an electron is given by \autoref{eq:s2lightmap_nophotons} and is equal no matter the distance from the centre. 
 \begin{equation}
     N_{photons/e} = eep \times (\alpha \times E_{gas} \times 1000 - \beta \times P - \gamma) \times d_{gas}
-    \label{NoPhotons}
+    \label{eq:s2lightmap_nophotons}
 \end{equation}
 Where $\alpha$, $\beta$ and $\gamma$ are constants, $E_{gas}$ is the electric field in the gas, P is the pressure of the liquid, and $d_{gas}$ is the distance from the top of the liquid to the anode \cite{NoPhotonsPerElectron}.
 $eep$ is the electron emission probability at the surface.
 %is taken from PiXeY data and fitted to give $eta = -0.03754 \times (eliq^{2}) + 0.5266 \times eliq - 0.84645$, where $eliq$ is the electric field in the liquid Xenon \cite{ElectronExtractionEfficiency}.
-The emission probability is included as we want to use the average number of photons per electron rather than for one just one electron.
-This was known to be incorrect as a stronger signal (more photons) should be achieved in the detector centre.
-Tests conducted at SLAC indicated that there is bending of the wires according to Equation \ref{WireDeflection} due to the electric field.
+The emission probability is included as we want to use the average number of photons per electron.
+This simplification was known to be incorrect as a stronger signal\footnote{more photons being detected} should be observed in the detector centre.
+Tests conducted at SLAC indicated that there is bending of the wires according to \autoref{WireDeflection} due to the electric field.
 \begin{equation}
     x(r,E) = A \sqrt{ \bigg( 1 + \cos{ \Big( \frac{r \pi}{R} } \Big) \bigg) \bigg( B^2 + r^2 \bigg) } \bigg( e^{(r-C)} + 1 \bigg)^{-1} 
     \label{WireDeflection}
@@ -57,6 +57,5 @@ Tests conducted at SLAC indicated that there is bending of the wires according t
 Where R is the radius of the wire, r is the point on the wire and A, B and C are all of the form: $A(E) = \sum_{j=0}^{M} a_{j} E^{j}$. E is the electric field and $a_{j}$ are constants.
 As such, the electric field is not constant with radius and thus the number of photons produced by electroluminescence is changed.
 \par
-These changes were implemented into the simulation package as a scaling on the number of photons looked up from in the S2 Light Map.
-Implementing it in this way allows for the resultant signal size to scale with the electric field without having to require a dynamically changing detector grid geometry.
-As the bending changes the electric field, and the electric field changes the bending, what was implemented remains an approximation.
+These changes were implemented into the simulation package as a scaling on the number of photons which the S2 Light Map is probed for.
+Implementing it in this way allows for the resultant signal size to scale with the electric field without having to require a dynamically changing detector grid geometry - a much more complex approach.

@@ -9,7 +9,8 @@ The SPE and energy scale details can be found in \cite{ewanfraser_thesis_ref}.
 
 \par
 Using the Random Trigger, the rate seen in the OD was observed for a number of months.
-The result of which is shown in Figure \ref{fig:OD_SR1_Rate} along with the date range used for SR1.
+The result of which is shown in \autoref{fig:OD_SR1_Rate} along with the date range used for SR1.
+
 \par
 As time progresses the rate of decreases as the OD stabilises.
 The various fluctuations in the noise-cut has been linked to the chiller system being turned on, suggesting a grounding failure.
@@ -17,8 +18,8 @@ However, as these can be removed with a noise-cut they are not of significant co
 \input{Chapters/Analysis_OuterDetector/Figures/od_sr1_background_rate}
 
 \par
-During the SR1 data taking period, the rate-per-phe is shown in Figure \ref{fig:od_sr1_rate_vs_threshold}.
-Overlaid is the expected rate of backgrounds from Table \ref{tab:od_expected_rates}.
+During the SR1 data taking period, the rate-per-phe is shown in \autoref{fig:od_sr1_rate_vs_threshold}.
+Overlaid is the expected rate of backgrounds from \autoref{tab:od_expected_rates}.
 Interestingly the observed rate is below what was anticipated.
 This unexpected result means that the veto threshold could be reduced to 100keV, which should increase the veto tagging efficiency.
 Alternatively, the threshold could be left at 200keV, but the window extended, also increasing the tagging efficiency.
@@ -50,13 +51,13 @@ This is described in the remainder of this section.
 When data and simulations were first compared, as in Figure XXX, it became obvious that the light modelling in the OD was significantly different to reality.
 Around 50\% of this difference can be accounted for by a mismatch between the PMT gains simulated against those in the LZap reconstruction database.
 This effect simply results in smaller pulses and so smaller pulse areas.
-However, the remaining difference is not clear where it is coming from, as it would indicate that the LCE is twice what is currently simulated (Figure \ref{fig:od_lce}).
+However, the remaining difference is not clear where it is coming from, as it would indicate that the LCE is twice what is currently simulated (\autoref{fig:od_lce}).
 In the pulse area parameter, this should remain just a linear scaling, though in other parameters (such as number of PMTs receiving light) it may not be linear.
 
 \par
 In order to calculate the energy scaling, Th228 data calibration was used. 
-In the decay chain (Figure \ref{fig:decay_chains}), Tl208 has a prominent 2.6MeV $\gamma$. 
-There are two simulated sources of this, firstly, from a calibration source, and secondly from the ${}^{232}Th$ cavern-$\gamma$'s as shown in Figure \ref{fig:cavern_gamma_energy_distribution}.
+In the decay chain (\autoref{fig:decay_chains}), Tl208 has a prominent 2.6MeV $\gamma$. 
+There are two simulated sources of this, firstly, from a calibration source, and secondly from the ${}^{232}Th$ cavern-$\gamma$'s as shown in \autoref{fig:cavern_gamma_energy_distribution}.
 For cavern-$\gamma$ simulations, the 2.6MeV was extracted using truth information and the resultant phe plotted.
 
 
@@ -72,7 +73,7 @@ For cavern-$\gamma$ simulations, the 2.6MeV was extracted using truth informatio
 \par
 Though the exact rate of GdLS is not known, it is possible to constrain some of the components observed.
 Notably, decays within the U and Th decay chains where there the second decay has a short enough half-life such that it is within the LZ event window.
-This leaves 3-possible decays, summarised in Table \ref{tab:od_constrainable_decays_in_data}.
+This leaves 3-possible decays, summarised in \autoref{tab:od_constrainable_decays_in_data}.
 However, in reality only  ${}^{214}Bi \to {}^{214}Po$ and ${}^{219}Rn \to {}^{215}Po$ can be searched for as the interactions from ${}^{212}Bi \to {}^{212}Po$ are close enough together that they will be merged into one pulse.
 
 \begin{table}[!htbp]
@@ -84,7 +85,7 @@ However, in reality only  ${}^{214}Bi \to {}^{214}Po$ and ${}^{219}Rn \to {}^{21
         ${}^{219}Rn \to {}^{215}Po$ (${}^{235}U_{l}$)          & $\alpha$ & 6.76         & $\alpha$ & 7.39         & 1800  \\ 
         ${}^{212}Bi \to {}^{212}Po$ (${}^{232}Th_{l}$)         & $\beta$  & 2.1          & $\alpha$ & 8.78         & 0.3
     \end{tabular}
-    \caption{Th and U decay chain pairs with half-lives within the LZ event window of 4.5ms. See Figure \ref{fig:decay_chains} for the complete Decay Chains.}
+    \caption{Th and U decay chain pairs with half-lives within the LZ event window of 4.5ms. See \autoref{fig:decay_chains} for the complete Decay Chains.}
     \label{tab:od_constrainable_decays_in_data}
 \end{table}
 
@@ -95,7 +96,7 @@ These can be searched for by requiring that two pulses be close in time and clos
 The time requirement is dictated by the half-life of the second decay.
 The position requirement is to reduce the impact of coincident interactions and decays in other areas of the OD.
 As the second decay is an $\alpha$ it does not have significant penetrating power so the interaction will be close to where the initial decay was.
-The cuts selected were; the noise cut previously discussed, a maximum position separation as defined by the reconstructed position in Equation \ref{eq:OD_xy_position}.
+The cuts selected were; the noise cut previously discussed, a maximum position separation as defined by the reconstructed position in \autoref{eq:OD_xy_position}.
 The time selection
 
 \iffalse
@@ -140,7 +141,7 @@ One of the difficulties in constraining the rates is that the ~8MeV $\alpha$'s i
 \subsection{Position Reconstruction}
 \par
 For any pulse it is possible to reconstruct the location of the interaction that caused the pulse by a weighted average.
-This was performed using a simple weighted distribution (Equation \ref{eq:OD_xy_position});
+This was performed using a simple weighted distribution (\autoref{eq:OD_xy_position});
 
 \begin{equation}
     x = \frac{\sum{\text{Ch}_{\text{phe}} * \text{Ch}_\text{x}}}{\sum{\text{Ch}_\text{phe}}} 
@@ -154,13 +155,13 @@ However, this provides an insight not-thought possible based upon optical simula
 
 
 \par
-As can be seen in Figure \ref{fig:od_backgrounds_position_reconstruction}, events reconstructed to be at the top and bottom of the OD dominate everywhere.
-This supports both Table \ref{tab:od_expected_rates} and Figure \ref{fig:OD_estimated_background_rate} (Section \ref{sec:simulated_od_requirements}), where Cavern Gammas are expected to be the largest contributor with the largest contribution coming from the bottom.
+As can be seen in \autoref{fig:od_backgrounds_position_reconstruction}, events reconstructed to be at the top and bottom of the OD dominate everywhere.
+This supports both \autoref{tab:od_expected_rates} and \autoref{fig:OD_estimated_background_rate} ( \autoref{sec:simulated_od_requirements}), where Cavern Gammas are expected to be the largest contributor with the largest contribution coming from the bottom.
 
 
 \par
 As a way of suppressing cavern-$\gamma$'s, a slice of events reconstructed to be in the middle of the side tanks was taken.
-The resultant pulse spectrum is shown in Figure \ref{fig:od_data_pulsearea_middle_tank}.
+The resultant pulse spectrum is shown in  \autoref{fig:od_data_pulsearea_middle_tank}.
 What is interesting is that two additional features have appeared.
 
 
@@ -169,7 +170,7 @@ What is interesting is that two additional features have appeared.
 
 \subsection{Fit}
 \par
-Given the mitigation processes described in Section \ref{sec:od_construction_sec}, the contamination is likely to be minimal everywhere. 
+Given the mitigation processes described in \autoref{sec:od_construction_sec}, the contamination is likely to be minimal everywhere. 
 Additionally, given what can be seen in Figure XXX, the improved GdLS purification appears to have worked.
 As the GdLS came from the same batch produced at Brookhaven as used in DayaBay it is reassuring that it matches closely what was seen there
 
@@ -179,6 +180,6 @@ Instead, what is likely to have happened is that \cite{KamLAND_LS_contaminants_r
 
 \subsection{Cavern-$\gamma$'s}
 \par
-As discussed in Section \ref{sec:cavern_gamma_generator}, the $\gamma$'s from decays within the rock are of significant concern.
+As discussed in \autoref{sec:cavern_gamma_generator}, the $\gamma$'s from decays within the rock are of significant concern.
 blah blah blah...
 Over the continued course of the experiment it will be interesting see if an annual modulation is observed such as that in \cite{cavern_gamma_annual_modulation_CoGeNT_ref, cavern_gammas_in_Soudan_mine_ref} as it may be a more significant background for LZ than previously considered.

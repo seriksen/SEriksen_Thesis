@@ -1,12 +1,16 @@
 \section{WIMP-nucleon interactions} \label{sec:wimp_nucleus_interactions}
 \par
 If the dark matter in our own Milky Way galaxy is comprised of WIMPs, then there should be a continuous WIMP flux crossing the Earth.
-WIMP-nucleon interactions are predicted to be rare, the WIMP flux is large enough to, in principle, be detectable via Earth-based detectors, by elastic scattering off a nucleus \cite{wimp_nucleon_interactions_first_suggestion_ref,supersymmetric_dark_matter_ref}.
-Taking this assumption, then a non-relativistic WIMP of mass $m_{\chi}$ and velocity $\nu$ would  elastically scatter off a nucleus of mass $m_{A}$ with a recoil energy, $E_{R}$, which is dependent upon the scatter angle $\theta$;
-\begin{equation}
-    E_{R} = \frac{q^{2}}{2m_{N}} = \frac{\mu^2\nu_{\chi}^2}{m_{N}}(1-\cos(\theta))
-\end{equation}
+WIMP-nucleon interactions are predicted to be rare, the flux should be large enough to, in principle, be detectable via Earth-based detectors, by elastic scattering off a nucleus \cite{wimp_nucleon_interactions_first_suggestion_ref,supersymmetric_dark_matter_ref}.
 
+As WIMPs travel at relative non-relativistic speeds, the recoil energy of the nucleon resulting from an elastic scatter is by only the centre of mass scattering angle, $\theta$ \cite{direct_detection_of_wimps_ref};
+\begin{equation}
+    E_{R} = \frac{{\mu}_{N}^{2}\nu_{\chi}^2}{m_{N}}(1-\cos(\theta))
+\end{equation}
+where the $\mu_N$ is the WIMP-nucleon reduced mass $\frac{m_\chi m_N}{(m_\chi + m_N)}$.
+
+\par
+The detectability of this kind of interaction
 \par
 The differential rate of these nuclear recoils can be expressed as energy per day per kilogram \cite{direct_detection_of_wimps_ref};
 \begin{equation}
@@ -24,17 +28,39 @@ The recoil energy of the recoiling nucleus, $E_{R}$
 
 
 \par
-The process which is trying to be observed is the elastic scattering of a WIMP off a target nucleus of masses $m_{\chi}$ and $m_{N}$ respectively.
-From the transfer of momentum $q$, the nucleus recoils with energy $E_{R}$ given by
+The differential event-rate thus becomes;
 
-
-where $\nu_{\chi}$ is the incoming WIMP velocity, $\theta$ is the scattering angle in the center-of-mass frame, and $\mu=\frac{m_{\chi}m_{N}}{m_{\chi} + m_{N}}$
+\begin{equation}
+    \frac{dR}{dE_{R}} = \frac{\rho}{m_{\chi}m_{A}} \int_{\nu_{min}}^{\infty} \nu f(\nu) \frac{d\sigma_{A}}{dE_{R}} d\nu
+\end{equation}
+where $q=\sqrt{2{m}_{A}E_{R}}$ is the exchanged momentum.
 
 
 \section{Local Dark Matter Properties}
 \par
 Density and velocity
 
+
+\begin{equation}
+    f(\Vec{v}) = \frac{1}{\sqrt{2\pi}\sigma} \exp{-\frac{|v|^2}{e\sigma^2}} 
+\end{equation}
+
+These parameters have recently been agreed upon for direct dark matter searches as;
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{c|c|c|c}
+        Parameter                               & Description               & Value             & Reference \\
+        $\rho_\chi$                             & Local dark matter density & $0.3GeV/c^2/cm^2$ &            \\
+        $\nu_{esc}$                             & Galactic escape velocity  & $544km/s$ &            \\
+        $\langle|\Vec{v}_{\oplus}|\rangle$      & Average Galactic Earth velocity & $29.8km/s$ &            \\
+        $\Vec{v}_{\circledast}$ & Solar peculiar velocity & (11.1, 12.2, 7.3)km/s &            \\
+        $\Vec{v}_0$ & Local standard of rest velocity & $(0,238,0)km/s$ &            
+         
+    \end{tabular}
+    \caption{Suggested Standard Halo Model parameters from \cite{standard_halo_model_conventions_ref}. Vectors are given as $(\nu_r,\nu_\phi,\nu_\theta)$.}
+    \label{tab:my_label}
+\end{table}
 
 
 

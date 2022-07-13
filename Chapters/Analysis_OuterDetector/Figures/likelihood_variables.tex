@@ -1,0 +1,70 @@
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+    \begin{groupplot}[%view={0}{90},
+    group style = {group size = 1 by 3,vertical sep=1.5cm}]
+    \nextgroupplot[
+            xlabel=Pulse Area,
+            ylabel=Proportion,
+            width=15cm, height=6cm,
+            xmin=0, xmax=1000,
+            ymin=0,% ymax=100,
+            %minor y tick num=4,
+            grid=major,
+            legend style = { column sep = 10pt, legend columns = -1, legend to name = Simulated_Likelihood_Variables_CommonLegend,}]
+            \addplot[green, mark=none]
+                    table [x=Centre,y=Normed]
+                    {Data/OD_Likelihood/gd_capture_pulseArea_phd.dat};
+            \addplot[blue, mark=none]
+                    table [x=Centre,y=Normed]
+                    {Data/OD_Likelihood/h_capture_pulseArea_phd.dat};
+            \addplot[red, mark=none]
+                    table [x=Centre,y=Normed]
+                    {Data/OD_Likelihood/rockgamma_pulseArea_phd.dat};
+            %\node[] at (axis cs: 800,87) {\large 0 mm};
+            \legend{Gd-capture,H-capture,Cavern $\gamma$}
+        
+        \nextgroupplot[
+            xlabel=N. PMTs,
+            ylabel=Proportion,
+            width=15cm, height=6cm,
+            xmin=0, xmax=120,
+            ymin=0, %ymax=100,
+            %minor y tick num=4,
+            grid=major,]
+            \addplot[green, mark=none]
+                    table [x=Centre,y=Normed]
+                    {Data/OD_Likelihood/gd_capture_coincidence.dat};
+            \addplot[blue, mark=none]
+                    table [x=Centre,y=Normed]
+                    {Data/OD_Likelihood/h_capture_coincidence.dat};
+            \addplot[red, mark=none]
+                    table [x=Centre,y=Normed]
+                    {Data/OD_Likelihood/rockgamma_coincidence.dat};
+            %\node[] at (axis cs: 800,87) {\large 1400 mm};
+        \nextgroupplot[
+            xlabel=Pulse Time / pulse Area,
+            ylabel=Proportion,
+            width=15cm, height=6cm,
+            xmin=0, xmax=2,
+            ymin=0, %ymax=100,
+            %minor y tick num=4,
+            grid=major,]
+            \addplot[green, mark=none]
+                    table [x=Centre,y=Normed]
+            {Data/OD_Likelihood/gd_capture_areaFractionTime75_ns_vs_pulseArea_phd.dat};
+            \addplot[blue, mark=none]
+                   table [x=Centre,y=Normed]
+              {Data/OD_Likelihood/h_capture_areaFractionTime75_ns_vs_pulseArea_phd.dat};
+            \addplot[red, mark=none]
+                    table [x=Centre,y=Normed]
+                    {Data/OD_Likelihood/rockgamma_areaFractionTime75_ns_vs_pulseArea_phd.dat};
+            %\node[] at (axis cs: 800,87) {\large 1400 mm};
+             
+    \end{groupplot}
+    \node at ($(group c1r1) + (-0.5cm, 3.0cm)$) {\ref{Simulated_Likelihood_Variables_CommonLegend}};
+\end{tikzpicture}
+    \caption{Parameter-space population for various interactions.}
+    \label{fig:simulated_likelihood_variables}
+\end{figure}

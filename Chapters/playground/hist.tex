@@ -7,12 +7,13 @@
                    horizontal sep=1.5cm},
                    height=6cm, width=0.5\textwidth]
     \nextgroupplot[
+            title=Pulse Area,
             ylabel=Rate (Hz),
             xlabel=Pulse Area,
             width=\textwidth,
             height=6cm,
             %xshift=0.5\textwidth,
-            xmin=0, xmax=800,
+            xmin=0, xmax=1000,
             ymin=1e-4, ymode=log,
             ]
             \addplot[only marks, mark size=0.5pt]
@@ -81,7 +82,6 @@
    
   \end{groupplot}
 \end{tikzpicture}
-\caption{Position Reconstruction of pulses from various regions in pulse area space defined in the top plot. 
-         Each pulse has had the noise cut applied and the position reconstructed using \autoref{eq:OD_xy_position}.}
-\label{fig:od_backgrounds_position_reconstruction}
+\caption{Playground}
+\label{fig:playground_2}
 \end{figure}

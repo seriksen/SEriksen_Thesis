@@ -13,7 +13,12 @@
             grid=major,
             ]
             %\addplot[black, smooth, domain=0:10] 
-            %        {(0.0002142 + 0.0003944*x) / (1+0.999*exp(-0.003829*x))};
+                    %{(0.00535 + 0.0286*x) / (1-0.9918*exp(-0.03018*x))};
+                    %{((0.001894 + 0.03614*x) / (1-1*exp(-0.001453*x)))};
+            \addplot[blue, smooth]
+                table[x=Energy,y=Value]
+                {Data/OD_Energy_Scale/emperical_fit.dat};
+                    
             \addplot[only marks,
                  error bars/.cd,
                  y dir=both, y explicit, error bar style={color=black}] table[x=Energy,y=light_response, y error=light_response_Error] {Data/OD_Energy_Scale/phd_energy.dat};

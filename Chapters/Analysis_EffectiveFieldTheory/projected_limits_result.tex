@@ -28,7 +28,7 @@
                         
             \noexpand \addplot[only marks, mark size=1, error bars/.cd,
                                y dir=both, y explicit, error bar style={color=black}]
-                               table[x=mass,y=median, y error plus index=2, y error minus index=3] {Data/HENR/Projected_Sensitivity/LUX/O\x.dat};
+                               table[x=mass,y=median, y error plus index=3, y error minus index=2] {Data/HENR/Projected_Sensitivity/LUX/O\x.dat};
             
             \noexpand \addplot[green, opacity = 0.4, name path = nsig1] table[x=mass, y=nsig1]
                       {Data/HENR/Projected_Sensitivity/Results_method1/O\x.dat};
@@ -87,7 +87,7 @@
             
             \noexpand \addplot[only marks, mark size=1, error bars/.cd,
                                y dir=both, y explicit, error bar style={color=black}]
-                               table[x=mass,y=median, y error plus index=2, y error minus index=3] {Data/HENR/Projected_Sensitivity/LUX/O\x.dat};
+                               table[x=mass,y=median, y error plus index=3, y error minus index=2] {Data/HENR/Projected_Sensitivity/LUX/O\x.dat};
                         
             \noexpand \addplot[green, opacity = 0.4, name path = nsig1] table[x=mass, y=nsig1]
                       {Data/HENR/Projected_Sensitivity/Results_method1/O\x.dat};

@@ -1,0 +1,28 @@
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+    \begin{axis}[
+            ylabel=Visible Energy (MeV),
+            xlabel=Particle Energy (MeV),
+            width=15cm,
+            height=8cm,
+            grid=major,
+            xmin=0, xmax=10,
+            ymin=0]
+            
+        % Electron
+        \addplot[red]
+            coordinates {(0.099999982,0.07882662060000001)(19.79101040560001,17.986646500189995)};
+        \addplot[green]
+            table [x=Energy,y=Quenched]
+            {Data/GdLS_Physics/Quenching/proton.dat};
+        \addplot[blue]
+            table [x=Energy,y=Quenched]
+            {Data/GdLS_Physics/Quenching/alpha.dat};
+    \end{axis}
+            
+\end{tikzpicture}
+    \caption{Here's a caption}
+    \label{fig:gdls_quenching}
+\end{figure}

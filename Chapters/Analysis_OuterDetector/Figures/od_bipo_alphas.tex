@@ -1,0 +1,31 @@
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+    \begin{axis}[
+            ylabel=Rate (Hz/2keV),
+            xlabel=Energy (MeV),
+            width=15cm,
+            height=8cm,
+            grid=major,
+            xmin=0, xmax=3,
+            ymin=1e-4, ymode=log,]
+            
+        \addplot[red, only marks, mark size=1, 
+                 error bars/.cd,
+                 y dir=both, y explicit, error bar style={color=black}]
+            table [x=energy,y=rate,y error plus index=2, y error minus index=3]
+            {Data/OD_Backgrounds/od_bipo_first_alpha.dat};
+            
+        \addplot[blue, only marks, mark size=1, 
+                 error bars/.cd,
+                 y dir=both, y explicit, error bar style={color=black}]
+            table [x=energy,y=rate,y error plus index=2, y error minus index=3]
+            {Data/OD_Backgrounds/od_bipo_second_alpha.dat};
+                
+    \end{axis}
+            
+\end{tikzpicture}
+    \caption{$\alpha$ energies in from BiPo and RnPo.}
+    \label{fig:od_bipo_alphas}
+\end{figure}

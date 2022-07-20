@@ -1,0 +1,29 @@
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+    \begin{axis}[
+            ylabel=Visible Energy (MeV),
+            xlabel=Particle Energy (MeV),
+            width=15cm,
+            height=8cm,
+            grid=major,
+            xmin=0, xmax=10,
+            ymin=0]
+            
+        % Birks Fit
+        \addplot[red]
+            table [x=Energy,y=Quenched]
+            {Data/GdLS_Physics/Quenching/alpha.dat};
+        \addplot[black, only marks, mark size=1, 
+                 error bars/.cd,
+                 y dir=both, y explicit, error bar style={color=black}]
+            table [x=energy,y=observed,y error plus index=2, y error minus index=3]
+            {Data/OD_Backgrounds/od_alpha_energies.dat};
+        
+    \end{axis}
+            
+\end{tikzpicture}
+    \caption{Observed energy vs particle energy from $\alpha$ particles.}
+    \label{fig:od_alpha_quenching}
+\end{figure}

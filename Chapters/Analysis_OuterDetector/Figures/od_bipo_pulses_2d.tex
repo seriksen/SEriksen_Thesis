@@ -1,0 +1,26 @@
+
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+  \begin{axis}[%point meta max=150,
+    %point meta min=0.0,
+    view={0}{90},
+    ylabel={Kinetic Energy (MeV)},
+    xlabel={Number of Interactions},
+    colorbar,
+    colorbar style={ylabel={Count}},
+    ]
+    \addplot3[
+      surf,
+      shader=flat corner,
+      mesh/cols=94,
+      mesh/ordering=rowwise,
+      point meta = {z<1 ? nan : z}
+    ] file {Data/OD_Backgrounds/od_bipo_rate_200kev_2d.dat};
+\end{axis}
+\end{tikzpicture}
+\caption{The relationship between the number of interactions a neutron has in the scintillator and the neutrons kinetic energy when it enters the liquid scintillator volume for neutrons which are 'captured' in the scintillator volume.
+}
+\label{fig:OD_BiPo_Rate}
+\end{figure}

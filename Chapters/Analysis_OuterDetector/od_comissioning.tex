@@ -1,12 +1,33 @@
 \section{OD Energy Scale} \label{sec:od_energy_scale}
 \par
-After construction and the filling of the OD, the SPE for each PMT was checked using the OD optical calibration system (OCS) described in \cite{lz_ocs_system_ref}.
-A detailed description of the PMT monitoring during the commissioning and SR1 can be found in the works of E. Fraser \cite{ewanfraser_thesis_ref}. 
+After construction and filling of the OD, the SPE for each PMT was checked using the OD optical calibration system (OCS) \cite{lz_ocs_system_ref}.
+A detailed description of the PMT monitoring during commissioning and SR1 can be found in the works of E. Fraser \cite{ewanfraser_thesis_ref}. 
+During this period, an energy calibration of the OD was also performed.
+Again, details of the methodology are described in \cite{ewanfraser_thesis_ref} but summarised below, as the result is used throughout this chapter to evaluate the requirements described in \autoref{sec:simulated_od_requirements}.
 \par
-During this period, an energy calibration of the OD was performed.
-Again, details of the methodology are described in \cite{ewanfraser_thesis_ref} but summarised below.
-As mentioned in Sec. \ref{sec:lz_detector_chapter}, a variety of calibration sources were available with output a range of particles at different energies.
-$\gamma$ sources were lowered into the CSD's to the 700mm level (see \autoref{fig:CSD1_Geometry}) and the number of photo electrons measured.
+Of the sources mentioned in \autoref{sec:lz_detector_chapter} 7 $\gamma$ sources were used.
+Each were lowered into the CSD's to the 700mm level (see \autoref{fig:CSD1_Geometry}).
+The sources used are summarised in \autoref{tab:od_energy_calibration_sources}.
+
+\begin{table}[!htbp]%
+    \centering
+    \begin{tabular}{c|c|c}
+        Source      & Specific observable         &  $\gamma$ energy (keV) \\ \hline
+        ${}^{57}Co$ & direct $\gamma$             & 122                        \\
+        ${}^{22}Na$ & positron annihilation       & 511               \\
+        ${}^{54}Mn$ & direct $\gamma$             & 835                        \\
+        ${}^{22}Na$ & direct $\gamma$             & 1275               \\
+        ${}^{252}Cf$ & neutron capture on H       & 2223            \\
+        ${}^{228}Th$ & ${}^{208}Tl$ $\beta-$decay & 2615            \\
+        ${}^{252}Cf$ & neutron capture on Gd      & 8000            
+        
+    \end{tabular}
+    \caption{Calibration sources used to determine the OD energy scale.}
+    \label{tab:od_energy_calibration_sources}
+\end{table}
+
+\par
+As discussed in \autoref{sec:od_physics}, there is a non-linear energy response in the scintillator, and therefore a non-linear energy scale below 300keV.
 The empirical formula for the non-linear energy response of the scintillator from DayaBay \cite{dayabay_antineutrino_oscillation_ref, ls_nonlinear_energy_response_ref}, shown in \autoref{eq:ls_light_response}, was used to fit to these points.
 \begin{equation}
     \frac{E_{vis}}{E_{true}} = \frac{p_0  + p_3 \times E_{true}}{1 + p_1 \times e^{p_2 \times E_{true}}}
@@ -17,9 +38,7 @@ The fit and the translation from photons detected to energy are shown in \autore
 \input{Chapters/Analysis_OuterDetector/Figures/od_energy_scale}
 
 \par
-The fit 
-Although this provides a good result for SR1, as the calibrations were only performed at a single position, the varying light collection efficiency around the OD was not taken into account (see \autoref{fig:od_lce}).
-A comparison to other LAB-based experiments is shown in \autoref{tab:od_phe_per_mev_comparison}.
+A comparison to other LAB-based experiments is provided in \autoref{tab:od_phe_per_mev_comparison}.
 
 \begin{table}[!htbp]%
     \centering
@@ -36,3 +55,29 @@ A comparison to other LAB-based experiments is shown in \autoref{tab:od_phe_per_
     \label{tab:od_phe_per_mev_comparison}
 \end{table}
 
+\subsection{Fit Uncertainty}
+\par
+Perhaps the largest drawback in the energy calibration is that only a single location was used, in Z.
+Therefore the variation in light collection efficiency in the OD could not be taken into account, see \autoref{fig:od_lce}.
+This is tested in the following Section and shown in be insignificant.
+
+
+\subsection{PMT Noise}
+\par
+Observations of waveforms showed that there was a grounding issue, which occasionally caused high energy pulses with large PMT multiplicities.
+An waveform of this is shown in \autoref{fig:noise_od_waveform} where during the noise period no physical OD event can be made out from the noise.
+Included as well is an example of OD data during a quiet period of data taking showing a rate as expected.
+
+\input{Chapters/Analysis_OuterDetector/Figures/od_noise_cut}
+
+\par
+In order to counteract this, a noise cut was developed to remove this based upon the pulse shape, requiring that a large portion of the pulse integral be within 100ns of the pulse starting.
+Combined with a requirement of a PMT multiplicity of 5, the background noise and PMT dark rates and after pulsing were removed.
+This combined selection is used throughout this chapter being referred to as the "noise cut".
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{Figures/Placeholder.png}
+    \caption{Cut application}
+    \label{fig:od_noise_cut}
+\end{figure}

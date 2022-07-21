@@ -3,14 +3,24 @@
 \begin{tikzpicture}
 \centering
   \begin{groupplot}[%view={0}{90},
-    group style = {group size = 1 by 1}]
+    group style = {group size = 1 by 2, vertical sep=0.5cm},]
     \nextgroupplot[
     xmin=300,
     xmax=600,
-    ylabel={Emission (Arbitrary Units)},]
+    ylabel={Emission (Arbitrary Units)},
+    xticklabels={,,}]
     \addplot[ybar interval, blue, const plot]
                     table [x=Wavelength,y=Rate]
                     {Data/GdLS_Physics/Light_Collection/gdls_light_output.dat};
+    \nextgroupplot[
+    xmin=300,
+    xmax=600,
+    ymode=log,
+    ylabel={Absorption Length (cm)},
+    xlabel={Wavelength (nm)}]
+    \addplot[ybar interval, blue, const plot]
+                    table [x=Wavelength,y=Distance]
+                    {Data/GdLS_Physics/Light_Collection/gdls_absorption_length.dat};
   \end{groupplot}
 \end{tikzpicture}
 \caption{Primary OD detection properties}

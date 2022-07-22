@@ -18,15 +18,15 @@
         ]
         \addplot[smooth, error bar legend,
                  error bars/.cd,
-                 y dir=both, y explicit, error bar style={color=orange}] table[x=date,y=noise, y error=noise_error] {Data/OD_Backgrounds/random_trig_rates.txt};
+                 y dir=both, y explicit, error bar style={color=orange}] table[x=date,y=noise, y error=noise_error] {Data/OD_Backgrounds/background_rates/random_trig_rates.txt};
                  
         \addplot[smooth, error bar legend,
                  error bars/.cd,
-                 y dir=both, y explicit, error bar style={color=orange}] table[x=date,y=100kev, y error=200kev_error] {Data/OD_Backgrounds/random_trig_rates.txt};
+                 y dir=both, y explicit, error bar style={color=orange}] table[x=date,y=100kev, y error=200kev_error] {Data/OD_Backgrounds/background_rates/random_trig_rates.txt};
         
         \addplot[smooth, error bar legend,
                  error bars/.cd,
-                 y dir=both, y explicit, error bar style={color=orange}] table[x=date,y=200kev, y error=200kev_error] {Data/OD_Backgrounds/random_trig_rates.txt};
+                 y dir=both, y explicit, error bar style={color=orange}] table[x=date,y=200kev, y error=200kev_error] {Data/OD_Backgrounds/background_rates/random_trig_rates.txt};
                  
         \end{axis}
     \end{tikzpicture}
@@ -51,19 +51,18 @@
             legend style = {column sep = 10pt, legend columns = -1,}]
             \addplot[red, only marks]
                     table [x=Week,y=Rate]
-                    {Data/OD_Backgrounds/od_sr1_rate_noise.dat};
+                    {Data/OD_Backgrounds/background_rates/od_sr1_rate_noise.dat};
             \addlegendentry{Noise Cut};
             \addplot[blue, only marks]
                     table [x=Week,y=Rate]
-                    {Data/OD_Backgrounds/od_sr1_rate_100.dat};
+                    {Data/OD_Backgrounds/background_rates/od_sr1_rate_100.dat};
             \addlegendentry{100keV};
             \addplot[green, only marks]
                     table [x=Week,y=Rate]
-                    {Data/OD_Backgrounds/od_sr1_rate_200.dat};
-            \addlegendentry{200keV};
+                    {Data/OD_Backgrounds/background_rates/od_sr1_rate_200.dat};
+            \addlegendentry{Data};
         \end{axis}
     \end{tikzpicture}
-    \caption{Rate in OD during and before SR1 data taking on a week-by-week basis using the Random Trigger.
-    Week -1 corresponds to the month prior to SR1 when the OD PMT gains were higher.}
-    \label{fig:OD_SR1_Rate}
+    \caption{Comparison of pulse Area...}
+    \label{fig:od_spectrum_vs_simulations_raw}
 \end{figure}

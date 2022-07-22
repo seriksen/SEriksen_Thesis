@@ -1,0 +1,69 @@
+\begin{figure}[!htbp]
+    \centering
+   \begin{tikzpicture}
+        \begin{axis}[
+        date coordinates in=x,
+        %xtick=data,
+        xticklabel style=
+        {rotate=90,anchor=near xticklabel},
+        xticklabel=\day.\month.\year,
+        xlabel={Date},
+        %ymin=247, ymax=250,
+        y tick label style={/pgf/number format/1000 sep=},
+        extra y tick style={grid=major, tick label style={xshift=-1cm}},
+        ylabel={Rate (Hz)},
+        date ZERO=2009-08-18,% <- improves precision!
+        width=15cm,
+        height=6cm,
+        ]
+        \addplot[smooth, error bar legend,
+                 error bars/.cd,
+                 y dir=both, y explicit, error bar style={color=orange}] table[x=date,y=noise, y error=noise_error] {Data/OD_Backgrounds/background_rates/random_trig_rates.txt};
+                 
+        \addplot[smooth, error bar legend,
+                 error bars/.cd,
+                 y dir=both, y explicit, error bar style={color=orange}] table[x=date,y=100kev, y error=200kev_error] {Data/OD_Backgrounds/background_rates/random_trig_rates.txt};
+        
+        \addplot[smooth, error bar legend,
+                 error bars/.cd,
+                 y dir=both, y explicit, error bar style={color=orange}] table[x=date,y=200kev, y error=200kev_error] {Data/OD_Backgrounds/background_rates/random_trig_rates.txt};
+                 
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Rate in OD during and before SR1 data taking on a week-by-week basis using the Random Trigger.
+    Week -1 corresponds to the month prior to SR1 when the OD PMT gains were higher.}
+    \label{fig:OD_SR1_Rate_spare}
+\end{figure}
+%\par
+
+
+\begin{figure}[!htbp]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            title=TODO: Replace with dates and errors,
+            xlabel=Data taking week,
+            ylabel=Rate (Hz),
+            width=15cm,
+            height=6cm,
+            xmin=-2,
+            xmax=14,
+            legend style = {column sep = 10pt, legend columns = -1,}]
+            \addplot[red, only marks]
+                    table [x=Week,y=Rate]
+                    {Data/OD_Backgrounds/background_rates/od_sr1_rate_noise.dat};
+            \addlegendentry{Noise Cut};
+            \addplot[blue, only marks]
+                    table [x=Week,y=Rate]
+                    {Data/OD_Backgrounds/background_rates/od_sr1_rate_100.dat};
+            \addlegendentry{100keV};
+            \addplot[green, only marks]
+                    table [x=Week,y=Rate]
+                    {Data/OD_Backgrounds/background_rates/od_sr1_rate_200.dat};
+            \addlegendentry{200keV};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Rate in OD during and before SR1 data taking on a week-by-week basis using the Random Trigger.
+    Week -1 corresponds to the month prior to SR1 when the OD PMT gains were higher.}
+    \label{fig:OD_SR1_Rate}
+\end{figure}

@@ -92,11 +92,7 @@ This effect simply results in smaller pulses and so smaller pulse areas.
 However, the remaining difference is not clear where it is coming from, as it would indicate that the LCE is twice what is currently simulated (\autoref{fig:od_lce}).
 In the pulse area parameter, this should remain just a linear scaling, though in other parameters (such as number of PMTs receiving light) it may not be linear.
 
-\par
-In order to calculate the energy scaling, Th228 data calibration was used. 
-In the decay chain (\autoref{fig:decay_chains}), Tl208 has a prominent 2.6MeV $\gamma$. 
-There are two simulated sources of this, firstly, from a calibration source, and secondly from the ${}^{232}Th$ cavern-$\gamma$'s as shown in \autoref{fig:cavern_gamma_energy_distribution}.
-For cavern-$\gamma$ simulations, the 2.6MeV was extracted using truth information and the resultant phe plotted.
+
 
 
 \begin{figure}
@@ -105,3 +101,37 @@ For cavern-$\gamma$ simulations, the 2.6MeV was extracted using truth informatio
     \caption{Number of PMTs contributing to a pulse against the phe of the pulse. Or some similar plot like that}
     \label{fig:OD_coincidence_difference}
 \end{figure}
+
+\input{Chapters/Analysis_OuterDetector/Figures/background_fit/data_vs_simulation_raw}
+
+\par
+Despite this difference there are a number of ways in which data and simulations can be compared.
+The simplest approach is to assume that all physics is correct in the simulation and the discrepancy can be accounted for entirely by incorrect linear scaling in the simulated PMT response.
+Though this is definitely not entirely correct given the discrepancy in PMT multiplicity, and something about non-linearity in some reference...XXX...
+Given the low binning in the PMT multiplicity, a simulation to data scaling has not been attempted for that here.
+\par
+An alternative approach to comparing simulations to data would be to translate phd into energy for both simulations and data, though generally the less manipulation that is performed on data the better.
+
+\par
+In order to calculate the scaling factor, two energies were used.
+The first was from ${}^{228}Th$.
+As previously mentioned, this source was used to determine the OD energy scale.
+In the decay chain (\autoref{fig:decay_chains}), Tl208 has a prominent 2.6MeV $\gamma$, and features not only in the calibration run but also as part of cavern-$\gamma$'s.
+Given the less clear features in the background data for cavern-$\gamma$'s of this energy, only the calibration runs were used.
+Likewise simulations were performed of the decay chain in a CSD at the same position as the calibration run.
+A comparison between the two pulses is shown in Figure XXX.
+\par
+The second scaling value was taken from ${}^{152}Gd$ $\alpha$-decays.
+A much lower visible energy process that is in the non-linear region of the energy scale.
+As these are an internal decay to the GdLS, variations in the light collection efficiency across the detector will be averaged out.
+\par
+Scaling factors were determined by fitting Gaussians to the pulse area distributions shown in \autoref{fig:od_scaling_points}.
+Both methods provided similar, yet slightly different scaling values of 4.54 for ${}^{152}Gd$ and 4.77${}^{208}Tl$.
+The pulse area for each pulse from simulations has been multiplied by a number of different scaling factors which can be seen in \autoref{fig:od_sim_vs_data_scaling_options}.
+The result from ${}^{208}Tl$ more closely aligns simulations to data and so a value of 4.77 has been taken as the scaling factor, however, clearly there is some uncertainty on that.
+
+
+\input{Chapters/Analysis_OuterDetector/Figures/background_fit/scaling_results}
+
+\input{Chapters/Analysis_OuterDetector/Figures/background_fit/data_vs_simulation_scaling_options}
+

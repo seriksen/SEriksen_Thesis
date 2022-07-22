@@ -1,0 +1,60 @@
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+    \begin{groupplot}[
+    group style = {group size = 1 by 2,vertical sep=2.0cm}
+    ]
+    \nextgroupplot[
+            ylabel=Rate (Hz/5phd),
+            xlabel=Pulse Area (phd),
+            width=15cm,
+            height=8cm,
+            grid=major,
+            xmin=0, xmax=700,
+            ymin=1e-2, ymax=100,
+            ymode=log,
+            ]
+        \addplot[black, only marks, mark size=0.5, 
+                 error bars/.cd, error bar style={color=black},
+                 y dir=both, y explicit, 
+                 x dir=both, x explicit,
+                 ]
+            table [x=centre,y=rate,
+            y error minus index=4, y error minus index=5, 
+            x error minus index=6, x error minus index=6, 
+            ]
+            {Data/OD_Backgrounds/background_fit/no_scaling/data_bg_phd.dat};
+        \addplot[red,only marks, mark size=0.5]
+            table [x=centre,y=rate]
+            {Data/OD_Backgrounds/background_fit/no_scaling/total_improved_bg_phd.dat};
+            
+    \nextgroupplot[
+            ylabel=Rate (Hz),
+            xlabel=Pulse Coincidence (PMT multiplicity),
+            width=15cm,
+            height=8cm,
+            grid=major,
+            xmin=0, xmax=120,
+            %ymin=1e-2, ymax=50,
+            ymode=log,
+            ]
+        \addplot[black, only marks, mark size=0.5, 
+                 error bars/.cd, error bar style={color=black},
+                 y dir=both, y explicit, 
+                 x dir=both, x explicit,
+                 ]
+            table [x=centre,y=rate,
+            y error minus index=4, y error minus index=5, 
+            x error minus index=6, x error minus index=6, 
+            ]
+            {Data/OD_Backgrounds/background_fit/no_scaling/data_bg_coincidence.dat};
+        \addplot[red,only marks, mark size=0.5]
+            table [x=centre,y=rate]
+            {Data/OD_Backgrounds/background_fit/no_scaling/total_improved_bg_coincidence.dat};
+    
+    \end{groupplot}
+\end{tikzpicture}
+    \caption{Comparison of two analysis quantities; pulse area and pulse multiplicity.}
+    \label{fig:od_sim_vs_data_raw}
+\end{figure}

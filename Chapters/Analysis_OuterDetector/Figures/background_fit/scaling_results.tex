@@ -1,0 +1,81 @@
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+    \begin{groupplot}[
+    group style = {group size = 2 by 3,vertical sep=3cm,
+                   horizontal sep=1.5cm},
+                   height=6cm, width=0.5\textwidth
+    ]
+    \nextgroupplot[
+            ylabel=Rate (Hz/5phd),
+            xlabel=Pulse Area (phd),
+            grid=major,
+            xmin=0, xmax=50,
+            ymin=1e-2, ymax=100,
+            ymode=log,
+            ]
+        \addplot[black, only marks, mark size=0.5, 
+                 error bars/.cd, error bar style={color=black},
+                 y dir=both, y explicit, 
+                 x dir=both, x explicit,
+                 ]
+            table [x=centre,y=rate, y error minus index=4, y error minus index=5, x error minus index=6, x error minus index=6, ]
+            {Data/OD_Backgrounds/background_fit/no_scaling/data_bg_phd.dat};
+    
+    \nextgroupplot[
+            ylabel=Rate (Hz/5phd),
+            xlabel=Pulse Area (phd),
+            grid=major,
+            xmin=0, xmax=50,
+            ymin=1e-2, ymax=100,
+            ymode=log,
+            ]
+        \addplot[black, only marks, mark size=0.5, 
+                 error bars/.cd, error bar style={color=black},
+                 y dir=both, y explicit, 
+                 x dir=both, x explicit,
+                 ]
+            table [x=centre,y=rate, y error minus index=4, y error minus index=5, x error minus index=6, x error minus index=6, ]
+            {Data/OD_Backgrounds/background_fit/no_scaling/data_bg_phd.dat};
+            
+    \nextgroupplot[
+            ylabel=Rate (Hz/5phd),
+            xlabel=Pulse Area (phd),
+            grid=major,
+            xmin=50, xmax=100,
+            ymin=1e-2, ymax=100,
+            ymode=log,
+            ]
+        \addplot[black, only marks, mark size=0.5, 
+                 error bars/.cd, error bar style={color=black},
+                 y dir=both, y explicit, 
+                 x dir=both, x explicit,
+                 ]
+            table [x=centre,y=rate, y error minus index=4, y error minus index=5, x error minus index=6, x error minus index=6, ]
+            {Data/OD_Backgrounds/background_fit/no_scaling/data_bg_phd.dat};
+            
+    \nextgroupplot[
+            ylabel=Rate (Hz/5phd),
+            xlabel=Pulse Area (phd),
+            grid=major,
+            xmin=50, xmax=100,
+            ymin=1e-2, ymax=50,
+            ymode=log,
+            ]
+        \addplot[black, only marks, mark size=0.5, 
+                 error bars/.cd, error bar style={color=black},
+                 y dir=both, y explicit, 
+                 x dir=both, x explicit,
+                 ]
+            table [x=centre,y=rate,
+            y error minus index=4, y error minus index=5, 
+            x error minus index=6, x error minus index=6, 
+            ]
+            {Data/OD_Backgrounds/background_fit/no_scaling/data_bg_coincidence.dat};
+    
+    \end{groupplot}
+\end{tikzpicture}
+    \caption{Scaling points}
+    \label{fig:od_scaling_points}
+\end{figure}

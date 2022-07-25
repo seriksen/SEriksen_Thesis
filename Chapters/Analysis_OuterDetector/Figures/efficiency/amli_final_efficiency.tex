@@ -1,0 +1,75 @@
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+    \begin{axis}[
+            ylabel=Efficiency (\%),
+            width=15cm,
+            height=8cm,
+            grid=major,
+            axis y line*=left,
+            xmin=0, xmax=1500,
+            ymin=45, ymax=100,
+            minor y tick num=1,
+            ]
+        \addplot[red,
+                 mark size=0.5, mark=*, mark options={solid},
+                 error bars/.cd, error bar style={color=red},
+                 y dir=both, y explicit, 
+                 x dir=both, x explicit,
+                 ]
+            table [x=bin,y=value, y error minus index=4, y error plus index=5, x error minus index=2, x error plus index=3,]
+            {Data/Neutron_Efficiency/AmLi_Commissioning/pos_0_total_200kev_efficiency.dat};    
+        \addplot[green, 
+                 mark size=0.5, mark=*, mark options={solid},
+                 error bars/.cd, error bar style={color=green},
+                 y dir=both, y explicit, 
+                 x dir=both, x explicit,
+                 ]
+            table [x=bin,y=value, y error minus index=4, y error plus index=5, x error minus index=2, x error plus index=3,]
+            {Data/Neutron_Efficiency/AmLi_Commissioning/pos_700_total_200kev_efficiency.dat};             
+        \addplot[blue, 
+                 mark size=0.5, mark=*, mark options={solid},
+                 error bars/.cd, error bar style={color=blue},
+                 y dir=both, y explicit, 
+                 x dir=both, x explicit,
+                 ]
+            table [x=bin,y=value, y error minus index=4, y error plus index=5, x error minus index=2, x error plus index=3,]
+            {Data/Neutron_Efficiency/AmLi_Commissioning/pos_1400_total_200kev_efficiency.dat};    
+        \legend{0mm,700mm,1400mm}  
+            
+    \end{axis}
+    \begin{axis}[
+            ylabel=False Veto (\%),
+            yticklabel pos=right,
+            axis y line*=right,
+            axis x line=none,
+            width=15cm,
+            height=8cm,
+            %grid=major,
+            xmin=0, xmax=1500,
+            ymin=0, ymax=50,
+            minor y tick num=9,]
+        \addplot[domain=0:1500,
+            samples=3,
+            ]
+            {x * 42.5 * 100 / 1000000};
+        \addplot[domain=0:1500,
+            samples=3,
+            ]
+            {x * 95.8 * 100 / 1000000};        
+        \addplot[domain=0:1500,
+            samples=3,
+            ]
+            {x * 276.8 * 100 / 1000000};  
+         \addplot[dashed, mark=none, red] coordinates {(0,5) (1500,5)};
+         
+         \node[] at (axis cs: 1000,25) {276.8Hz};
+         \node[] at (axis cs: 1400,16) {95.8Hz};
+         \node[] at (axis cs: 1400,7) {42.5Hz};
+    \end{axis}
+            
+\end{tikzpicture}
+    \caption{Neutron tagging efficiency from AmLi at each height for the 200keV phe threshold}
+    \label{fig:commissioning_amli_efficiency_with_bg_rate}
+\end{figure}

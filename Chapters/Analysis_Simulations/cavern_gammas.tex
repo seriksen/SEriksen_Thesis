@@ -42,6 +42,9 @@ As these higher energy $\gamma$'s are able to travel further into the detector t
 Conversely, they may produce large signals in the OD which would trigger a veto, reducing the detector livetime.
 Since this version of GEANT4, there have been new studies of the ($\alpha$,$\gamma$) cross-section in other underground laboratories, such as in \cite{cavern_gammas_in_Soudan_mine_ref}.
 Generally, very little attention has been given to ($\alpha$,$\gamma$) rates, and so it is possible that the observed rate may differ significantly from that shown here as although in \autoref{fig:cavern_gamma_energy_distribution} the largest difference is at higher energy $\gamma$'s, as was shown in the Sudan Mine \cite{cavern_gammas_in_Soudan_mine_ref}, the rate of sub-6MeV $\gamma$'s may also change significantly. 
+There is however evidence that the cross-sections used by Geant4 - which uses the statistical method from TALYS \cite{talys_ref} - has a large uncertainty for ${O}^{17} + \alpha \to {Ne}^{20} + n$ \cite{alpha_gamma_statistical_error_ref}.
+Given this, it has been suggested that the rate of $\gamma$'s above 2MeV from ($\alpha$,$\gamma$) reactions being 5 orders of magnitude higher than expected \cite{soudanmine_counter_point_ref, alpha_gamma_reactions_ref}.
+This is explored on LZ data in \autoref{sec:od_analysis_backgrounds}.
 
 \par
 The livetime ($l$) for a simulation can be determined then by $l_{\text{simulation}} = \frac{\text{n.} \gamma_{\text{simulated}}}{\text{n.} \gamma_{\text{generator}}} * \text{l}_{\text{generator}}$

@@ -11,13 +11,10 @@
             xmin=0, xmax=700,
             ymin=1e-4, ymode=log,]
             
-        \addplot[black, only marks, mark size=0.5, 
-                 error bars/.cd, error bar style={color=black},
-                 y dir=both, y explicit, 
-                 x dir=both, x explicit,
-                 ]
-            table [x=centre,y=rate, y error minus index=4, y error minus index=5, x error minus index=6, x error minus index=6,]
-            {Data/OD_Backgrounds/background_fit/scaling_options/data_phd.dat};
+        \addplot[only marks, mark size=1.0pt] 
+            plot[error bars/.cd, x dir=both, x explicit]
+            table[x=pulsearea,y=weight,x error=xerror, y error=yerror]
+            {Data/OD_Backgrounds/background_constraints/od_data.dat};
             
         \addplot[red, const plot]
             table [x=centre,y=rate]

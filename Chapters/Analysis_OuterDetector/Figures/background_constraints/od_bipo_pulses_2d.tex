@@ -5,22 +5,23 @@
 \centering
   \begin{axis}[%point meta max=150,
     %point meta min=0.0,
+    height=10cm, width=10cm,
     view={0}{90},
-    ylabel={Kinetic Energy (MeV)},
-    xlabel={Number of Interactions},
+    ylabel={Second Pulse (phd)},
+    xlabel={First Pulse (phd)},
     colorbar,
-    colorbar style={ylabel={Count}},
+    colorbar style={ylabel={Rate (Hz)},ymode=log,},
     ]
     \addplot3[
       surf,
       shader=flat corner,
-      mesh/cols=94,
-      mesh/ordering=rowwise,
-      point meta = {z<1 ? nan : z}
-    ] file {Data/OD_Backgrounds/background_constraints/od_bipo_rate_200kev_2d.dat};
+	  mesh/cols=40,
+	  mesh/ordering=rowwise,
+	  point meta = {z<0.0000001 ? nan : z}
+    ] file {Data/OD_Backgrounds/background_constraints/bipo_rate_2d.dat};
 \end{axis}
 \end{tikzpicture}
-\caption{The relationship between the number of interactions a neutron has in the scintillator and the neutrons kinetic energy when it enters the liquid scintillator volume for neutrons which are 'captured' in the scintillator volume.
-}
-\label{fig:OD_BiPo_Rate}
+\caption{Relationship between pulses reconstructed to be near each other.
+         Only pulses above 200keV have been included.}
+\label{fig:od_bipo_alphas_2d}
 \end{figure}

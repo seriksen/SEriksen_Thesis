@@ -15,9 +15,10 @@
             xmin=0, xmax=800,
             ymin=1e-4, ymode=log,
             ]
-            \addplot[only marks, mark size=0.5pt]
-            table [x=pulseArea,y=Rate]
-                    {Data/playground/phd.dat};
+            \addplot[only marks, mark size=1.0pt] 
+            plot[error bars/.cd, x dir=both, x explicit]
+            table[x=pulsearea,y=weight,x error=xerror, y error=yerror]
+            {Data/OD_Backgrounds/background_constraints/od_data.dat};
             
     \nextgroupplot[group/empty plot]
 

@@ -20,10 +20,11 @@
                  y dir=both, y explicit, error bar style={color=black}]
             table [x=energy,y=observed,y error plus index=2, y error minus index=3]
             {Data/OD_Backgrounds/background_constraints/od_alpha_energies.dat};
-        
+        \legend{Birk's, Measured};
     \end{axis}
             
 \end{tikzpicture}
-    \caption{Observed energy vs particle energy from $\alpha$ particles.}
+    \caption{Observed energy vs particle energy from $\alpha$ particles.
+             The expected quenching from Birk's Law using the parameters in \autoref{tab:Birks_law_parameters} is shown to be in good agreement with what is observed.}
     \label{fig:od_alpha_quenching}
 \end{figure}

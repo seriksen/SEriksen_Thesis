@@ -1,0 +1,30 @@
+\begin{figure}[!htbp]
+    \centering
+    \begin{tikzpicture}
+    
+    \begin{axis}[
+        xlabel=Pulse Area,
+        ylabel=Rate (Hz/5phe),
+        width=15cm, height=10cm,
+        xmin=400, xmax=3000,
+        %ymax=1e-7, 
+        ymode=log,
+        legend pos=north east,
+        grid=major]
+            
+        \addplot[only marks, mark size=0.5pt,
+                 error bar legend,] 
+            plot[error bars/.cd, x dir=both, x explicit]
+            table[x=pulsearea,y=weight,x error=xerror, y error=yerror]
+            {Data/OD_Backgrounds/background_constraints/od_data.dat};
+            
+        \addplot[red, const plot]
+            table [x=pulsearea,y=weight]
+            {Data/OD_Backgrounds/background_fit/starting_point/backgrounds_original_purification.dat};
+            
+        \legend{Data, Expectation};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{OD pulse area spectrum for high energy $\gamma$ events compared to the expected rate.}
+    \label{fig:od_high_energy}
+\end{figure}

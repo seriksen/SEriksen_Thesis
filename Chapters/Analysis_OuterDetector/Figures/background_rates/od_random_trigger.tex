@@ -1,0 +1,36 @@
+\begin{figure}[!htbp]
+    \centering
+    \begin{tikzpicture}
+    
+    \begin{axis}[
+        xlabel=Pulse Area,
+        ylabel=Rate (Hz/5phe),
+        width=15cm, height=10cm,
+        xmin=0, xmax=1000,
+        %ymax=1e-7, 
+        ymode=log,
+        legend pos=north east,
+        grid=major]
+            
+        \addplot[only marks, mark size=0.5pt,
+                 error bar legend,] 
+            plot[error bars/.cd, x dir=both, x explicit]
+            table[x=pulsearea,y=weight,x error=xerror, y error=yerror]
+            {Data/OD_Backgrounds/background_constraints/od_data.dat};
+        
+        \addplot[red, const plot]
+            table [x=pulsearea,y=weight]
+            {Data/OD_Backgrounds/background_fit/starting_point/backgrounds_improved_purification.dat};
+            
+        \addplot[green, const plot]
+            table [x=pulsearea,y=weight]
+            {Data/OD_Backgrounds/background_fit/starting_point/backgrounds_original_purification.dat};
+        
+        \legend{Data, Original purification, Improved purification};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{OD pulse area spectrum from using the Random Trigger in the region. 
+    Only the noise cut has been applied to the data.
+    Overlaid are the expected rates from all backgrounds with the improved and original GdLS internal rates.}
+    \label{fig:od_random_trigger}
+\end{figure}

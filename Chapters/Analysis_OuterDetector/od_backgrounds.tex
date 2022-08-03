@@ -1,15 +1,17 @@
 \section{Backgrounds}
 \label{sec:od_analysis_backgrounds}
 
-\par
-Using the aforementioned energy scale and noise cut, in this section the background rate in the OD is measured and attempts are made to understand what is seen.
+\input{Chapters/Analysis_OuterDetector/Figures/background_rates/od_random_trigger}
 
 \par
-Using the Random Trigger, the rate seen in the OD was observed for a number of months.
-The result of which is shown in \autoref{fig:OD_SR1_Rate} along with the date range used for SR1.
+Using the aforementioned energy scale and noise cut, in this section the background rate in the OD is measured and attempts are made to understand what is seen.
+\par
+As can be seen in \autoref{fig:od_random_trigger}, there is a reasonably disagreement between the expected distribution and what was observed.
+\par
+The of events in the OD were observed for a number of months, the result of which is shown in \autoref{fig:OD_SR1_Rate} along with the date range used for SR1.
 The various fluctuations in the noise-cut has been linked to the chiller system being turned on, suggesting a grounding failure.
 However, as these can be removed with a noise-cut they are not of significant concern.
-Importantly, over this period the OD rate remains stable above 100keV.
+Importantly, over this period the OD rate remains stable, with no features in the observed distribution changing during that time.
 
 \input{Chapters/Analysis_OuterDetector/Figures/background_rates/od_sr1_background_rate}
 
@@ -80,7 +82,7 @@ The additional population is from backgrounds from ${}^{60}Co$ predominately fro
 \input{Chapters/Analysis_OuterDetector/Figures/background_constraints/od_middle_region_phd}
 
 %%%%%%%%%%%%
-\subsection{Constraints in Data}
+\subsection{$\alpha$ constraints}
 \par
 Though the exact rate of GdLS is not known, it is possible to constrain some of the components observed.
 Notably, decays within the U and Th decay chains where there the second decay has a short enough half-life such that it is within the LZ event window.
@@ -112,7 +114,7 @@ Constraining the rate...
 %\input{Chapters/Analysis_OuterDetector/Figures/od_bipo_pulses_2d}
 
 \par
-Importantly, these constraints indicate that the $\alpha$-peak seen in XXX is not from those subchains, as the rate would be too low.
+Importantly, these constraints indicate that the $\alpha$-peak seen in \autoref{fig:od_random_trigger} is not from those subchains, as the rate would be too low.
 This opens up the possibility that it is from ${}^{210}Po$ from the late chain of ${}^{238}U$.
 This claim appears at odds with the relatively low internal rate of ${}^{238}U$.
 However, it is known and measured that there is significant $Rn$ in the Davis-cavern air, and as previously discussed (\autoref{sec:od_construction_sec}), the acrylic tanks were open to the air for long periods prior to installation.
@@ -129,16 +131,35 @@ The observed energy of each of the $\alpha$'s verse the observed energy are show
 It can be seen that the parameters taken from pure LAB remain in good agreement with Gd-doped LAB used here.
 This also isolates the difference between observed data and simulations to light propagation.
 
+\input{Chapters/Analysis_OuterDetector/Figures/background_constraints/od_bipo_pulses_2d}
 
 \input{Chapters/Analysis_OuterDetector/Figures/background_constraints/od_bipo_alphas}
 
 
 \input{Chapters/Analysis_OuterDetector/Figures/background_constraints/alpha_quenching}
 
+\subsection{$\gamma$ constraints}
+\par
+Another area to look at is high energy $\gamma$'s.
+What can be seen in \autoref{fig:od_high_energy} is that the rate of events expected is significantly greater than that observed.
+This comes back to the ($\alpha$,$\gamma$) reaction rate discussed in \autoref{sec:cavern_gamma_generator}.
+The findings here support that the statistical model used does not extend well to ${}^{17}O$.
+However, there are still features seen in data between 1000 and 1800 phd that are not accounted for in simulations.
+These features can in fact be attributed to neutron captures on the Iron of the water tank producing high energy $\gamma$'s.
+These neutrons originate primarily from the ${}^{252}Cf$ calibration source, which was stored in a movable safe underground during SR1.
+It was moved during SR1 which matches with a change in the position of these high energy events being reconstructed.
+\par
+Backgrounds of this type were not previously considered within LZ, though are of great importance in fusion experiments \cite{iter_neutrons_ref}.
+
+\input{Chapters/Analysis_OuterDetector/Figures/background_constraints/od_high_energy}
+
 
 \subsection{Fit}
 \par
 Given the constraints placed on rates, it is possible to fit the expected distribution to data. 
+The fit was limited to only include the region of the simulation which is approximately correct with the data. 
+As such, the high energy ($\gtrsim$ 2.5MeV) was excluded, and a low energy cut was 20phd was used.
+
 
 Given the mitigation processes described in \autoref{sec:od_construction_sec}, the contamination is likely to be minimal everywhere. 
 Additionally, given what can be seen in Figure XXX, the improved GdLS purification appears to have worked.
@@ -148,7 +169,7 @@ As the GdLS came from the same batch produced at Brookhaven as used in DayaBay i
 
 \par
 Another source, ${}^{7}Be$, which has been considered in fits from similar experiments has been excluded here.
-As it only has a half-life of 50-days (TODO CITE XXX), and the OD was not in a stable running condition until nearly a year after filling, it has been assumed that the contribution from ${}^{7}Be$ would be minimal.
+As it only has a half-life of 50-days (TODO CITE XXX), and the OD was not in a stable running condition until nearly a year after filling, it has been assumed that the contribution from ${}^{7}Be$ would be negligible.
 
 
 \subsection{Cavern-$\gamma$'s}

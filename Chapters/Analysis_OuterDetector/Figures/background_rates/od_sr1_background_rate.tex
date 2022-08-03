@@ -4,7 +4,7 @@
         \begin{axis}[
         date coordinates in=x,
         %xtick=data,
-        xtick={2021-11-01 12:00, 2021-12-01 12:00, 2022-01-01 12:00, 2022-02-01 12:00, 2022-03-01 12:00, 2022-04-01 12:00, 2022-05-01 12:00, 2022-06-01 12:00},
+        xtick={2021-10-01 12:00, 2021-11-01 12:00, 2021-12-01 12:00, 2022-01-01 12:00, 2022-02-01 12:00, 2022-03-01 12:00, 2022-04-01 12:00, 2022-05-01 12:00, 2022-06-01 12:00},
         xticklabel style=
         {rotate=45,anchor=near xticklabel},
         xticklabel=\month.\year,
@@ -31,9 +31,9 @@
                  error bars/.cd,
                  y dir=both, y explicit, error bar style={color=black}] table[x=date,y=200kev, y error=200kev_error] {Data/OD_Backgrounds/background_rates/random_trig_rates.txt};
         \addlegendentry{200 keV};         
-         \addplot[black, dashed] coordinates { (2021-12-23,-10)  (2021-12-23,300)};
-         \node [rotate=90] at (axis cs:2021-12-25,150) {SR1 start};
-         \addplot[black, dashed] coordinates { (2022-04-18,-10)  (2022-04-18,300)};
+         \addplot[black, dashed] coordinates { (2021-12-23,-10)  (2021-12-23,350)};
+         \node [rotate=90] at (axis cs:2021-12-26,150) {SR1 start};
+         \addplot[black, dashed] coordinates { (2022-04-18,-10)  (2022-04-18,350)};
          \node [rotate=90] at (axis cs:2022-04-15,150) {SR1 end};
         
         \end{axis}

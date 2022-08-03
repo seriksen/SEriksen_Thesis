@@ -4,6 +4,53 @@
         \begin{axis}[
         date coordinates in=x,
         %xtick=data,
+        xtick={2021-11-01 12:00, 2021-12-01 12:00, 2022-01-01 12:00, 2022-02-01 12:00, 2022-03-01 12:00, 2022-04-01 12:00, 2022-05-01 12:00, 2022-06-01 12:00},
+        xticklabel style=
+        {rotate=45,anchor=near xticklabel},
+        xticklabel=\month.\year,
+        xlabel={Date},
+        %ymin=247, ymax=250,
+        y tick label style={/pgf/number format/1000 sep=},
+        extra y tick style={grid=major, tick label style={xshift=-1cm}},
+        ylabel={Rate (Hz)},
+        %date ZERO=2009-08-18,% <- improves precision!
+        width=15cm,
+        height=8cm,
+        ymin=0, ymax=320,
+        legend style = {column sep = 10pt, legend columns = -1,},
+        ]
+        \addplot[red, smooth, error bar legend,
+                 error bars/.cd,
+                 y dir=both, y explicit, error bar style={color=black}] table[x=date,y=noise, y error=noise_error] {Data/OD_Backgrounds/background_rates/random_trig_rates.txt};
+        \addlegendentry{Noise Cut};
+        \addplot[blue, smooth, error bar legend,
+                 error bars/.cd,
+                 y dir=both, y explicit, error bar style={color=black}] table[x=date,y=100kev, y error=200kev_error] {Data/OD_Backgrounds/background_rates/random_trig_rates.txt};
+        \addlegendentry{100 keV};
+        \addplot[green, smooth, error bar legend,
+                 error bars/.cd,
+                 y dir=both, y explicit, error bar style={color=black}] table[x=date,y=200kev, y error=200kev_error] {Data/OD_Backgrounds/background_rates/random_trig_rates.txt};
+        \addlegendentry{200 keV};         
+         \addplot[black, dashed] coordinates { (2021-12-23,-10)  (2021-12-23,300)};
+         \node [rotate=90] at (axis cs:2021-12-25,150) {SR1 start};
+         \addplot[black, dashed] coordinates { (2022-04-18,-10)  (2022-04-18,300)};
+         \node [rotate=90] at (axis cs:2022-04-15,150) {SR1 end};
+        
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Rate in OD during and before SR1 data taking on a week-by-week basis using the Random Trigger.
+             The SR1 boundary is also shown which ran from 23-12-2021 to 18-04-2022. The gap in data during SR1 was due to a calibration campaign during which different trigger configurations were use, which did not include the Random Trigger.}
+    \label{fig:OD_SR1_Rate}
+\end{figure}
+
+\iffalse
+
+\begin{figure}[!htbp]
+    \centering
+   \begin{tikzpicture}
+        \begin{axis}[
+        date coordinates in=x,
+        %xtick=data,
         xticklabel style=
         {rotate=90,anchor=near xticklabel},
         xticklabel=\day.\month.\year,
@@ -67,3 +114,4 @@
     Week -1 corresponds to the month prior to SR1 when the OD PMT gains were higher.}
     \label{fig:OD_SR1_Rate}
 \end{figure}
+\fi

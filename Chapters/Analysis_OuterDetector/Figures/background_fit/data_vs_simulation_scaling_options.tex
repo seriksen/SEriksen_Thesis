@@ -19,22 +19,25 @@
             table [x=centre,y=rate, y error minus index=4, y error minus index=5, x error minus index=6, x error minus index=6,]
             {Data/OD_Backgrounds/background_fit/scaling_options/data_phd.dat};
             
-        \addplot[red]
+        \addplot[red, const plot]
             table [x=centre,y=rate]
             {Data/OD_Backgrounds/background_fit/scaling_options/total_improved_scaling_4.37_phd.dat};
-        \addplot[green]
+        \addplot[green, const plot]
             table [x=centre,y=rate]
             {Data/OD_Backgrounds/background_fit/scaling_options/total_improved_scaling_4.5_phd.dat};
-        \addplot[blue]
+        \addplot[blue, const plot]
             table [x=centre,y=rate]
             {Data/OD_Backgrounds/background_fit/scaling_options/total_improved_scaling_4.77_phd.dat};
-        \addplot[]
+        \addplot[purple, const plot]
             table [x=centre,y=rate]
             {Data/OD_Backgrounds/background_fit/scaling_options/total_improved_scaling_4.97_phd.dat};
+            
+        \legend{Data, 4.37 scaling, 4.5 scaling, 4.77 scaling, 4.97 scaling};
                 
     \end{axis}
             
 \end{tikzpicture}
-    \caption{$\alpha$ energies in from BiPo and RnPo.}
+    \caption{Possibly values to scale simulation pulse area to observed pulse area.
+             The simulation distribution is from the expected rates described in \autoref{sec:simulated_od_backgrounds}}
     \label{fig:od_sim_vs_data_scaling_options}
 \end{figure}

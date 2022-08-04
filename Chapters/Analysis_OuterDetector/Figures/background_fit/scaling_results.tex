@@ -11,31 +11,22 @@
             ylabel=Arbitrary,
             grid=major,
             xmin=0, xmax=50,
-            ymin=1e-2, ymax=100,
+            ymin=1e-2, ymax=10,
             ymode=log,
             ]
-        \addplot[only marks, mark size=1.0pt] 
-            plot[error bars/.cd, x dir=both, x explicit]
-            table[x=pulsearea,y=weight,x error=xerror, y error=yerror]
-            {Data/OD_Backgrounds/background_constraints/od_data.dat};
+        \addplot[black, only marks, mark size=0.5, 
+                 error bars/.cd, error bar style={color=black},
+                 y dir=both, y explicit, 
+                 x dir=both, x explicit,
+                 ]
+            table [x=pulsearea,y=weight,
+            y error=yerror, x error=xerror]
+            {Data/OD_Energy_Scale/gd152_sims.dat};
     
     \nextgroupplot[
             grid=major,
             xmin=0, xmax=50,
-            ymin=1e-2, ymax=100,
-            ymode=log,
-            ]
-        \addplot[only marks, mark size=0.5pt] 
-            plot[error bars/.cd, x dir=both, x explicit]
-            table[x=pulsearea,y=rate,x error=x_error, y error=y_error]
-            {Data/OD_Backgrounds/background_constraints/od_data_pulsearea_middle_tank_binwidth_5.dat};
-            
-    \nextgroupplot[
-            ylabel=Rate (Hz/5phd),
-            xlabel=Pulse Area (phd),
-            grid=major,
-            xmin=50, xmax=100,
-            ymin=1e-2, ymax=100,
+            ymin=1e-2, ymax=10,
             ymode=log,
             ]
         \addplot[black, only marks, mark size=0.5, 
@@ -43,14 +34,16 @@
                  y dir=both, y explicit, 
                  x dir=both, x explicit,
                  ]
-            table [x=centre,y=rate, y error minus index=4, y error minus index=5, x error minus index=6, x error minus index=6, ]
-            {Data/OD_Backgrounds/background_fit/no_scaling/data_bg_phd.dat};
+            table [x=pulsearea,y=weight,
+            y error=yerror, x error=xerror]
+            {Data/OD_Energy_Scale/gd152_data.dat};
             
     \nextgroupplot[
+            ylabel=Rate (Arb.),
             xlabel=Pulse Area (phd),
             grid=major,
-            xmin=50, xmax=100,
-            ymin=1e-2, ymax=50,
+            xmin=0, xmax=800,
+            ymin=1e-2, ymax=10,
             ymode=log,
             ]
         \addplot[black, only marks, mark size=0.5, 
@@ -58,14 +51,31 @@
                  y dir=both, y explicit, 
                  x dir=both, x explicit,
                  ]
-            table [x=centre,y=rate,
-            y error minus index=4, y error minus index=5, 
-            x error minus index=6, x error minus index=6, 
+            table [x=pulsearea,y=weight,
+            y error=yerror, x error=xerror]
+            {Data/OD_Energy_Scale/tl208_sims.dat};
+            
+    \nextgroupplot[
+            xlabel=Pulse Area (phd),
+            grid=major,
+            xmin=0, xmax=800,
+            ymin=1e-2, ymax=10,
+            ymode=log,
             ]
-            {Data/OD_Backgrounds/background_fit/no_scaling/data_bg_coincidence.dat};
+        \addplot[black, only marks, mark size=0.5, 
+                 error bars/.cd, error bar style={color=black},
+                 y dir=both, y explicit, 
+                 x dir=both, x explicit,
+                 ]
+            table [x=pulsearea,y=weight,
+            y error=yerror, x error=xerror]
+            {Data/OD_Energy_Scale/tl208_data.dat};
     
     \end{groupplot}
 \end{tikzpicture}
-    \caption{Scaling points to compare simulations to observations in pulse area.}
+    \caption{Scaling points to compare simulations to observations in pulse area.
+    \textbf{Top}: ${}^{152}Gd$ from simulation and data.
+    \textbf{Top}: ${}^{208}Tl$ from simulation and data.
+    Each distribution has been normalised to the peak bin of the distribution of interest.}
     \label{fig:od_scaling_points}
 \end{figure}

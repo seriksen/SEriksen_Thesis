@@ -1,0 +1,52 @@
+
+\begin{figure}
+\begin{tikzpicture}
+		\centering
+		\begin{axis}[%point meta max=150,
+	%point meta min=0.0,
+	view={0}{90},
+	ylabel={Z (mm)},
+	xlabel={R (mm)},
+	colorbar,
+	colorbar style={ylabel={LCE (\%)}},
+	width=15cm,
+	height=8cm,
+	]
+	
+	\addplot3[
+	surf,
+	shader=flat corner,
+	mesh/cols=34,
+	mesh/ordering=rowwise,
+	point meta = {z<0.0000001 ? nan : z}
+	] file {Data/GdLS_Physics/Light_Collection/lce/lce_ybe.dat};
+	
+	\addplot3[
+	surf,
+	shader=flat corner,
+	mesh/cols=45,
+	mesh/ordering=rowwise,
+	point meta = {z<0.0000001 ? nan : z}
+	] file {Data/GdLS_Physics/Light_Collection/lce/lce_tat.dat};
+	
+	\addplot3[
+	surf,
+	shader=flat corner,
+	mesh/cols=47,
+	mesh/ordering=rowwise,
+	point meta = {z<0.0000001 ? nan : z}
+	] file {Data/GdLS_Physics/Light_Collection/lce/lce_bat.dat};
+	
+	\addplot3[
+	surf,
+	shader=flat corner,
+	mesh/cols=200,
+	mesh/ordering=rowwise,
+	point meta = {z<0.0000001 ? nan : z}
+	] file {Data/GdLS_Physics/Light_Collection/lce/lce_sat.dat};
+	
+		\end{axis}
+	\end{tikzpicture}
+\caption{}
+\label{fig:od_lce_pgfplot}
+\end{figure}

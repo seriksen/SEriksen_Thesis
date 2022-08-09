@@ -1,0 +1,35 @@
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+    \begin{axis}[
+            ylabel=Count,
+            xlabel=Capture Time ($\mu$s),
+            width=15cm,
+            height=8cm,
+            grid=major,
+            ymode=log,
+            xmin=-10,xmax=1000,
+            %ymin=45, ymax=100,
+            %minor y tick num=1,
+            ]
+        \addplot[black, only marks, mark size=0.5,
+                 error bars/.cd, error bar style={color=black},
+                 y dir=both, y explicit, 
+                 x dir=both, x explicit,
+                 ]
+            table [x=time,y=weight, x error=xerror, y error=yerror]
+            {Data/cf252/cf252_gd_capture_time.dat}; 
+            
+        \addplot[red,
+                 domain=15:1500,
+                 ]
+            {2305 * exp(-x/30.5) + 342 * exp(-x/125.2) + 0.9663}; 
+            
+    \end{axis}
+            
+\end{tikzpicture}
+    \caption{Pulse Distribution depending upon when the tagging pulse was.
+             In red is the best fit from 2 exponential decays.}
+    \label{fig:cf252_gd152_captures}
+\end{figure}

@@ -90,9 +90,11 @@ The additional population are backgrounds from ${}^{60}Co$, predominately from t
 In future it may be possible to constrain the rate of this using a volume cut, but as the z-cut used here is not accurate it is unreliable to determine how large the volume selected is.
 To improve this, a calibration campaign with sources are various z-positions will be required.
 
+\newpage
+
 \input{Chapters/Analysis_OuterDetector/Figures/background_constraints/od_middle_region_phd}
 
-\iffalse
+
 
 \subsection{$\gamma$ constraints}
 \par
@@ -106,6 +108,10 @@ It was moved during SR1 which matches with a change in the position of these hig
 Backgrounds of this type were not previously considered within LZ, though are of great importance in fusion experiments \cite{iter_neutrons_ref}.
 
 \input{Chapters/Analysis_OuterDetector/Figures/background_constraints/od_high_energy}
+
+\par
+Primarily due to the source safe placement during SR1, it was not possible to ascertain if there was a fluctuation in the high-energy $\gamma$-rate during SR1.
+Though in future runs this can be an area of study, similar to \cite{cavern_gamma_annual_modulation_CoGeNT_ref, cavern_gammas_in_Soudan_mine_ref}.
 
 %%%%%%%%%%%%
 \subsection{$\alpha$ constraints}
@@ -180,7 +186,7 @@ This also isolates the difference between observed data and simulations to light
 The final background that can be constrained is ${}^{152}Gd$, which produces a 2.2MeV $\alpha$ decay.
 Though this is of particular use as can be seen in Figure XXX where ${}^{14}C$, ${}^{152}Sm$ and ${}^{152}Gd$ all can contribute to that region.
 The GdLS is loaded with 0.1\% (by mass) of natural Gadolinium.
-With a total mass of GdLS used in the detector this corresponds to 16000kg (check in previous chapter), and ${}^{152}Gd$ has a natural abundance of 0.2\%, this gives a maximum possible rate of 19Hz. <--- lies! todo check!
+With a total mass of GdLS used in the detector this corresponds to 16000kg (check in previous chapter), and ${}^{152}Gd$ has a natural abundance of 0.2\%, this gives a maximum possible rate of 27Hz.
 Where there is a 5\% uncertainty on the doping by mass.
 
 \subsection{Background Fitting}
@@ -189,24 +195,40 @@ Given the constraints placed on rates, it is possible to fit the expected distri
 The fit was limited to only include the region of the simulation which is approximately correct with the data. 
 As such, the high energy, above 500phd ($\gtrsim$ 2.5MeV) was excluded, and a low energy cut was 20phd was used.
 \par
-In order to keep the number of fit parameters down, all detector components were in
-
-
-Given the mitigation processes described in \autoref{sec:od_construction_sec}, the contamination is likely to be minimal everywhere. 
-Additionally, given what can be seen in Figure XXX, the improved GdLS purification appears to have worked.
-As the GdLS came from the same batch produced at Brookhaven as used in DayaBay it is reassuring that it matches closely what was seen there
-
-\par
-
+In order to keep the number of fit parameters down, all detector components were in combined.
+Given the mitigation procedure described in \autoref{sec:od_construction_sec}, the contamination is likely to be minimal from these components.
 \par
 Another source, ${}^{7}Be$, which has been considered in fits from similar experiments has been excluded here.
 As it only has a half-life of 50-days (TODO CITE XXX), and the OD was not in a stable running condition until nearly a year after filling, it has been assumed that the contribution from ${}^{7}Be$ would be negligible.
-
-
-\subsection{Cavern-$\gamma$'s}
 \par
-As discussed in \autoref{sec:cavern_gamma_generator}, the $\gamma$'s from decays within the rock are of significant concern.
-blah blah blah...
-Over the continued course of the experiment it will be interesting see if an annual modulation is observed such as that in \cite{cavern_gamma_annual_modulation_CoGeNT_ref, cavern_gammas_in_Soudan_mine_ref} as it may be a more significant background for LZ than previously considered.
+For fitting the background, this leaves a total of XXX components.
+The cavern-$\gamma$'s were allowed to float within the uncertainties they were measured in \cite{LZ_Gamma_Ray_Background_ref}.
+The ${}^{235}U_e$, ${}^{235}U_l$, ${}^{238}U_e$, ${}^{238}U_m$, ${}^{238}U_l$, ${}^{232}Th_e$, ${}^{232}Th_l$ where constrained to be in equilibrium with the sub-chains, and constrained by the LS Screener result or the measured $\alpha$-rate here, with the exception of ${}^{238}U_l$ which was able to float freely.
+The internal decays were left to float as freely as possible.
 
-\fi
+
+
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{c|c|c|c}
+        Source              &  Decay Type(s)             & Estimated Rate (Hz)       & Measured Rate (Hz) \\
+        ${}^{238}U_{e}$     & $\gamma$,$\alpha$,$\beta$  & 3.27                      &                     \\ 
+        ${}^{238}U_{m}$     & $\gamma$,$\alpha$,$\beta$  & 3.27                      &                     \\
+        ${}^{238}U_{l}$     & $\gamma$,$\alpha$,$\beta$  & 3.27                      &                     \\
+        ${}^{235}U_{e}$     & $\gamma$,$\alpha$,$\beta$  & 3.27                      &                     \\
+        ${}^{235}U_{l}$     & $\gamma$,$\alpha$,$\beta$  & 3.27                      &                     \\
+        ${}^{232}Th_{e}$    & $\gamma$,$\alpha$,$\beta$  & 3.27                      &                     \\
+        ${}^{232}Th_{l}$    & $\gamma$,$\alpha$,$\beta$  & 3.27                      &                     \\
+        Detector Components & $\gamma$,$\beta$           & 3.27                      &                     \\
+        ${}^{40}K$          & $\gamma$,$\beta$           & 3.27                      &                     \\
+        ${}^{85}Kr$         & $\gamma$,$\beta$           & 3.27                      &                     \\
+        ${}^{14}C$          & $\beta$                    & 3.27                      &                     \\
+        ${}^{176}Lu$        & $\gamma$,$\beta$           & 3.27                      &                     \\
+        ${}^{147}Sm$        & $\alpha$                   & 3.27                      &                     \\
+        ${}^{152}Gd$        & $\alpha$                   & 3.27                      &                     
+        
+        
+    \end{tabular}
+    \caption{Th and U decay chain pairs with half-lives within the LZ event window of 4.5ms. See \autoref{fig:decay_chains} for the complete Decay Chains.}
+    \label{tab:od_constrainable_decays_in_data}
+\end{table}

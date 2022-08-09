@@ -1,0 +1,25 @@
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+    \begin{axis}[
+            ylabel=Log10(S2) (phd),
+            xlabel=S1 (phd),
+            width=15cm,
+            height=8cm,
+            %ymin=45, ymax=100,
+            %minor y tick num=1,
+            ]
+        %\addplot[black, only marks,]
+        %    table []
+        %    {Data/Neutron_Efficiency/AmLi_Commissioning/s1s2_passed_od_veto_in_fid.dat};    
+        \addplot[red, only marks,]
+            table []
+            {Data/Neutron_Efficiency/AmLi_Commissioning/s1s2_failed_od_veto_in_fid.dat};
+            
+    \end{axis}
+            
+\end{tikzpicture}
+    \caption{TPC events vetoed by the OD. In Red are events which passed all cuts including the OD veto. In Blue are events which passed all cuts except the OD veto.}
+    \label{fig:sr1_vetoed_events}
+\end{figure}

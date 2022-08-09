@@ -1,0 +1,47 @@
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+    \begin{axis}[
+            ylabel=Count,
+            xlabel=Photons Detected (phd),
+            width=15cm,
+            height=8cm,
+            grid=major,
+            xmin=0, xmax=2500,
+            ymode=log,
+            %ymin=45, ymax=100,
+            %minor y tick num=1,
+            ]
+        \addplot[red, only marks, mark size=1.0,
+                 error bar legend,
+                 error bars/.cd, error bar style={color=black},
+                 y dir=both, y explicit, 
+                 x dir=both, x explicit,
+                 ]
+            table [x=pulsearea,y=weight, x error=xerror, y error=yerror]
+            {Data/cf252/cf252_od_pulses_before400ns.dat};    
+        \addplot[green, only marks, mark size=1.0,
+                 error bar legend,
+                 error bars/.cd, error bar style={color=black},
+                 y dir=both, y explicit, 
+                 x dir=both, x explicit,
+                 ]
+            table [x=pulsearea,y=weight, x error=xerror, y error=yerror]
+            {Data/cf252/cf252_od_pulses_within400ns.dat};           
+        \addplot[blue, only marks, mark size=1.0,
+                 error bar legend,
+                 error bars/.cd, error bar style={color=black},
+                 y dir=both, y explicit, 
+                 x dir=both, x explicit,
+                 ]
+            table [x=pulsearea,y=weight, x error=xerror, y error=yerror]
+            {Data/cf252/cf252_od_pulses_after400ns.dat};
+        \legend{Before 400ns,Within 400ns,After 400ns}  
+            
+    \end{axis}
+            
+\end{tikzpicture}
+    \caption{Pulse Distribution depending upon when the tagging pulse was.}
+    \label{fig:cf252_pulse_selection}
+\end{figure}

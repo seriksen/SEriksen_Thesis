@@ -1,0 +1,28 @@
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+    \begin{axis}[
+            ylabel=Count,
+            xlabel=Photons Detected (phd),
+            width=15cm,
+            height=8cm,
+            grid=major,
+            xmin=0, xmax=2500,
+            %ymin=45, ymax=100,
+            %minor y tick num=1,
+            ]
+        \addplot[black, only marks, mark size=1.0,
+                 error bars/.cd, error bar style={color=black},
+                 y dir=both, y explicit, 
+                 x dir=both, x explicit,
+                 ]
+            table [x=pulsearea,y=weight, x error=xerror, y error=yerror]
+            {Data/cf252/cf252_od_largest_after400ns.dat}; 
+            
+    \end{axis}
+            
+\end{tikzpicture}
+    \caption{Largest OD pulse in an event window 400ns after the first coincidence pulse.}
+    \label{fig:cf252_gd152_captures}
+\end{figure}

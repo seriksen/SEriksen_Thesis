@@ -4,6 +4,7 @@
 \centering
     \begin{axis}[
             ylabel=Efficiency (\%),
+            xlabel=Time ($\mu$s),
             width=15cm,
             height=8cm,
             grid=major,
@@ -11,9 +12,11 @@
             xmin=0, xmax=1500,
             ymin=45, ymax=100,
             minor y tick num=1,
+            legend style = { column sep = 10pt, legend columns = -1,}
             ]
         \addplot[red,
                  mark size=0.5, mark=*, mark options={solid},
+                 error bar legend,
                  error bars/.cd, error bar style={color=red},
                  y dir=both, y explicit, 
                  x dir=both, x explicit,
@@ -22,6 +25,7 @@
             {Data/Neutron_Efficiency/AmLi_Commissioning/pos_0_total_200kev_efficiency.dat};    
         \addplot[green, 
                  mark size=0.5, mark=*, mark options={solid},
+                 error bar legend,
                  error bars/.cd, error bar style={color=green},
                  y dir=both, y explicit, 
                  x dir=both, x explicit,
@@ -30,6 +34,7 @@
             {Data/Neutron_Efficiency/AmLi_Commissioning/pos_700_total_200kev_efficiency.dat};             
         \addplot[blue, 
                  mark size=0.5, mark=*, mark options={solid},
+                 error bar legend,
                  error bars/.cd, error bar style={color=blue},
                  y dir=both, y explicit, 
                  x dir=both, x explicit,
@@ -64,12 +69,13 @@
             {x * 276.8 * 100 / 1000000};  
          \addplot[dashed, mark=none, red] coordinates {(0,5) (1500,5)};
          
-         \node[rotate=37] at (axis cs: 1000,25) {276.8Hz};
-         \node[rotate=16] at (axis cs: 1400,16) {95.8Hz};
-         \node[rotate=5] at (axis cs: 1400,7) {42.5Hz};
+         \node[rotate=29] at (axis cs: 1000,26) {276.8Hz};
+         \node[rotate=13] at (axis cs: 1400,15) {95.8Hz};
+         \node[rotate=5] at (axis cs: 1400,8) {42.5Hz};
     \end{axis}
             
 \end{tikzpicture}
-    \caption{Neutron tagging efficiency from AmLi at each height for the 200keV phe threshold}
+    \caption{Neutron tagging efficiency from AmLi at each height for the 200keV phe threshold.
+    The horizontal dashed line is the 5\% impact on livetime requirement.}
     \label{fig:commissioning_amli_efficiency_with_bg_rate}
 \end{figure}

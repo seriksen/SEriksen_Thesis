@@ -1,0 +1,36 @@
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+    \begin{axis}[
+            ylabel=Count (Arb.),
+            xlabel=Capture Time ($\mu$s),
+            width=15cm,
+            height=8cm,
+            grid=major,
+            ymode=log,
+            xmin=-10,xmax=800,
+            ymin=1e-3, ymax=5,
+            %minor y tick num=1,
+            ]
+        \addplot[black, only marks, mark size=0.5,
+                 error bars/.cd, error bar style={color=black},
+                 y dir=both, y explicit, 
+                 ]
+            table [x=time,y=weight, y error=yerror]
+            {Data/cf252/cf252_gd_capture_time_normed.dat}; 
+            
+        \addplot[red, const plot]
+            table [x=time,y=weight]
+            {Data/cf252/amli_0mm_default.dat}; 
+
+        \addplot[blue, const plot]
+            table [x=time,y=weight]
+            {Data/cf252/amli_0mm_water.dat}; 
+            
+    \end{axis}
+            
+\end{tikzpicture}
+    \caption{Neutron capture time on Gadolinium in the OD. The observed capture time from ${}^{252}Cf$ is shown in black. In red is the expected capture time from simulation. In blue is the capture time if all foam around the OCV has been replaced with water. Each distribution has been normalised the maximum value.}
+    \label{fig:data_vs_sim_gd_capture_time}
+\end{figure}

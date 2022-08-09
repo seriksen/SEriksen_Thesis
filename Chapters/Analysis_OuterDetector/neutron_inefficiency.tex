@@ -1,43 +1,41 @@
 \section{Neutron Efficiency}
 \par
-As discussed in Section XXX, neutrons are a particularly important background with the signal produced in the TPC being indistinguishable from a DM interaction.
-The design motivation for the Outer Detector was to actively veto events which contain neutrons by having a very high tagging efficiency to neutrons.
-When combined with the Skin Detector, it was shown in the Technical Design Report for LZ that a greater than <5\% inefficiency to neutrons that single scatter in the WIMP region could be achieved with a veto window of XXX.
-However, as discussed in Section XXX, several design changes were made during construction which will affect that result.
-In this section, the neutron inefficiency is re-calculated with a more accurate geometry following the method described in \cite{sallyshaw_thesis_ref}.
-The calculation is taken a step further here with the detector LCE taken into consideration, and finally applying to data. 
+For calculating the neutron efficiency during SR1 calibrations, AmLi was used.
+As seen in \autoref{sec:sec:od_simulation_efficiency}, the efficiency is no longer expected to meet the requirement of 95\% efficiency.
+But, as has been shown in the previous section, the simulation significantly underestimates the light collection efficiency, and so it's possible that the neutron propagation is also not modelled adequately.
 
+\par
+Three AmLi sources were used at the same time during this calibration, each placed in a different CSD tube.
+This is summarised in \autoref{tab:amli_source_activities}.
+
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{c|c|c}
+        CSD & AmLi Source No. & Activity (n/s) \\ \hline
+        1   & Source-2        & 13.8           \\
+        2   & Source-1        & 9.3            \\ 
+        3   & Source-3        & 11.9                
+    \end{tabular}
+    \caption{AmLi source activities in each CSD}
+    \label{tab:amli_source_activities}
+\end{table}
+
+\par
+For this data, the S2-trigger was used, and the cuts developed for the WIMP search were used to filter out unusable data, to leave a fairly pure dataset of neutron recoils.
+These are summarised below, but are detailed in \cite{lz_ws_sr1_ref};
 
 \begin{enumerate}
     \item \textbf{SS}: Single Scatter cut as determined by the interaction finder, shown to be 98.5\% efficient.
-    \item \textbf{Livetime}: 
-    \item \textbf{S2Cuts}:
-    \item \textbf{S1Cuts}:
-    \item \textbf{FID}: Fiducial Volume
-    \item \textbf{ROI}: Select events that have nuclear recoiled by selecting events within 1-$\sigma$ of the NR band.
+    \item \textbf{S2Cuts}: Remove events where the S2 pulse has unusual properties.
+    \item \textbf{S1Cuts}: Remove events where the S1 pulse has unusual properties.
+    \item \textbf{FID}: Fiducial Volume, to remove wall events and ensure that the neutron penetrated deep enough.
+    \item \textbf{NR}: Select events that have nuclear recoiled by selecting events within 1-$\sigma$ of the NR band, which was calibrated using the external DD neutron source.
 \end{enumerate}
-
-
-
-\begin{tcolorbox}[colback=red!5!white, colframe=red!50!black, title=Key Plots]
-\begin{enumerate}
-    \item Simulation Neutron Capture Time; Gd isotopes, H isotopes, break up by AmLi energy?
-    \item Data Neutron Capture Time
-    \item Simulation Inefficiency
-    \item Simulation AmLi Inefficiency
-    \item Rate of neutrons entering the GdLS (from simulations)
-    \item Data AmLi Inefficiency
-    \item Equation of energy lost from a scatter (why neutron loses hardly any energy so can assume it's already single scattered)
-    \item Neutron ratio in each capture time (sims and data); 3 capture constants
-    \item Neutron background rate? not sure
-    \item Time spent in each volume vs capture time
-\end{enumerate}
-\end{tcolorbox}
 
 \par
-The largest light source resulting from a neutron, that will be seen by the OD PMTs are the neutron capture.
-Therefore this is a valid quantity to measure.
-
+Three positions in the CSD were used, 0mm, 700mm and 1400mm. 
+These definitions are identical to those used in \autoref{sec:od_simulation_efficiency}.
+The result of applying the selection cuts to these runs is shown in \autoref{tab:amli_calibration_summary}.
 
 \begin{table}[!htbp]
     \centering
@@ -52,30 +50,31 @@ Therefore this is a valid quantity to measure.
     \label{tab:amli_calibration_summary}
 \end{table}
 
-\begin{table}[!htbp]
-    \centering
-    \begin{tabular}{c|c|c}
-        CSD & AmLi Source No. & Activity (n/s) \\ \hline
-        1   & Source-2        & 13.8           \\
-        2   & Source-1        & 9.3            \\ 
-        3   & Source-3        & 11.9                
-    \end{tabular}
-    \caption{AmLi source activities in each CSD}
-    \label{tab:amli_source_activities}
-\end{table}
+\par
+From these events it is then possible to search for events that occur after the S1 in both the Skin and OD.
+Those events which pass the TPC cuts are shown in XXX.
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\textwidth]{Figures/Placeholder.png}
-    \caption{AmLi efficiency from all positions.}
-    \label{fig:commissioning_amli_efficiency}
-\end{figure}
 
+
+
+\par
+Using the maximum veto window for 200keV of 1200$\mu$s, the efficiency as a function of photons detected is shown in \autoref{fig:commissioning_amli_efficiency_per_phd}.
+The combined veto efficiency of the Skin and OD are used here due to the limited impact the Skin has on the veto efficiency of neutrons.
 
 \input{Chapters/Analysis_OuterDetector/Figures/efficiency/amli_efficiency_per_phd}
 
+
+\par
+Due to the poorer than expected performance of the OD for tagging neutrons, the decision was made to use the longer veto window of 1200$\mu$ combined with a 200keV pulse requirement in the OD or a 100keV requirement in the Skin.
+The result of this is summarised in \autoref{fig:commissioning_amli_efficiency_with_bg_rate}.
+
 \input{Chapters/Analysis_OuterDetector/Figures/efficiency/amli_final_efficiency}
 
+
+\par
+On SR1 WIMP-search data, this has a total impact of 4.99\% on live-time, and the resultant events which were vetoed are shown in Figure XXX.
+No neutrons were vetoed in SR1 which corresponds to no neutrons being expected.
+The events which were vetoed were electron recoil events which were coincidence with an OD background.
 
 \begin{figure}[!htbp]
     \centering
@@ -84,10 +83,15 @@ Therefore this is a valid quantity to measure.
     \label{fig:tpc_with_od_veto_in_sr1}
 \end{figure}
 
+\par
+The AmLi 
+
+\input{Chapters/Analysis_OuterDetector/Figures/efficiency/sr1_vetoed_events}
 
 
 \subsection{Neutron Captures}
 \par
+Although AmLi 
 Another source that can be used to study the neutron capture time is the ${}^{252}{Cf}$ calibration source.
 Spontaneous fission of ${}^{252}{Cf}$ typically results in a number of $\gamma$'s with a combined energy of up to 10MeV which are accompanied by a number of neutrons.
 An example event from the LZ calibration run pre-SR1 is shown in \autoref{fig:cf252_event_viewer}.
@@ -116,38 +120,37 @@ However, by selecting events which only have a double or triple detector coincid
 
 
 
+\input{Chapters/Analysis_OuterDetector/Figures/neutron_capture/cf252_pulse_selection}
+
+\clearpage
+
+\input{Chapters/Analysis_OuterDetector/Figures/neutron_capture/cf252_largest_after_pulse}
+
+\clearpage
+
+\input{Chapters/Analysis_OuterDetector/Figures/neutron_capture/cf252_capture_time}
+
+\clearpage
 \par
-For the other neutron calibration sources, DD and AmLi, the same neutron tagging as described in Section XXX was used, where the NR band is isolated.
-The result of this search is shown in figure XXX - overlaid is the neutron capture sim in the simulations.
-What is apparent is that there is more than one exponential decays in data.
-The simplest explanation is that a portion of the neutrons are being captured on H in either the water or acrylic that is between the source and GdLS.
-In this case, the capture constant would be 220$\mu$s.
-Initially this was excluded by selecting pulses above the H-peak, selecting events above 500phd.
-However, as can be seen in Figure XXX, at least two exponents remain.
-A fit was performed on each of the calibration sources separately, to equation XXX, and the results are summarised in \autoref{tab:neutron_capture_times}.
-\begin{table}[!htbp]
-    \centering
-    \begin{tabular}{c|c}
-        Source            &  \\ \hline
-        AmLi (CSD1 700mm) & \\ 
-        DD                & \\
-        ${}^{252}{Cf}$    &
-    \end{tabular}
-    \caption{Neutron capture time on Gadolinium isotopes in GdLS}
-    \label{tab:neutron_capture_times}
-\end{table}
-
-Given that these neutrons are captured releasing in excess of 3MeV, they will have been captured by a Gd-isotope. 
-Therefore what is being observed is most likely that the neutron bounces around in the acrylic, which would likely capture after 220$\mu$s before entering the GdLS to be captured.
-This effect was observed in TODO CITE XXX so is reasonable that it would be seen here as well.
-It could be validated deploying the calibration sources in a number of different locations where the thickness of the acrylic differs, this study may be possible pre-SR2.
-
-
+The best fit was found to be with just two exponents.
+With $t_0 = 31.39 \pm 0.4\mu s$ and $t_1 = 124.5 \pm 1.7\mu s$, with a $\chi^2=0.821$.
+When compared to simulated capture times, such as in \autoref{fig:data_vs_sim_gd_capture_time}, neutrons are taking longer than expected to be captured in the OD.
+This indicates that neutrons are becoming trapped in materials between the calibration tube and the OD.
+The possible materials between the CSD and the OD are primarily foam, acrylic and water.
 \par
-The GdLS cocktail used by LZ is similar to that of the DayaBay experiment, and as such, the neutron capture properties should be similar.
-Using Equation XXX which is an extended version of that from DayaBay \cite{Dayabay_neutron_capture_fit_ref} was used to fit to both the thermalisation peak and the subsequent captures.
+The foam installed around the OCV is expanded using $CO_2$.
+A test was conducted to observe what happens to this foam (and what happens to the water).
+An example of each piece of foam used, was placed in de-ionised water and placed under a $N_2$ purge. 
+The water resistivity was measured every few hours as a monitor of the water's purity.
+The result over the first week of running is shown in \autoref{fig:od_foam_degredation}.
+What is observed during this period is the water becoming contaminated with ions from the foam from out gassing.
+Over a longer period of study it may show that the foam becomes saturated with water.
+\par
+In relation to LZ, this has two impacts, firstly these ions can circulate throughout the OD water and contribute to the low energy rate.
+Secondly, this will impact on the time it takes for a neutron to reach the GdLS.
+Taking the most extreme case as the foam being completely replaced with water, we can see that the neutron time to reach the GdLS is significantly increased (shown in blue in \autoref{fig:data_vs_sim_gd_capture_time}).
+This therefore seems an reasonable explanation for the difference observed.
 
-\begin{equation}
-    N = Y
-\end{equation}
+\input{Chapters/Analysis_OuterDetector/Figures/neutron_capture/data_vs_sim_capture_time}
 
+\input{Chapters/Analysis_OuterDetector/Figures/neutron_capture/foam_degredation}

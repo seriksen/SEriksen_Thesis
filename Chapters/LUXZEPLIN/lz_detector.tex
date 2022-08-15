@@ -1,39 +1,85 @@
-\section{The LZ Detector}
+\section{The LUX-ZEPLIN Detector}
+\label{sec:lz_detector}
 \par
-The LUX-ZEPLIN (LZ) experiment is a second-generation direct detection dark matter experiment, named from it's predecessor LUX, and the ZEPLIN series of experiments which pioneered xenon phase detectors.
+The LUX-ZEPLIN (LZ) experiment is a second-generation direct detection dark matter experiment, named from it's predecessor LUX \cite{lux_ref}, and the ZEPLIN series of experiments which pioneered xenon phase detectors \cite{zeplin_3_ref}.
+The LZ experiment is hosted at the Sanford Underground Research Facility (South Dakota, USA), at the 4850" level underground.
 
-The LZ experiment has been primarily designed for the detection WIMP dark matter candidates described in XXX. 
-This is primarily done through a dual-phase Time-Project Chamber (TPC).
 
 \par
 The LZ experiment is a multi-detector system, which work together to increase the sensitivity to dark matter candidates.
-A cut through of the LZ experiment is shown in Figure 
+LZ is comprised of three discrete detectors; a TPC, and two active veto-detectors.
+A diagram of the detector systems is shown in \autoref{fig:LZ_Cut_CAD}.
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{Figures/LZ/LZ_CAD_with_interactions.png}
-    \caption{Cross-Section of the LZ experiment as designed in the TDR \cite{LZ_TechnicalDesignReview_ref} using adaptation from \cite{LZ_Ibles_LZStats_Thesis_ref}.}
+    \caption{A schematic of the LZ detector systems as described in the Technical Design Review \cite{LZ_TechnicalDesignReview_ref}.
+             Figure from \cite{LZ_TechnicalDesignReview_ref} using adaptation from \cite{LZ_Ibles_LZStats_Thesis_ref}.}
     \label{fig:LZ_Cut_CAD}
 \end{figure}
-
-
 
 \par
 In the remainder of this chapter, the design and construction of the LZ experiment are detailed with particular emphasis on the TPC, Skin and OD which are relevant for the remainder of this thesis. 
 It should be noted that the design is detailed in significant more detail in the Technical Design Review \cite{LZ_TechnicalDesignReview_ref}.
 
-\subsection{TPC}
+\subsection{Time Projection Chamber}
+\label{sec:lz_tpc}
 \par
-At the centre of the LZ experiment is the TPC.
-It's purpose is the production of S1 and S2 light from particle interactions as previously described in Section XXX.
+At the core of LZ is a dual-phase (liquid and gas) Xenon TPC.
+The schematic of the LZ TPC is shown in XXX.
+Photons which are emitted inside of the TPC are detected by 494 Hamamatsu R11410-22 3-inch diameter PMTs, arranged into two arrays.
+The first array contains 253 PMTs and is located at the top of the TPC in the GXe, looking down.
+The second array, containing 241 PMTs and located at the bottom is immersed in the LXe looking up.
+These PMTs were selected as they were developed with low levels of radioactivity and a high quantum efficiency at wavelengths around 175nm, the characteristic of LXe scintillation.
+The arrangement of these PMT arrays is not identical, with the bottom array optimised for light collection of S1 signals, and the top array optimised for position reconstruction of S2 signals.
 \par
-The TPC is comprised of 2 arrays of photo-multiplier tubes (PMTs); one at the top and one at the bottom, which serve to collect the light from any particle interaction which happens within the TPC volume.
-The wall of the TPC is made from PTFE.
+The TPC contains three electrodes: a cathode at the bottom, a gate below the liquid surface and an anode in the gas phase, each of which are woven mesh grids \cite{lz_grids_ref}.
+The walls of the TPC are enclosed by titanium rings encased in polytetrafluoroethylene (PTFE) panels - a highly reflective material (in excess of 97.3\% in LXe \cite{ptfe_lxe_reflectivity_ref}).
+The titanium rings are connected by a resistor ladders.
+These titanium rings act to shape the electric field, creating a vertical field across the entire active region such that any charge created in the active region will drift upwards through the liquid to the electroluminescence region.
 \par
-The TPC is filled almost entirely with liquid Xenon, with the exception being the gas Xenon pocket just under the top PMT array.
+The TPC active region, which is defined as the volume between the cathode grid and the gate grid, is a cylinder of 1.46m diameter and height that contains 7-tonnes of Liquid Xenon.
+This active region is a significant size increase compared to previous generation detectors such as LUX (250kg) \cite{lux_ref}, XENON1T (2.2-tonne) \cite{xenon1t_ref} and PandaX (500kg) \cite{pandax_ref}.
+Other current generation Xenon TPC experiments include PandaX-4T (3.7-tonne) \cite{pandax_4t_ref} and XENONnT (5.9-tonne) \cite{xenonnt_projected_sensitivty_ref}, with both having recently published results from first runs \cite{pandax_4t_sr1_ref,xenonnt_sr1_er_ref}. 
+\par
+The electroluminescence region is defined as the distance from the surface of the LXe to the anode grid, an 8mm distance.
+The distance between the gate grid and the anode grid is 13mm.
+In the region, the electric field can reach 10 kV/cm.
+This is typically referred to as the extraction field.
+The electric field in the active region can reach 310 V/cm when applying an operating voltage of -50keV to the cathode.
+\par
+Below the cathode is a fourth grid which acts to shield the bottom array PMTs from the electric field.
+Between this grid and the cathode is a reverse-field region (RFR), where the ionisation from interactions cannot be detected.
 
-\subsection{Skin}
+
+\subsection{Veto Detectors}
+\label{sec:lz_veto_detectors}
 \par
+In addition to the TPC, the LZ experiment makes use of two additional detectors.
+Neither of these are designed to directly detector dark matter, but rather to act to improve the sensitivity of the TPC by identifying events which would otherwise impact the TPCs ability to detector dark matter via anti-coincidence.
+
+\par
+Firstly, surrounding the TPC is a layer of LXe referred to as the Xenon Skin, or Skin detector.
+This region of LXe has to exist due to the geometrical challenge of placing the TPC inside of a cryovessel.
+As such it has been made active by 38 Hamamatsu R8778 2-inch PMTs in the barrel and bottom dome and 93 R8520 1-inch PMTs in the top barrel region.
+Similarly to the TPC, the ICV inner-wall has been coated with PTFE, but is optically de-coupled from the TPC.
+
+\par
+Outside of the OCV, the second veto detector is the Outer Detector (OD).
+This is made up of a number of acrylic tanks which contain a liquid scintillator doped with gadolinium (GdLS).
+
+
+
+\autoref{fig:LZ_Veto_Principle}
+
+The OD is described in more detail in \autoref{chapter:lz_outer_detector}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\textwidth]{Figures/LZ/lz_veto_plan.png}
+    \caption{Depiction of operating principle of the veto detectors and the particles that they are designed to veto.}
+    \label{fig:LZ_Veto_Principle}
+\end{figure}
 
 
 \subsection{OD}

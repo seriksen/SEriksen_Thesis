@@ -12,8 +12,10 @@ There are however several isotopes than can be produced by cosmogenically: and t
 
 
 \par
-In a liquid state, Xe has a relatively high density of approximately 3g/cm${}^{3}$\footnote{for reference, aluminium has a density of 2.7g/cm${}^{3}$}.
-
+In relation to a detector, the target material will have to be held in place by some other material.
+This casing will contribute to the observed interactions in the target material.
+Xenon remains an appropriate target particularly in liquid phase due to it's high density (approximately 3g/cm${}^{3}$), and therefore has a high stopping power for both $\beta$ and $\gamma$ radioactive decays\footnote{for reference, aluminium has a density of 2.7g/cm${}^{3}$}.
+Therefore a detector of a reasonable size will contain a very low background central volume.
 
 
 \subsection{Energy deposits in Xenon}
@@ -27,15 +29,61 @@ Following the convention of XXX, the energy deposited in a medium from a recoil,
 
 \subsection{Dual-phase Time Projection Chamber}
 \par
+One such detector design that can utilise the charge-to-light ratio between ER and NR signals are dual-phase time projection chambers (TPCs).
+Modern variants of these detectors contain a single element in a majority liquid state with a region of gas above.
+\par
+An interaction event in a TPC is characterised by two signals.
+Firstly a prompt scintillation signal in the liquid region - referred to as the S1.
+This is caused by excimers and recombination previously discussed.
+Secondly there is a delayed scintillation signal, or S2.
+This is observed in the gas phase via electroluminescence.
+Both of these signals produce VUV light ($\approx$175nm) which can be detected by photomultipler tubes (PMTs) or silicon photomulitpliers (SiPMs).
+\par
+In a typical TPC design, as shown in \autoref{fig:TPC_theory}, an electric field is applied.
+This causes electrons that are freed as a result of the interaction to drift upwards towards the gas phase where there is a probability of being extracted into the gas phase and produce and S2 signal.
+\par
+With PMTs or SiPMs placed at both the top and bottom of the TPC, the size of the interaction signals can be measured.
+The preferred unit of this is "photons detected" (phd)\footnote{Historically the signal was measured in photoelectrons (phe) which can be traced back the to first TPC designs of the 1970s \cite{tpc_origins_ref}. However, as there is a non-negligible probability of two photoelectrons being emitted from a single VUV photon in a PMT \cite{pmts_in_xenon_ref}, phd has become more favourable as this can be taken into account.}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{Figures/LZ/tpc_theory.png}
+    \caption{An illustration of the LUX dual-phase TPC \cite{lux_ref}.}
+    \label{fig:TPC_theory}
+\end{figure}
+
+\par
+The position of an interaction in the TPC can be reconstructed using only the S1 and S2 signals.
+Firstly the x-y position of an interaction can be reconstructed by the hit-pattern of photons on the gas phase PMTs. 
+As the electrons will not deviate significantly from the interaction site, the hit-pattern is a good approximation this location, with ~5mm resolution demonstrated \cite{lux_position_reconstruction_ref}.
+The z-position can be directly measured by the time difference between the two signals.
+This is possible as the electrons reach a terminal velocity rapidly within the LXe, allowing for a resolution ~100$\mu$s \cite{LZ_TechnicalDesignReview_ref}.
+This high-resolution position reconstruction allows for the self-shielding of Xenon to be utilised, with the regions of LXe away from the TPC edge experiences a significantly lower background rate.
+
+\par
+The energy of an interaction can be energy of the event can be reconstructed using S1 and S2;
+
+
+\begin{align}
+    S1 = n_\gamma && S2 = n_\gamma
+\end{align}
+where 
+
+\par
+The final 
+\begin{align}
+    S1_c = g_1 n_\gamma && S2_c = g_2 n_\gamma
+\end{align}
+
+\par
+The energy of the recoil is then defined as
+\begin{equation}
+    E_R = \frac{W}{L}(\frac{S1_c}{g_1} + \frac{S2_c}{g_2})
+\end{equation}
 
 
 \par
-In \autoref{fig:er_nr_discrimination} the discrimination between ER and NR events for an arbitrary detector is shown.
+An example of the possible discrimination between ER and NR from a Xenon TPC is shown in \autoref{fig:er_nr_discrimination} for an arbitrary detector.
+The viability of using TPCs for direct dark matter searches can be summarised by two requirements: understanding backgrounds and understanding ER and NR bands.
 
 \input{Chapters/LUXZEPLIN/Figures/er_nr_discrimination}
-
-\par
-The energy of such a scatter can be determined by 
-\begin{equation}
-sdfsdf    
-\end{equation}

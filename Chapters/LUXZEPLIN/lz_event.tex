@@ -1,32 +1,18 @@
-\section{LZ Dark Matter Search Strategy}
+\section{Dark Matter Search Strategy}
 \par
-LZ will search for NR events.
-The core cuts are listed below;
-\begin{itemize}
-    \item \textbf{SS}: DM will only scatter once
-    \item \textbf{FID}: to remove wall events
-    \item \textbf{ROI}: between 1.65-6.5 keV ER events and 6-30keV NR events, for EFT searches this requirement will inevitably change.
-    \item \textbf{Veto}: remove neutrons and $\gamma$'s 
-\end{itemize}
+As previously discussed, the primary direct dark matter search strategy is to search for an excess in NR events.
+In order to do this, an event needs to be defined and to ultimately be recorded, and the pulses to be reconstructed.
+The planned approach is detailed in \cite{LZ_TechnicalDesignReview_ref}, with the approach adapted for the first data run in \cite{lz_ws_sr1_ref}.
 
 \par
-LZ will initial run a two dimensional Profile Likelihood Ratio (PLR) fit to distinguish between NR and ER events.
-A full description of the PLR used for the WIMP sensitivity projections and SR1 can be found in \cite{LZ_Ibles_LZStats_Thesis_ref}. 
-A detailed application to monte-carlo data is described in \cite{jonathannikoleyczik_thesis_ref}.
-
-
-
-
-\subsection{Triggers}
-\par
+An event defined simply as a window of time in which the read out from all PMTs were saved, typically for LZ this is a window of 4ms in length.
 LZ utilises a number of different triggers to determine when data should be recorded, utilising the logic based upon \cite{lux_trigger_logic_ref}, with application to LZ detailed in \cite{nicolasangelides_thesis_ref}.
 The three of the triggers are briefly discussed below.
 
-
 \paragraph{S2 Trigger}
 \par
-Triggering off the S2 signal in the TPC. 
-This is the dark matter search trigger.
+This is the primary dark matter search trigger.
+Tuned to trigger of a large pulse in the TPC that is line with what is expected from an S2 pulse.
 
 \paragraph{OD Trigger}
 \par
@@ -36,11 +22,26 @@ Triggered by large events in the Outer Detector, focusing on 2.2MeV events from 
 Also often referred to as the heartbeat trigger, data is recorded for a fixed time.
 It can act as a measurement of backgrounds as it is a fixed amount of data recorded periodically.
 
+\par
+From the trigger activation, a period of time before and after the trigger is recorded.
+This pre-trigger time is required as that is where the S1 pulse will be in the S2 trigger.
 
 \par
-There are two important features to note;
-Firstly the logic is hierarchical, meaning that the Random Trigger will only record when none of the other triggers have switched.
-Secondly, the DAQ captures an event when it receives a trigger signal unless there is already an event being captured, or the trigger signal arrives during the hold off time of the previous event.
-In practical terms, it means that the Random Trigger can be biased to low energy events if another trigger is active.
-For example, in the Outer Detector, if the OD Trigger is active then the Random Trigger will be biased to low energy events as the higher energy events are likely to be encompassed by the OD Trigger.
+\subsection{Data Cuts}
+\par
+The core cuts are listed below;
+\begin{itemize}
+    \item \textbf{SS}: Remove events which are inconsistent with dark matter as they have scattered more than once.
+    \item \textbf{FID}: Removal of events where reconstruction of energy is poor and to incorporate LXe self-shielding, reducing the background rate.
+    \item \textbf{ROI}: Select events where the recoil energy is in the range expected from a WIMP scatter. Typically this is between 1.65-6.5 keV ER events and 6-30keV NR events. For other dark matter models, such as EFT searches this requirement changes.
+    \item \textbf{Veto}: Remove events which are inconsistent with dark matter due to scattering more than once. This removed both neutrons and $\gamma$'s.
+\end{itemize}
+In data taking, additional cuts are often required to account for experimental features not anticipated in simulations.
+As such the above list should be considered as a "core" selection, with a requirement of "data-driven" cuts potentially required later\footnote{This was required for the SR1 WIMP Search result for LZ detailed in \cite{lz_ws_sr1_ref}}.
 
+\par
+On the data which passes the cuts above, a statistical analysis is performed.
+A multidimensional Profile Likelihood Ratio (PLR) fit is used to prob how well a background only model vs a background and WIMP signal model fit the data.
+In both projected sensitivity and first science run, LZ has limited this to two dimensions: {$S1_c$, $S2_c$}, however, future analysis will extend this as has been done in previous TPC experiments \cite{LUX_RUN1_EFT_2021,LUX_RUN4_EFT_2021,shaunalsum_thesis_ref}.
+A full description of the PLR used for the WIMP sensitivity projections and SR1 can be found in \cite{LZ_Ibles_LZStats_Thesis_ref}. 
+A detailed description of the application to LZ monte-carlo data between the sensitivity projection and SR1 is described in \cite{jonathannikoleyczik_thesis_ref}.

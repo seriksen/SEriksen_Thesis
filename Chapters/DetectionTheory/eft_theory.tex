@@ -126,6 +126,73 @@ In the WIMP-nucleon interaction, an EFT can prob the magnitude and significance 
 In this section, the model independent approach formulated by Haxton et al is summarised with adaptations from XXX and XXX.
 
 \par
+Given the constrained previously described, WIMP-nucleon scattering is a four-field interaction comprising of the WIMP field $\chi$, the nucleon field $N$ and the effective operators $\Operator$:
+
+\begin{align*}
+    \Lagrangian_{int} &= \chi_{1} \Operator_{\chi} \chi_{2} N_{1} \Operator_{N} N_{2} \\
+                      &= \Operator \chi_{1}\chi_{2} N_{1}N_{2}
+\end{align*}
+Here, $1$ and $2$ indicate incoming and outgoing particles respectively.
+
+\par
+This reduces if we combine the 
+
+\par
+Now, as this theory is non-relativistic, the interaction must be Galilean invariant.
+This leaves us with 4 quantities; the change in momentum $\vec{q}$, the relative velocity of the WIMP $\vec{v}=\vec{v}_{\chi,in} - \vec{v}_{N,in}$, the spin of the WIMP $\vec{S}_{\chi}$ and the spin of the nucleon $\vec{S}_{N}$.
+
+
+\par
+The most general Hermititan WIMP-nucleon interaction is then constructed by just four variables: the dark matter spin $\Vec{S}_{\chi}$, the nucleon spin $\Vec{S}_{N}$, the relative velocity of the dark matter to the nucleon, and the momentum transfer.
+\begin{enumerate}
+    \item nucleon spin: $\Vec{S}_{N}$
+    \item dark matter spin: $\Vec{S}_{\chi}$
+    \item momentum transfer: $i\Vec{q}$
+    \item energy conservation: $\Vec{v}^{\bot}$
+\end{enumerate}
+\par
+Each of these operators carry with them a coefficient of an unknown strength, but which experiments can determine.
+A priori we know nothing about the strength of these coefficients, and so we cannot say that we know one operator is more significant than another operator.
+
+\par
+It is important to remember that nuclear elastic scattering can constrain these coefficients, but cannot fully determine them, but additional information does appear in inelastic scattering.
+
+
+
+
+
+\par
+Although not shown here, the operators can be extended to account for inelastic scattering.
+In this case, the only change is $v^{\perp} \rightarrow v_{inel}^{\perp}=v^{\perp} + \frac{\delta_\chi}{\vert\vec{q}\vert^2}\vec{q}$, where $\delta_\chi$ is the change in dark matter mass \cite{inelastics_eft_ref}.
+
+
+\begin{equation}
+    \frac{d\sigma}{dE_R} \approx G_F^2 \sum_{i} R_i (\vec{v}^{\perp 2}, \frac{\vec{q}^2}{m_N^2}) W_i(q^2b^2)
+\end{equation}
+$W_i(q^2b^2)$ emcompassed the nuclear tensor.
+In a direct dark matter experiment, this can be varied to change the nuclear charge, spin, isospin to determine $R_i$.
+As there are many different direct dark matter experiment, each with different target nuclei, each with different properties and sensitivities, they combine together to contain the dark matter.
+The other term, $R_i (\vec{v}^{\perp 2}, \frac{\vec{q}^2}{m_N^2})$, is the WIMP tensor, containing all of the dark matter particle physics.
+
+
+
+\par
+At this point, an important decision is taken for an actual analysis.
+The nucleons can be described as protons and neutrons ({neutron, proton} basis) or in the {isoscalar, isovector} basis, ie;
+
+\begin{equation}
+\begin{array}{lcl}
+    H_{ET} = \sum_i a_i \Operator_i \rightarrow \sum_i (c_i^0 + c_i^1 \tau_3)\Operator \\
+    c_i^0 = \frac{1}{2}(c_i^p + c_i^n) & c_i^1 = \frac{1}{2}(c_i^p - c_i^n)
+\end{array}
+\label{eq:EFT_Operators}
+\end{equation}
+
+Isoscalar particles are singlets with a total isospin of 0 where as isovector particles are triplet states with a total isospin of 1.
+Historically there has been limited consistence, with often the same experiment changing between {neutron, proton} basis and {isoscalar, isovector} basis between data runs.
+The choice for some experiments to adopt the {neutron, proton} basis has been driven by the approach adopted for spin-dependent analysis .
+In the last few years however, {isoscale, isovector} basis has become more common, with CDMS, XENON100, DEAP-3600 and PandaX-II all reporting results in this basis \cite{cdms_eft_ref,xenon100_eft_ref,deap3600_eft_ref,pandax_2_eft_ref}.
+As such the analysis presented later on in Chapter XXX uses this.
 
 
 

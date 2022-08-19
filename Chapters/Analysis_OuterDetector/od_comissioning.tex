@@ -1,13 +1,12 @@
 \section{OD Energy Scale} \label{sec:od_energy_scale}
 \par
-After construction and filling of the OD, the SPE for each PMT was checked using the OD optical calibration system (OCS) \cite{lz_ocs_system_ref}.
+After construction and filling of the OD, the single photoelectron response for each PMT was determined using the OD optical calibration system (OCS) \cite{lz_ocs_system_ref}.
 A detailed description of the PMT monitoring during commissioning and SR1 can be found in the works of E. Fraser \cite{ewanfraser_thesis_ref}. 
 During this period, an energy calibration of the OD was also performed.
 Again, details of the methodology are described in \cite{ewanfraser_thesis_ref} but summarised below, as the result is used throughout this chapter to evaluate the requirements described in \autoref{sec:simulated_od_requirements}.
 \par
-Of the sources mentioned in \autoref{sec:lz_detector_chapter} 7 $\gamma$ sources were used.
+Of the sources mentioned in \autoref{sec:lz_detector_chapter}, 7 $\gamma$ sources, and are summarised in \autoref{tab:od_energy_calibration_sources}.
 Each were lowered into the CSD's to the 700mm level (see \autoref{fig:CSD1_Geometry}).
-The sources used are summarised in \autoref{tab:od_energy_calibration_sources}.
 
 \begin{table}[!htbp]%
     \centering
@@ -28,17 +27,17 @@ The sources used are summarised in \autoref{tab:od_energy_calibration_sources}.
 
 \par
 As discussed in \autoref{sec:od_physics}, there is a non-linear energy response in the scintillator, and therefore a non-linear energy scale below 300keV.
-The empirical formula for the non-linear energy response of the scintillator from DayaBay \cite{dayabay_antineutrino_oscillation_ref, ls_nonlinear_energy_response_ref}, shown in \autoref{eq:ls_light_response}, was used to fit to these points.
+The empirical formula for the non-linear energy response of the scintillator from DayaBay \cite{dayabay_antineutrino_oscillation_ref, ls_nonlinear_energy_response_ref}, shown in \autoref{eq:ls_light_response}, was used to fit to these calibration points.
 \begin{equation}
     \frac{E_{vis}}{E_{true}} = \frac{p_0  + p_3 \times E_{true}}{1 + p_1 \times e^{p_2 \times E_{true}}}
     \label{eq:ls_light_response}
 \end{equation}
 The fit and the translation from photons detected to energy are shown in \autoref{fig:od_energy_scale}.
+The above equation is able to give an accurate description of the calibration data.
+A comparison to other LAB-based experiments is provided in \autoref{tab:od_phe_per_mev_comparison}.
+The LZ OD result is in line with that observed by other experiments.
 
 \input{Chapters/Analysis_OuterDetector/Figures/od_energy_scale}
-
-\par
-A comparison to other LAB-based experiments is provided in \autoref{tab:od_phe_per_mev_comparison}.
 
 \begin{table}[!htbp]%
     \centering
@@ -57,15 +56,15 @@ A comparison to other LAB-based experiments is provided in \autoref{tab:od_phe_p
 
 \subsection{Energy Uncertainty}
 \par
-Perhaps the largest drawback in the energy calibration is that only a single location was used, in Z.
-Therefore the variation in light collection efficiency in the OD could not be taken into account, see \autoref{fig:od_lce}.
+Perhaps the largest drawback in the energy calibration is that only a single location was used, in detector z-axis.
+Therefore the variation in light collection efficiency in the OD could not be taken into account (see \autoref{fig:od_lce}), and so energy deposits in other locations in the GdLS would be reconstructed with incorrect energies.
 This is tested in the following section and shown in be insignificant.
 
 
 \subsection{PMT Noise}
 \par
 Observations of waveforms showed that there was a grounding issue, which occasionally caused high energy pulses with large PMT multiplicities.
-An waveform of this is shown in \autoref{fig:noise_od_waveform} where during the noise period no physical OD event can be made out from the noise.
+A waveform of this is shown in \autoref{fig:noise_od_waveform} where during the noise period no physical OD event can be made out from the noise.
 Included as well is an example of OD data during a quiet period of data taking showing a rate as expected.
 
 \input{Chapters/Analysis_OuterDetector/Figures/od_noise_cut}

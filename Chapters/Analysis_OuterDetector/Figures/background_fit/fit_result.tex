@@ -1,0 +1,40 @@
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+    \begin{groupplot}[
+    group style = {group size = 1 by 2,vertical sep=2.0cm}
+    ]
+    \nextgroupplot[
+            ylabel=Rate (Hz/5phd),
+            xlabel=,
+            width=15cm,
+            height=8cm,
+            grid=major,
+            xmin=0, xmax=700,
+            ymin=1e-2, ymax=100,
+            ymode=log,
+            ]
+        \addplot[only marks, mark size=1.0pt] 
+            plot[error bars/.cd, x dir=both, x explicit]
+            table[x=pulsearea,y=weight,x error=xerror, y error=yerror]
+            {Data/OD_Backgrounds/background_constraints/od_data.dat};
+            
+    \nextgroupplot[
+            ylabel=Ratio,
+            xlabel=pulse area (phd),
+            width=15cm,
+            height=5cm,
+            grid=major,
+            xmin=0, xmax=120,
+            %ymin=1e-2, ymax=50,
+            ymode=log,
+            ]
+    
+    \end{groupplot}
+\end{tikzpicture}
+    \caption{Result of fit to data.
+             \textbf{Top:} Fit result.
+             \textbf{Bottom:} Ratio of fit to data. In generally there is good agreement.}
+    \label{fig:od_background_fit_to_data}
+\end{figure}

@@ -1,0 +1,83 @@
+\newcommand{\allrecoiloperators}{01s,03s,04s,05s,06s,07s,08s,09s,10s,11s,12s,13s,14s,15s}
+\newcommand{\spinrecoiloperators}{01s,04s,06s,07s,09s,10s,11s,14s}
+\newcommand{\roguerecoiloperators}{03s,05s,08s,12s,13s,15s}
+
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+  \begin{groupplot}[view={0}{90},
+    group style = {group size = 2 by 1}]
+    \nextgroupplot[
+    xlabel=Recoil Energy (keV),
+    ylabel=Differential Rate (kg/day/keV),
+    legend pos=north east,
+    mark size=0pt,
+    xmin=1, xmax=400, xmode=log,
+    ymin=1e-14, ymax=1e3, ymode=log]
+    \foreach \henrop in \spinrecoiloperators{
+                \addplot 
+                    table
+                    %{Data/HENR/Signal/Recoils/dRdEr_EFT_O01s_m5GeV_0.txt};
+                    {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O\henrop_m5GeV_0.dat};
+            }
+    \nextgroupplot[
+    xlabel=Recoil Energy (keV),
+    legend pos=north east,
+    mark size=0pt,
+    xmin=1, xmax=400, xmode=log,
+    ymin=1e-14, ymax=1e3, ymode=log]
+    \foreach \henrop in \spinrecoiloperators{
+                \addplot
+                    table
+                    %{Data/HENR/Signal/Recoils/dRdEr_EFT_O01s_m5GeV_0.txt};
+                    {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O\henrop_m21GeV_0.dat};
+            }
+  \end{groupplot}
+\end{tikzpicture}
+\caption{Literal Aids
+\textbf{Left:} $Gd^{156}$ de-excitation path.
+\textbf{Right:} $Gd^{158}$ de-excitation path.
+}
+\label{fig:HENR_Spin_Recoil_Spectrum}
+\end{figure}
+
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+  \begin{groupplot}[view={0}{90},
+    group style = {group size = 2 by 1}]
+    \nextgroupplot[
+    xlabel=Recoil Energy (keV),
+    ylabel=Differential Rate (kg/day/keV),
+    legend pos=north east,
+    mark size=0pt,
+    xmin=1, xmax=400, xmode=log,
+    ymin=1e-14, ymax=1e3, ymode=log]
+    \foreach \henrop in \roguerecoiloperators{
+                \addplot 
+                    table
+                    %{Data/HENR/Signal/Recoils/dRdEr_EFT_O01s_m5GeV_0.txt};
+                    {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O\henrop_m5GeV_0.dat};
+            }
+    \nextgroupplot[
+    xlabel=Recoil Energy (keV),
+    legend pos=north east,
+    mark size=0pt,
+    xmin=1, xmax=400, xmode=log,
+    ymin=1e-14, ymax=1e3, ymode=log]
+    \foreach \henrop in \roguerecoiloperators{
+                \addplot
+                    table
+                    %{Data/HENR/Signal/Recoils/dRdEr_EFT_O01s_m5GeV_0.txt};
+                    {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O\henrop_m5GeV_0.dat};
+            }
+  \end{groupplot}
+\end{tikzpicture}
+\caption{Literal Aids
+\textbf{Left:} $Gd^{156}$ de-excitation path.
+\textbf{Right:} $Gd^{158}$ de-excitation path.
+}
+\label{fig:HENR_NotSpin_Recoil_Spectrum}
+\end{figure}

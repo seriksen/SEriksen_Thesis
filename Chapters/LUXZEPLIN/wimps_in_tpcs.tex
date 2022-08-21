@@ -22,14 +22,12 @@ Therefore a detector of a reasonable size will contain a very low background cen
 \par
 An interaction of a particle within the target medium will result in either an interaction with the atomic nucleus, causing a nuclear recoil (NR), or within the electron cloud, resulting in a electron recoil (ER).
 In both cases, the recoiling particle scatters with nearby atomic electrons and nuclei, transferring its kinetic energy: causing both excitation and ionisation of these atoms as a cascade of secondary recoils.
-
+Regardless of which type of recoil originates the ionised track, it culminates in scintillation light.
+The reader is directed towards both \cite{xenon_physics_ref} and \cite{carldahl_thesis_ref} for thorough reviews of these processes, but which are summarised below.
 \par
-
-
-From an interacting particle to atomic electrons, the energy transfer will result in scintillation photons.
-The 
-
-exciton luminescence.
+An excited atom of xenon can bond to another xenon atom to form an excited molecule, or excimer, denoted as Xe$_2^{*\nu}$, which is both electronically and vibrationally excited.
+This excimer will eventually vibrationally relax via collisions with other xenon atoms, and will eventually decay to the ground state via the emission of a photon.
+This process of excition luminescence, is shown below for an electronic recoil;
 
 \begin{align*}
     e^- + Xe &\rightarrow Xe^* + e^+  &\text{impact excitation} \\ 
@@ -38,31 +36,49 @@ exciton luminescence.
     Xe_2^* &\rightarrow Xe + Xe + \gamma &\text{VUV emission} 
 \end{align*}
 
-
-Recombination luminescence.
+\par
+An ionised atom can also produce scintillation light, though it's path to it is somewhat more complex.
+The ionised atom can form diatomic molecules with nearby atoms.
+Some of the electrons which were liberated during the cascade will recombine with the molecule, causing it to split leaving one of the atoms in a highly excited state (Xe$^{**}$).
+The excited atom will then relax down, allowing for photon emission as before.
+This process is referred to as recombination luminescence and for an electronic recoil is shown below;
 
 \begin{align*}
     e^- + Xe &\rightarrow Xe^+ + 2e^+- &\text{ionisation} \\ 
-    Xe^+ + Xe + Xe &\rightarrow Xe_2^{+} + Xe &\text{ } \\
-    e^- + Xe_2^+ &\rightarrow Xe^{**} + Xe &\text{recombination} \\
-    Xe^{**} + Xe &\rightarrow Xe^{*} + Xe + heat &\text{ } \\
-    Xe^{*} + Xe + Xe &\rightarrow Xe_2^{*} + Xe + heat &\text{ } \\
+    Xe^+ + Xe + Xe &\rightarrow Xe_2^{+} + Xe &\text{diatomic molecule formation} \\
+    e^- + Xe_2^+ + Xe&\rightarrow Xe^{**} + Xe &\text{recombination} \\
+    Xe^{**} + Xe &\rightarrow Xe^{*} + Xe + heat &\text{relaxation} \\
+    Xe^{*} + Xe  &\rightarrow Xe_2^{*,\nu} &\text{excimer formation} \\
+    Xe^{*} + Xe + Xe &\rightarrow Xe_2^{*} + Xe + heat &\text{relaxation} \\
     Xe_2^* &\rightarrow Xe + Xe + \gamma &\text{VUV emission} 
 \end{align*}
 
-Following the convention of XXX, the energy deposited in a medium from a recoil, $E_R$, is split between the atoms and the liberated electrons from the nuclei. 
+\par
+The difference in how these interactions appear between electronic recoils and nuclear recoils is shown in \autoref{fig:er_nr_tracks}.
+From the nuclear recoil, the initial atom has a number of scatters, but they are typically below the ionisation level, as such, for any energy of scatter, an electron recoil will result in a number of photons.
+Additionally, as the electron is less stopped by the LXe, the track length is significantly greater.
+If the interaction occurs in an electric field, not all of the electrons will recombine, allowing for potentially a second scintillation sight.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{Figures/LZ/er_nr_tracks.png}
+    \caption[Depiction of a 20keV recoil on liquid xenon]{Depiction of 20keV recoil of electronic recoil (top) and nuclear recoil (bottom) in liquid xenon.
+    Figure is from RIVAL simulations by C. Dahl \cite{carldahl_thesis_ref}, with adaptations by C. Fahan \cite{carlosfahan_thesis_ref}.}
+    \label{fig:er_nr_tracks}
+\end{figure}
 
-
-
-The energy deposited in Xenon, E, is split between the atoms and liberated electrons.
+\par
+The energy deposited in LXe, is split between the atoms and liberated electrons, and so the energy of the recoil, E, can be written as:
 \begin{equation}
-    E = \frac{W}{L}(n_e + n_\gamma)
+    E = \frac{W}{L}(N_i + N_{ex})
 \end{equation}
-here, L is the "Lindhard factor" or "quenching" which accounts for the reduced light and charge that's lost to heat.
+Here, W is the W-factor for LXe, generally taken to be 13.7 $\pm$ 0.2 eV \cite{light_and_charge_of_xenon_ref}, though there are more recent measurements indicating it could be as low as 11.5 eV \cite{electron_excitation_energy_of_xenon_ref}. 
+N$_i$ and N$_{ex}$ are the number of ionised atoms and number of excited atoms respectively.
+L corresponds to the "Lindhard factor" or "quenching" which accounts for the reduced light and charge that's lost to heat.
 It is generally taken that L=1 for electron recoils as the heat loss does not vary with energy, allowing the impact this has to be taken into W.
-In the case of nuclear recoils, L is a dependent upon the deposited energy.
-
+\par
+The ratio between the excitation atoms to ionisated atoms allows for the difference between ER and NR events to distinguished, with the resultant number of photons observed differing between the two.
+Experimentally, N$_{ex}$/N$_i$ has been measured as $\approx$ 1 for nuclear recoils, and 0.06 for electron recoils \cite{ionisation_to_excitation_ratio_xenon_ref}.
 
 \subsection{Dual-phase Time Projection Chamber}
 \par
@@ -100,7 +116,8 @@ This high-resolution position reconstruction allows for the self-shielding of Xe
 \par
 The size of the two pulses in terms of photons detected, which will now be referred to as S1 and S2, can be related to the underlying quanta which produced them via;
 \begin{align}
-    S1 = n_\gamma G_1(x,y,z) && S2 = n_\gamma G_2(x,y,z)
+    n_\gamma = N_{ex} + N_i r && n_e = N_i (1-r) \\
+    S1 = n_\gamma G_1(x,y,z) && S2 = n_e G_2(x,y,z)
 \end{align}
 where both $G_1(x,y,z)$ and $G_2(x,y,z)$ account for the variable light collection efficiency.
 It is useful to note that $G_1$ varies between 0 and 1 as the photons will not produce more photons and so the maximum S1 can be is the number of photons produced.
@@ -124,7 +141,7 @@ S1 is also adjusted to a z-position, typically taken to be the centre of the LXe
 \par
 S1$_c$ and S2$_c$ are then just both linear relationships to the original quanta, related by a gain factor, $g$, which can be written as:
 \begin{align}
-    S1_c = g_1 n_\gamma && S2_c = g_2 n_\gamma
+    S1_c = g_1 n_\gamma && S2_c = g_2 n_e
 \end{align}
 
 \par
@@ -132,7 +149,8 @@ With this linear relationship, the reconstructed recoil energy from the event of
 \begin{equation}
     E_R = \frac{W}{L}(\frac{S1_c}{g_1} + \frac{S2_c}{g_2})
 \end{equation}
-As the quenching factor, L, differs for NR and ER events, any pulse-pair can have two reconstructed energies: E$_R$ for ER events where L=1, and E$_R^{NR}$ for NR events where L has an energy dependence.
+
+For NR events, L has an energy dependence.
 \par
 An example of the possible discrimination between ER and NR from a Xenon TPC is shown in \autoref{fig:er_nr_discrimination} for an arbitrary TPC detector.
 The discrimination between ER and NR events is not perfect, with a non-negligible leakage between bands.

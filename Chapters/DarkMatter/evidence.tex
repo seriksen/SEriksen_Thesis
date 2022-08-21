@@ -45,11 +45,11 @@ However, observations have shown that this is in fact not the case, and instead 
 \begin{figure}[!htbp]%
     \centering
     \includegraphics[scale=1.0]{Figures/DarkMatterEvidence/NGC_6503_galaxy_speed.png}
-    \caption{Galaxy rotation curve for the NGC 6503 galaxy along with different mass distribution models which together produce the fit on the observed data. The measurements are from 1991. Figure adapted from \cite{NGC_6503_galaxy_rotation_ref}}
+    \caption[Galaxy rotation curve for the NGC 6503 galaxy]{Galaxy rotation curve for the NGC 6503 galaxy along with different mass distribution models which together produce the fit on the observed data. The measurements are from 1991. Figure adapted from \cite{NGC_6503_galaxy_rotation_ref}}
     \label{fig:DM_Evidence_NGC_6503}
 \end{figure}
 These measurements have been performed multiple times and redone with modern measurements, but always producing results inconsistent with the majority of the mass being in the luminous disc.
-Instead, what is suggested is that there is an invisible halo which has a mass density following $\rho(r) \alpha \frac{1}{r^2}$ at large $r$.
+Instead, what is suggested is that there is an invisible halo which has a mass density following $\rho(r) \propto \frac{1}{r^2}$ at large $r$.
 This is in fact a topic on ongoing research which now focuses on Low Surface Brightness galaxies, where dark matter is the dominating component \cite{MHONGOOSE_2018_ref}.
 
 
@@ -60,18 +60,20 @@ The general theory of relativity tells us that space-time is warped by the prese
 As such, light propagating along null-geodesics will curve when near any object with mass, with the degree of curving being directly correlated to the intervening objects mass.
 This effect, known as gravitational lensing, can be categorised as strong, weak or microlening\footnote{Strong lensing typically produces multiple images of the same object. Weak lensing has no noticeable distortion but can be discovered by statistically. Microlensing is when a significantly smaller object produces a distortion.}. 
 Gravitational lensing manifests itself in observations as duplicate features and distortions.
-An example of strong lensing is shown in \autoref{fig:DM_Evidence_Einstein_Ring} where light from a distant galaxy has been distorted into an arc due to the mass of an intervening galaxy.
+An example of strong lensing is where light from a distant galaxy has been distorted into an arc due to the mass of an intervening galaxy, several of which examples can be found in \cite{einstein_ring_discovery_ref}, with a high quality image shown in \autoref{fig:DM_Evidence_Einstein_Ring}.
 
 \begin{figure}[!htbp]%
     \centering
-    \includegraphics[scale=0.5]{Figures/DarkMatterEvidence/Einstein_Ring_from_Hubble.JPG}
-    \caption{An example of a "Horseshoe Einstein Ring" created by the bending of light from a distant blue galaxy by the central red galaxy LRG 3-757. [ESA/Hubble]}
+    \includegraphics[scale=0.4]{Figures/DarkMatterEvidence/Einstein_Ring_from_Hubble.JPG}
+    \caption{An example of a "Horseshoe Einstein Ring" created by the bending of light from a distant blue galaxy by the central red galaxy LRG 3-757 [ESA/Hubble]}
     \label{fig:DM_Evidence_Einstein_Ring}
 \end{figure}
 
+\par
 Based on the amount of distortion, the mass of the object causing the lensing can be measured and can be applied to both individual galaxies as well as clusters.
 The mass required for the lensing observed can then be compared to the luminous mass.
 The studies have all found that there is a significant missing mass in cluster and galaxies.
+
 
 \par
 Another example of this is Cluster 1E0657-558, also known as the Bullet Cluster.
@@ -80,9 +82,17 @@ In this collision, the baryonic matter can be tracked via electromagnetic radiat
 What is observed is that there is a discrepancy between the two distributions; with the luminous matter appearing to have mixed during the collision causing the matter to slow down.
 On the other hand, the majority of the mass has passed through.
 What this indicates is that in addition to there being a significant invisible mass, this mass must also have a very small cross-section with baryonic matter and itself.
+
 \begin{figure}[!htbp]%
     \centering
-    \caption{Bullet Cluster}
+     \includegraphics[width=\textwidth]{Figures/DarkMatterEvidence/bullet_cluster_2.png}
+    \caption[Merging of two galaxy cluster, 1E 0657-558]{Merging of two galaxy clusters: The Bullet Cluster, 1E 0657-558.
+             During the collision, the dark matter components passed through without interacting.
+             The baryonic components from the two clusters interacted, causing them to lag behind .
+             \textbf{Left:} Optical image from the Magellan observatory.
+             \textbf{Right:} X-ray image from the Chandra observatory.
+             In both figures the white bar indicates 200 kpc, the green contours are the mass distribution from weak-lensing reconstructions and the white contours are the errors on the position of the lensing peaks.
+             Figure adapted from \cite{bullet_cluster_ref}.}
     \label{fig:DM_Evidence_Bullet_Cluster}
 \end{figure}
 
@@ -94,20 +104,51 @@ This is a near perfectly uniform field of microwave photons with the energy spec
 These photons, sometimes referred to as 'relic' radiation, last interacted with with the early Universe, some 380,000 years after the Big Bang\footnote{The surface of last scattering}, before the Universe cooled sufficiently for recombination\footnote{When electrons were first able to bind to nuclei} and neutral Hydrogen formation.
 At this time, the Universe was filled with a plasma as there was enough energy to ionise an atom as soon as it has been formed.
 The CMB photons decoupled from the plasma during this time and was able to were able to free-stream through the Universe.
-As the Universe has expanded, these photons have red-shifted down to the now observed microwave photons.
+As the Universe has expanded, these photons have red-shifted down to the now observed microwave photons, and give an insight into the early universe \footnote{It has also been quoted as "a selfie of the baby universe" \cite{marisarthurs_thesis_ref}}.
 Maps of the CMB have been undertaken by multiple satellite missions, of which ones is shown in \autoref{fig:DM_Evidence_CMB_Map}.
 
 \begin{figure}[!htbp]%
     \centering
-    \includegraphics[width=\textwidth]{Figures/DarkMatterEvidence/cmb_radiation.png}
-    \caption{Temperature fluctuations of the CMB radiation from Planck.
+    \includegraphics[width=0.8\textwidth]{Figures/DarkMatterEvidence/cmb_radiation.png}
+    \caption[Temperature fluctuations of the CMB radiation]{Temperature fluctuations of the CMB radiation from Planck.
              The maximum difference between the warmest (red) and coldest (blue) is 0.0006K.
-             [ESA/Planck Collaboration]}
+             Figure from \cite{plank_result_ref}.}
     \label{fig:DM_Evidence_CMB_Map}
 \end{figure}
 
-The CMB is very uniform, as the Universe was very isotropic at the moment the CMB decoupled. 
-However, there are very small anisotropies at the 0.02\% level.
+\par
+At the time when the CMB decoupled the universe was extremely isotropic, which can be seen in the uniformity of the CMB, though there are minor anisotropies.
+Prior to recombination, any small non-uniformity in the plasma resulted in a gravitation well, which all forms of matter were pulled into.
+The inward force of gravity competed with the outward force from photons, tied with the expanding and therefore cooling universe resulted in standing pressure waves in the plasma, referred to as baryon acoustic oscillations (BAO).
+These temperature fluctuations can therefore be described by spherical harmonics ($Y_{lm}(\theta,\phi)$:
+\begin{equation}
+    \frac{\delta T}{T}(\theta, \phi) = \sum_{l} \sum_{m} a_{lm}Y_{lm}(\theta,\phi)
+    \label{eq:bao_spherical_harmonics}
+\end{equation}
+Two locations in the CMB can be described by;
+\begin{equation}
+    C(\theta) = \frac{1}{4\pi} \sum_{l} (2l + 1) C_l P_l (cos(\theta))
+\end{equation}
+where $\theta$ is the angular separation between two points and $P_l (cos(\theta))$ are Legendre polynomials.
+$C_l$ can be considered as the magnitude of the temperature fluctuation when $l$ is large, making $l$ analogous to $\theta$.
+The application of this to \autoref{fig:DM_Evidence_CMB_Map} is shown in \autoref{fig:DM_Evidence_BAO}.
+\begin{figure}[!htbp]%
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figures/DarkMatterEvidence/bao.png}
+    \caption[Temperature fluctuations of the CMB spectrum as a function of $l$]{The temperature fluctuations of the CMB power spectrum against the spherical harmonics multipole parameter, $l$, which is a proxy for angular separation.
+             \textbf{Top:} the power spectrum fitted to the $\Lambda$CDM model.
+             \textbf{Bottom:} the residuals of the fit, shown to be small.
+             Figure from \cite{plank_result_ref}.}
+    \label{fig:DM_Evidence_BAO}
+\end{figure}
+
+\par
+BAO is able to constrain the $\lambda$CDM model of the universe, with the latest Planck result, the observed CMB is best fitted with a energy density in the universe divided up as: 4.88\%$\pm$0.03\% baryonic matter, 26.01\%$\pm$0.22\% and the remaining 69.11\%$\pm$0.62\% being dark matter \cite{plank_result_ref}.
+
+\par
+Hot vs cold vs warm... 
+
+
 
 
 \subsection{Galactic Centre $\gamma$ rate}

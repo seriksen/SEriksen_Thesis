@@ -31,13 +31,13 @@ This pre-trigger time is required as that is where the S1 pulse will be in the S
 \par
 The core cuts are listed below;
 \begin{itemize}
-    \item \textbf{SS}: Remove events which are inconsistent with dark matter as they have scattered more than once.
+    \item \textbf{SS}: Select events which have only scattered once, "single scatter". Particles which scatter more than once are not compatible with dark matter.
     \item \textbf{FID}: Removal of events where reconstruction of energy is poor and to incorporate LXe self-shielding, reducing the background rate.
     \item \textbf{ROI}: Select events where the recoil energy is in the range expected from a WIMP scatter. Typically this is between 1.65-6.5 keV ER events and 6-30keV NR events. For other dark matter models, such as EFT searches this requirement changes.
     \item \textbf{Veto}: Remove events which are inconsistent with dark matter due to scattering more than once. This removed both neutrons and $\gamma$'s.
 \end{itemize}
 In data taking, additional cuts are often required to account for experimental features not anticipated in simulations.
-As such the above list should be considered as a "core" selection, with a requirement of "data-driven" cuts potentially required later\footnote{This was required for the SR1 WIMP Search result for LZ detailed in \cite{lz_ws_sr1_ref}}.
+As such the above list should be considered as a "core" selection, with a requirement of data-driven cuts potentially required later.
 
 \par
 On the data which passes the cuts above, a statistical analysis is performed.

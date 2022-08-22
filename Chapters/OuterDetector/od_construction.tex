@@ -17,13 +17,13 @@ They remained secured to the water tank outer-walls until the OD installation wa
 \par
 The TATs were first brought underground in August 2019 for a fit test on top of the OCV (before the ICV has been installed inside).
 During the cage journey underground, the tanks valves were opened so that the pressure change would not damage them.
-As such, once at the 4850 level, each tank was subjected to a N2 purge to remove as much of the cavern air as possible for the reasons described in Section XXX.
+As such, once at the 4850 level, each tank was subjected to a N2 purge to remove as much of the cavern air as possible for the reasons described in \autoref{sec:simulated_od_requirements}.
 An example of this process is shown in \autoref{fig:TAT_purging}.
 During this process, it was discovered that the top acrylic sheet had come away from the bond holding it to the side acrylic pieces.
-This was later re-bonded, but is mentioned as it meant that the tank was exposed to cavern air for a prolonged period of time.
+This was later re-bonded, but is mentioned here as it meant that the tank was exposed to cavern air for a prolonged period of time.
 Additionally, during the fit test, it was found that the curvature of the TATs differed from the OCV which would leave a large water-gap between the two, increasing the probability of hydrogen neutron capture.
 
-\begin{figure}[!htbp]
+\begin{figure}[!tbph]
 \includegraphics[width=\textwidth]{Figures/Construction/tat_purging.JPG}
 \centering
 \caption{Photograph of the a top tank setup for N2 purge.}
@@ -34,11 +34,11 @@ Additionally, during the fit test, it was found that the curvature of the TATs d
 The proposed solution was to 'correct the curvature' with additional foam on top of the OCV, which due to construction delays and COVID-19, did not begin until August 2020.
 The foam installed on the top of the OCV was of the same type as planned for the side tanks and assayed in \cite{LZ_assay_ref}.
 The primary bonding methods used to secure the foam to the OCV was HandiFoam\textsuperscript{\textregistered} \cite{handifoam_ref}.
-HandiFoam\textsuperscript{\textregistered} was chosen as it securely held test pieces together, but also would will in any potential gaps.
+HandiFoam\textsuperscript{\textregistered} was chosen as it securely held test pieces together, but also would fill in any potential gaps.
 Additionally, the foam was held in place with titanium pins, and titanium rods.
 Part of the installation is shown in \autoref{fig:TAT_foam_installation}.
 
-\begin{figure}[!htbp]
+\begin{figure}[!tbph]
 \begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[height=6cm, width=\linewidth]{Figures/Construction/TAT_foam_installation.png}
@@ -61,7 +61,7 @@ The final fit-test is shown in \autoref{fig:SAT_foam_guys}.
 As the foam had been underground for a number of weeks prior to being used, each piece of foam installed underwent a final 'shaving', shown in \autoref{fig:foam_saving}.
 A few mm was taken from each side of the foam to remove Radon chain particles that may have embedded themselves in the foam.
 
-\begin{figure}[!htbp]
+\begin{figure}[!tbph]
   \begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[width=\linewidth]{Figures/Construction/foam_shaving.jpg}
@@ -82,7 +82,7 @@ A few mm was taken from each side of the foam to remove Radon chain particles th
 Additional foam was installed around the OCV legs in between the BATs.
 This foam was secured using HandiFoam\textsuperscript{\textregistered} as shown in \autoref{fig:ocv_leg_foam}.
 
-\begin{figure}[!htbp]
+\begin{figure}[!tbph]
 \begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[height=6cm, width=\linewidth]{Figures/Construction/BAT_green_foam.JPG}
@@ -101,8 +101,11 @@ This foam was secured using HandiFoam\textsuperscript{\textregistered} as shown 
 
 \par
 Because of the aforementioned split tank and thin walls, there was a danger that the tanks may leak GdLS.
-As the GdLS is oil-based it would float to the top of the water, however experiments showed that it did not react well with the foam surrounding the OCV.
-As such, polyethylene sheets were installed to cover the foam. 
+This is not necessarily a problem as GdLS is oil-based it would float to the top of the water, allowing it to be collected easily.
+However experiments showed that it did not react well with either Tyvek or foam, both of which surround the OCV.
+For Tyvek, over long exposure the optical reflectivity is damaged, reducing light collection in the OD.
+Whereas the foam degrades sufficient that it would not longer serve it's purpose as a water displacer after any contact.
+As such, polyethylene sheets were installed to cover the foam.
 On top of this, the Tyvek was installed.
 In addition, the OD-Tyvek shape around the TAT was changed.
 Previously this was a flat Tyvek sheet lying on top of the TAT and out to the OD PMTs.
@@ -119,7 +122,7 @@ Additionally, HandiFoam\textsuperscript{\textregistered} was used for smaller pl
 Neither of these foam solutions had been assayed.
 The final BAT installation is shown in \autoref{fig:BAT_installation}.
 
-\begin{figure}[!htbp]
+\begin{figure}[!tbph]
 \begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[angle=90, width=\linewidth]{Figures/Construction/BAT_installation.jpg}
@@ -149,7 +152,7 @@ The use of a single layer will have a performance reduction with the reflectivit
 \par
 The culmination of this is the completed OD, shown in \autoref{fig:complete_od}.
 
-\begin{figure}[!htbp]
+\begin{figure}[!tbph]
 \includegraphics[width=\textwidth]{Figures/Construction/od_complete.jpg}
 \centering
 \caption{Completed OD installation}
@@ -168,7 +171,7 @@ Many of these design changes, whether it be material or geometrical will have so
 Most of the changes discussed above have been implemented in the simulation.
 A slice through the geometry is shown in \autoref{fig:Geometry_Differences} where the differences are highlighted.
 
-\begin{figure}[!htbp]
+\begin{figure}[!tbph]
 \includegraphics[width=\textwidth]{Figures/Geometry/geometry_differences_black_and_white.png}
 \centering
 \caption{LZ geometry slice as implemented in Geant4 from the water tank in. In black: the designed geometry as in \autoref{fig:LZ_Cut_CAD}. In Red: changes to the design including raised Top OD tanks and additional foam. OD PMTs are not shown here due to none lying on this plane.}

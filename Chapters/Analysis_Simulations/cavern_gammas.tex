@@ -2,21 +2,22 @@
 \label{sec:cavern_gamma_generator}
 
 \par
-Although the LZ detector has been constructed underground to limit cosmic radiation, it does come with a drawback of being in a mine with a non-negligibly radioactive rock and  shotcreat and gravel within the Davis Cavern.
+Although the LZ detector has been constructed underground to limit cosmic radiation, it does come with a drawback of being in a mine with a non-negligibly radioactive rock, shotcreat and gravel within the Davis Cavern.
 LZ is not unique in this, it is a problem highlighted in a number of other underground experiments \cite{cavern_gamma_annual_modulation_CoGeNT_ref, cavern_gammas_in_Soudan_mine_ref}, with an annual modulation mimicking dark matter potentially, noticed in \cite{cavern_gamma_annual_modulation_CoGeNT_ref}.
 The rate of $\gamma$s from the cavern have been measured and can be attributed to the shotcreat and gravel \cite{LZ_Gamma_Ray_Background_ref} - though the rate has a significant uncertainty.
-One of the most significant sources of background stems not from any internal component but rather from $^{238}U$, $^{232}Th$ and $^{40}K$ decays from the cavern walls in which the LZ detector is located.
-These decay chains are discussed in \autoref{chapter:lz_outer_detector} and can be seen in \autoref{fig:decay_chains}).
+Some of the most significant sources of background stems not from any internal component but rather from $^{238}U$, $^{232}Th$ and $^{40}K$ decays from the cavern walls in which the LZ detector is located.
+These decay chains are discussed in \autoref{chapter:lz_outer_detector} and can be seen in \autoref{fig:decay_chains}.
 It is however a computationally intensive process to simulate a large number of $\gamma$s where the majority will not reach the actual detector.
-To compensate, a generator for these $\gamma$s was created - and originally described in \cite{rg_generator_ref} but summarised below.
-The generator is created by performing simulations of the decay chains originating in the shotcreat and gravel.
-The $\gamma$'s which reach a pre-defined surface are saved.
-A second stage simulation is then performed where each of the saved $\gamma$'s is generated a number of times and then saved at another pre-defined surface.
-This boost occurs a number of times, until the final stage where the $\gamma$'s which reach that surface are used in the generator.
-When subsequent simulations are performed, these saved $\gamma$'s are randomly sampled. 
+To compensate, a generator for these $\gamma$s was used - originally described in \cite{rg_generator_ref} and is summarised below.
+The generator simulates the decay chains originating in the shotcreat and gravel, but only contains $\gamma$s which have reached a pre-defined inner-surface, within the LZ experiment.
+To create this generator, a number of simulations are performed in stages.
+In the first stage, $\gamma$s from the cavern wall are simulation, and are propagate until they reach a surface closer to the detector, at which point they are saved, and the simulated stopped.
+A second stage simulation is then performed where each of the saved $\gamma$s is generated a number of times and then saved at another pre-defined surface further into the detector.
+This boost occurs a number of times, until the final stage where the $\gamma$s which reach that surface are used in the generator.
+When subsequent simulations are performed, these saved $\gamma$s are randomly sampled. 
 
 \par
-For the creation of the generator additional cavern properties are added to the simulation.
+This simulation considers additional cavern properties are added to the simulation.
 Namely; a steel pyramid and gravel beneath the water tank, and a layer of shotcreat.
 These adaptions are shown in \autoref{fig:Cavern_Geometry}.
 
@@ -28,28 +29,27 @@ These adaptions are shown in \autoref{fig:Cavern_Geometry}.
 \end{figure}
 
 \par
-Although as mentioned in \cite{lz_simulations_ref}, a generator for the Davis Cavern $\gamma$'s existed, it had a number of flaws.
+Although as mentioned in \cite{rg_generator_ref}, a generator for the Davis Cavern $\gamma$'s existed, it had a number of flaws.
 Firstly, no $\gamma$ below 2MeV were included.
 This meant that $^{40}K$ was not included and there was a bias to higher energy events and therefore a higher rate.
-Additionally, the generator was created using a version of GEANT4 while the rest of the simulation chain had moved on from GEANT4.9.5 to GEANT4.10.3.p02. 
-This motivated the creation of a new generator.
+Additionally, the generator was created using a GEANT4.9.5 while the rest of the simulation chain had moved on to GEANT4.10.3.p02. 
+This motivated the creation of an updated generator.
 
 \par
 The parameters of the new generator are shown in \autoref{tab:cavern_gamma_generator_parameters} and a comparison of the energy distribution of the old and new generators is shown in \autoref{fig:cavern_gamma_energy_distribution}.
-Although it can be seen that the previous generators had a maximum $\gamma$ energy of 10MeV, it also highlights a significant change between GEANT4.9.5 and GEANT4.10.3.p02.
-That is, an increased rate above 9MeV.
-These $\gamma$'s are predominately from ($\alpha$,$\gamma$) reactions such as $O + \alpha \to Ne + \gamma$, where a decay $\alpha$ is captured by a nucleus in the rock.
-As these higher energy $\gamma$'s are able to travel further into the detector they are more able to reach the TPC - mimicking dark matter.
+Although it can be seen that the previous generators had a maximum $\gamma$ energy of 10MeV, it also highlights a significant change between GEANT4.9.5 and GEANT4.10.3.p02, namely an increased rate above 9MeV.
+These $\gamma$s are predominately from ($\alpha$,$\gamma$) reactions such as $O + \alpha \to Ne + \gamma$, where a decay $\alpha$ is captured by a nucleus in the rock.
+As these higher energy $\gamma$'s are able to travel further into the detector they are more likely to reach the TPC - mimicking dark matter.
 Conversely, they may produce large signals in the OD which would trigger a veto, reducing the detector livetime.
-Since this version of GEANT4, there have been new studies of the ($\alpha$,$\gamma$) cross-section in other underground laboratories, such as in \cite{cavern_gammas_in_Soudan_mine_ref}.
-Generally, very little attention has been given to ($\alpha$,$\gamma$) rates, and so it is possible that the observed rate may differ significantly from that shown here as although in \autoref{fig:cavern_gamma_energy_distribution} the largest difference is at higher energy $\gamma$'s, as was shown in the Sudan Mine \cite{cavern_gammas_in_Soudan_mine_ref}, the rate of sub-6MeV $\gamma$'s may also change significantly. 
-There is however evidence that the cross-sections used by Geant4 - which uses the statistical method from TALYS \cite{talys_ref} - has a large uncertainty for ${O}^{17} + \alpha \to {Ne}^{20} + n$ \cite{alpha_gamma_statistical_error_ref}.
-Given this, it has been suggested that the rate of $\gamma$'s above 2MeV from ($\alpha$,$\gamma$) reactions being 5 orders of magnitude higher than expected \cite{soudanmine_counter_point_ref, alpha_gamma_reactions_ref}.
+Since GEANT4.10.3.p02, there have been new studies of the ($\alpha$,$\gamma$) cross-section in other underground laboratories, such as in \cite{cavern_gammas_in_Soudan_mine_ref}.
+Generally, very little attention has been given to ($\alpha$,$\gamma$) rates, and so it is possible that the observed rate may differ significantly from that shown here as although in \autoref{fig:cavern_gamma_energy_distribution} the largest difference is at higher energy $\gamma$'s, as was shown in the Sudan Mine \cite{cavern_gammas_in_Soudan_mine_ref}, the rate of sub-6MeV $\gamma$s may also change significantly. 
+There is however evidence that the cross-sections used by GEANT4 - which uses the statistical method from TALYS \cite{talys_ref} - has a large uncertainty for ${O}^{17} + \alpha \to {Ne}^{20} + n$ \cite{alpha_gamma_statistical_error_ref}.
+Given this, it has been suggested that the rate of $\gamma$'s above 2MeV from ($\alpha$,$\gamma$) reactions being 5 orders of magnitude higher than expected in GEANT4 simulations \cite{soudanmine_counter_point_ref, alpha_gamma_reactions_ref}.
 This is explored on LZ data in \autoref{sec:od_analysis_backgrounds}.
 
 \par
 The livetime ($l$) for a simulation can be determined then by $l_{\text{simulation}} = \frac{\text{n.} \gamma_{\text{simulated}}}{\text{n.} \gamma_{\text{generator}}} * \text{l}_{\text{generator}}$
-In short, this means that every $\gamma$ in the generator represents roughly 130000 decays from the rock, and so is a significant computational saving.
+In short, this means that every $\gamma$ in the generator represents roughly 130000 decays from the rock, and so is a significant computational saving on repeated simulations.
 
 
 \begin{table}[!htbp]
@@ -69,15 +69,20 @@ In short, this means that every $\gamma$ in the generator represents roughly 130
 
 
 \par
-Additionally it was noticed during the comparison that in the previous generator that it had not been created correctly.
-This caused a bias in the $\gamma$ distribution to the top of the detector.
-The energy deposit distribution from the newly created generator is shown in \autoref{fig:cavern_gamma_position_distribution}, where the most significant contribution to rate is in the bottom of the Outer Detector side tanks.
+During the comparison between the two generator versions, it was noticed that the previous generator had not been created correctly.
+This caused a bias in the $\gamma$ distribution to the top of the detector, as the generator surface did not cover the sides of the detector adequately.
+The most significant affect on this will have been in any dark matter sensitivity study, such as \cite{lz_simulations_ref}, where the fiducial volume may have to have changed sized if external $\gamma$ events were originating from other locations.
+\par
+The energy deposit distribution from the updated generator is shown in \autoref{fig:cavern_gamma_position_distribution}.
+The most significant contribution to rate is in the bottom of the Outer Detector side tanks, and events which enter the TPC enter from the sides as well as the Top and Bottom.
 
 \begin{figure}
     \centering
     \resizebox{\textwidth}{!}{
 \input{Data/Simulation_Analysis/Cavern_Gammas/cavern_gamma_deposit_positions}
 }
-    \caption{Simulated cavern-$\gamma$ energy deposit locations normalised to rates.}
+    \caption[Simulated cavern-$\gamma$ energy deposit locations normalised to rates.]{Simulated cavern-$\gamma$ energy deposit locations normalised to rates.
+             The highest rate of deposits is in the bottom of the OD side tanks, which are the closest to the cavern wall.
+             The TPC experiences $\gamma$ deposits from all sides.}
     \label{fig:cavern_gamma_position_distribution}
 \end{figure}

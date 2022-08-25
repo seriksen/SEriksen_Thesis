@@ -118,40 +118,65 @@ However, by selecting events which only have a double or triple detector coincid
 \label{fig:fission_fragments_time}
 \end{figure}
 
-\clearpage
-
 \input{Chapters/Analysis_OuterDetector/Figures/neutron_capture/cf252_pulse_selection}
-
-\clearpage
-\clearpage
 
 \input{Chapters/Analysis_OuterDetector/Figures/neutron_capture/cf252_largest_after_pulse}
 
-\clearpage
-
 \input{Chapters/Analysis_OuterDetector/Figures/neutron_capture/cf252_capture_time}
 
-\clearpage
 \par
 The best fit was found to be with just two exponents.
 With $t_0 = 31.39 \pm 0.4\mu s$ and $t_1 = 124.5 \pm 1.7\mu s$, with a $\chi^2=0.821$.
-When compared to simulated capture times, such as in \autoref{fig:data_vs_sim_gd_capture_time}, neutrons are taking longer than expected to be captured in the OD.
+$t_0$ accounts for neutrons which travel straight through from the source position to the GdLS and are captured on the GdLS.
+$t_1$ is more complex as it accounts for neutrons scatter several times in not the GdLS, such as the acrylic of foam regions.
+Given each of these have a different affect on this, it is not clear exactly what is causing it.
+This is particularly apparent when compared to the expected result from simulations (also included in \autoref{fig:cf252_gd_capture_time}, where we can see that the neutrons are taking longer than expected to be captured in the OD.
 This indicates that neutrons are becoming trapped in materials between the calibration tube and the OD.
 The possible materials between the CSD and the OD are primarily foam, acrylic and water.
+Given that the acrylic thickness was measured during construction, this leaves water as the most likely scenario.
+
 \par
-The foam installed around the OCV is expanded using $CO_2$.
-A test was conducted to observe what happens to this foam (and what happens to the water).
+One possible reason for this is the foam surrounding the OCV not stopping all water from coming into that region.
+Though when the SATs were installed, there was no discernible gap between the SAT and the Tyvek around the OCV foam.
+Though it is possible that a small amount of water would have entered this area over time, but no more than a few mm.
+
+\par
+Another possibility is that the foam became at least in part filled with water.
+Water ingress in foam has been well studied at least in part, with the industrial measures of water absorption defined as via diffusion and by submersion \cite{foam_with_water_ref}.
+The effectiveness of any foam type to keep water out is based on a number of factors including density and most importantly if the structure is closed or open\footnote{in terms of whether the cells which make up the foam structure. Open cell foams are softer and more flexible as each cell is open to the atmosphere. Closed cell foams are firmer with the majority of cells being closed to the atmosphere.}.
+The difference in terms of water ingress is shown in \autoref{fig:foam_mri_water_ingress}.
+
+
+\begin{figure}[!tbhp]
+\includegraphics[width=\textwidth]{Figures/NeutronCaptureTime/foam_water_absorption.png}
+\centering
+\caption{Magnetic resonance images of 30 mm cube samples of polyurethane foam for two types of different foam of the same density, 0.3 g m${}^{-3}$: a closed cell foam (top) and an open cell foam (bottom).
+(a) closed cell foam after 8 hours. (b) closed cell foam after 63 hours.
+(c) open cell foam after 8 hours. (d) open cell foam after 72 hours.
+Images from \cite{foam_mri_data_ref}.
+}
+\label{fig:foam_mri_water_ingress}
+\end{figure}
+
+
+\par
+The foam installed around the OCV (green foam in \autoref{sec:od_construction_sec}) is a closed cell foam expanded using $CO_2$, foam 3000 CS in \cite{styrodur_water_ingress_ref}.
+As such the foam is expected to experience a 0.7\% volume ingress of water due to long term submersion and 5\% volume ingress of water from diffusion\footnote{long-term in this case refers to a 28-day test as is the industry standard, see BS EN ISO 16535 (BS EN 12087) and BS EN ISO 16536 (previously BS EN 12088).}.
+These values, being based off of tests designed of industry do not necessarily map obviously onto how it was used in this application.
+\par
+In order to begin probing this, a test was conducted to observe what happens to this foam (and what happens to the water).
 An example of each piece of foam used, was placed in de-ionised water and placed under a $N_2$ purge. 
 The water resistivity was measured every few hours as a monitor of the water's purity.
 The result over the first week of running is shown in \autoref{fig:od_foam_degredation}.
 What is observed during this period is the water becoming contaminated with ions from the foam from out gassing.
-Over a longer period of study it may show that the foam becomes saturated with water.
+Over a longer period of study it may show that the foam becomes saturated with water, particularly with a test using a piece of foam shaped to the same dimensions as those used in the installation.
+
 \par
 In relation to LZ, this has two impacts, firstly these ions can circulate throughout the OD water and contribute to the low energy rate.
 Secondly, this will impact on the time it takes for a neutron to reach the GdLS.
 Taking the most extreme case as the foam being completely replaced with water, we can see that the neutron time to reach the GdLS is significantly increased (shown in blue in \autoref{fig:data_vs_sim_gd_capture_time}).
 This therefore seems an reasonable explanation for the difference observed.
 
-\input{Chapters/Analysis_OuterDetector/Figures/neutron_capture/data_vs_sim_capture_time}
-
 \input{Chapters/Analysis_OuterDetector/Figures/neutron_capture/foam_degredation}
+
+\input{Chapters/Analysis_OuterDetector/Figures/neutron_capture/data_vs_sim_capture_time}

@@ -31,10 +31,10 @@ This pre-trigger time is required as that is where the S1 pulse will be in the S
 \par
 The core cuts are listed below;
 \begin{itemize}
-    \item \textbf{SS}: Select events which have only scattered once, "single scatter". Particles which scatter more than once are not compatible with dark matter.
-    \item \textbf{FID}: Removal of events where reconstruction of energy is poor and to incorporate LXe self-shielding, reducing the background rate.
-    \item \textbf{ROI}: Select events where the recoil energy is in the range expected from a WIMP scatter. Typically this is between 1.65-6.5 keV ER events and 6-30keV NR events. For other dark matter models, such as EFT searches this requirement changes.
-    \item \textbf{Veto}: Remove events which are inconsistent with dark matter due to scattering more than once. This removed both neutrons and $\gamma$'s.
+    \item \textbf{SS}: Select events which have only scattered once, "single scatter". This refers to the particle which set of the cascade seen in \autoref{fig:er_nr_tracks}. Particles which scatter more than once are not compatible with dark matter as their likelihood to scatter twice is too low. This cut is defined as events which have a single S1 pulse and a single S2 pulse in the event.
+    \item \textbf{FID}: Removal of events where reconstruction of energy is poor and to incorporate LXe self-shielding, reducing the background rate. This cut is applied on the reconstructed {$x,y,z$} of a scatter to select events in an inner region of the TPC LXe.
+    \item \textbf{ROI}: Select events where the recoil energy is in the range expected from a WIMP scatter. Typically this is between 1.65-6.5 keV ER events and 6-30keV NR events. For other dark matter models, such as EFT searches this requirement changes. This cut is applied on the S1 pulse size.
+    \item \textbf{Veto}: Remove events which are inconsistent with dark matter due to scattering more than once. This removed both neutrons and $\gamma$'s. The veto detectors work as anti-coincident detectors so an event is vetoed if the Skin or OD saw a pulse within some time window of the S1 in the TPC.
 \end{itemize}
 In data taking, additional cuts are often required to account for experimental features not anticipated in simulations.
 As such the above list should be considered as a "core" selection, with a requirement of data-driven cuts potentially required later.

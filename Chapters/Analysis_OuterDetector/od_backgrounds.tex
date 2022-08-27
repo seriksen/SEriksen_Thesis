@@ -155,15 +155,15 @@ This becomes easier to see in when the features are extracted as is shown in \au
 The second pulse distribution peak is broadened due to two Gaussian's contributing to it, from two $\alpha$'s.
 One from ${}^{214}Po$ and one from ${}^{215}Po$.
 We are able to constrain the rate of these events by using a reverse search, finding the second $\alpha$ in the energy range and then looking for the first decay.
-This gives a rate of 90mHz for ${}^{214}Bi \to {}^{214}Po$, which is within 50\% that expected from the 'improved purification' (see \autoref{sec:simulated_od_requirements}).
-Measuring the rate of ${}^{219}Rn \to {}^{215}Po$ is performed in a similar way giving a rate of XXX, though with an addition time constraint accounting for several decay-constants worth of time which is lower than the decay half-life of ${}^{214}Po$.
+This gives a rate of 98$\pm$2.5 $\mu$Hz for ${}^{214}Bi \to {}^{214}Po$, which is within 50\% that expected from the 'improved purification' (see \autoref{sec:simulated_od_requirements}).
+Measuring the rate of ${}^{219}Rn \to {}^{215}Po$ is performed in a similar way giving a rate of 7.7$\pm$1.2 $\mu$Hz, though with an addition time constraint accounting for several decay-constants worth of time which is lower than the decay half-life of ${}^{214}Po$.
 The selection of this data is shown in \autoref{fig:od_bipo_alphas_2d}.
 This is again within 50\% of that from the 'improved purification', and so the assumption can be made that this purification was done, and that the estimated rates can be assumed true for all decays.
 
 
 \par
 Importantly, these constraints indicate that the $\alpha$-peak seen in \autoref{fig:od_random_trigger} is not from those subchains, as the rate would be too low.
-This opens up the possibility that it is from ${}^{210}Po$ from the late chain of ${}^{238}U$.
+This opens up the possibility that it is from ${}^{210}Po$ from the late chain of ${}^{238}U$. 
 This claim appears at odds with the relatively low internal rate of ${}^{238}U$.
 However, it is known and measured that there is significant $Rn$ in the cavern air, and as previously discussed (\autoref{sec:od_construction_sec}) the acrylic tanks were open to the air for long periods prior to installation.
 There was opportunity for decay daughters to plate-out on the inside of the acrylic tanks, a feature that is of great concern within the TPC \cite{radon_plateout_ref}.
@@ -183,24 +183,27 @@ This also isolates the difference between observed data and simulations to light
 
 \subsection{${}^{152}Gd$}
 \par
-The final background that can be constrained is ${}^{152}Gd$, which produces a 2.2MeV $\alpha$ decay.
-Though this is of particular use as can be seen in Figure XXX where ${}^{14}C$, ${}^{152}Sm$ and ${}^{152}Gd$ all can contribute to that region.
+The final background that can be constrained is ${}^{152}Gd$, which produces a 2.2 MeV $\alpha$ decay ($\approx$ 120 keV visible energy).
 The GdLS is loaded with 0.1\% (by mass) of natural Gadolinium.
 With a total mass of GdLS used in the detector this corresponds to 16000kg, and ${}^{152}Gd$ has a natural abundance of 0.2\%, this gives a maximum possible rate of 27Hz, where there is a 5\% uncertainty on the doping by mass.
+\par
+Unfortunately this does not constrain this region.
+Of particular note are ${}^{14}C$, a $\beta$ decay with an end-point of 156 keV, and ${}^{147}Sm$ which decays via the emission of a 2.3 MeV $\alpha$.
+All three were previously measured in the LS screener campaign, with ${}^{14}$C being the dominant contributor (>100 Hz).
 
 \subsection{Background Fitting}
 \par
 Given the constraints placed on rates, it is possible to fit the expected distribution to data. 
 The fit was limited to only include the region of the simulation which is approximately correct with the data. 
-As such, the high energy, above 500phd ($\gtrsim$ 2.5MeV) was excluded, and a low energy cut was 20phd was used.
+As such, the high energy, above 600phd ($\gtrsim$ 2.5MeV) was excluded, and a low energy cut was 20phd was used.
 \par
-In order to keep the number of fit parameters down, all detector components were in combined.
+In order to keep the number of fit parameters down, all detector components were in combined. 
+
 Given the mitigation procedure described in \autoref{sec:od_construction_sec}, the contamination is likely to be minimal from these components.
 \par
 Another source, ${}^{7}Be$, which has been considered in fits from similar experiments has been excluded here.
 As it only has a half-life of 50-days, and the OD was not in a stable running condition until nearly a year after filling, it has been assumed that the contribution from ${}^{7}Be$ would be negligible \cite{be7_decay_ref}.
 \par
-For fitting the background, this leaves a total of XXX components.
 The cavern-$\gamma$'s were allowed to float within the uncertainties they were measured in \cite{LZ_Gamma_Ray_Background_ref}.
 The ${}^{235}U_e$, ${}^{235}U_l$, ${}^{238}U_e$, ${}^{238}U_m$, ${}^{238}U_l$, ${}^{232}Th_e$, ${}^{232}Th_l$ where constrained to be in equilibrium with the sub-chains, and constrained by the LS Screener result or the measured $\alpha$-rate here, with the exception of ${}^{238}U_l$ which was able to float freely.
 The internal decays were left to float as freely as possible.
@@ -208,26 +211,28 @@ The internal decays were left to float as freely as possible.
 \input{Chapters/Analysis_OuterDetector/Figures/background_fit/fit_result}
 
 
-
 \begin{table}[!htbp]
     \centering
     \begin{tabular}{c|c|c|c}
-        Source              &  Decay Type(s)             & Estimated Rate (Hz)       & Measured Rate (Hz) \\ \hline
-        ${}^{238}U_{e}$     & $\gamma$,$\alpha$,$\beta$  & 3.27                      &                     \\ 
-        ${}^{238}U_{m}$     & $\gamma$,$\alpha$,$\beta$  & 3.27                      &                     \\
-        ${}^{238}U_{l}$     & $\gamma$,$\alpha$,$\beta$  & 3.27                      &                     \\
-        ${}^{235}U_{e}$     & $\gamma$,$\alpha$,$\beta$  & 3.27                      &                     \\
-        ${}^{235}U_{l}$     & $\gamma$,$\alpha$,$\beta$  & 3.27                      &                     \\
-        ${}^{232}Th_{e}$    & $\gamma$,$\alpha$,$\beta$  & 3.27                      &                     \\
-        ${}^{232}Th_{l}$    & $\gamma$,$\alpha$,$\beta$  & 3.27                      &                     \\
-        Detector Components & $\gamma$,$\beta$           & 3.27                      &                     \\
-        ${}^{40}K$          & $\gamma$,$\beta$           & 3.27                      &                     \\
-        ${}^{85}Kr$         & $\gamma$,$\beta$           & 3.27                      &                     \\
-        ${}^{14}C$          & $\beta$                    & 3.27                      &                     \\
-        ${}^{176}Lu$        & $\gamma$,$\beta$           & 3.27                      &                     \\
-        ${}^{147}Sm$        & $\alpha$                   & 3.27                      &                     \\
-        ${}^{152}Gd$        & $\alpha$                   & 3.27                      &                     
-        
+        Source               &  Decay Type(s)             & Expected Rate (Hz)       & Fitted Rate (Hz) \\ \hline
+        \multicolumn{4}{l}{Externals} \\
+        Cavern ${}^{238}$U   & $\gamma$                   & 13.98                      & 22.54                    \\ 
+        Cavern ${}^{232}$Th  & $\gamma$                   & 20.06                      & 11.74                    \\ 
+        Cavern ${}^{40}$K    & $\gamma$                   & 6.70                       & 13.33                    \\ 
+        Detector             & $\gamma$,$\beta$           & 2.29                       & 4.59                    \\
+        \multicolumn{4}{l}{Internals} \\
+        ${}^{238}U_{e}$     & $\gamma$,$\alpha$,$\beta$  & 0.71                      & 2.57                    \\ 
+        ${}^{238}U_{m}$     & $\gamma$,$\alpha$,$\beta$  & 0.30                      & 0.03                    \\
+        ${}^{238}U_{l}$     & $\gamma$,$\alpha$,$\beta$  & 0.11                      & 7.60                 \\
+        ${}^{235}U_{e}$     & $\gamma$,$\alpha$,$\beta$  & 0.82                      & 0.08                    \\
+        ${}^{235}U_{l}$     & $\gamma$,$\alpha$,$\beta$  & 0.52                      & 0.12                    \\
+        ${}^{232}Th_{e}$    & $\gamma$,$\alpha$,$\beta$  & 0.12                      & 1.2                    \\
+        ${}^{232}Th_{l}$    & $\gamma$,$\alpha$,$\beta$  & 0.15                      & 0.02                    \\
+        ${}^{40}K$          & $\gamma$,$\beta$           & 0.05                      & 0.05                    \\
+        ${}^{14}C$          & $\beta$                    & 108.25                    & 98.32                     \\
+        ${}^{176}Lu$        & $\gamma$,$\beta$           & 0.17                      & 1.65                    \\
+        ${}^{147}Sm$        & $\alpha$                   & 14.6                      & 13.15                    \\
+        ${}^{152}Gd$        & $\alpha$                   & 27.2                      & 18.54                     
         
     \end{tabular}
     \caption{Th and U decay chain pairs with half-lives within the LZ event window of 4.5ms. See \autoref{fig:decay_chains} for the complete Decay Chains.}

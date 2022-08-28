@@ -1,0 +1,20 @@
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+    \begin{axis}[
+            ylabel={log${}_{10}$(S2$_c$ [phd])},
+            xlabel={S1 [phd]},
+            width=15cm,
+            height=8cm,
+            ymin=2.75, ymax=4.5,
+            xmin=0, xmax=80,
+            ]
+        \addplot[black, only marks,]
+            table [x=S1c, y=log_10S2c]
+            {Data/HENR/sr1_ws/ws_data.dat};
+    \end{axis}
+\end{tikzpicture}
+    \caption{SR1 search data after all cuts.}
+    \label{fig:henr_ws_sr1_events}
+\end{figure}

@@ -210,4 +210,43 @@ In the last few years however, {isoscale, isovector} basis has become more commo
 As such the analysis presented later on in Chapter XXX uses this.
 
 
+\par
+This brings us to the recoil rate:
+\begin{equation}
+    \frac{dR}{dE_R} = \frac{\rho_0}{32\pi m_\chi^3 m_N^2} \int_{v>v_{min}} \frac{f(\vec{v})}{v} \sum_{i,j} \sum_{N,N'=n,p} c^{N}_i c^{N'}_j \sum_{k=M, \sum'', \sum', \Lambda, \Sigma'', \tilde{\sigma}'} a_{ijk}F_k^{N,N'}
+\label{eq:ref_recoil_spectrum}
+\end{equation}
+
+\subsection{Possible Operators}
+\par
+
+\begin{align}
+\begin{split}
+    \Lagrangian_{int} &= \chi_{1} \Operator_{\chi} \chi_{2} N_{1} \Operator_{N} N_{2} \\
+                      &= \Operator \chi_{1}\chi_{2} N_{1}N_{2}
+\end{split}
+\end{align}
+Here, $1$ and $2$ indicate incoming and outgoing particles respectively.
+
+\par
+On this interaction we can then impose various symmetries in order to simplify our problem.
+
+\par
+Firstly, any operator must be invariant with respect to constant shift in velocities: Galilean invariant.
+This allows us to construct two quantities with Galilean invariance: momentum transfer, $\vec{q} = \vec{p}_{\chi 1} - \vec{p}_{\chi 2} = \vec{p}_{N 2} - \vec{p}_{N 1}$, and the incident WIMP velocity, $\vec{v}=\vec{v_\chi} - \vec{v}_N$.
+
+\par
+Additionally, the conservation of energy.
+This allows us to relate the initial energy, $E$ to the final kinetic energy, $E'$:
+\begin{align}
+\begin{split}
+    E  &= \frac{1}{2}\mu_N v^2 \\
+    E' &= \frac{1}{2}\mu_N v'^2 \\
+       &= \frac{1}{2}\mu_N (\vec{v} + \frac{\vec{q}}{\mu_N})
+\end{split}
+\end{align}
+which leaves us with:
+\begin{equation}
+    \vec{v}\vec{q} = \frac{q^2}{2\mu_N}
+\end{equation}
 

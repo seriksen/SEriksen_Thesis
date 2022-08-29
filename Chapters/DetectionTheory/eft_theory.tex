@@ -250,3 +250,51 @@ which leaves us with:
     \vec{v}\vec{q} = \frac{q^2}{2\mu_N}
 \end{equation}
 
+\par
+Finally we want the operators to be real values, corresponding to physical quantities, that is to say, Hermitian.
+Neither $\vec{q}$ nor $\vec{v}$ are Hermitian, but can be made so by:
+\begin{equation}
+    \vec{q} \rightarrow i\vec{q} \\
+    \vec{v} \rightarrow \vec{v}^{\bot} = \vec{v} + \frac{\vec{q}}{\mu_N}
+\end{equation}
+
+
+\par
+These two quantities, along with the WIMP and nucleon spins, $\vec{S}_\chi$ and $\vec{S}_N$ respectively, make up the complete set of variables which describe the scattering. 
+\begin{enumerate}
+    \item momentum transfer: $i\Vec{q}$
+    \item energy conservation: $\Vec{v}^{\bot}$
+    \item nucleon spin: $\Vec{S}_{N}$
+    \item dark matter spin: $\Vec{S}_{\chi}$
+\end{enumerate}
+
+\par
+Finally we can take all combinations of these variables to leave us with 15 operators:
+\begin{equation}
+\begin{array}{lcl}
+\Operator_{1}=1_{\chi}1_N \\ 
+\Operator_{2}=\left(v^{\perp}\right)^{2} \\
+\Operator_{3}=i \vec{S}_{N} \cdot\left(\frac{\vec{q}}{m_N} \times \vec{v}^{\perp}\right) \\ 
+\Operator_{4}=\vec{S}_{\chi} \cdot \vec{S}_{N} \\ 
+\Operator_{5}=i \vec{S}_{\chi} \cdot(\frac{\vec{q}}{m_N} \times \vec{v}^{\perp}) \\ 
+\Operator_{6}=\left(\vec{S}_{\chi} \cdot \frac{\vec{q}}{m_N}\right)\left(\vec{S}_{N} \cdot \frac{\vec{q}}{m_N}\right) \\
+\Operator_{7}=\vec{S}_{N} \cdot \vec{v}^{\perp} \\
+\Operator_{8}=\vec{S}_{\chi} \cdot \vec{v}^{\perp} \\ 
+\Operator_{9}=i \vec{S}_{\chi} \cdot\left(\vec{S}_{N} \times \frac{\vec{q}}{m_N}\right) \\
+\Operator_{10}=i \vec{S}_{N} \cdot \frac{\vec{q}}{m_N} \\ 
+\Operator_{11}=i \vec{S}_{\chi} \cdot \frac{\vec{q}}{m_N} \\
+\Operator_{12} =\vec{S}_{\chi} \cdot\left(\vec{S}_{N} \times \vec{v}^{\perp}\right) \\
+\Operator_{13} =i\left(\vec{S}_{\chi} \cdot \vec{v}^{\perp}\right)\left(\vec{S}_{N} \cdot \frac{\vec{q}}{m_N}\right) \\ 
+\Operator_{14} =i\left(\vec{S}_{\chi} \cdot \frac{\vec{q}}{m_N}\right)\left(\vec{S}_{N} \cdot \vec{v}^{\perp}\right) \\ 
+\Operator_{15} =-\left(\vec{S}_{\chi} \cdot \frac{\vec{q}}{m_N}\right)\left(\left(\vec{S}_{N} \times \vec{v}^{\perp}\right) \cdot \frac{\vec{q}}{m_N}\right)
+\end{array}
+\label{eq:EFT_Operators}
+\end{equation}
+
+\par
+$\Operator_{1}$-$\Operator_{11}$ can be attributed to the exchange of spin-0 or spin-1 mediators, where as $\Operator_{12}$-$\Operator_{15}$ do not.
+Some literature also include $\Operator_{16}=-((\vec{S}_\chi \times \vec{v}^{\bot}) \cdot \vec{q})(\vec{S}_N) \cdot \vec{q})$, though as it is just a linear combination of $\Operator_{12}$ and $\Operator_{15}$ it does not need to be included for the most general description.
+
+\par
+Typically $\Operator_{2}$ is disregarded due to the $v^{2}$ dependence and so does not appear in non-relativistic models and has such will be dropped here as well.
+

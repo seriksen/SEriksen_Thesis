@@ -170,12 +170,20 @@ The water resistivity was measured every few hours as a monitor of the water's p
 The result over the first week of running is shown in \autoref{fig:od_foam_degredation}.
 What is observed during this period is the water becoming contaminated with ions from the foam from out gassing.
 Over a longer period of study it may show that the foam becomes saturated with water, particularly with a test using a piece of foam shaped to the same dimensions as those used in the installation.
+\par
+The foam installed between the TATs and OCV are held together with HandiFoam\textsuperscript{\textregistered}, which also forms a closed cell structure: not only does the outer layer is enclosed everything, but the inner structure is 95\% closed cell.
+However, due to it's low-pressure it is classified as "vapour retardant", and prolonged exposure to water will rapidly saturate the foam \cite{handifoam_water_ingress_ref}.
+The speed at which this occurred was likely accelerated by the cutting into the outer layer, done to shape the foam to size.
+\par
+The other foam of concern is the white foam, which is an open-cell structure.
+Though as it's purpose was primarily padding, and the quantity installed is low, water displacement is of less concern.
 
 \par
 In relation to LZ, this has two impacts, firstly these ions can circulate throughout the OD water and contribute to the low energy rate.
 Secondly, this will impact on the time it takes for a neutron to reach the GdLS.
 Taking the most extreme case as the foam being completely replaced with water, we can see that the neutron time to reach the GdLS is significantly increased (shown in blue in \autoref{fig:data_vs_sim_gd_capture_time}).
-This therefore seems an reasonable explanation for the difference observed.
+This therefore seems an reasonable explanation for the difference observed, though some tuning is required for a closer match between the simulation and observed.
+
 
 \input{Chapters/Analysis_OuterDetector/Figures/neutron_capture/foam_degredation}
 

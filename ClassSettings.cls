@@ -132,7 +132,7 @@
 \DeclareMathOperator{\Lagrangian}{\mathcal{L}}
 \DeclareMathOperator{\Operator}{\mathcal{O}}
 
-
+\usepackage{mathtools}
 \usepackage{tcolorbox}
 \RequirePackage{tikz}
 \usepackage{pgfplots} % for plotting

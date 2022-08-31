@@ -1,159 +1,70 @@
 \section{Effective Field Theory} \label{eft_theory}
 
-
 \par
-As is hopefully clear to the reader, WIMP-nucleon interactions when constrained by the model discussed previously in this chapter, blah blah blah.
-However, the assumption that only spin-dependent and spin-independent interactions are significant may be incorrect, and there may be other corrections (such as momentum dependence) that are the dominant terms.
+Given the now decades of searching for SI and SD interactions with no success it is right to ask if the assumptions made there are still best.
+There may be other corrections (such as momentum dependence) that are the dominant terms.
 It is therefore useful to approach a direct dark matter search in a model independent way - namely via an effective field theory (EFT).
-An EFT is essentially a simplification of a quantum field theory where only the parameters relevant to the defined scale are kept, with other, irrelevant degrees of freedom integrated out.
+\par
+An EFT is allows us to describe an unknown model to an arbitrary accuracy by only described the physics at a given scale \cite{eft_expo_ref}.
+We parameterise our model in terms of whatever we like though could be in terms of quantities such as energy, momentum or velocity\footnote{This has rather elegantly been quoted as a way to ``parameterise our ignorance" in \cite{shaunalsum_thesis_ref}}.
 
 \par
-In the WIMP-nucleon interaction, an EFT can prob the magnitude and significance of interactions, given that the full theory is not known.
-In this section, the model independent approach formulated by Haxton et al is summarised with adaptations from XXX and XXX.
-
-\par
-Given the constrained previously described, WIMP-nucleon scattering is a four-field interaction comprising of the WIMP field $\chi$, the nucleon field $N$ and the effective operators $\Operator$:
-
-\begin{align}
-\begin{split}
-    \Lagrangian_{int} &= \chi_{1} \Operator_{\chi} \chi_{2} N_{1} \Operator_{N} N_{2} \\
-                      &= \Operator \chi_{1}\chi_{2} N_{1}N_{2}
-\end{split}
-\end{align}
-Here, $1$ and $2$ indicate incoming and outgoing particles respectively.
-
-\par
-Now, we can impose constraints from symmetries.
-Firstly, as this theory is non-relativistic, the interaction must be Galilean invariant.
-
-
-
-\par
-We are also able utilise the conservation of energy.
-In the 
-
-\par
-Finally we require all operators to correspond to real, physical values, that is to say, be Hermitian.
-Unfortunately, both $\vec{q}$ or $\vec{v}$ transform under incoming and outgoing particles as;
-
-
-\par
-Inde
-
-This leaves us with 4 quantities; the change in momentum $\vec{q}$, the relative velocity of the WIMP $\vec{v}=\vec{v}_{\chi,in} - \vec{v}_{N,in}$, the spin of the WIMP $\vec{S}_{\chi}$ and the spin of the nucleon $\vec{S}_{N}$.
-
-
-\par
-The most general Hermititan WIMP-nucleon interaction is then constructed by just four variables: the dark matter spin $\Vec{S}_{\chi}$, the nucleon spin $\Vec{S}_{N}$, the relative velocity of the dark matter to the nucleon, and the momentum transfer.
-\begin{enumerate}
-    \item nucleon spin: $\Vec{S}_{N}$
-    \item dark matter spin: $\Vec{S}_{\chi}$
-    \item momentum transfer: $i\Vec{q}$
-    \item energy conservation: $\Vec{v}^{\bot}$
-\end{enumerate}
-\par
-Each of these operators carry with them a coefficient of an unknown strength, but which experiments can determine.
-A priori we know nothing about the strength of these coefficients, and so we cannot say that we know one operator is more significant than another operator.
-
-\par
-It is important to remember that nuclear elastic scattering can constrain these coefficients, but cannot fully determine them, but additional information does appear in inelastic scattering.
-
-
-
-
-
-\par
-Although not shown here, the operators can be extended to account for inelastic scattering.
-In this case, the only change is $v^{\perp} \rightarrow v_{inel}^{\perp}=v^{\perp} + \frac{\delta_\chi}{\vert\vec{q}\vert^2}\vec{q}$, where $\delta_\chi$ is the change in dark matter mass \cite{inelastics_eft_ref}.
-
-
-\begin{equation}
-    \frac{d\sigma}{dE_R} \approx G_F^2 \sum_{i} R_i (\vec{v}^{\perp 2}, \frac{\vec{q}^2}{m_N^2}) W_i(q^2b^2)
-\end{equation}
-$W_i(q^2b^2)$ encompasses the nuclear tensor.
-In a direct dark matter experiment, this can be varied to change the nuclear charge, spin, isospin to determine $R_i$.
-As there are many different direct dark matter experiment, each with different target nuclei, each with different properties and sensitivities, they combine together to contain the dark matter.
-The other term, $R_i (\vec{v}^{\perp 2}, \frac{\vec{q}^2}{m_N^2})$, is the WIMP tensor, containing all of the dark matter particle physics.
-
-
-
-
-
-
-\par
-This brings us to the recoil rate:
-\begin{equation}
-    \frac{dR}{dE_R} = \frac{\rho_0}{32\pi m_\chi^3 m_N^2} \int_{v>v_{min}} \frac{f(\vec{v})}{v} \sum_{i,j} \sum_{N,N'=n,p} c^{N}_i c^{N'}_j \sum_{k=M, \sum'', \sum', \Lambda, \Sigma'', \tilde{\sigma}'} a_{ijk}F_k^{N,N'}
-\label{eq:ref_recoil_spectrum}
-\end{equation}
+In the remainder of this chapter we explore the elastic scattering rates in within this model independent approach.
+The broad framework which we will follow is from \cite{Fitzpatrick_2013_ref}.
 
 \subsection{Possible Operators}
-\par
 
+\par
+We begin our journey by treading the WIMP-nucleon elastic scattering as a four-field interaction comprising of the WIMP field $\chi$, the nucleon field $N$ and the effective operators $\Operator$:
 \begin{align}
 \begin{split}
-    \Lagrangian_{int} &= \chi_{1} \Operator_{\chi} \chi_{2} N_{1} \Operator_{N} N_{2} \\
-                      &= \Operator \chi_{1}\chi_{2} N_{1}N_{2}
+    \Lagrangian_{int} &= \chi^{+} \Operator_{\chi} \chi^{-} N^{+} \Operator_{N} N^{-} \\
+                      &= \Operator \chi^{+}\chi^{-} N^{+}N^{-}
 \end{split}
+\label{eq:eft_initial_lagrangian}
 \end{align}
-Here, $1$ and $2$ indicate incoming and outgoing particles respectively.
-
-\par
-On this interaction we can then impose various symmetries in order to simplify our problem.
-
+Now, we can impose constraints by applying symmetries.
 \par
 Firstly, any operator must be invariant with respect to constant shift in velocities: Galilean invariant.
-This allows us to construct two quantities with Galilean invariance: momentum transfer, $\vec{q} = \vec{p}_{\chi 1} - \vec{p}_{\chi 2} = \vec{p}_{N 2} - \vec{p}_{N 1}$, and the incident WIMP velocity, $\vec{v}=\vec{v_\chi} - \vec{v}_N$.
+This allows gives us four quantities with Galilean invariance: momentum transfer, $\vec{q} = \vec{p}_{\chi 1} - \vec{p}_{\chi 2} = \vec{p}_{N 2} - \vec{p}_{N 1}$, the incident WIMP velocity, $\vec{v}=\vec{v_\chi} - \vec{v}_N$, and the spins of the particles: $\vec{S}_N$ and $\vec{S}_\chi$.
 
 \par
-Additionally, the conservation of energy.
-This allows us to relate the initial energy, $E$ to the final kinetic energy, $E'$:
+Next we look at energy conservation in the centre of mass frame as it cannot change in the collision.
+
+This allows us to equate the initial energy, $E$:
+\begin{align}
+    E  = \frac{1}{2}\mu_N v^2
+\end{align}
+to the final kinetic energy, $E'$:
 \begin{align}
 \begin{split}
-    E  &= \frac{1}{2}\mu_N v^2 \\
     E' &= \frac{1}{2}\mu_N v'^2 \\
        &= \frac{1}{2}\mu_N (\vec{v} + \frac{\vec{q}}{\mu_N})
 \end{split}
 \end{align}
-which leaves us with:
+where $\mu_N=(m_\chi m_N)/(m_\chi + m_N)$ is the WIMP-nucleon reduced mass.
+This leaves us with:
 \begin{equation}
     \vec{v}\vec{q} = \frac{q^2}{2\mu_N}
 \end{equation}
-
-\par
 Finally we want the operators to be real values, corresponding to physical quantities, that is to say, Hermitian.
 Neither $\vec{q}$ nor $\vec{v}$ are Hermitian, but can be made so by:
 \begin{equation}
-    \vec{q} \rightarrow i\vec{q} \\
-    \vec{v} \rightarrow \vec{v}^{\bot} = \vec{v} + \frac{\vec{q}}{\mu_N}
+\begin{split}
+    &\vec{q} \rightarrow i\vec{q} \\
+    &\vec{v} \rightarrow \vec{v}^{\bot} = \vec{v} + \frac{\vec{q}}{\mu_N}
+\end{split}
 \end{equation}
-
-
-\par
-These two quantities, along with the WIMP and nucleon spins, $\vec{S}_\chi$ and $\vec{S}_N$ respectively, make up the complete set of variables which describe the scattering. 
-\begin{enumerate}
-    \item momentum transfer: $i\Vec{q}$
-    \item energy conservation: $\Vec{v}^{\bot}$
-    \item nucleon spin: $\Vec{S}_{N}$
-    \item dark matter spin: $\Vec{S}_{\chi}$
-\end{enumerate}
-
-\par
-Finally we can take all combinations of these variables to leave us with 15 operators:
+There four quantities make up the complete set of parameters which we need to describe our interaction.
+We can then take all of the combinations of these variables to leave us with 15 operators:
 \begin{equation}
 \begin{array}{lcl}
-\Operator_{1}=1_{\chi}1_N \\ 
-\Operator_{2}=\left(v^{\perp}\right)^{2} \\
-\Operator_{3}=i \vec{S}_{N} \cdot\left(\frac{\vec{q}}{m_N} \times \vec{v}^{\perp}\right) \\ 
-\Operator_{4}=\vec{S}_{\chi} \cdot \vec{S}_{N} \\ 
-\Operator_{5}=i \vec{S}_{\chi} \cdot(\frac{\vec{q}}{m_N} \times \vec{v}^{\perp}) \\ 
+\Operator_{1}=1_{\chi}1_N, \quad \Operator_{2}=\left(v^{\perp}\right)^{2}, \quad \Operator_{3}=i \vec{S}_{N} \cdot\left(\frac{\vec{q}}{m_N} \times \vec{v}^{\perp}\right) \\ 
+\Operator_{4}=\vec{S}_{\chi} \cdot \vec{S}_{N}, \quad \Operator_{5}=i \vec{S}_{\chi} \cdot(\frac{\vec{q}}{m_N} \times \vec{v}^{\perp}) \\ 
 \Operator_{6}=\left(\vec{S}_{\chi} \cdot \frac{\vec{q}}{m_N}\right)\left(\vec{S}_{N} \cdot \frac{\vec{q}}{m_N}\right) \\
-\Operator_{7}=\vec{S}_{N} \cdot \vec{v}^{\perp} \\
-\Operator_{8}=\vec{S}_{\chi} \cdot \vec{v}^{\perp} \\ 
-\Operator_{9}=i \vec{S}_{\chi} \cdot\left(\vec{S}_{N} \times \frac{\vec{q}}{m_N}\right) \\
-\Operator_{10}=i \vec{S}_{N} \cdot \frac{\vec{q}}{m_N} \\ 
-\Operator_{11}=i \vec{S}_{\chi} \cdot \frac{\vec{q}}{m_N} \\
-\Operator_{12} =\vec{S}_{\chi} \cdot\left(\vec{S}_{N} \times \vec{v}^{\perp}\right) \\
+\Operator_{7}=\vec{S}_{N} \cdot \vec{v}^{\perp}, \quad \Operator_{8}=\vec{S}_{\chi} \cdot \vec{v}^{\perp} \\
+\Operator_{9}=i \vec{S}_{\chi} \cdot\left(\vec{S}_{N} \times \frac{\vec{q}}{m_N}\right), \quad \Operator_{10}=i \vec{S}_{N} \cdot \frac{\vec{q}}{m_N} \\ 
+\Operator_{11}=i \vec{S}_{\chi} \cdot \frac{\vec{q}}{m_N}, \quad \Operator_{12} =\vec{S}_{\chi} \cdot\left(\vec{S}_{N} \times \vec{v}^{\perp}\right) \\
 \Operator_{13} =i\left(\vec{S}_{\chi} \cdot \vec{v}^{\perp}\right)\left(\vec{S}_{N} \cdot \frac{\vec{q}}{m_N}\right) \\ 
 \Operator_{14} =i\left(\vec{S}_{\chi} \cdot \frac{\vec{q}}{m_N}\right)\left(\vec{S}_{N} \cdot \vec{v}^{\perp}\right) \\ 
 \Operator_{15} =-\left(\vec{S}_{\chi} \cdot \frac{\vec{q}}{m_N}\right)\left(\left(\vec{S}_{N} \times \vec{v}^{\perp}\right) \cdot \frac{\vec{q}}{m_N}\right)
@@ -181,18 +92,21 @@ The translation is fairly trivial with the coupling constants between isoscalar 
 \end{split}
 \label{eq:eft_iso_to_pn}
 \end{equation}
-In practical terms, this means that out Lagranigan (EQUATION XXX) requires a slight alteration to:
+In practical terms, this means that out Lagrangian (\autoref{eq:eft_initial_lagrangian}) requires a slight alteration to:
 \begin{equation}
-    \mathcal{L}_{int} \quad = \quad \sum_{\tau = (0,1)} \sum_{i}c^{\tau}_{i} \Operator \chi_1 \chi_2 N_1 N_2
+    \mathcal{L}_{int}  = \sum_{\tau = (0,1)} \sum_{i}c^{\tau}_{i} \Operator \chi_1 \chi_2 N_1 N_2
 \end{equation}
 for $\{isoscalar,isovector\}$ and to:
 \begin{equation}
-    \mathcal{L}_{int} \quad = \quad \sum_{N = (p,n),(\tau)} \sum_{i}c^{(N)}_{i} \Operator \chi_1 \chi_2 N_1 N_2
+    \mathcal{L}_{int} = \sum_{N = (p,n),(\tau)} \sum_{i}c^{(N)}_{i} \Operator \chi_1 \chi_2 N_1 N_2
 \end{equation}
 for $\{p,n\}$, where $\tau$ refers to the isospin basis.
+A priori we know nothing about the strength of these coefficients, and so we cannot say that we know one operator is more significant than another operator.
 
+\par
+Although we have constrained ourselves to elastic scatter, this theory can be trivially extended to the inelastic case by $\vec{v}^{\perp} \rightarrow \vec{v}^{\perp} + \frac{\delta_m}{|\vec{q}|^2}\vec{q}$ \cite{inelastics_eft_ref}.
 
-\subsubsection{Nucleus}
+\subsection{To the Nucleus}
 \par
 Now in order to relate the theory outlined above to what is observable experimentally we must consider that a dark matter particle interact with nucleons that are bound in nuclei rather than free nucleons.
 As such, each $\Operator$ needs to be evaluated inside of the target nucleus, and so inserted between nuclear states.
@@ -200,7 +114,7 @@ In order to assist in this, we first decompose $\vec{v}$ of each nucleon into th
 This can also be done for the transverse velocity $\vec{v}^{\perp}$ where $\vec{v}^{\perp}_{A}=\vec{v}_A + \vec{q}/2\mu_{A}$ and $\vec{v}^{\perp}_{N}=-1/2(\vec{v}_{N} + \vec{v}^{'}_{N})$.
 
 \par
-Putting this decomposition together with EQUATION XXX we can define our interaction Lagrangian as a linear combination of these operators in the centre of mass frame of the nucleus:
+Putting this decomposition together we can define our interaction Lagrangian as a linear combination of these operators in the centre of mass frame of the nucleus:
 \begin{equation}
 \begin{split}
     \mathcal{L}_{int}\quad  & =\quad c_1 \\
@@ -249,12 +163,12 @@ We can rearrange our Lagrangian (\autoref{eq:eft_operator_lagrangian_com}) to be
 In \autoref{eq:eft_operator_lagrangian_charges_and_currents} each term inside the curly brackets which can be explicitly names:
 \begin{equation}
 \begin{split}
-    l_0\quad  & =\quad c_1 - ic_5 \vec{v}^{\perp}_{A} \cdot(\vec{q} \times \vec{S}_\chi) + c_8 \vec{S}_\chi \cdot \vec{v}^{\perp}_{A} + ic_{11} \vec{S}_\chi \cdot \vec{q} \\
-    l^A_0\quad &=\quad c_7 + ic_{14} (\vec{S}_\chi \cdot \vec{q}) \\
-    \vec{l}_5\quad &=\quad \frac{1}{2} \big[ ic_3 (\vec{q} \times \vec{v}^{\perp}_{A}) + c_4 \vec{S}_\chi + c_6 (\vec{S}_\chi \cdot \vec{q}) \vec{q} + c_7 \vec{v}^{\perp}_{A} + ic_9 (\vec{q} \times \vec{S}_\chi) + ic_{10} \vec{q} \\
-    &\qquad\qquad+ c_12 (\vec{v}^{\perp}_{A} \times \vec{S}_\chi) + ic_{13} (\vec{v}^{\perp}_{A} \cdot \vec{S}_\chi) \vec{q} + ic_{14}(\vec{q} \cdot \vec{S}_\chi)\vec{v}^{\perp}_{A} - c_{15} (\vec{S}_\chi \cdot \vec{q} ) \vec{q} \bigg] \\
-    \vec{l}_M\quad &=\quad ic_5 (\vec{S}_\chi \times \vec{q}) - c_8 \vec{S}_\chi \\
-    \vec{l}_E\quad &=\quad -\frac{1}{2} \bigg[ c_3 + ic_{12} \vec{S}_\chi - c_{13} (\vec{q} \times \vec{S}_\chi) - ic_{15} (\vec{q} \cdot \vec{S}_{\chi}) \vec{q} \bigg] \vec{q}
+    l_0  & = c_1 - ic_5 \vec{v}^{\perp}_{A} \cdot(\vec{q} \times \vec{S}_\chi) + c_8 \vec{S}_\chi \cdot \vec{v}^{\perp}_{A} + ic_{11} \vec{S}_\chi \cdot \vec{q} \\
+    l^A_0 &= c_7 + ic_{14} (\vec{S}_\chi \cdot \vec{q}) \\
+    \vec{l}_5 &= \frac{1}{2} \big[ ic_3 (\vec{q} \times \vec{v}^{\perp}_{A}) + c_4 \vec{S}_\chi + c_6 (\vec{S}_\chi \cdot \vec{q}) \vec{q} + c_7 \vec{v}^{\perp}_{A} + ic_9 (\vec{q} \times \vec{S}_\chi) + ic_{10} \vec{q} \\
+    &\qquad+ c_12 (\vec{v}^{\perp}_{A} \times \vec{S}_\chi) + ic_{13} (\vec{v}^{\perp}_{A} \cdot \vec{S}_\chi) \vec{q} + ic_{14}(\vec{q} \cdot \vec{S}_\chi)\vec{v}^{\perp}_{A} - c_{15} (\vec{S}_\chi \cdot \vec{q} ) \vec{q} \bigg] \\
+    \vec{l}_M &= ic_5 (\vec{S}_\chi \times \vec{q}) - c_8 \vec{S}_\chi \\
+    \vec{l}_E &= -\frac{1}{2} \bigg[ c_3 + ic_{12} \vec{S}_\chi - c_{13} (\vec{q} \times \vec{S}_\chi) - ic_{15} (\vec{q} \cdot \vec{S}_{\chi}) \vec{q} \bigg] \vec{q}
 \end{split}
 \label{eq:eft_operator_lagrangian_charges_and_currents}
 \end{equation}
@@ -264,14 +178,14 @@ This allows the Lagrangian to be written as:
 \end{equation}
 We still have only defined a WIMP-nucleon interaction, and so we need to go further to obtain a WIMP-nucleus interaction: which is just the sum of the contributions from each nucleon:
 \begin{equation}
-    \mathcal{L}^{\text{Nucleus}}_{\text{int}} \quad = \quad \sum_{i}^{A} \mathcal{L}^{N_i}_{\text{int}}
+    \mathcal{L}^{\text{Nucleus}}_{\text{int}} = \sum_{i}^{A} \mathcal{L}^{N_i}_{\text{int}}
 \end{equation}
-In order to simplify the scattering amplitude evaluation, and to maintain consistency with literature (CITE XXX), we will apply a set of transformations to go from momentum space to coordinate space:
+In order to simplify the scattering amplitude evaluation, and to maintain consistency with literature \cite{Fitzpatrick_2013_ref}, we will apply a set of transformations to go from momentum space to coordinate space:
 \begin{equation}
     \begin{split}
-        -\vec{v}^{\perp}_{N_i}\quad &=\quad \frac{\vec{p}_{N_i} + \vec{p}^{'}_{N_i}}{2m_N} \rightarrow \frac{1}{2m_N}i \Bigg( \vec{\nabla}\delta(\vec{r - \vec{r}_i}) - \delta(\vec{r} - \vec{r}_i) \vec{\nabla} \Bigg) \\
-        \vec{S}_{N_i}\quad &=\quad \vec{\sigma}(i) \\
-        1\quad &\rightarrow\quad \delta(\vec{r} - \vec{r}_i)
+        -\vec{v}^{\perp}_{N_i} &= \frac{\vec{p}_{N_i} + \vec{p}^{'}_{N_i}}{2m_N} \rightarrow \frac{1}{2m_N}i \Bigg( \vec{\nabla}\delta(\vec{r - \vec{r}_i}) - \delta(\vec{r} - \vec{r}_i) \vec{\nabla} \Bigg) \\
+        \vec{S}_{N_i} &= \vec{\sigma}(i) \\
+        1 &\rightarrow \delta(\vec{r} - \vec{r}_i)
     \end{split}
 \end{equation}
 where $\vec{r}_i$ is the position of the $i^{th}$ nucleon with respect to the centre of mass of the nuclei, $\vec{r}$ is the position of the dark matter particle with respect to the centre of mass of the nuclei and $\vec{\sigma}(i)$ is the spin operator in terms of the Pauli spin matrices.
@@ -303,9 +217,9 @@ Which leaves us with:
 \end{split}
 \label{eq:eft_hamiltonian}
 \end{equation}
-We are then able to calculate the scattering amplitude for the interaction in the same way as before (SECTION XXX), by averaging over the initial spins and summing over the final spins:
+We are then able to calculate the scattering amplitude for the interaction in the same way as before for the SI case, by averaging over the initial spins and summing over the final spins:
 \begin{equation}
-    | \mathcal{M} |^2  \quad=\quad |\langle j_\chi,M_\chi;j_N M_N | H | j_\chi,M_\chi;j_N M_N \rangle |^2
+    | \mathcal{M} |^2  = |\langle j_\chi,M_\chi;j_N M_N | H | j_\chi,M_\chi;j_N M_N \rangle |^2
 \end{equation}
 Before we show the explicit result of this, we should first look back towards our Hamiltonian.
 It is simply comprised of a number of terms, each of which contain the couple constant for a single EFT operator.
@@ -372,9 +286,9 @@ This allows us to write these nuclear responses as:
 \end{split}
 \label{eq:eft_nuclear_response_operators}
 \end{equation}
-Each of these nuclear response operators are directly from electroweak physics - or with simple modifications for which the reader is directed to CITE XXX.
+Each of these nuclear response operators are directly from electroweak physics - or with simple modifications for which the reader is directed to \cite{Fitzpatrick_2013_ref}.
 \par
-The form factors we saw in EQUATION XXX can be constructed as a linear combination of nuclear form factors that are associated with these nuclear responses:
+The form factors we saw in \autoref{eft_scattering_amplitude_in_terms_of_operator_form_factors} can be constructed as a linear combination of nuclear form factors that are associated with these nuclear responses:
 \begin{equation}
     F^{a,b}_{ij} = \sum_{k=M,\Sigma^{''},\Sigma^{'},\Delta, \Phi^{''},\tilde{\Phi}^{'}} a_{ijk}(j_\chi,v^2,q^2) F_{k}^{(a,b)}
     \label{eq:eft_form_factor_relation_to_nuclear_form_factors}
@@ -393,7 +307,7 @@ which is allowed between $M$ and $\Phi^{''}$ and between $\Sigma^{'}$ and $\Sigm
 
 \par
 For calculated form factors the reader is directed towards \cite{Fitzpatrick_2013_ref, dmformfactor_ref, nicolelarsen_thesis_ref}.
-However, most of these only show the {$n,p$} result, so below is provided the conversion to those needed for {$isoscalar,isovector$}:
+However, most of these only show the \{$n,p$\} result, so below is provided the conversion to those needed for \{$isoscalar,isovector$\}:
 \begin{align}
     \begin{split}
         F_{i,j}^{00}    &= \frac{1}{4} \left( F_{i,j}^{(n,n)} + F_{i,j}^{(p,p)} + F_{i,j}^{(p,n)} + F_{i,j}^{n,p} \right) \\
@@ -403,13 +317,12 @@ However, most of these only show the {$n,p$} result, so below is provided the co
     \end{split}
 \end{align}
 
-\subsubsection{Scattering Rate}
+\subsection{Scattering Rate}
 \par
 Now that we have all of the tools needed to calculate the scattering amplitude for any interaction in our theory we can relate this to a scattering rate.
-Fortunately for us this is the simplest step so far.
-We simply substitute EQUATION XXX into EQUATION XXX to give:
+Fortunately for us this is the simplest step so far, and one which we've already done for the SI interaction:
 \begin{equation}
-    \frac{dR}{dE_R} = N_T \frac{\rho}{32 \pi m_\chi^3 m_A} \int_{v>v_{min}} \frac{1}{v}f(\vec{v}) | \mathcal{M} |^2 d^3 v 
+    \frac{dR}{dE_R} = N_T \frac{\rho_{\chi}}{32 \pi m_\chi^3 m_A} \int_{v>v_{min}} \frac{1}{v}f(\vec{v}) | \mathcal{M} |^2 d^3 v 
     \label{eq:eft_differential_cross_section}
 \end{equation}
 In this equation, the spin contributions of the initial states are averaged and the final states are summed.
@@ -419,15 +332,15 @@ This is to follow the conversion set out in \cite{dmformfactor_ref}, where this 
 Combining \autoref{eq:eft_scattering_amplitude_in_terms_of_operator_form_factors} with \autoref{eq:eft_differential_cross_section} give us our final differential rate:
 
 \begin{equation}
-    \frac{dR}{dE_R} = N_T \frac{\rho m_A}{32 \pi m_\chi^3 m_N^2} \int_{v>v_{min}} \frac{f(\vec{v})}{v} \sum_{i,j=1}^{15} \sum_{a,b=0,1} c_i^a c_j^b \sum_{k=M,\Sigma^{''},\Sigma^{'},\Delta, \Phi^{''},\tilde{\Phi}^{'}} a_{i,j,k}F_{k}^{(a,b)} d^3 v
+    \frac{dR}{dE_R} = N_T \frac{\rho_{\chi} m_A}{32 \pi m_\chi^3 m_N^2} \int_{v>v_{min}} \frac{f(\vec{v})}{v} \sum_{i,j=1}^{15} \sum_{a,b=0,1} c_i^a c_j^b \sum_{k=M,\Sigma^{''},\Sigma^{'},\Delta, \Phi^{''},\tilde{\Phi}^{'}} a_{i,j,k}F_{k}^{(a,b)} d^3 v
     \label{eq:final_eft_differential_cross_section}
 \end{equation}
 
-\subsubsection{Searches}
+\subsection{EFT Searches}
 \par
 Due to the complexity of evaluating the nuclear form factors and the uncertainties in the parameters, direct dark matter searches have generally focused on setting limits on the individual operator coupling constants.
 This is performed by simply evaluating the scattering amplitude assuming a single operator.
-Prior to the work presenting in \autoref{chap:eft_work}, the current best limits come from XXX, which was a study performed in the {$neutron,proton$} basis.
+Prior to the work presenting in \autoref{chap:eft_work}, the current best limits come from XXX, which was a study performed in the \{$neutron,proton$\} basis.
 
 \par
 It is interesting to note however that a recent publication by Panda-X extended this to a generalised spin analysis, using linear combinations of the operators.
@@ -441,121 +354,11 @@ Most notably:
 \end{equation}
 The new quantity introduced here, $m_M$, is just the strength of the WIMP and nucleon moments being coupled, and is taken to be $m_M \sim m_N$.
 
-
-\iffalse
 \par
-The limits (and possible discoveries) which each direct detection dark matter experiment aim for are generally placed on the simplest possible interaction between an WIMP and a nucleon, as described in the previous section.
-The assumption of a momentum-independent interactions is assumed due to the non-relativistic velocity of the WIMP.
-The kinematics of the interaction do not have to follow this, instead there may be a momentum-dependant component which is dominant.
-Perhaps a better approach is that with model-independence.
-Dark matter is not covered by the Standard Model, and how it behaves at high-energies is unknown.
-Therefore, the best way to describe our ignorance is to use an Effective Field Theory (EFT).
-
-\par
-EFTs allow for a model to be parameterised to an arbitrary accuracy by describing the physics at only a certain scale.
-
-Although the LZ detector has been built with vanilla dark-matter searches at the forefront of the design, this does not mean that other searches cannot be performed. 
-
-\par
-The assumption that the dark-matter interaction with nucleons overlooks the possible sensitivity to different scenarios such as dark-matter with different spins, and interactions with higher nuclear recoil energies.
-A wide variation in sensitivity to interactions based on detection medium.
-
-\par
-Given the limitations within the standard model, it is natural to ask if there is a possible adaptation to the standard model which would allow to the existence of dark matter - and to explain why we have yet to detect it.
-This naturally leads to the introduction of effect theories - an approximation of the complete underlying theory.
-The primary benefits of this are that it allows for model-dependent analyses.
-
-\par
-Possible the most clear example of an effect field theory in physics is that of Newtonian gravity?
-
-\par
-In the more generalised form, this is General Relatively.
-However, this is expected to be the low energy effective field theory as it is only valid up to Planck scales.
-
-
-\par
-In the case of dark-matter, the underlying theory is not known or is too complex to compute, so instead we look at some approximation.
-
-\par
-An EFT looks at physics at a particular scale in a manner that allows for corrections to arbitrary precision.
-
-
-\par
-The steps for creating an EFT can be boiled down into 4-steps;
-\begin{enumerate}
-    \item Determine the degrees of freedom - not all degrees of freedom are relevant in all cases. For example, a low energy theory does not need to high mass (and so high energy) particles
-    \item Symmetries - this is guided by the degrees of freedom
-    \item Expansion parameters - this is just power counting ie, to what precision are terms needed
-    \item Lagrangian - the simplest Lagrangian can then be developed from the above choices
-\end{enumerate}
-
-
-\par
-In this section we follow the approach described in XXX where we treat WIMP-nucleon scattering as a four-field interaction comprising of the WIMP field $\chi$, the nucleon field $N$ and the effective operators $\Operator$;
-
+Writing optimistically, we can also excess our differential rate as:
 \begin{equation}
-    \Lagrangian_{int} = \chi_{1} \Operator_{\chi} \chi_{2} N_{1} \Operator_{N} N_{2}
+    \frac{d\sigma}{dE_R} \approx G_F^2 \sum_{i} R_i (\vec{v}^{\perp 2}, \frac{\vec{q}^2}{m_N^2}) W_i(q^2b^2)
 \end{equation}
-Here, $1$ and $2$ indicate incoming and outgoing particles respectively.
-
-\par
-Now, as this theory is non-relativistic, the interaction must be Galilean invariant.
-This leaves us with 4 quantities; the change in momentum $\vec{q}$, the relative velocity of the WIMP $\vec{v}=\vec{v}_{\chi,in} - \vec{v}_{N,in}$, the spin of the WIMP $\vec{S}_{\chi}$ and the spin of the nucleon $\vec{S}_{N}$.
-
-
-% I have these written down as part of it... not clear where I got it from... I think papers
-% spin-dependent, spin-independent, angular-momentum dependent and spin and angular-momentum dependent. 
-
-
-\par
-Galilean invariance momentum and velocity;
-$\Vec{v} = \Vec{v}_{\chi,in} - \Vec{v}_{N,in}$
-
-\par
-Finally we have our set of Galilean-invariant and Hermitian-invariant quantities;
-\begin{enumerate}
-    \item momentum transfer: $i\Vec{q}$
-    \item energy conservation: $\Vec{v}^{\bot}$
-    \item nucleon spin: $\Vec{S}_{N}$
-    \item dark matter spin: $\Vec{S}_{\chi}$
-\end{enumerate}
-
-\par
-The invariant quantities can then be combined to form operators;
-
-\begin{equation}
-\begin{array}{lcl}
-\Operator_{1}=1_{\chi}1_N \\ 
-\Operator_{2}=\left(v^{\perp}\right)^{2} \\
-\Operator_{3}=i \vec{S}_{N} \cdot\left(\frac{\vec{q}}{m_N} \times \vec{v}^{\perp}\right) \\ 
-\Operator_{4}=\vec{S}_{\chi} \cdot \vec{S}_{N} \\ 
-\Operator_{5}=i \vec{S}_{\chi} \cdot(\frac{\vec{q}}{m_N} \times \vec{v}^{\perp}) \\ 
-\Operator_{6}=\left(\vec{S}_{\chi} \cdot \frac{\vec{q}}{m_N}\right)\left(\vec{S}_{N} \cdot \frac{\vec{q}}{m_N}\right) \\
-\Operator_{7}=\vec{S}_{N} \cdot \vec{v}^{\perp} \\
-\Operator_{8}=\vec{S}_{\chi} \cdot \vec{v}^{\perp} \\ 
-\Operator_{9}=i \vec{S}_{\chi} \cdot\left(\vec{S}_{N} \times \frac{\vec{q}}{m_N}\right) \\
-\Operator_{10}=i \vec{S}_{N} \cdot \frac{\vec{q}}{m_N} \\ 
-\Operator_{11}=i \vec{S}_{\chi} \cdot \frac{\vec{q}}{m_N} \\
-\Operator_{12} =\vec{S}_{\chi} \cdot\left(\vec{S}_{N} \times \vec{v}^{\perp}\right) \\
-\Operator_{13} =i\left(\vec{S}_{\chi} \cdot \vec{v}^{\perp}\right)\left(\vec{S}_{N} \cdot \frac{\vec{q}}{m_N}\right) \\ 
-\Operator_{14} =i\left(\vec{S}_{\chi} \cdot \frac{\vec{q}}{m_N}\right)\left(\vec{S}_{N} \cdot \vec{v}^{\perp}\right) \\ 
-\Operator_{15} =-\left(\vec{S}_{\chi} \cdot \frac{\vec{q}}{m_N}\right)\left(\left(\vec{S}_{N} \times \vec{v}^{\perp}\right) \cdot \frac{\vec{q}}{m_N}\right)
-\end{array}
-\label{eq:EFT_Operators}
-\end{equation}
-
-\par
-When it actually comes to using these operators, the $\mathcal{O}_{2}$ is not considered as it is relativistic. 
-Additionally $\mathcal{O}_{16}$ that is mentioned in XXX is a linear combination of $\mathcal{O}_{15}$ and $\mathcal{O}_{12}$ so does not need to be included.
-
-\par
-The final piece of the puzzle is how the WIMPs interactions with isoscalars and isovectors could in fact be different.
-This means that the complete interaction Lagrangian is;
-
-\begin{equation}
-    \Lagrangian_{int} = 
-    \label{eq:HENR_Interaction_Lagrangian}
-\end{equation}
-
-\section{new writings}
-\fi
+where $W_i(q^2b^2)$ encompasses the nuclear tensor and $R_i (\vec{v}^{\perp 2}, \frac{\vec{q}^2}{m_N^2})$, is the WIMP tensor, containing all of the dark matter particle physics.
+In a direct dark matter experiment, this can be varied to change the nuclear charge, spin, isospin to determine $R_i$.
+As there are many different direct dark matter experiment, each with different target nuclei, each with different properties and sensitivities, they combine together to contain the dark matter.

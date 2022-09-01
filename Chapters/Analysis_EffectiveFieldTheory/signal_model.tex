@@ -1,36 +1,51 @@
 \section{Signal Model}
 \par
+Let us first discuss the signal model which we expect.
+The differential rate we saw in CHAPTER XXX though difficult to calculate is fairly easy for the end user, with a suite of tools written to determine this.
+Some of the original authors of the theory produced one such program, DMFormFactor (written in Mathematica) \cite{dmformfactor_ref}.
+Other software solutions such as WimpyDD (python) and DMFortFactor (fortran) also exist.
+None of these produce exactly the same rate which in large part is due to differing nuclear form factors and therefore different.
+
+\par
+The package used here is DMFormFactor v6.0 as was the choice for both LUX and XENON collaboration results\footnote{At the time of writing this is the newest public release. However these is a newer version which uses updated form factors which was used in \cite{pandax_2_eft_ref}.}.
+The Standard Halo Model parameters used to describe the dark matter are summarised in \autoref{tab:DMFormFactor_parameters}.
+\begin{table}[]
+    \centering
+    \begin{tabular}{c|c}
+        Parameter         & Value  \\ \hline
+        $\nu_0$           & 220$km s^{-1}$ \\
+        $\nu_{esc}$       & 544$km s^{-1}$ \\
+        $\rho_{\chi}$     & 0.3 $GeV/cm^{3}$ \\
+        $|\nu_E|$         & 245 $km s^{-1}$ 
+    \end{tabular}
+    \caption{DMFormFactor parameters used for the standard halo model. CITE XXX}
+    \label{tab:DMFormFactor_parameters}
+\end{table}
+To improve the realism of the recoil and to maintain consistency with previous experiments the natural abundance of Xe isotopes were folded in.
+Each operator was generated out to 1000 keV and in the isoscalar basis and a selection of the resultant differential rates are shown in \autoref{fig:HENR_Spin_Recoil_Spectrum}.
+Each Operator was performed for a WIMP mass of [5, 7, 10, 12, 14, 21, 33, 50, 100, 200, 400, 1000, 4000] GeV.
+
+\input{Chapters/Analysis_EffectiveFieldTheory/Figures/signal_recoils}
+
+
+
+
+
+
+
+\par
 The actual signal model is actually produced by taking a theoretical event rate spectrum (produced by a Mathematica package - DMFormFactor - developed by XXX) and applying the analysis acceptance and detector response.
 Passing through LZLama or PdfMaker, this turns the above into event observable - S1 and LogS2).
 \par
 DMFormFactor takes performs the calculations described previously.
 Each Xenon isotope is evaluated separately and is weighted by the Xenon abundance before being added together to produce an energy spectrum.
 As mentioned previously, the energy spectrum is dependant upon the choice of coupling and the WIMP mass.
-\par
-The choice has been made to perform analysis in iso-scalar rather than proton-neutron. 
-There is always an argument that one approach is more appropriate than the other
-\par
-In \autoref{tab:DMFormFactor_parameters} the parameters used for this are shown.
-The majority of these values are to match those from previous studies and the Dark Matter community standards.
-
-\begin{table}[]
-    \centering
-    \begin{tabular}{c|c}
-        Parameter   & Value  \\ \hline
-        $\nu_0$     & 220$km s^{-1}$ \\
-        $\nu_{esc}$ & 544$km s^{-1}$ \\
-        $\rho_{0}$     & 0.3 $GeV/cm^{3}$ \\
-        $\nu_E$     & 245 $km s^{-1}$ 
-    \end{tabular}
-    \caption{DMFormFactor parameters used for the standard halo model. CITE XXX}
-    \label{tab:DMFormFactor_parameters}
-\end{table}
 
 
 \par
 A subset of the recoil spectra calculated are shown in \autoref{fig:HENR_Spin_Recoil_Spectrum} and \autoref{fig:HENR_NotSpin_Recoil_Spectrum}.
 The masses for which the energy spectra were calculated were;
-[5, 7, 10, 12, 14, 21, 33, 50, 100, 200, 400, 1000, 4000] GeV all of which can be seen in Annex XXX.
+all of which can be seen in Annex XXX.
 The reason for this is that the shape of the limit produced is fairly well understood, so only a subset of WIMP masses are needed.
 
 \input{Chapters/Analysis_EffectiveFieldTheory/Figures/signal_recoils}

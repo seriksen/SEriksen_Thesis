@@ -32,7 +32,8 @@ Additionally, during the fit test, it was found that the curvature of the TATs d
 
 \par
 The proposed solution was to 'correct the curvature' with additional foam on top of the OCV, which due to construction delays and COVID-19, did not begin until August 2020.
-The foam installed on the top of the OCV was of the same type as planned for the side tanks and assayed in \cite{LZ_assay_ref}.
+The foam chosen for this was Styrodur\textsuperscript{\textregistered} \cite{styrodur_foam_ref}, chosen for having a high compression strength.
+It also had the benefit of being onsite as it was already planned to be used around the side tanks and was assayed in \cite{LZ_assay_ref}, namely 
 The primary bonding methods used to secure the foam to the OCV was HandiFoam\textsuperscript{\textregistered} \cite{handifoam_ref}.
 HandiFoam\textsuperscript{\textregistered} was chosen as it securely held test pieces together, but also would fill in any potential gaps.
 Additionally, the foam was held in place with titanium pins, and titanium rods.
@@ -58,7 +59,7 @@ Titanium pins were also used to secure pieces together and trapping them behind 
 The final fit-test is shown in \autoref{fig:SAT_foam_guys}.
 
 \par
-As the foam had been underground for a number of weeks prior to being used, each piece of foam installed underwent a final 'shaving', shown in \autoref{fig:foam_saving}.
+As the foam had been underground for a number of weeks prior to being used, each piece of foam installed underwent a final `shaving', shown in \autoref{fig:foam_saving}.
 A few mm was taken from each side of the foam to remove Radon chain particles that may have embedded themselves in the foam.
 
 \begin{figure}[!tbph]
@@ -102,22 +103,22 @@ This foam was secured using HandiFoam\textsuperscript{\textregistered} as shown 
 \par
 Because of the aforementioned split tank and thin walls, there was a danger that the tanks may leak GdLS.
 This is not necessarily a problem as GdLS is oil-based it would float to the top of the water, allowing it to be collected easily.
-However experiments showed that it did not react well with either Tyvek or foam, both of which surround the OCV.
-For Tyvek, over long exposure the optical reflectivity is damaged, reducing light collection in the OD.
-Whereas the foam degrades sufficient that it would not longer serve it's purpose as a water displacer after any contact.
+However it does not react well with either Tyvek or foam, both of which surround the OCV, and so any leaking GdLS would inevitably come into contact with them.
+For Tyvek, over long exposure the optical reflectivity is damaged, reducing light collection in the OD, but would still work to some extent.
+The foam on the other hand would degrade sufficient that it would not longer serve it's purpose as a water displacer after any contact.
 As such, polyethylene sheets were installed to cover the foam.
 On top of this, the Tyvek was installed.
 In addition, the OD-Tyvek shape around the TAT was changed.
 Previously this was a flat Tyvek sheet lying on top of the TAT and out to the OD PMTs.
 However, in order to allow for a potential GdLS leak to reach the surface, a TeePee design was adopted.
 
-
 \par
 During the BAT test-fitting, it was found that these also did not match the curvature of the OCV.
 Additionally, because of the placement of the securing feet underneath them, they were not stable.
 This mean that as the water tank was filled, the BATs would be able to rock and bash into the OCV and potentially break their feet off.
 The installation solution was to secure the BATs as much as possible with foam.
-A different, thinner foam was selected for this purpose as it was more flexible.
+A different, thinner foam was selected for this purpose as a degree of flexibility was required to follow the OCV curve.
+In this place 1/4-inch and 1/2-inch polyethylene foam were selected \cite{white_foam_ref}.
 Additionally, HandiFoam\textsuperscript{\textregistered} was used for smaller places that could not be reached.
 Neither of these foam solutions had been assayed.
 The final BAT installation is shown in \autoref{fig:BAT_installation}.
@@ -135,13 +136,13 @@ The final BAT installation is shown in \autoref{fig:BAT_installation}.
   \caption{Author securing the SAT.}
   \label{fig:SAT_titanium_installation}
   \end{subfigure}
-\caption{Photographs of BAT and BAT installation.}
+\caption{Photographs of BAT and SAT installation.}
 \label{fig:sat_and_bat_installation}
 \end{figure}
 
 \par
 In additional to what has been mentioned, the SATs were secured using titanium plates.
-To even the load the SATs experiences, 1-inch thick foam was installed above and below.
+To even the load the SATs experiences, 1-inch thick polyethylene foam was installed above and below.
 Additional foam was installed and secured with HandiFoam\textsuperscript{\textregistered} around the High Voltage port, where previously this was just water.
 This is shown in \autoref{fig:hv_port_foam}.
 
@@ -167,9 +168,11 @@ This left the inside of each tank open to the cavern-air during this time.
 
 \subsection{Simulation Adaptation}
 \par
-Many of these design changes, whether it be material or geometrical will have some affect on the performance on the OD.
-Most of the changes discussed above have been implemented in the simulation.
-A slice through the geometry is shown in \autoref{fig:Geometry_Differences} where the differences are highlighted.
+Many of these design changes, whether it be material or geometrical will have some effect on the performance on the OD.
+Most of the changes discussed above have been implemented in the simulation: the raised TATs, the additional foam and the Tyvek TeePee.
+Other differences such as the acrylic tank thickness have now been propagated into the simulation.
+What is implemented within the simulation can be seen \autoref{fig:Geometry_Differences} where the differences between design as as-built are highlighted.
+
 
 \begin{figure}[!tbph]
 \includegraphics[width=\textwidth]{Figures/Geometry/geometry_differences_black_and_white.png}

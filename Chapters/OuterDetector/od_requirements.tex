@@ -1,9 +1,9 @@
-\section{OD requirements}
+\section{OD performance requirements}
 \label{sec:simulated_od_requirements}
 \par
 As previously stated, the primary purpose of the OD is to act as an active veto for neutrons.
 Practically, this means that there are a number of performance requirements which the OD has to meet, all of which can be found in \cite{LZ_TechnicalDesignReview_ref}.
-A subset, which are address in this Thesis are presented in \autoref{tab:veto_requirements}.
+A subset, which are address in this thesis are presented in \autoref{tab:veto_requirements}.
 
 \begin{table}[!htbp]
     \centering
@@ -18,11 +18,11 @@ A subset, which are address in this Thesis are presented in \autoref{tab:veto_re
 \end{table} 
 
 \par
-The veto method adopted by LZ is to act as a 'dumb' veto, as no attempt will be made to determine that cause of light seen in the OD.
-This means that an event will be vetoed if the following two conditions are met;
+The veto method adopted by LZ is to act as a `dumb' veto, as no attempt will be made to determine the cause of light seen in the OD.
+This means that a single scatter event in the TPC will be vetoed if, in that event there is a signal see in the OD which:
 \begin{enumerate}
-    \item A pulse is seen with an energy above the veto threshold.
-    \item The pulse is within the veto window.
+    \item has energy above some threshold.
+    \item is within some time window of the scatter in the 
 \end{enumerate}
 The two requirements in \autoref{tab:veto_requirements} are clearly intertwined.
 The veto window and threshold are primarily determined by the background rate in the OD in order to reduce the impact on live-time.

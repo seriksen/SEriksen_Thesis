@@ -1,69 +1,103 @@
 \section{Projected Sensitivity}
+
+\subsection{Background Model}
 \par
-In this section, a sensitivity study is performed to ascertain the physics capability of the LZ detector to higher energy dark matter recoils.
+Our background model is based upon the components that we introduced in \autoref{sec:lz_detector}, but limited to only taking the largest contributions.
+Leaving us with 11 components shown in \autoref{tab:projected_lz_backgrounds}.
 
-\subsection{Data Selection}
+
+\subsection{Simulations}
 \par
-Cuts
-
-\paragraph{Single Scatters}
-Exclude events which scatter more than once
-
-\paragraph{Fiducial Volume}
-Self shielding blah blah
-
-\paragraph{Vetos}
-Self shielding blah blah
-
-
-
+The simulations used to produce the PDFs for the PLR originate from those used in \cite{LZ_projected_sensitivity_paper_ref} where an energy deposit only approach was adopted based upon a detector response model for which the author takes no credit and so only the essential information is detailed here.
+A more complete description of the simulation framework and detector response can be found in the following Refs. \cite{lz_simulations_ref,theresafruth_thesis_ref}.
+\par
+In order to determine the detector response, a set of simulations were performed in the standard fashion; where an energy deposit in xenon is translated into scintillation photons and ionisation electrons using NEST \cite{nest_1_ref,nest_2_ref}.
+These were then propagated until eventual detection (or not) at the PMT faces where the PMT response is then incorporated.
+The resultant sum of these responses give us the S1 and S2 pulse sizes from which the detector response is made from, describing the size of the S1 and S2 for a given recoil.
+Our detector is then described by a finite number of parameters given \autoref{tab:projected_sensitivity_detector_parameters} and the response in S1$_c$ and S2$_c$ for a NR events is shown in \autoref{fig:projected_detector_model_response_for_flat_nr}.
+When it comes time to generate the PDFs required for our PLR we can simply use the differential scattering rate per recoil energy.
+\begin{table}[]
+    \centering
+    \begin{tabular}{c|c}
+        Parameter   & Value  \\ \hline
+        $g_{1}$     & 0.119 \\
+        $g_{2}$     & 79.1  \\
+        Drift field & 310 Vcm$^{-1}$ \\
+        electron lifetime & 850 $\mu$s
+    \end{tabular}
+    \caption{Key detector parameters for the LXe-TPC parameters in the projected detector performance case.}
+    \label{tab:projected_sensitivity_detector_parameters}
+\end{table}
+\input{Chapters/Analysis_EffectiveFieldTheory/Figures/Projected/signal_limit}
 
 \subsection{Backgrounds}
 \par
+Now that there is a framework for generating the PDFs, the focus can shift to determining rates of each background.
+This is performed via the energy deposit simulations with the addition of analysis cuts which are defined within this energy only regime.
+Some of these cuts have been alluded to earlier in this Thesis (\autoref{sec:lz_detector} and \autoref{sec:simulated_od_requirements}) but are laid out below for completeness:
+\begin{itemize}
+    \item \textbf{SS}: Select events which have only scattered once, "single scatter". An event is a single scatter in the TPC if the energy-weighted standard deviation of the deposits is less than the detector resolution. This is taken to be $\sigma_r <$ 3.0 cm and $\sigma_z <$ 0.2 cm.
+    \item \textbf{ROI}: Select events where the recoil energy is in the range expected from a WIMP scatter and set on S1$_c$, S2 (uncorrected). This is cut is dependent upon which model of dark matter we are using. Here S1$_c$ must be less than 500 phd and have at least a 3-fold coincidence in the TPC PMTs. S2 must be greater than 415, the value required for at least 5 emitted electrons. This electron requirement is to ensure that the S2 size is large enough for position reconstruction.
+    \item \textbf{FID}: The inner volume, or fiducial volume of the TPC is taken, removing events near the edges. The FID is defined as a cylinder extended from the centre of the TPC to 4 cm from the TPC walls, 2 cm above the cathode grid, and 13 cm below the gate grid. This inner volume contains 5.6 tonnes of LXe, meaning that there is 1.4 tonnes of xenon used for self-shielding.
+    \item \textbf{Veto}: TPC scatters where there is a time-coincident deposit in either of the veto detectors are removed. In the Skin detector the signal must be within 800 $\mu$s of the TPC scatter and be at least 3 phd in size. In the OD the deposit must be at least 200 keV in size and within 500 $\mu$s of the TPC scatter. This OD selection was chosen to maintain consistency with \cite{LZ_projected_sensitivity_paper_ref} with an older simulation framework.
+\end{itemize}
 
+\par
+As we saw in \autoref{sec:lz_detector} the backgrounds can be categorised as coming from any of the following: detector contaminants, target contaminants or neutrinos.
+Detector contaminants encompasses the trace radioactivity of the detector components, any surface contamination on the detector walls as well as backgrounds present due to the location of the detector (cavern-$\gamma$s).
+This is written as Detector + Surface + Environment.
+The target contaminants are the radioisotopes dispersed in the LXe. 
+This primarily includes Radon which enters the LXe via emanation from the detector surfaces. 
+The neutrinos encompass both neutrinos from internal decays as well as coherent scattering from off-world neutrinos.
+These backgrounds were simulated and the framework described above and the analysis cuts applied.
+The rate each of the largest contributions in the ROI are shown in both \autoref{tab:projected_lz_backgrounds}.
 \begin{table}[]
     \centering
     \begin{tabular}{c|c|c|c}
-        Background Component                         & Type    & Rate (S1$_c$< 80 phd)    & Uncertainty  \\ \hline
-        Detector + Surface + Environmental           & ER      & 54                       & 20\% \cite{LZ_projected_sensitivity_paper_ref}        \\
-        pp + ${}^{7}$Be + ${}^{13}$N solar neutrinos & ER      & 221                      & 2\% \cite{pp_solar_neutrinos_rate_ref}       \\
-        ${}^{222}$Rn                                 & ER      & 700                      & 10\%         \\
-        ${}^{220}$Rn                                 & ER      & 115                      & 10\%         \\
-        ${}^{136}$Xe 2$\mu\beta\beta$                & ER      & 83                       & 50\% \cite{double_beta_decay_rate_ref}        \\
-        ${}^{85}$Kr                                  & ER      & 30                       & 20\%          \\
-        ${}^{39}$Ar                                  & ER      & 3                        & 50\%         \\
-        Detector + Surface + Environmental           & NR      & 0.53                     & 20\% \cite{LZ_projected_sensitivity_paper_ref}         \\
-        ${}^{8}$B solar neutrinos                    & NR      & 38                       & 4\%         \\
-        hep solar neutrinos                          & NR      & 0.31                     & 15\%         \\
-        Diffuse supernova neutrinos                  & NR      & 0.14                     & 50\%         \\
-        Atmospheric neutrons                         & NR      & 0.21                     & 25\%       
+        \multirow{2}{*}{Background}                  & \multicolumn{2}{|c|}{N}                          & \multirow{2}{*}{$\sigma$/N}  \\ 
+                                                     &  (S1$_c <$ 80 phd)     & (S1$_c <$ 500 phd)      &              \\ \hline
+        \textbf{ER contributions}                    &                        &                         &   \\
+        Detector contaminants                        & 171                    & 1166                    & 20\% \cite{LZ_projected_sensitivity_paper_ref}        \\
+        pp + ${}^{7}$Be + ${}^{13}$N solar neutrinos & 615                    & 2950                    & 2\% \cite{pp_solar_neutrinos_rate_ref}       \\
+        ${}^{222}$Rn                                 & 1915                   & 12514                   & 10\% \cite{lz_predicted_radon_rate_ref}        \\
+        ${}^{220}$Rn                                 & 316                    & 1902                    & 10\% \cite{lz_predicted_radon_rate_ref}        \\
+        ${}^{136}$Xe 2$\mu\beta\beta$                & 495                    & 19183                   & 50\% \cite{double_beta_decay_rate_ref}        \\
+        ${}^{85}$Kr                                  & 83                     & 557                     & 20\% \cite{kr85_rate_ref}         \\ \hline
+        \textbf{NR contributions}                    &                        &                         &   \\
+        Detector contaminants                        & 0.81                   & 0.91                    & 20\% \cite{LZ_projected_sensitivity_paper_ref}         \\
+        ${}^{8}$B solar neutrinos                    & 36                     & 36                      & 4\%  \cite{b8_neutrino_rate_ref}       \\
+        hep solar neutrinos                          & 0.9                    & 0.9                     & 15\% \cite{pp_solar_neutrinos_rate_ref}        \\
+        Diffuse supernova neutrinos                  & 0.15                   & 0.15                    & 50\% \cite{dissuse_supernova_neutrinos_rate_ref}        \\
+        Atmospheric neutrons                         & 0.65                   & 0.65                    & 25\% \cite{atmospheric_neutrinos_rate_ref}      
     \end{tabular}
     \caption{Primary backgrounds that need to be considered for an EFT search}
     \label{tab:projected_lz_backgrounds}
 \end{table}
-
+The form shown in \autoref{tab:projected_lz_backgrounds} is makeup of the background model in our PLR with 11 components.
 \par
-In addition to these backgrounds it is important to note several which have been omitted: namely $\gamma$-X and ${}^{83m}$Kr.
-Also missing accidental and wall based.
-
-\subsection{$\gamma$-X}
+In addition to these backgrounds it is important to note an omitted contribution, namely $\gamma$-X.
 It is possible for light-to-charge ration of an S1-S2 pulse pair to be attenuated, causing an ER event to appear NR-like.
 For this S2-suppression, a $\gamma$-ray needs to scatter in two separate regions of the TPC, one where ionisation electrons are detected, and one where they are not.
 In this case, a single S1 will be detected (due to how close in time the scatters are), and a single S2.
 There are two significant locations where these events can originate: in the reverse field region (RFR) of the TPC and the walls of the TPC.
-\par
 These events have not been included here due to the need to include additional parameters in order to adequately model them: namely the position of the event needs to be taken into account.
 It should be noted that it is also possible to cut out these events using a tighter fiducial cut, but this directly impacts exposure.
 In future searches, LZ is planning on using a boosted decision tree machine learning technique that is based upon LUX Run-4 EFT analysis \cite{LUX_RUN4_EFT_2021}.
-
 \par
-The resultant backgrounds considered are shown in FIGURE XXX.
-
+The differential rate per recoil energy for these backgrounds are shown in \autoref{fig:sensitivity_paper_backgrounds} after the cuts have been applied.
+\input{Chapters/Analysis_EffectiveFieldTheory/Figures/Projected/backgrounds}
 
 
 \subsection{Limits}
 \par
+A one-sided PLR test statistic was used in order to maintain software compatibility with these legacy simulations which were the basis of \cite{LZ_projected_sensitivity_paper_ref}.
+The upper limits are shown in \autoref{fig:EFT_Result_Projected_Sensitivity_1} and \autoref{EFT_Result_Projected_Sensitivity_2}.
+Note that the limit is presented in terms of the dimensionless values $({c}^{s}_{i}\times{m}^{2}_{w})^{2}$ rather than just $({c}^{s}_{i}$ (which has dimensionality of [mass]$^{-2}$, where $m_w$ is the Higg's vacuum expectation value.
+This decision has been made due to several experiments making the decision to present them in this way (starting with XENON100 \cite{xenon100_eft_ref}).
+\par
+A key benefit of presenting in this manor is that it allows for a direct comparison to previous results which have been included in the limits shown.
+Only a single data point is shown from LUX as their analysis was originally done in an \{$n,p$\} basis \cite{LUX_RUN4_EFT_2021}, and given the huge quantity of work it took they decided to reduce the problem to a single WIMP mass per operator.
+\par
+LZ has the potential to make significant strides in this region of parameter space which can be interpreted as 
 
 \input{Chapters/Analysis_EffectiveFieldTheory/Figures/Projected/projected_limits_result}
-
-\subsection{Discussion}

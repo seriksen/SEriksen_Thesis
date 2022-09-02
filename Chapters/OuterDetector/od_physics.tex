@@ -30,6 +30,9 @@ This is summarised in \autoref{fig:gdls_quenching}.
 
 \subsection{Neutron Propagation}
 \par
+A neutron is most easily detectable from the products after a neutron capture.
+
+
 In the lab-frame, the ratio between a neutrons initial energy ($E$) and final energy ($E'$) when colliding with an at rest nucleus of mass A is given by:
 \begin{equation}
     \frac{E'}{E} = \frac{A^2 + 1 + 2A\cos{\theta}}{(A + 1)^2}
@@ -51,18 +54,19 @@ Despite only making up a small fraction of the GdLS cocktail, the capture cross-
 
 \par
 Once a neutron is captured, the new isotope de-excites as either direct $\gamma$ emission or internal-conversion resulting in ejected auger electrons or characteristic x-rays.
-For a n-H capture, a single 2.2MeV $\gamma$ is emitted, which may leave the GdLS without scattering, and so the neutron is not detected.
-However, n-Gd capture produces $\approx$ 8MeV worth of particles, typically as a number of $\gamma$s.
-Between the excited and ground states of the Gadolinium isotopes ${}^{156}$Gd and ${}^{158}$Gd there are in excess of $10^{6}$ nuclear excitation levels.
-When the simulation framework was setup for the LZ experiment, GEANT4 was not adequate for modelling high atomic mass de-excitation's where there are a huge number of possible cascade combinations \cite{ucsb_gdls_dicebox_simulations_ref}, and it has not been a problem for other experiments which used Gadolinium-doped LS, such as DayaBay \cite{dayabay_overview_ref} and RENO \cite{reno_overview_ref}, as the quantity of scintillator is large enough that the entirety of the de-excitation energy is generally deposited in the medium.
-However, the LZ OD is significantly thinner than those, with a non-negligible probably of not all of the energy being deposited in the GdLS.
+For a n-H capture, a single 2.2 MeV $\gamma$ is emitted, which may leave the GdLS without scattering, and so the neutron is not detected.
+However, n-Gd capture produces $\backsim$ 8 MeV worth of particles, typically as a number of $\gamma$s.
+Between the excited and ground states of the Gadolinium isotopes (${}^{156}$Gd and ${}^{158}$Gd) there are in excess of $10^{6}$ nuclear excitation levels.
+When the simulation framework was setup for the LZ experiment, GEANT4 was not adequate for modelling high atomic mass de-excitations where there are a huge number of possible cascade combinations \cite{ucsb_gdls_dicebox_simulations_ref}.
+Other experiments with GdLS have the same problem, such as DayaBay \cite{dayabay_overview_ref} and RENO \cite{reno_overview_ref}.
+However the quantity of scintillator in those detectors is large enough that the entirety of the de-excitation energy is generally deposited in the medium.
+The LZ OD is significantly thinner than those, with a non-negligible probably of not all of the energy being deposited in the GdLS.
 As such LZ incorporated DICEBOX \cite{dicebox_simulations_ref} simulations, which are sampled allowing for a more realistic simulation \cite{lz_simulations_ref}.
 A detailed comparison of the DICEBOX result against GEANT4 can be found in \cite{ucsb_gdls_dicebox_simulations_ref}.
 
-
 \par
 Using DICEBOX, the proportion of how the energy is dissipated in the isotope is shown in \autoref{fig:od_gdls_dicebox_deexcitation}, and the resultant $\gamma$ spectrum in \autoref{fig:gd_capture_resulting_gamma_spectrum}.
-For both ${}^{156}Gd$ and ${}^{158}Gd$ the de-excitation occurs in an average of 4-5 steps, with the vast majority of the energy going directly to $\gamma$-emission.
+For both ${}^{156}$Gd and ${}^{158}$Gd the de-excitation occurs in an average of 4-5 steps, with the vast majority of the energy going directly to $\gamma$-emission.
 Because of this, the de-excitation of Gadolinium is often quoted as ``4.7 $\gamma$'s".
 This highlights the importance of doping the scintillator as there is a much higher probability of being able to observe a n-Gd capture with multiple $\gamma$s than it is as a single $\gamma$ from a n-H capture.
 

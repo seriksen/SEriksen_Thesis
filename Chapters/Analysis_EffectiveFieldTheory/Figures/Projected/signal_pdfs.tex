@@ -1,0 +1,124 @@
+\begin{figure}[!htbp]%
+\centering
+    \begin{tikzpicture}
+    \centering
+        \begin{groupplot}[view={0}{90},
+            group style = {group size = 1 by 3,
+            horizontal sep=0.6cm}]
+
+        \nextgroupplot[
+        width=15cm, height=8cm,
+        xlabel={S1$_{c}$ [phd]},
+        ylabel={log$_10$(S2$_{c}$ [phd])},
+        mark size=0pt,
+        xmin=0, xmax=500,
+        ymin=2.5, ymax=5.5,
+        colormap={blackwhite}{color=(white) color=(black)}]
+        
+        \addplot3[
+              surf,
+              shader=flat corner,
+        	  mesh/cols=40,
+        	  mesh/ordering=rowwise,
+            ] file {Data/HENR/Projected_Sensitivity/Signal/pdf/o1_m100_pdf.dat};
+            
+        \addplot[blue, ]
+            table [x=bin, y=mean]
+            {Data/HENR/Projected_Sensitivity/Signal/pdf/er_band.dat};     
+        \addplot[blue, dashed]
+            table [x=bin, y=high]
+            {Data/HENR/Projected_Sensitivity/Signal/pdf/er_band.dat};     
+        \addplot[blue, dashed]
+            table [x=bin, y=low]
+            {Data/HENR/Projected_Sensitivity/Signal/pdf/er_band.dat};     
+
+        \addplot[red, ]
+            table [x=bin, y=mean]
+            {Data/HENR/Projected_Sensitivity/Signal/pdf/nr_band.dat};    
+        \addplot[red, dashed]
+            table [x=bin, y=high]
+            {Data/HENR/Projected_Sensitivity/Signal/pdf/nr_band.dat};     
+        \addplot[red, dashed]
+            table [x=bin, y=low]
+            {Data/HENR/Projected_Sensitivity/Signal/pdf/nr_band.dat};  
+            
+        \nextgroupplot[
+        width=15cm, height=8cm,
+        xlabel={S1$_{c}$ [phd]},
+        ylabel={log$_10$(S2$_{c}$ [phd])},
+        mark size=0pt,
+        xmin=0, xmax=500,
+        ymin=2.5, ymax=5.5,
+        colormap={blackwhite}{color=(white) color=(black)}]
+        
+        \addplot3[
+              surf,
+              shader=flat corner,
+        	  mesh/cols=40,
+        	  mesh/ordering=rowwise,
+            ] file {Data/HENR/Projected_Sensitivity/Signal/pdf/o6_m100_pdf.dat};
+            
+        \addplot[blue, ]
+            table [x=bin, y=mean]
+            {Data/HENR/Projected_Sensitivity/Signal/pdf/er_band.dat};     
+        \addplot[blue, dashed]
+            table [x=bin, y=high]
+            {Data/HENR/Projected_Sensitivity/Signal/pdf/er_band.dat};     
+        \addplot[blue, dashed]
+            table [x=bin, y=low]
+            {Data/HENR/Projected_Sensitivity/Signal/pdf/er_band.dat};     
+
+        \addplot[red, ]
+            table [x=bin, y=mean]
+            {Data/HENR/Projected_Sensitivity/Signal/pdf/nr_band.dat};    
+        \addplot[red, dashed]
+            table [x=bin, y=high]
+            {Data/HENR/Projected_Sensitivity/Signal/pdf/nr_band.dat};     
+        \addplot[red, dashed]
+            table [x=bin, y=low]
+            {Data/HENR/Projected_Sensitivity/Signal/pdf/nr_band.dat};  
+            
+        \nextgroupplot[
+        width=15cm, height=8cm,
+        xlabel={S1$_{c}$ [phd]},
+        ylabel={log$_10$(S2$_{c}$ [phd])},
+        mark size=0pt,
+        xmin=0, xmax=500,
+        ymin=2.5, ymax=5.5,
+        colormap={blackwhite}{color=(white) color=(black)}]
+        
+        \addplot3[
+              surf,
+              shader=flat corner,
+        	  mesh/cols=40,
+        	  mesh/ordering=rowwise,
+            ] file {Data/HENR/Projected_Sensitivity/Signal/pdf/o15_m100_pdf.dat};
+            
+        \addplot[blue, ]
+            table [x=bin, y=mean]
+            {Data/HENR/Projected_Sensitivity/Signal/pdf/er_band.dat};     
+        \addplot[blue, dashed]
+            table [x=bin, y=high]
+            {Data/HENR/Projected_Sensitivity/Signal/pdf/er_band.dat};     
+        \addplot[blue, dashed]
+            table [x=bin, y=low]
+            {Data/HENR/Projected_Sensitivity/Signal/pdf/er_band.dat};     
+
+        \addplot[red, ]
+            table [x=bin, y=mean]
+            {Data/HENR/Projected_Sensitivity/Signal/pdf/nr_band.dat};    
+        \addplot[red, dashed]
+            table [x=bin, y=high]
+            {Data/HENR/Projected_Sensitivity/Signal/pdf/nr_band.dat};     
+        \addplot[red, dashed]
+            table [x=bin, y=low]
+            {Data/HENR/Projected_Sensitivity/Signal/pdf/nr_band.dat};  
+        
+        
+        \end{groupplot}
+    \end{tikzpicture}
+    \caption{Detector response in S1 (\textbf{Left}) and S2 (\textbf{Right}) space for a given recoil in the LZ detector assuming the projected detector parameters.
+             The values have been extrapolated from simulations of a flat NR spectrum 
+    }
+    \label{fig:projected_detector_model_signal_pdfs}
+\end{figure}

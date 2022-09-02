@@ -7,15 +7,38 @@
             xlabel=S1 (phd),
             width=15cm,
             height=8cm,
+            xmin=0, xmax=600,
+            ymin=3, ymax=5,
             %ymin=45, ymax=100,
             %minor y tick num=1,
             ]
-        \addplot[blue, only marks,]
+            
+        \addplot[black, only marks, mark=+]
             table []
             {Data/Neutron_Efficiency/AmLi_Commissioning/s1s2_passed_od_veto_in_fid.dat};    
-        \addplot[red, only marks,]
+        \addplot[green, only marks, mark=o]
             table []
             {Data/Neutron_Efficiency/AmLi_Commissioning/s1s2_failed_od_veto_in_fid.dat};
+        
+        \addplot[blue, ]
+            table [x=s1c, y=mean]
+            {Data/tpc/sr1_er_band.dat};     
+        \addplot[blue, dashed]
+            table [x=s1c, y=nsig1]
+            {Data/tpc/sr1_er_band.dat};     
+        \addplot[blue, dashed]
+            table [x=s1c, y=psig1]
+            {Data/tpc/sr1_er_band.dat};     
+
+        \addplot[red, ]
+            table [x=s1c, y=mean]
+            {Data/tpc/sr1_nr_band.dat};     
+        \addplot[red, dashed]
+            table [x=s1c, y=nsig1]
+            {Data/tpc/sr1_nr_band.dat};     
+        \addplot[red, dashed]
+            table [x=s1c, y=psig1]
+            {Data/tpc/sr1_nr_band.dat};     
             
     \end{axis}
             

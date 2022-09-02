@@ -5,7 +5,6 @@
   \begin{groupplot}[%view={0}{90},
     group style = {group size = 2 by 2,vertical sep=1.5cm}]
     \nextgroupplot[
-            title=TDR background neutrons,
             ylabel=Efficiency (\%),
             width=0.5\textwidth, height=6cm,
             xmin=0, xmax=1000,
@@ -41,9 +40,9 @@
                      x dir=both, x explicit, error bar style={color=black}]
                     table [x=Time,y=Efficiency, x error=XError]
                     {Data/Neutron_Efficiency/Simulation/od_efficiency_sally_200kev.dat};
+            \node[draw, fill=white] at (axis cs: 800,88) {TDR};
                     
     \nextgroupplot[
-            title=100 keV,
             width=0.5\textwidth, height=6cm,
             xmin=0, xmax=1000,
             ymin=85, ymax=100,
@@ -80,9 +79,8 @@
                      x dir=both, x explicit, error bar style={color=black}]
                     table [x=Time,y=Efficiency, x error=EfficiencyError]
                     {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_100kev_threshold_200kev_error_bars.dat};
-
+            \node[draw, fill=white] at (axis cs: 800,88) {100 keV};
     \nextgroupplot[
-            title=1 MeV,
             xlabel=Veto Window ($\mu$s),
             ylabel=Efficiency (\%),
             width=0.5\textwidth, height=6cm,
@@ -120,9 +118,9 @@
                      x dir=both, x explicit, error bar style={color=black}]
                     table [x=Time,y=Efficiency, x error=EfficiencyError]
                     {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_1mev_threshold_200kev_error_bars.dat};
+            \node[draw, fill=white] at (axis cs: 800,88) {1 MeV};
             \legend{,0keV,,100keV,,200keV}                
     \nextgroupplot[
-            title=6 MeV,
             xlabel=Veto Window ($\mu$s),
             width=0.5\textwidth, height=6cm,
             xmin=0, xmax=1000,
@@ -150,7 +148,7 @@
                      x dir=both, x explicit, error bar style={color=black}]
                     table [x=Time,y=Efficiency, x error=EfficiencyError]
                     {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_6mev_threshold_100kev_error_bars.dat};
-                    
+            
             \addplot+[red, smooth, mark=none]
                     table [x=Time,y=Efficiency]
                     {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_6mev_threshold_200kev_smooth_line.dat};
@@ -160,10 +158,10 @@
                      x dir=both, x explicit, error bar style={color=black}]
                     table [x=Time,y=Efficiency, x error=EfficiencyError]
                     {Data/Neutron_Efficiency/Simulation/edep_tpc_neutron_eff_6mev_threshold_200kev_error_bars.dat};
-            \node[] at (axis cs: 600,90) {6 MeV};
+            \node[draw, fill=white] at (axis cs: 800,88) {6 MeV};
   \end{groupplot}
    \node at ($(group c2r1) - (group c1r1) + (-0.5cm, 6.0cm)$) {\ref{Simulated_Neutron_Eff_CommonLegend}};
 \end{tikzpicture}
-\caption{Neutron Veto Efficiency using energy deposits. TDR-era result with incomplete and simpler geometry taken from \cite{sallyshaw_thesis_ref}. The TDR-era result is only valid above 90\%, below which a straight line has been drawn to 0\%.}
+\caption{Neutron Veto Efficiency using energy deposits. Simulations from the LZ Technical Design Review (TDR) \cite{sallyshaw_thesis_ref} are included for reference, but the OD geometry was simpler then. The TDR result is only valid above 90\%, below which a straight line has been drawn to 0\%.}
 \label{fig:neutron_eff_energy_dep_tpc_neutrons}
 \end{figure}

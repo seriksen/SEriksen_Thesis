@@ -30,6 +30,35 @@ When it comes time to generate the PDFs required for our PLR we can simply use t
 \end{table}
 \input{Chapters/Analysis_EffectiveFieldTheory/Figures/Projected/signal_limit}
 
+
+\subsection{Signal Model}
+\par
+The package used here is DMFormFactor v6.0 as was the choice for both LUX and XENON collaboration results\footnote{At the time of writing this is the newest public release. However these is a newer version which uses updated form factors which was used in \cite{pandax_2_eft_ref}.}.
+The Standard Halo Model parameters used to describe the dark matter are summarised in \autoref{tab:DMFormFactor_parameters}.
+\begin{table}[]
+    \centering
+    \begin{tabular}{c|c}
+        Parameter         & Value  \\ \hline
+        $\nu_0$           & 220$km s^{-1}$ \\
+        $\nu_{esc}$       & 544$km s^{-1}$ \\
+        $\rho_{\chi}$     & 0.3 $GeV/cm^{3}$ \\
+        $|\nu_E|$         & 245 $km s^{-1}$ 
+    \end{tabular}
+    \caption{DMFormFactor parameters used for the standard halo model. CITE XXX}
+    \label{tab:DMFormFactor_parameters}
+\end{table}
+To improve the realism of the recoil and to maintain consistency with previous experiments the natural abundance of Xe isotopes were folded in.
+Each operator was generated out to 1000 keV and in the isoscalar basis and a selection of the resultant differential rates are shown in \autoref{fig:HENR_Spin_Recoil_Spectrum}.
+Each Operator was performed for a WIMP mass of [5, 7, 10, 12, 14, 21, 33, 50, 100, 200, 400, 1000, 4000] GeV.
+
+\input{Chapters/Analysis_EffectiveFieldTheory/Figures/signal_recoils}
+
+\par
+These were then used with the detector model to produce our observable quantities: \{$S1_c,log(S2_c)$\}, a selection of which are shown in FIGURE XXX.
+
+\input{Chapters/Analysis_EffectiveFieldTheory/Figures/Projected/signal_pdfs}
+
+
 \subsection{Backgrounds}
 \par
 Now that there is a framework for generating the PDFs, the focus can shift to determining rates of each background.
@@ -86,6 +115,16 @@ In future searches, LZ is planning on using a boosted decision tree machine lear
 \par
 The differential rate per recoil energy for these backgrounds are shown in \autoref{fig:sensitivity_paper_backgrounds} after the cuts have been applied.
 \input{Chapters/Analysis_EffectiveFieldTheory/Figures/Projected/backgrounds}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=15cm]{Figures/EFT/Projected_backgrounds/projected_backgrounds_s1_s2.png}
+    \caption{Simulated data set for a background-only 1000 live day run with a 5.6 tonne fiducial mass. The ER and NR bands are shown in blue and red respectively; the solid lines are the mean and the dashed are 10\% and 90\% quantiles.}
+    \label{fig:my_label}
+\end{figure}
+
+
+
 
 
 \subsection{Limits}

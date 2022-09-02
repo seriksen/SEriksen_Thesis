@@ -42,7 +42,7 @@
                      x dir=both, x explicit, error bar style={color=black}]
                     table [x=Time,y=Efficiency, x error=EfficiencyError]
                     {Data/Neutron_Efficiency/Simulation/edep_amli_neutron_eff_0mm_threshold_200.dat};
-            \node[] at (axis cs: 800,87) {\large 0 mm};
+            \node[draw, fill=white] at (axis cs: 800,87) {\large 0 mm};
             \legend{,0keV,,100keV,,200keV}
         
         \nextgroupplot[
@@ -83,7 +83,7 @@
                     table [x=Time,y=Efficiency, x error=EfficiencyError]
                     {Data/Neutron_Efficiency/Simulation/edep_amli_neutron_eff_700mm_threshold_200.dat};
             
-             \node[] at (axis cs: 800,87) {\large 700 mm};
+             \node[draw, fill=white] at (axis cs: 800,87) {\large 700 mm};
         
         \nextgroupplot[
             xlabel=Veto Window ($\mu$s),
@@ -123,12 +123,12 @@
                     table [x=Time,y=Efficiency, x error=EfficiencyError]
                     {Data/Neutron_Efficiency/Simulation/edep_amli_neutron_eff_1400mm_threshold_200.dat};
             
-             \node[] at (axis cs: 800,87) {\large 1400 mm};
+             \node[draw, fill=white] at (axis cs: 800,87) {\large 1400 mm};
              
     \end{groupplot}
      \node at ($(group c1r1) + (-0.5cm, 3.0cm)$) {\ref{Simulated_AmLi_CommonLegend}};
 \end{tikzpicture}
-    \caption{Simulated AmLi neutron tagging efficiency}
+    \caption{Efficiency of the OD to veto neutrons from simulated AmLi neutron.}
     \label{fig:simulated_amli_neutron_efficiency}
 \end{figure}
 

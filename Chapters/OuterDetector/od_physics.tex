@@ -1,15 +1,22 @@
 \section{Interaction Detection}
 \label{sec:od_physics}
 \par
-An energy deposit in the GdLS will produce a light yield that can be described by Birk's Law \cite{birks_law_ref}:
+Any energy deposit in the GdLS will produce a light yield that can be described by Birk's Law \cite{birks_law_ref}:
 \begin{equation} 
-    \frac{dL}{dx} = S \frac{\frac{dE}{dx}}{1 + k_{B}\frac{dE}{dx} + C\frac{dE}{dx}^2}
+    \frac{dL}{dx} = S \frac{\frac{dE}{dx}}{1 + kB\frac{dE}{dx} + C\frac{dE}{dx}^2}
     \label{eq:birkslaw}
 \end{equation}
-Here, L is the the light yield, S is the scintillation efficiency, $\frac{dE}{dx}$ is the energy loss of the particle per path length, and $k_{B}$ and $C$ are Birk's law parameters which differ depending upon the source; $\gamma$'s, electron recoils, etc.
+where L is the the light yield, S is the scintillation efficiency, $\frac{dE}{dx}$ is the energy loss of the particle per path length, and $kB$ and $C$ are Birk's law parameters which differ depending upon the source: $\gamma$'s, electron recoils, etc.
+This suppressed light yield is brought on by recombination and the quenching of exciting molecules via transfer to surrounding ones.
+This results highly ionised particles producing signals significantly lower in amplitude than their energy would indicate.
+\par
+The parameters of Birk's law have to be measured for each material as the coefficient, $kB$ contains the probability of quenching and links the local density of ionised molecules to the energy loss.
+Factors which depend on the material.
 These parameters have been well studied for cocktails of similar makeup to the LZ GdLS with identical PPO and bis-MSB concentrations \cite{ls_alpha_quenching_ref,ls_proton_quenching_ref}.
 The low amount of Gadolinium-doping means that these should not differ significantly from that.
 The parameters for GdLS are shown in \autoref{tab:Birks_law_parameters}.
+The effect on observed energy using these parameters is shown in \autoref{fig:gdls_quenching} where $\alpha$ particles are the most heavily quenched.
+In GdLS a 100 keV electron will produce the same amount of light as a 2 MeV $\alpha$.
 \begin{table}[!htbp]
     \centering
     \begin{tabular}{c | c | c | c }
@@ -22,17 +29,14 @@ The parameters for GdLS are shown in \autoref{tab:Birks_law_parameters}.
     \label{tab:Birks_law_parameters}
 \end{table} 
 
-\par
-The source of the interactions will generally be quenched, with $\alpha$'s producing the least amount of light per energy deposited.
-This is summarised in \autoref{fig:gdls_quenching}.
-
 \input{Chapters/OuterDetector/Figures/quenching}
 
 \subsection{Neutron Propagation}
 \par
 A neutron is most easily detectable from the products after a neutron capture.
-
-
+The probability of a neutron being capture is generally proportional to the amount of time the neutron spends is proximity to any given nuclei, so the slower the neutron is travelling the more readily it will be captured.
+Neutrons which enter the detector will be travelling relatively fast, making capture difficult.
+They can however be slowed down by scattering off particles.
 In the lab-frame, the ratio between a neutrons initial energy ($E$) and final energy ($E'$) when colliding with an at rest nucleus of mass A is given by:
 \begin{equation}
     \frac{E'}{E} = \frac{A^2 + 1 + 2A\cos{\theta}}{(A + 1)^2}
@@ -40,14 +44,15 @@ In the lab-frame, the ratio between a neutrons initial energy ($E$) and final en
 where $\theta$ is the scattering angle in the CoM.
 Now, if the nucleus is a hard sphere, so independent of $\theta$, then an elastic scatter results in:
 \begin{equation}
-    E^{'} = E(\frac{A-1}{1})^{2}
+    E^{'} = E(\frac{A-1}{A+1})^{2}
 \end{equation}
 If A = 1 (so is a proton), then this reduces further to $E^{'} = \frac{1}{2}E$, meaning that the neutron loses half its energy on average per collision.
 The scattered proton has energy $E - E^{'}$ and is quenched, as previously described.
-Neutrons predominately collide effectively on Hydrogen atoms \cite{neutron_thermalisation_and_capture_ref}.
+Neutrons are most effectively moderated down on Hydrogen atoms \cite{neutron_thermalisation_and_capture_ref}.
 
 \par
-Once thermalised, a neutron will capture most often on a Gadolinium isotope (87\% of the time), and otherwise on Hydrogen\footnote{Other isotopes can capture the neutron but the probability is sufficiently low that they are not included here.}.
+Once thermalised, the neutron will be captured.
+In the GdLS this most often on a Gadolinium isotope (87\% of the time), and otherwise on Hydrogen\footnote{Other isotopes can capture the neutron but the probability is sufficiently low that they are not included here.}.
 Despite only making up a small fraction of the GdLS cocktail, the capture cross-section of Gadolinium is orders of magnitude above that of Hydrogen and so dominates this process, as can be seen in \autoref{fig:gdls_capture_cross_sections}.
 
 \input{Chapters/OuterDetector/Figures/gdls_capture_cross_sections}

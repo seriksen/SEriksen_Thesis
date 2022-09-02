@@ -3,7 +3,7 @@
 \begin{tikzpicture}
 \centering
   \begin{groupplot}[%view={0}{90},
-    group style = {group size = 1 by 2, vertical sep=0.5cm},]
+    group style = {group size = 1 by 3, vertical sep=0.2cm},]
     \nextgroupplot[
     xmin=300,
     xmax=600,
@@ -17,12 +17,27 @@
     xmax=600,
     ymode=log,
     ylabel={Absorption Length (cm)},
-    xlabel={Wavelength (nm)}]
+    xticklabels={,,}]
     \addplot[ybar interval, blue, const plot]
                     table [x=Wavelength,y=Distance]
                     {Data/GdLS_Physics/Light_Collection/gdls_absorption_length.dat};
+    
+    \nextgroupplot[
+    xmin=300,
+    xmax=600,
+    ymode=log,
+    ylabel={Quantum Efficiency},
+    xlabel={Wavelength (nm)}]
+    \addplot[ybar interval, red, const plot]
+            table [x=Wavelength,y=QE]
+            {Data/GdLS_Physics/Light_Collection/od_pmt_qe.dat};
+            
   \end{groupplot}
 \end{tikzpicture}
-\caption{Primary OD detection properties}
+\caption{Primary OD detection properties. 
+         \textbf{Top:} Wavelength of GdLS scintillation \cite{scotthaselschwardt_thesis_ref}. 
+         \textbf{Middle:} Absorption length in GdLS \cite{scotthaselschwardt_thesis_ref}.
+         \textbf{Bottom:} Hamamatsu R5912 8" PMT quantum efficiency \cite{hamamatsu_r5912_ref}
+         }
 \label{fig:od_detection_properties}
 \end{figure}

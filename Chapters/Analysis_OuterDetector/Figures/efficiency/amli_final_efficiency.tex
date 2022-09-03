@@ -15,28 +15,38 @@
             legend style = { column sep = 10pt, legend columns = -1,},
             legend pos=north west,
             ]
-        \addplot[red,
-                 mark size=0.5, mark=*, mark options={solid},
+        \addplot+[red, mark=none]
+                  table [x=bin,y=value]
+                  {Data/Neutron_Efficiency/AmLi_Commissioning/pos_0_od_200kev_efficiency.dat};   
+        \addplot[red, only marks, mark size=1pt,
                  error bar legend,
-                 error bars/.cd, error bar style={color=red},
+                 error bars/.cd, error bar style={color=black},
                  y dir=both, y explicit, 
                  x dir=both, x explicit,
                  ]
             table [x=bin,y=value, y error minus index=4, y error plus index=5, x error minus index=2, x error plus index=3,]
             {Data/Neutron_Efficiency/AmLi_Commissioning/pos_0_od_200kev_efficiency.dat};    
+            
+        \addplot+[red, mark=none]
+          table [x=bin,y=value]
+          {Data/Neutron_Efficiency/AmLi_Commissioning/pos_700_od_200kev_efficiency.dat};      
         \addplot[green, 
-                 mark size=0.5, mark=*, mark options={solid},
+                 only marks, mark size=1pt,
                  error bar legend,
-                 error bars/.cd, error bar style={color=green},
+                 error bars/.cd, error bar style={color=black},
                  y dir=both, y explicit, 
                  x dir=both, x explicit,
                  ]
             table [x=bin,y=value, y error minus index=4, y error plus index=5, x error minus index=2, x error plus index=3,]
-            {Data/Neutron_Efficiency/AmLi_Commissioning/pos_700_od_200kev_efficiency.dat};             
+            {Data/Neutron_Efficiency/AmLi_Commissioning/pos_700_od_200kev_efficiency.dat};       
+            
+        \addplot+[blue, mark=none]
+          table [x=bin,y=value]
+          {Data/Neutron_Efficiency/AmLi_Commissioning/pos_1400_od_200kev_efficiency.dat};         
         \addplot[blue, 
-                 mark size=0.5, mark=*, mark options={solid},
+                 only marks, mark size=1pt,
                  error bar legend,
-                 error bars/.cd, error bar style={color=blue},
+                 error bars/.cd, error bar style={color=black},
                  y dir=both, y explicit, 
                  x dir=both, x explicit,
                  ]
@@ -60,6 +70,7 @@
             samples=3,
             ]
             {x * 42.5 * 100 / 1000000};
+        \iffalse
         \addplot[domain=0:1500,
             samples=3,
             ]
@@ -68,10 +79,11 @@
             samples=3,
             ]
             {x * 276.8 * 100 / 1000000};  
+        \fi
          \addplot[dashed, mark=none, red] coordinates {(0,5) (1500,5)};
          
-         \node[rotate=24] at (axis cs: 1000,26) {276.8Hz};
-         \node[rotate=11] at (axis cs: 1400,15.5) {95.8Hz};
+        % \node[rotate=24] at (axis cs: 1000,26) {276.8Hz};
+        % \node[rotate=11] at (axis cs: 1400,15.5) {95.8Hz};
          \node[rotate=5] at (axis cs: 1400,8) {42.5Hz};
     \end{axis}
             

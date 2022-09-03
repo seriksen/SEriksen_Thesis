@@ -13,21 +13,21 @@
             %minor y tick num=1,
             ]
         \addplot[red,
-                 error bars/.cd, error bar style={color=red},
+                 error bars/.cd, error bar style={color=black},
                  y dir=both, y explicit, 
                  x dir=both, x explicit,
                  ]
             table [x=bin,y=value, y error minus index=4, y error plus index=5, x error minus index=2, x error plus index=3,]
             {Data/Neutron_Efficiency/AmLi_Commissioning/pos_0_efficiency_per_phd.dat};    
         \addplot[green, 
-                 error bars/.cd, error bar style={color=green},
+                 error bars/.cd, error bar style={color=black},
                  y dir=both, y explicit, 
                  x dir=both, x explicit,
                  ]
             table [x=bin,y=value, y error minus index=4, y error plus index=5, x error minus index=2, x error plus index=3,]
             {Data/Neutron_Efficiency/AmLi_Commissioning/pos_700_efficiency_per_phd.dat};             
         \addplot[blue,
-                 error bars/.cd, error bar style={color=blue},
+                 error bars/.cd, error bar style={color=black},
                  y dir=both, y explicit, 
                  x dir=both, x explicit,
                  ]

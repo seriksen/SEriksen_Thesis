@@ -22,10 +22,17 @@
                  y dir=both, y explicit, error bar style={color=black}]
             table [x=energy,y=rate,y error plus index=2, y error minus index=3]
             {Data/OD_Backgrounds/background_constraints/od_bipo_second_alpha.dat};
-                
+        
+        \addplot[green, only marks, mark size=1, 
+                 error bars/.cd,
+                 y dir=both, y explicit, error bar style={color=black}]
+            table [x=energy,y=rate,y error plus index=2, y error minus index=3]
+            {Data/OD_Backgrounds/background_constraints/od_bipo_third_alpha.dat};
+        
+        \legend{${}^{219}$Rn, ${}^{215}$Po, ${}^{214}$Po}
     \end{axis}
             
 \end{tikzpicture}
     \caption{$\alpha$ energies in from BiPo and RnPo.}
-    \label{fig:od_bipo_alphas}
+    \label{fig:od_extracted_alphas}
 \end{figure}

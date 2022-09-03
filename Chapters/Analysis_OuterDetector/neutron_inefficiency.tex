@@ -1,12 +1,13 @@
 \section{Neutron Efficiency}
 \par
-For calculating the neutron efficiency during SR1 calibrations, AmLi was used.
-As seen in \autoref{sec:sec:od_simulation_efficiency}, the efficiency is no longer expected to meet the requirement of 95\% efficiency.
-But, as has been shown in the previous section, the simulation significantly underestimates the light collection efficiency, and so it's possible that the neutron propagation is also not modelled adequately.
+With a measure of the background rate, the focus now shifts towards determining the veto time window and veto energy threshold that is needed to meet the requirements set out in \autoref{tab:veto_requirements}.
+The structure of this section is analogous to \autoref{sec:od_simulation_efficiency}, where an AmLi calibration source is used to determine the veto efficiency.
 
+\subsection{AmLi Veto Efficiency}
 \par
-Three AmLi sources were used at the same time during this calibration, each placed in a different CSD tube.
-This is summarised in \autoref{tab:amli_source_activities}.
+For determining the neutron tagging efficiency of the OD, the AmLi calibration source was used.
+Three AmLi sources were used simultaneously to improve the neutron flux, each of which were lowered into a separate calibration source tube.
+The activity and locations of each of the sources is summarised in \autoref{tab:amli_source_activities}.
 
 \begin{table}[!htbp]
     \centering
@@ -16,20 +17,29 @@ This is summarised in \autoref{tab:amli_source_activities}.
         2   & Source-1        & 9.3            \\ 
         3   & Source-3        & 11.9                
     \end{tabular}
-    \caption{AmLi source activities in each CSD}
+    \caption{AmLi source activities in each calibration source deployment tube (CSD).
+             The activity of the sources are from \cite{LZ_TechnicalDesignReview_ref}.}
     \label{tab:amli_source_activities}
 \end{table}
 
 \par
-For this data, the S2-trigger was used, and the cuts developed for the WIMP search were used to filter out unusable data, to leave a fairly pure dataset of neutron recoils.
-These are summarised below, but are detailed in \cite{lz_ws_sr1_ref};
+Data was taken for a number of hours, with the goal of having a minimum of 1000 NR events in the TPC from the neutrons.
+Three separate sets of data were taken at varying heights in the CSD tubes: 0 mm, 700 mm, and 1400 mm.
+These are the same was were presented in \autoref{sec:od_simulation_efficiency}.
+During data taking the S2 Trigger (see \autoref{sec:lz_detector}) was used, requiring that a large pulse is seen in the TPC.
+
+\par
+On the recorded events a number of analysis cuts were applied to determine which TPC events were significant.
+In addition to the core cuts; of single scatters (\textbf{SS}), region of interest (\textbf{ROI}) and a fiducial cut (\textbf{FID}), two other subgroup of cuts were applied.
+These were based on the S1 pulse (\textbf{S1Cuts}) and the S2 cuts (\textbf{S2Cuts}).
+Details of these cuts are summarised below, but they are the same ones which are detailed in \cite{lz_ws_sr1_ref}:
 
 \begin{enumerate}
-    \item \textbf{SS}: Single Scatter cut as determined by the interaction finder, shown to be 98.5\% efficient.
-    \item \textbf{S2Cuts}: Remove events where the S2 pulse has unusual properties.
+    \item \textbf{SS}: Single Scatter cut as determined by an interaction finder algorithm. It is 98.5\% efficient at identifying single scatters in the \textbf{ROI}.
+    \item \textbf{S2Cuts}: Many S2 pulses has Remove events where the S2 pulse has unusual properties.
     \item \textbf{S1Cuts}: Remove events where the S1 pulse has unusual properties.
     \item \textbf{FID}: Fiducial Volume, to remove wall events and ensure that the neutron penetrated deep enough.
-    \item \textbf{NR}: Select events that have nuclear recoiled by selecting events within 1-$\sigma$ of the NR band, which was calibrated using the external DD neutron source.
+    \item \textbf{ROI}: Select events that have nuclear recoiled by selecting events within 1-$\sigma$ of the NR band, which was calibrated using the external DD neutron source.
 \end{enumerate}
 
 \par
@@ -39,12 +49,12 @@ The result of applying the selection cuts to these runs is shown in \autoref{tab
 
 \begin{table}[!htbp]
     \centering
-    \begin{tabular}{c|c|c|c|c}
-        \multirow{2}{*}{z position (mm)} & \multirow{2}{*}{Run IDs}  & \multicolumn3{c}{Number}  \\ 
-                                         &                           & Events    & SS & passing all cuts     \\ \hline
-        0                                & 8350-8369                 & 5,504,700 & X  & X               \\
-        700                              & 8304-8317                 & 3,688,200 & X  & X               \\ 
-        1400                             & 8319-8348                 & 7,041,500 & X  & X                
+    \begin{tabular}{c|c|c|c}
+        \multirow{2}{*}{z position (mm)} & \multirow{2}{*}{Run IDs}  & \multicolumn2{c}{Number of events}  \\ 
+                                         &                           & Acquired    & After all cuts     \\ \hline
+        0                                & 8350-8369                 & 5,504,700  & 2252               \\
+        700                              & 8304-8317                 & 3,688,200  & 1464               \\ 
+        1400                             & 8319-8348                 & 7,041,500  & 3293                
     \end{tabular}
     \caption{Summary of AmLi source deployment during post SR1 calibrations}
     \label{tab:amli_calibration_summary}

@@ -94,8 +94,6 @@ In future it may be possible to accurately measure the rate of this using this v
 
 \input{Chapters/Analysis_OuterDetector/Figures/background_constraints/od_middle_region_phd}
 
-\par
-We now focus our attention more directly at specific backgrounds that are expected, to try and constraint them.
 
 \subsection{$\gamma$ constraints}
 \par
@@ -116,51 +114,62 @@ Primarily due to the source safe placement during SR1, it was not possible to de
 %%%%%%%%%%%%
 \subsection{$\alpha$ constraints}
 \par
-Although the exact rate of GdLS is not known, it is possible to constrain some.
-Notably, decays within the U and Th decay chains all have an isotope in them with a half-life shorter than the LZ event window.
-As such it is possible to observe two decays in the same event from the same decay chain.
-There are 3 possible decays, summarised in \autoref{tab:od_constrainable_decays_in_data}.
-However, in reality only ${}^{214}$Bi$ \to {}^{214}$Po and ${}^{219}$Rn $\to {}^{215}$Po can be searched for as the interactions from ${}^{212}$Bi $\to {}^{212}$Po are close enough together that they will be merged into one pulse.
+As was discussed in \autoref{sec:simulated_od_backgrounds} the exact rate of backgrounds from GdLS internals components is not known.
+Fortunately we are able to constrain the some of the components. 
+The decays within the U and Th decay chains all have an isotope in them with a half-life shorter than the LZ event window, of 4.5 ms.
+It will therefore be possible to observe two decays from the same decay chain, which will appear as a pulse-pair (a pulse from each decay).
+There are 3 possible decays, one from decay chain ${}^{238}$U, ${}^{235}$U and ${}^{232}$Th.
+These are summarised in \autoref{tab:od_constrainable_decays_in_data}.
+In reality though, only ${}^{214}$Bi$ \to {}^{214}$Po and ${}^{219}$Rn $\to {}^{215}$Po can be searched for as the interactions from ${}^{212}$Bi $\to {}^{212}$Po are close enough together that they will be merged into one pulse.
 
 \begin{table}[!htbp]
     \centering
     \begin{tabular}{c|c|c|c|c|c}
         \multirow{2}{*}{Decay Pair (chain)}                    & \multicolumn{2}{c|}{First Decay}   & \multicolumn{3}{c}{Second Decay}    \\ 
                                                                & Decay    & Energy (MeV) & Decay    & Energy (MeV) & half-life ($\mu$s) \\ \hline
-        ${}^{214}Bi \to {}^{214}Po$ (${}^{238}U_{m}$)          & $\beta$  & 3.27         & $\alpha$ & 7.83         & 160   \\ 
-        ${}^{219}Rn \to {}^{215}Po$ (${}^{235}U_{l}$)          & $\alpha$ & 6.95         & $\alpha$ & 7.53         & 1800  \\ 
-        ${}^{212}Bi \to {}^{212}Po$ (${}^{232}Th_{l}$)         & $\beta$  & 2.25         & $\alpha$ & 8.95         & 0.3
+        ${}^{214}$Bi $\to {}^{214}$Po (${}^{238}$U$_{m}$)          & $\beta$  & 3.27         & $\alpha$ & 7.83         & 160   \\ 
+        ${}^{219}$Rn $\to {}^{215}$Po (${}^{235}$U$_{l}$)          & $\alpha$ & 6.95         & $\alpha$ & 7.53         & 1800  \\ 
+        ${}^{212}$Bi $\to {}^{212}$Po (${}^{232}$Th$_{l}$)         & $\beta$  & 2.25         & $\alpha$ & 8.95         & 0.3
     \end{tabular}
-    \caption{Th and U decay chain pairs with half-lives within the LZ event window of 4.5ms. See \autoref{fig:decay_chains} for the complete Decay Chains.}
+    \caption{Th and U decay chain pairs with half-lives within the LZ event window of 4.5 ms. 
+             Decay information from \cite{radon_chains_ref}.
+             See \autoref{fig:decay_chains} for the complete Decay Chains.}
     \label{tab:od_constrainable_decays_in_data}
 \end{table}
 
 \par
-The decay pairs can be searched for by looking for pulses which are reconstructed to be close to each other in position.
-The position requirement is to reduce the impact of coincident interactions and decays in other areas of the OD.
-As the second decay is an $\alpha$ it does not have significant penetrating power so the interaction will be close to where the initial decay was.
-The cut implemented loosely to account for potential variable inefficiencies in the position reconstruction with $z$ and $\theta$.
-The final selection used was a $z_{\text{diff}} < 100$ and $\theta_{\text{diff}} < 1.0$, where diff refers to the difference between pulses.
-The result of this is shown in \autoref{fig:od_bipo_alphas_2d}.
-Only pulses above 200keV in visible energy are included.
+The decay pairs were searched for by looking for pulses which were reconstructed in be in close proximity to each other.
+As the GdLS is not circulated and the decays particles ($\beta$ and $\alpha$) have do not have a significant penetrating power, the site of the two interactions with be very close to each other.
+This position requirement acts to reduce the impact of coincident signals in other areas of the OD being mistakenly identified as part of the pulse pair.
+The data selection criteria used was simply requiring that the reconstructed $z$ and $\theta$ be within some range of each other: $z_{\text{diff}} < 100$ and $\theta_{\text{diff}} < 1.0$, where diff refers to the difference between pulses.
+It was also limited to pulses passing the noise-cut, primarily the PMT multiplicity (coincidence) requirements so that enough PMTs saw light to make the reconstruction meaningful.
+This cut is fairly loose to account for potential variable inefficiencies in the position reconstruction with $z$ and $\theta$ based on pulse size.
+The resultant pulse-pairs are shown in \autoref{fig:od_all_pulse_pairs_2d}.
+Only pulses above 200keV in visible energy are included in the 2D histograms as the features are easier to see.
 
 \input{Chapters/Analysis_OuterDetector/Figures/background_constraints/od_bipo_pulses_2d}
 
 \par
-The distribution around 170 phd in both pulses correspond to the $\alpha$'s in the ${}^{235}U_{l}$ chain.
-Although less clear, the second pulse contains a second $\alpha$ around the same place, and a $\beta$ spectrum in the first pulse.
-This becomes easier to see in when the features are extracted as is shown in \autoref{od_bipo_alphas}.
-
-\input{Chapters/Analysis_OuterDetector/Figures/background_constraints/od_bipo_alphas}
+In \autoref{fig:od_bipo_pulses_2d} there is a distribution where both the first and second pulse have a signal size around 170 phd.
+These correspond to the double $\alpha$-decay in the ${}^{235}U_{l}$ chain.
+The first pulse is slightly smaller than the second, which follows the pattern expected given the $\alpha$ energies shown in \autoref{tab:od_constrainable_decays_in_data}.
+The second pulse-pair (from ${}^{238}U_{m}$) has a $\alpha$-decay in the same energy region, $\backsim$170 phd.
+The first decay is a $\beta$-decay with the resultant electron have a spectrum of energies up the the end point of 3.27 MeV ($\backsim$ 400 phd).
+As such even though the second pulse will be within a small range, there is no clear feature in \autoref{fig:od_bipo_pulses_2d} as the first pulse will be a wide range of values.
 
 \par
-The second pulse distribution peak is broadened due to two Gaussian's contributing to it, from two $\alpha$'s.
-One from ${}^{214}Po$ and one from ${}^{215}Po$.
-We are able to constrain the rate of these events by using a reverse search, finding the second $\alpha$ in the energy range and then looking for the first decay.
-This gives a rate of 98$\pm$2.5 $\mu$Hz for ${}^{214}Bi \to {}^{214}Po$, which is within 50\% that expected from the 'improved purification' (see \autoref{sec:simulated_od_requirements}).
-Measuring the rate of ${}^{219}Rn \to {}^{215}Po$ is performed in a similar way giving a rate of 7.7$\pm$1.2 $\mu$Hz, though with an addition time constraint accounting for several decay-constants worth of time which is lower than the decay half-life of ${}^{214}Po$.
-The selection of this data is shown in \autoref{fig:od_bipo_alphas_2d}.
-This is again within 50\% of that from the 'improved purification', and so the assumption can be made that this purification was done, and that the estimated rates can be assumed true for all decays.
+It is still possible to isolate ${}^{214}$Bi $\to {}^{214}$Po but taking advantage of the much shorter decay half-life of ${}^{214}$Po vs ${}^{215}$Po.
+This was done on the same same data as before with using the same position requirement, except now the time difference between the two pulses is considered.
+The of time separation of the pulses has to be less than 800 $\mu$s.
+This was selected as it is 5 full half-lives, in which 97\% of all ${}^{214}$Po will have decayed, and is less than half the half-life of ${}^{215}$Po.
+The result of this is shown in \autoref{fig:od_time_dependent_pulses_2d}.
+Included for completeness as well in \autoref{fig:od_time_dependent_pulses_2d} is the opposite case.
+A new distribution has appeared is a second pulse size means of 240 phd, corresponding to the $\alpha$-decay of ${}^{214}$Po.
+
+\par
+The distributions in \autoref{fig:od_time_dependent_pulses_2d} allow for the rates of both ${}^{214}$Bi $\to {}^{214}$Po and ${}^{219}$Rn $\to {}^{215}$Po to be constrained.
+This gives a rate of 98$\pm$2.5 mHz for ${}^{214}Bi \to {}^{214}Po$ and 7.7$\pm$1.2 mHz for ${}^{219}Rn \to {}^{215}Po$.
+Both are rates are lower than those from expected from even the `improved purification' case (discussed in \autoref{sec:simulated_od_requirements}).
 
 
 \par
@@ -175,68 +184,98 @@ This allows the acrylic holding the scintillator to act as a reservoir, providin
 LZ is not alone in having experienced this, with KamLAND measuring a higher than expected rate of ${}^{238}$U$_l$ decays \cite{KamLAND_LS_contaminants_ref}.
 
 \par
+The spectra for each of the three visible $\alpha$s are shown in \autoref{fig:od_extracted_alphas}.
+The signal size has been converted into visible energy according by the energy scale previously discussed (\autoref{sec:od_energy_scale}).
 Although it is unexpected to see a four $\alpha$'s, it becomes possible to perform an $\alpha$ energy calibration, and will be continuously measurable during all Science runs, without the need for Science data taking to be stopped.
 An additional advantage is that PMT gain-drift will be more easily detectable.
 The observed energy of each of the $\alpha$'s verse the observed energy are shown in \autoref{fig:od_alpha_quenching}, the Birk's law fit is also provided using the parameters in \autoref{tab:Birks_law_parameters}.
 It can be seen that the parameters taken from pure LAB remain in good agreement with Gd-doped LAB used here.
 This also isolates the difference between observed data and simulations to light propagation.
 
+\input{Chapters/Analysis_OuterDetector/Figures/background_constraints/od_bipo_alphas}
+
 \input{Chapters/Analysis_OuterDetector/Figures/background_constraints/alpha_quenching}
 
-\subsection{${}^{152}Gd$}
+
+\subsection{${}^{152}$Gd}
 \par
-The final background that can be constrained is ${}^{152}Gd$, which produces a 2.2 MeV $\alpha$ decay ($\approx$ 120 keV visible energy).
+The final background that can be constrained is ${}^{152}$Gd, which produces a 2.2 MeV $\alpha$ decay ($\approx$ 120 keV visible energy).
 The GdLS is loaded with 0.1\% (by mass) of natural Gadolinium.
 With a total mass of GdLS used in the detector this corresponds to 16000kg, and ${}^{152}Gd$ has a natural abundance of 0.2\%, this gives a maximum possible rate of 27Hz, where there is a 5\% uncertainty on the doping by mass.
 \par
-Unfortunately this does not constrain this region.
-Of particular note are ${}^{14}C$, a $\beta$ decay with an end-point of 156 keV, and ${}^{147}Sm$ which decays via the emission of a 2.3 MeV $\alpha$.
-All three were previously measured in the LS screener campaign, with ${}^{14}$C being the dominant contributor (>100 Hz).
+Unfortunately this does not constrain does this region entirely.
+Of particular note are ${}^{14}$C, a $\beta$ decay with an end-point of 156 keV, and ${}^{147}$Sm which decays via the emission of a 2.3 MeV $\alpha$.
+All three were previously measured in the LS screener campaign, with ${}^{14}$C being the dominant contributor (>100 Hz) \cite{scotthaselschwardt_thesis_ref}.
+
 
 \subsection{Background Fitting}
 \par
-Given the constraints placed on rates, it is possible to fit the expected distribution to data. 
-The fit was limited to only include the region of the simulation which is approximately correct with the data. 
-As such, the high energy, above 600phd ($\gtrsim$ 2.5MeV) was excluded, and a low energy cut was 20phd was used.
+Using all of the information of the OD backgrounds above, we finish this section is a fit of the expected background to the observed.
+Simulations of all of the backgrounds identified in \autoref{sec:simulated_od_backgrounds}, but full light propagation and processed through the same analysis software suite as the observed data.
+During this process the simulation signal sizes were scaled by 4.77.
+Rather than fitting to the full observable space, a sub range was defined between 20 phd and 600 phd.
+The lower limit was set so as to be far enough away from the noise-cut that any uncertainty in scaling factor would not remove these events.
+The upper limit was set predominately by the rate of cavern-$\gamma$s.
+In this region the expected background rate is 78.43$\pm$2.51 Hz.
+This is slightly below the observed rate of 85.26$\pm$0.22 Hz.
 \par
-In order to keep the number of fit parameters down, all detector components were in combined. 
-
-Given the mitigation procedure described in \autoref{sec:od_construction_sec}, the contamination is likely to be minimal from these components.
-\par
-Another source, ${}^{7}Be$, which has been considered in fits from similar experiments has been excluded here.
-As it only has a half-life of 50-days, and the OD was not in a stable running condition until nearly a year after filling, it has been assumed that the contribution from ${}^{7}Be$ would be negligible \cite{be7_decay_ref}.
-\par
+In order to keep the number of fit parameters down a number of steps were taken.
+Firstly, all detector components were in combined. 
+Secondly, contributions from ${}^{152}$Gd and ${}^{147}$Sm were combined together as the energy resolution is not sufficient to separate them.
 The cavern-$\gamma$'s were allowed to float within the uncertainties they were measured in \cite{LZ_Gamma_Ray_Background_ref}.
-The ${}^{235}U_e$, ${}^{235}U_l$, ${}^{238}U_e$, ${}^{238}U_m$, ${}^{238}U_l$, ${}^{232}Th_e$, ${}^{232}Th_l$ where constrained to be in equilibrium with the sub-chains, and constrained by the LS Screener result or the measured $\alpha$-rate here, with the exception of ${}^{238}U_l$ which was able to float freely.
-The internal decays were left to float as freely as possible.
+${}^{238}$U$_l$ was allowed to fit between a range of [0, 15] Hz, where 15 is roughly double the size of the integrated rate of the peak at 100 phd above the background rest of the spectra.
+${}^{238}$U$_{m}$ and ${}^{235}$U$_{l}$ were constrained by the rates previously reported.
+All other backgrounds were left to allowed to float up to the maximum value measured in the LS screener campaign \cite{scotthaselschwardt_thesis_ref}.
+\par
+The result of the fit is shown in \autoref{fig:od_background_fit_to_data}.
+Only components which contributed a more than 0.5 Hz to the OD rate have been included in \autoref{fig:od_background_fit_to_data}, but the fitted line should is from the all contributions.
+The individual contributions of each component is shown in \autoref{tab:od_constrainable_decays_in_data}.
+
+\par
+${}^{238}$U$_l$ can successfully account for the peak observed at 100 phd, contributing in excess of 8 Hz to the OD rate.
+The rate of cavern-$\gamma$s remain the background with the largest uncertainty for the backgrounds in the OD.
+There remain some differences between the observed and fitted result, most notably at 50 phd where is a noticeable gap in a background that can fill in this region.
+This can be incorporated as an uncertainty in the scaling factor.
+The flat scaling of 4.77 did not take into account any position variation, and given that the light collection efficiency observed is significant greater than simulated, it is logical to suggest that the distribution in the LCE map (shown in \autoref{fig:od_lce}) is different as well.
+This would effectively make contributions in lower light collection regions appear smaller than they are observed to be, which may go so way to explain what is seen.
+
 
 \input{Chapters/Analysis_OuterDetector/Figures/background_fit/fit_result}
 
 
 \begin{table}[!htbp]
     \centering
-    \begin{tabular}{c|c|c|c}
-        Source               &  Decay Type(s)             & Expected Rate (Hz)       & Fitted Rate (Hz) \\ \hline
-        \multicolumn{4}{l}{\textbf{Externals}} \\
-        Cavern ${}^{238}$U   & $\gamma$                   & 13.98                      & 22.54                    \\ 
-        Cavern ${}^{232}$Th  & $\gamma$                   & 20.06                      & 11.74                    \\ 
-        Cavern ${}^{40}$K    & $\gamma$                   & 6.70                       & 13.33                    \\ 
-        Detector             & $\gamma$,$\beta$           & 2.29                       & 4.59                    \\
-        \multicolumn{4}{l}{\textbf{Internals}} \\
-        ${}^{238}U_{e}$     & $\gamma$,$\alpha$,$\beta$  & 0.71                      & 2.57                    \\ 
-        ${}^{238}U_{m}$     & $\gamma$,$\alpha$,$\beta$  & 0.30                      & 0.03                    \\
-        ${}^{238}U_{l}$     & $\gamma$,$\alpha$,$\beta$  & 0.11                      & 7.60                 \\
-        ${}^{235}U_{e}$     & $\gamma$,$\alpha$,$\beta$  & 0.82                      & 0.08                    \\
-        ${}^{235}U_{l}$     & $\gamma$,$\alpha$,$\beta$  & 0.52                      & 0.12                    \\
-        ${}^{232}Th_{e}$    & $\gamma$,$\alpha$,$\beta$  & 0.12                      & 1.2                    \\
-        ${}^{232}Th_{l}$    & $\gamma$,$\alpha$,$\beta$  & 0.15                      & 0.02                    \\
-        ${}^{40}K$          & $\gamma$,$\beta$           & 0.05                      & 0.05                    \\
-        ${}^{14}C$          & $\beta$                    & 108.25                    & 98.32                     \\
-        ${}^{176}Lu$        & $\gamma$,$\beta$           & 0.17                      & 1.65                    \\
-        ${}^{147}Sm$        & $\alpha$                   & 14.6                      & 13.15                    \\
-        ${}^{152}Gd$        & $\alpha$                   & 27.2                      & 18.54                     
+    \begin{tabular}{c|c|c}
+        Source               &  Decay Type(s)               & Fitted Rate (Hz) \\ \hline
+        \multicolumn{3}{l}{\textbf{Externals}} \\
+        Cavern ${}^{238}$U   & $\gamma$                     & 7.65$\pm$1.65                    \\ 
+        Cavern ${}^{232}$Th  & $\gamma$                     & 12.94$\pm$3.04                    \\ 
+        Cavern ${}^{40}$K    & $\gamma$                     & 12.50$\pm$5.77                    \\ 
+        Detector             & $\gamma$,$\beta$             & 3.63$\pm$0.67              \\ \hline
+        \multicolumn{3}{l}{\textbf{Internals}} \\
+        ${}^{238}$U$_{e}$     & $\gamma$,$\alpha$,$\beta$   & 0.98$\pm$0.21                    \\ 
+        ${}^{238}$U$_{m}$     & $\gamma$,$\alpha$,$\beta$   & 0.03$\pm$0.10                   \\
+        ${}^{238}$U$_{l}$     & $\gamma$,$\alpha$,$\beta$   & 8.74$\pm$2.34                \\
+        ${}^{235}$U$_{e}$     & $\gamma$,$\alpha$,$\beta$   & 0.39$\pm$0.23                    \\
+        ${}^{235}$U$_{l}$     & $\gamma$,$\alpha$,$\beta$   & 0.44$\pm$0.12                    \\
+        ${}^{232}$Th$_{e}$    & $\gamma$,$\alpha$,$\beta$   & 0.18$\pm$0.04                    \\
+        ${}^{232}$Th$_{l}$    & $\gamma$,$\alpha$,$\beta$   & 0.51$\pm$0.08                  \\
+        ${}^{40}$K          & $\gamma$,$\beta$              & 0.05$\pm$0.01                 \\
+        ${}^{14}$C          & $\beta$                       & 26.97$\pm$7.70           \\
+        ${}^{176}$Lu        & $\gamma$,$\beta$              & 0.14$\pm$0.05               \\
+        ${}^{147}$Sm and ${}^{152}$Gd    & $\alpha$         & 10.32$\pm$7.24                     
         
     \end{tabular}
-    \caption{Th and U decay chain pairs with half-lives within the LZ event window of 4.5ms. See \autoref{fig:decay_chains} for the complete Decay Chains.}
+    \caption{Fitting contributions of OD backgrounds to the observed data. The reported errors are statistical only.}
     \label{tab:od_constrainable_decays_in_data}
 \end{table}
+
+\subsection{Conclusion}
+\par
+To summarise this section, the OD rate for a number of months.
+During this time the OD backgrounds were stable, with the rate above the noise-cut of 276.8 Hz, above 100 keV of 95.8 Hz and above 200 keV as 42.5 Hz.
+The rate above 100 keV indicates that a veto time window of 500 $\mu$s is possible.
+\par
+Several background contributions have been measured in the OD and have been fitted against.
+An un-expected contribution from ${}^{238}$U$_{l}$ is present which is believed to be from the radon emanation.
+This entered all of the tanks via the frequent opening and closing the valves discussed in \autoref{sec:od_construction_sec}.

@@ -2,6 +2,32 @@
 \centering
 \begin{tikzpicture}
 \centering
+  \begin{axis}[
+    height=10cm, width=10cm,
+    view={0}{90},
+    ylabel={Second Pulse (phd)},
+    xlabel={First Pulse (phd)},
+    colorbar,
+    colorbar style={ylabel={Rate (Hz)},ymode=log,},
+    ]
+    \addplot3[
+      surf,
+      shader=flat corner,
+	  mesh/cols=40,
+	  mesh/ordering=rowwise,
+	  point meta = {z<0.0000001 ? nan : z}
+    ] file {Data/OD_Backgrounds/background_constraints/rnpo_rate_2d.dat};
+
+  \end{axis}
+\end{tikzpicture}
+\caption{Relationship of pulses reconstructed in close proximity to each other. Only pulses above 200 keV have been included.}
+\label{fig:od_all_pulse_pairs_2d}
+\end{figure}
+
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
   \begin{groupplot}[%view={0}{90},
     group style = {group size = 1 by 2,vertical sep=1.5cm,
                    horizontal sep=1.5cm},
@@ -40,9 +66,10 @@
    
   \end{groupplot}
 \end{tikzpicture}
-\caption{Relationship of pulses reconstructed in close proximity to each other. Only pulses above 200keV have been included.
-         \textbf{Top:} All pulses in an event. The population between 150 and 200 phd in both the first and second pulse correspond to the $\alpha$'s of ${}^{219}Rn$ (first) and ${}^{215}Po$ (second).
-         \textbf{Bottom:} Pulses within 1000$\mu$s of each other. The population above 150 phd in the second pulse are the $\beta$ from ${}^{214}Bi$ (first) and $\alpha$ from ${}^{214}Po$ (second).}
-\label{fig:od_bipo_pulses_2d}
+\caption{Relationship of pulses reconstructed in close proximity to each other. Only pulses above 200 keV have been included.
+         \textbf{Top:} All pulses-pairs within 800 $\mu$s of each other. The distribution is from ${}^{214}$Bi $\to {}^{214}$Po.
+         \textbf{Bottom:} All pulse-pairs with more than 800 $\mu$s time separation between them. The distribution left is from ${}^{219}$Rn $\to {}^{215}$Po.
+         }
+\label{fig:od_time_dependent_pulses_2d}
 \end{figure}
 

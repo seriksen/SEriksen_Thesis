@@ -263,35 +263,37 @@ The difference can be account for in the reduced volume of the BATs compared to 
 
 \par
 Perhaps unexpectedly, the veto efficiency varies depending upon the height of the source.
-Part of the reason for this is shown in \autoref{fig:simulated_amli_capture_time} where the time it takes for the neutron to capture in the GdLS is shown.
-Materials with a high $H$ content, such the foam and acrylic, can effectively moderate and bound the neutron in that material, restricting the neutrons ability to reach the OD.
-The effect of this per volume can be seen in \autoref{fig:gdls_capture_time_vs_volume}, where the neutron capture time in the GdLS is plotted as a fraction of time the neutron spends in various materials.
-In the capture constant this reflects itself as 2 exponential; one for a neutron that rapidly enters the GdLS and is moderated and captured there, and one for when the neutron is bouncing in a high-$H$ material before entering the GdLS.
-In the latter case, the capture time constant is close to 200$\mu$s, corresponding to high-$H$ materials.
-\par
-The both the pure-LS and GdLS neutron capture times are well measured, with the most applicable for LZ from DayaBay, where the capture was modelled by \autoref{eq:neutron_capture_time} (Equation 15 in \cite{Dayabay_neutron_capture_fit_ref});
+This can be understood by looking at the time it takes for the neutron to be captured.
+For each of the 3 positions the neutron capture time is shown in \autoref{fig:simulated_amli_capture_time}.
+The time it takes for a neutron to capture in a medium is modelled by an exponent in homogeneous mediums.
+As the neutrons here travel through many different materials its journey is significantly more complex.
+Fortunately this can still be approximated just the sum of several exponents \cite{Dayabay_neutron_capture_fit_ref}.
+Rather than a capture constant, $\tau$, representing the capture time in each volume, it is a constant representing the neutron path.
+In the OD, the neutron capture time in GdLS distribution is given by:
 \begin{equation}
-    N_{Gd}(t) = N_{0,Gd} \times [(1+\alpha)\frac{1}{\tau_{Gd}}e^{\frac{-1}{\tau_{Gd}}} - \alpha\frac{1}{\tau_{0}}e^{\frac{-t}{\tau_{0}}}] + C_{1} \\
+    N(t) = \sum_{i} c_i \cdot e^{\frac{-t}{t_i}}
 \label{eq:neutron_capture_time}
 \end{equation}
-where the Gadolinium capture can be constrained by two time constants $\tau_{Gd}$, which represents the capture of thermal neutrons and $\tau_{0}$ for neutrons captured before thermalisation\footnote{This is actually neutrons from inverse $\beta$-decay with energies $\mathcal{O}$(0.015)MeV being captured before scattering enough to thermalise.}. 
-$\alpha$ is simply a there to balance to two terms.
-Given the much smaller volume of GdLS and the materials around it, there are most likely three exponents which contribute significantly to the capture time originating from; neutrons which enter the GdLS rapidly and thermalise and capture there, neutrons which scatter a lot in the foam before entering the GdLS, and neutrons which scatter in the acrylic multiple times before entering the GdLS.
-The various neutron capture times for these mediums are shown in \autoref{tab:medium_neutron_capture_time}.
-\begin{table}
-\centering
-\begin{tabular}{c|c}
-    Medium  & Neutron Capture Time ($\mu$s)  \\ \hline
-    GdLS    & 28 \cite{ucsb_gdls_dicebox_simulations_ref}  \\
-    Water   & 202 \cite{snoplus_neutron_capture_time_on_water_ref}  \\
-    Foam    & XX   \\
-    Acrylic & XX  
-\end{tabular}
-\caption{Neutron capture time in pure and infinite mediums.}
-\label{tab:medium_neutron_capture_time}
+The distributions in \autoref{fig:simulated_amli_capture_time} are best described by 3 terms the values.
+The $\tau$ values for each location are summarised in \autoref{tab:simulated_neutron_capture_time}.
+$\tau_1$ represented when the neutron spends almost all of it's pre-capture time in the GdLS.
+It is slightly above the GdLS capture time of $\backsim$28 $\mu$s \cite{ucsb_gdls_dicebox_simulations_ref} which is just due to the neutron having to travel through some amount of acrylic and foam.
+\begin{table}[]
+    \centering
+    \begin{tabular}{c|c}
+        Position  &  $\tau_1$      & $\tau_2$       & $\tau_3$        \\ \hline
+        0 mm      & 30.54$\pm$0.29 & 63.42$\pm$2.70 & 139.3$\pm$3.1   \\ 
+        700 mm    & 31.19$\pm$0.19 & 70.14$\pm$1.42 & 176.4$\pm$3.2   \\
+        1400 mm   & 31.03$\pm$0.22 & 69.64$\pm$1.48 & 209.2$\pm$2.7         
+    \end{tabular}
+    \caption{Neutron capture time in GdLS from AmLi simulations where the source is in CSD-1 at three different locations.}
+    \label{tab:simulated_neutron_capture_time}
 \end{table}
-Given that the neutrons are being captured in the GdLS, the measured capture time from all mediums (except GdLS) will be lower than in \autoref{tab:medium_neutron_capture_time}. 
-GdLS will be greater as the neutron not in infinite GdLS, but must travel through mediums less able to capture neutrons and so the effective capture time the neutron experiences will differ.
+\par
+Materials with a high H content, such the foam and acrylic, can effectively moderate and effectively bound the neutron in that material.
+It does however take a long time for the neutrons to capture in these mediums, which from simulations are 1450 $\mu$s and 240 $\mu$s respectively.
+The neutron can still escape and enter the GdLS to be capture.
+The effect on the capture time in the GdLS is shown on a per-volume basis in \autoref{fig:gdls_capture_time_vs_volume}.
 
 \input{Chapters/OuterDetector/Figures/amli_neutron_capture_time}
 
@@ -310,10 +312,21 @@ Additionally a PMT multiplicity cut was included.
 It was set such that 5 or more PMTs needed to have contributed to the waveform in order for the pulse to be considered real\footnote{real in terms of coming from what we are searching for rather than a detector component or otherwise.}.
 This was implemented to account for PMT effects, such as after pulsing and dark counts \cite{jonathannikoleyczik_thesis_ref}.
 However no actual PMT effects, such as after pulsing and dark counts, were included in this simulation.
-
-\par
-The result of This is shown in \autoref{fig:simulated_amli_full_propagation_efficiency} for AmLi at 700mm. 
-The neutron efficiency in this case never reaches the performance requirement at any energy threshold; reducing to 91\% for a 200 keV threshold with a 500 $\mu$s window window.
-This is then the performance which can be expected during the calibration campaign (described later).
+The result of this is shown in \autoref{fig:simulated_amli_full_propagation_efficiency} for AmLi at 700mm. 
+The neutron efficiency in this case never reaches the performance requirement at any energy threshold; reducing to 91\% for a 200 keV threshold with a 500 $\mu$s window.
+This is then the performance which can be expected during the calibration campaign (described in the following chapter).
 
 \input{Chapters/OuterDetector/Figures/amli_efficiency_700mm_full_propagation}
+
+
+\iffalse
+The both the pure-LS and GdLS neutron capture times are well measured, with the most applicable for LZ from DayaBay, where the capture was modelled by \autoref{eq:neutron_capture_time} (Equation 15 in \cite{Dayabay_neutron_capture_fit_ref});
+\begin{equation}
+    N_{Gd}(t) = N_{0,Gd} \times [(1+\alpha)\frac{1}{\tau_{Gd}}e^{\frac{-1}{\tau_{Gd}}} - \alpha\frac{1}{\tau_{0}}e^{\frac{-t}{\tau_{0}}}] + C_{1} \\
+\label{eq:neutron_capture_time}
+\end{equation}
+where the gadolinium capture can be constrained by two time constants $\tau_{Gd}$, which represents the capture of thermal neutrons and $\tau_{0}$ for neutrons captured before thermalisation\footnote{This is actually neutrons from inverse $\beta$-decay with energies $\mathcal{O}$(0.015)MeV being captured before scattering enough to thermalise.}. 
+$\alpha$ is simply a there to balance to two terms.
+
+\cite{snoplus_neutron_capture_time_on_water_ref}
+\fi

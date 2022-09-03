@@ -1,0 +1,55 @@
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+\begin{groupplot}[%view={0}{90},
+    group style = {group size = 1 by 1,vertical sep=1.5cm}]
+\nextgroupplot[
+            %xlabel=Veto Window ($\mu$s),
+            ylabel=Efficiency (\%),
+            width=15cm, height=6cm,
+            xmin=0, xmax=1000,
+            ymin=85, ymax=100,
+            minor y tick num=4,
+            grid=major,
+            legend style = { column sep = 10pt, legend columns = -1, legend to name = Calibration_AmLi_CommonLegend,}]
+            \addplot+[green, mark=none]
+                    table [x=bin,y=value]
+                    {Data/Neutron_Efficiency/AmLi_Commissioning/pos_0_od_200kev_efficiency.dat};
+            \addplot[green, only marks, mark size=2pt,
+                     error bar legend,
+                     error bars/.cd,
+                     x dir=both, x explicit, error bar style={color=black}]
+                    table [x=bin,y=value, y error minus index=4, y error plus index=5, x error minus index=2, x error plus index=3,]
+                    {Data/Neutron_Efficiency/AmLi_Commissioning/pos_0_od_200kev_efficiency.dat};
+
+            \addplot+[blue, mark=none]
+                    table [x=bin,y=value]
+                    {Data/Neutron_Efficiency/AmLi_Commissioning/pos_0_od_100kev_efficiency.dat};
+            \addplot[blue, only marks, mark size=2pt,
+                     error bar legend,
+                     error bars/.cd,
+                     x dir=both, x explicit, error bar style={color=black}]
+                    table [x=bin,y=value, y error minus index=4, y error plus index=5, x error minus index=2, x error plus index=3,]
+                    {Data/Neutron_Efficiency/AmLi_Commissioning/pos_0_od_100kev_efficiency.dat};
+                    
+            \addplot+[red, mark=none]
+                    table [x=bin,y=value]
+                    {Data/Neutron_Efficiency/AmLi_Commissioning/pos_0_od_200kev_efficiency.dat};
+            \addplot[red, only marks, mark size=2pt,
+                     error bar legend,
+                     error bars/.cd,
+                     x dir=both, x explicit, error bar style={color=black}]
+                    table [x=bin,y=value, y error minus index=4, y error plus index=5, x error minus index=2, x error plus index=3,]
+                    {Data/Neutron_Efficiency/AmLi_Commissioning/pos_0_od_200kev_efficiency.dat};
+            \node[draw, fill=white] at (axis cs: 800,87) {\large 0 mm};
+            \legend{,0keV,,100keV,,200keV}
+            
+        \end{groupplot}
+    
+            
+\end{tikzpicture}
+    \caption{Neutron tagging efficiency from AmLi at each height for the 200keV phe threshold.
+    The horizontal dashed line is the 5\% impact on livetime requirement.}
+    \label{fig:commissioning_amli_efficiency_with_bg_rate}
+\end{figure}

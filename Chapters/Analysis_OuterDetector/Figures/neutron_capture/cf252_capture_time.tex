@@ -26,10 +26,16 @@
                  ]
             {2305 * exp(-x/30.5) + 342 * exp(-x/125.2) + 0.9663}; 
             
+        \addplot[blue,
+                 domain=15:1500,
+                 ]
+            {2294 * exp(-x/31.2) + 235 * exp(-x/70.1) + 11.94 * exp(-x/176.4)}; 
+            
     \end{axis}
             
 \end{tikzpicture}
     \caption{Pulse Distribution depending upon when the tagging pulse was.
-             In red is the best fit from 2 exponential decays.}
+             In red is the best fit from 2 exponential decays.
+             In blue is the expected neutron capture time.}
     \label{fig:cf252_gd_capture_time}
 \end{figure}

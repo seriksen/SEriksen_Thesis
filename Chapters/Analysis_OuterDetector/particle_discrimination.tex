@@ -1,48 +1,29 @@
 \section{Particle Discrimination}
 \par
-As previously mentioned, the OD has been designed to act as an "active but dumb" veto.
-It could be improved by including some form of interaction identification in the OD.
-For example, the Bi-Po interactions in Section XXX can be identified from two interactions in close proximity to each other with relative ease.
-These events could then be un-vetoed; increasing the number of candidate events as well as the live-time and ultimately sensitivity to a dark matter interaction.
-
-\par
-There is also the possibility of discriminating between high energy backgrounds such as neutron captures and cavern-$\gamma$'s.
-This would actually be a discrimination between 1-$\gamma$ vs multiple $\gamma$'s.
-The viability of this discrimination in simulated datasets is explored in this section.
-
+As previously mentioned, the OD has been designed to act as an ``active but dumb" veto.
+Given that is has been shown that BiPo and RnPo events can be identified based upon their proximity to each other with relative ease, these events would be un-vetoed, increasing the number of candidate events as well as the live-time and ultimately sensitivity of LZ to a dark matter interaction.
+In this section a different method of discriminating between events is introduced, using a likelihood approach.
+This is then tested on some simulated datasets.
 
 \subsection{Maximum Likelihood Method}
 \par
-\par
-An important point to note is that the ability of any method to discriminate different event types is how the input variables are selected.
-Ideally, each of the input variables would not be correlated with each other.
-This is not the case, particularly as we have limited ourselves to using reduced quantities rather than raw waveforms.
-So rather than doing pulse-shape discrimination, we are looking at some pre-extracted quantities of a given pulse.
-
-\par
-In shorterned form. 
-For a given event, the likelihood for being of signal type is obtained by multiplying the signal probability densities of all input variables which are assumed to be independent and normalising this by the sum of the signal and background likelihoods.
-Because correlations among the variables are ignored, this PDE approach is also called "naive Bayes estimator" \cite{TMVA_ref}.
-
-Following the style of \cite{TMVA_ref}, the likelihood ratio $y_{\Lagrangian}$ of any event is defined as;
+The basic concept of a maximum likelihood approach is to have a signal model and background model that is described in terms of a number of variables.
+The likelihood of an event being a signal is then given simply by:
 \begin{equation}
     y_{\Lagrangian} = \frac{\Lagrangian_{S}}{\Lagrangian_{S} + \Lagrangian_{B}}
 \end{equation}
-where
+where 
 \begin{equation}
     \Lagrangian_{S,(B)} = \prod_k p_{S,(B),k}(x_k)
 \end{equation}
 where $p_{S,(B),k}$ is the signal (background) PDF for the $k^{th}$ input variable $x_k$.
+In this approach any correlation between variables is ignored, and is often referred to as a ``naive Bayes estimator" \cite{TMVA_ref}.
 
 
 \subsection{Variables}
 \par
-A set of simulations were performed using full-chain propagation; particle propagation and PMT modelling.
-The resultant waveforms were passed to the reconstruction package.
-From the reconstruction, 3 variables were selected to describe a pulse.
-The variables, which are described below, were chosen as they are relatively simple.
-Meaning that there has been limited manipulation of the raw event data.
-Figure XXX shows the variables against one another for a variety of sources.
+Three variables were selected in the application of this method to LZ simulations which are described below.
+
 
 
 \paragraph{coincidence}

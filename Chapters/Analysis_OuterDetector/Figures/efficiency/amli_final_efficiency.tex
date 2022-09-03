@@ -5,14 +5,15 @@
     \begin{axis}[
             ylabel=Efficiency (\%),
             xlabel=Time ($\mu$s),
-            width=15cm,
+            width=14cm,
             height=8cm,
             grid=major,
             axis y line*=left,
             xmin=0, xmax=1500,
             ymin=45, ymax=100,
             minor y tick num=1,
-            legend style = { column sep = 10pt, legend columns = -1,}
+            legend style = { column sep = 10pt, legend columns = -1,},
+            legend pos=north west,
             ]
         \addplot[red,
                  mark size=0.5, mark=*, mark options={solid},
@@ -22,7 +23,7 @@
                  x dir=both, x explicit,
                  ]
             table [x=bin,y=value, y error minus index=4, y error plus index=5, x error minus index=2, x error plus index=3,]
-            {Data/Neutron_Efficiency/AmLi_Commissioning/pos_0_total_200kev_efficiency.dat};    
+            {Data/Neutron_Efficiency/AmLi_Commissioning/pos_0_od_200kev_efficiency.dat};    
         \addplot[green, 
                  mark size=0.5, mark=*, mark options={solid},
                  error bar legend,
@@ -31,7 +32,7 @@
                  x dir=both, x explicit,
                  ]
             table [x=bin,y=value, y error minus index=4, y error plus index=5, x error minus index=2, x error plus index=3,]
-            {Data/Neutron_Efficiency/AmLi_Commissioning/pos_700_total_200kev_efficiency.dat};             
+            {Data/Neutron_Efficiency/AmLi_Commissioning/pos_700_od_200kev_efficiency.dat};             
         \addplot[blue, 
                  mark size=0.5, mark=*, mark options={solid},
                  error bar legend,
@@ -40,7 +41,7 @@
                  x dir=both, x explicit,
                  ]
             table [x=bin,y=value, y error minus index=4, y error plus index=5, x error minus index=2, x error plus index=3,]
-            {Data/Neutron_Efficiency/AmLi_Commissioning/pos_1400_total_200kev_efficiency.dat};    
+            {Data/Neutron_Efficiency/AmLi_Commissioning/pos_1400_od_200kev_efficiency.dat};    
         \legend{0mm,700mm,1400mm}  
             
     \end{axis}
@@ -49,7 +50,7 @@
             yticklabel pos=right,
             axis y line*=right,
             axis x line=none,
-            width=15cm,
+            width=14cm,
             height=8cm,
             %grid=major,
             xmin=0, xmax=1500,
@@ -69,8 +70,8 @@
             {x * 276.8 * 100 / 1000000};  
          \addplot[dashed, mark=none, red] coordinates {(0,5) (1500,5)};
          
-         \node[rotate=29] at (axis cs: 1000,26) {276.8Hz};
-         \node[rotate=13] at (axis cs: 1400,15) {95.8Hz};
+         \node[rotate=24] at (axis cs: 1000,26) {276.8Hz};
+         \node[rotate=11] at (axis cs: 1400,15.5) {95.8Hz};
          \node[rotate=5] at (axis cs: 1400,8) {42.5Hz};
     \end{axis}
             

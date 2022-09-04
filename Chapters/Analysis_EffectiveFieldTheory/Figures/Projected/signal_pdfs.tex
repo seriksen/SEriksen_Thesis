@@ -5,10 +5,10 @@
         \begin{groupplot}[view={0}{90},
             group style = {group size = 1 by 3,
             horizontal sep=0.6cm}]
-
+        \iffalse
         \nextgroupplot[
         width=15cm, height=8cm,
-        xlabel={S1$_{c}$ [phd]},
+        xlabel=,
         ylabel={log$_10$(S2$_{c}$ [phd])},
         mark size=0pt,
         xmin=0, xmax=500,
@@ -41,10 +41,13 @@
         \addplot[red, dashed]
             table [x=bin, y=low]
             {Data/HENR/Projected_Sensitivity/Signal/pdf/nr_band.dat};  
-            
+        
+        \node[draw, fill=white] at (axis cs: 450,3) {\large $\Operator$1};    
+        
+        \fi
         \nextgroupplot[
         width=15cm, height=8cm,
-        xlabel={S1$_{c}$ [phd]},
+        xlabel=,
         ylabel={log$_10$(S2$_{c}$ [phd])},
         mark size=0pt,
         xmin=0, xmax=500,
@@ -78,6 +81,8 @@
             table [x=bin, y=low]
             {Data/HENR/Projected_Sensitivity/Signal/pdf/nr_band.dat};  
             
+        \node[draw, fill=white] at (axis cs: 450,3) {\large $\Operator$6};
+        
         \nextgroupplot[
         width=15cm, height=8cm,
         xlabel={S1$_{c}$ [phd]},
@@ -112,13 +117,13 @@
             {Data/HENR/Projected_Sensitivity/Signal/pdf/nr_band.dat};     
         \addplot[red, dashed]
             table [x=bin, y=low]
-            {Data/HENR/Projected_Sensitivity/Signal/pdf/nr_band.dat};  
-        
+            {Data/HENR/Projected_Sensitivity/Signal/pdf/nr_band.dat}; 
+            
+        \node[draw, fill=white] at (axis cs: 450,3) {\large $\Operator$15};
         
         \end{groupplot}
     \end{tikzpicture}
-    \caption{Detector response in S1 (\textbf{Left}) and S2 (\textbf{Right}) space for a given recoil in the LZ detector assuming the projected detector parameters.
-             The values have been extrapolated from simulations of a flat NR spectrum 
-    }
+    \caption{Distribution of signal models in \{S1$_c$,log$_{10}$(S2$_c$) showing the variation between operators.
+             Each pdf is shown for a WIMP mass of 100 GeV.}
     \label{fig:projected_detector_model_signal_pdfs}
 \end{figure}

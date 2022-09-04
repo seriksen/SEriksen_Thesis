@@ -2,7 +2,8 @@
 \par
 In this section limits are placed on the elastic EFT operator couplings using data from the LZ's first science run (SR1).
 The vanilla WIMP region of interest is considered here rather than an extended one as extending the region of interest would have resulted in a delay to this thesis.
-An analysis for SI and SD dark matter interactions have already been performed in this recoil energy range \cite{lz_ws_sr1_ref} and discussed in \cite{marisarthurs_thesis_ref} as such only a limited summary of the SR1 is presented here.
+An analysis for SI and SD dark matter interactions have already been performed in this recoil energy range, with null results \cite{lz_ws_sr1_ref}.
+As this is the same dataset and cuts only a limited summary of the SR1 is presented here.
 Additionally all plots shown in this section except the signal models and limits originate from collaborators from LZ and are not the authors own creation.
 
 \subsection{Overview of SR1}
@@ -13,7 +14,7 @@ For the entire period of SR1 the detector was in a stable state.
 The length of time running was driven by a requirement to demonstrate physics capability and so only ran until the sensitivity to SI interactions was comparable to previous experiments.
 In that sense, SR1 was more of an engineering run.
 As such no blinding or salting of the data set was performed, as with any new detector there are unexpected features that are best understood by being able to see them.
-In order to mitigate bias from this decision, analysis cuts were developed in side bands.
+In order to mitigate bias from this decision, analysis cuts were developed in side bands and calibration data.
 
 
 \subsection{TPC Calibration}
@@ -42,7 +43,7 @@ In addition to the core-cuts that remove scatters that are inconsistent with dar
 They fall broadly into three categories: live time, S2-based cuts and S1-based cuts.
 These three, along with the core cuts are briefly discussed below.
 
-\paragraph{live time cuts}
+\subsubsection{live time cuts}
 The live time cuts are named as such as they have a large adverse affect on the amount of data that is uncharacteristic due to the high rate of pulses observed.
 The two most significant cuts were an electron-train cut and a hot spot cut, together removing 35\% of the livetime.
 After a large S2 event, a period of a sustained high rate is observed. 
@@ -53,63 +54,152 @@ Occasionally hot spots appeared in the TPC due to electron emission from the gri
 These periods of time lasted approximately an hour at a time and reduced the live time by 6.6\%.
 There were several other cuts in this category which combined livetime by a future 1\%.
 
-\paragraph{S2 cuts}
+\subsubsection{S2 cuts}
 A suite of cuts were developed to remove S2s which did not look like an S2 should if it had originated from a LXe scatter.
 These targeted accidental events.
 
-\paragraph{S1 cuts}
+\subsubsection{S1 cuts}
 
 
 developed a hot spot where 
 
-\paragraph{Core cuts}
-Select events which have only scattered once, ``single scatter". An event is a single scatter in the TPC if the energy-weighted standard deviation of the deposits is less than the detector resolution. This is taken to be $\sigma_r <$ 3.0 cm and $\sigma_z <$ 0.2 cm.
-Select events where the recoil energy is in the range expected from a WIMP scatter and set on S1$_c$, S2 (uncorrected). This is cut is dependent upon which model of dark matter we are using. Here S1$_c$ must be less than 500 phd and have at least a 3-fold coincidence in the TPC PMTs. S2 must be greater than 415, the value required for at least 5 emitted electrons. This electron requirement is to ensure that the S2 size is large enough for position reconstruction.
-The inner volume, or fiducial volume of the TPC is taken, removing events near the edges. The FID is defined as a cylinder extended from the centre of the TPC to 4 cm from the TPC walls, 2 cm above the cathode grid, and 13 cm below the gate grid. This inner volume contains 5.6 tonnes of LXe, meaning that there is 1.4 tonnes of xenon used for self-shielding.
-TPC scatters where there is a time-coincident deposit in either of the veto detectors are removed. In the Skin detector the signal must be within 800 $\mu$s of the TPC scatter and be at least 3 phd in size. In the OD the deposit must be at least 200 keV in size and within 500 $\mu$s of the TPC scatter. This OD selection was chosen to maintain consistency with \cite{LZ_projected_sensitivity_paper_ref} with an older simulation framework.
+\subsubsection{Core cuts}
+All of these core cuts focus on removing clean scatters in the TPC, but which do not match the properties of dark matter.
+Only events with a single S1-S2 pulse pair are selected, multiple S1 or multiple S2 events are removed.
+\par
+The fiducial region was defined in $z$ by the drift time (time between the S1 and S2 pulses) of between [86,936.5] $\mu$s which corresponds to approximately 12.8 cm below the gate grid and 2.2 cm from the cathode grid.
+$r$ was defined as either [4.0,5.0,5.2] cm from the TPC wall. The variation in the $r$ is to remove regions where the electric field is non-uniform, and effects from being close to the wall.
+Within this region a the volume of xenon is 5.5$\pm$0.2 tonnes.
+\autoref{fig:sr1_fiducial_cut} shows the fiducial volume definition.
+\par
+The region of interest was defined as 3 phd $<$ S1$_c <$ 80 phd, S2 $>$ 600 phd and S2$_c <$ 10$^5$ phd.
+\par
+The OD veto window was set to the value discussed in the previous chapter of 1200 $\mu$s, with an energy threshold of 200 keV.
+The Skin veto window was set to 400 $\mu$s.
+Additionally a prompt veto window was implemented to remove events where the S1 is within [-300,300] ns of a pulse in either the Skin or OD.
 
+\par
+The combined efficiency of all of these cuts is shown in \autoref{fig:sr1_nr_efficiency}.
+The efficiency in the ROI was determined using AmLi and tritium data.
+A total of 335 events remained after the application of all of these cuts.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=15cm]{Figures/EFT/All_SR1_Plots/fid.png}
+    \caption{Distribution of events in the SR1 dataset in the ROI.
+    The vertical green line which two steps is the fiducial region.
+    The other green line shown is the wall definition.
+    The events in grey are outside of the fiducial volume and so vetoed. 
+    The events marked in cyan were removed by the OD and the events marked in purple by the Skin.
+    The remaining events in the WIMP dataset are shown in black.}
+    \label{fig:sr1_fiducial_cut}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=10cm]{Figures/EFT/All_SR1_Plots/NR_efficiency.png}
+    \caption{Signal efficiency as a function of NR energy for the trigger (blue), S1 threshold (orange), all analysis cuts expect ROI (green) and the ROI (black).
+    The vertical dashed line is the the 50\% efficiency point.
+    }
+    \label{fig:sr1_nr_efficiency}
+\end{figure}
 
 \subsection{Background Model}
 \par
+In the background model, 9 components were included.
+The grouping is based upon the distribution in the ROI and the level of uncertainty.
+
+\par
+The ${}^{222}$Rn chain and ${}^{220}$Rn chain both produce flat $\beta$ contribution.
+The rate of these was determined via $\alpha$-peak fitting to the ER band outside of the ROI which can be seen in \autoref{fig:sr1_spectra}
+The $\gamma$ spectrum from the detector contaminants is also flat in this region.
+These contributions are treated as a single background labelled $\beta$ decays + Det. ER.
+This is the largest contribution to the expected rate, with 218 $\pm$ 36 events.
+
+The rate of detector 
+\begin{figure}
+    \centering
+    \includegraphics[width=10cm]{Figures/EFT/All_SR1_Plots/ER_band_fit.png}
+    \caption{SR1 vanilla WIMP-search data (black points) overlaid on the background model.
+    The contours shown for each distribution are 1 and 2 $\sigma$.
+    ${}^{8}$B is shown in green, ${}^{37}$Ar is shown in orange, the combined ER spectrum in grey.
+    The red lines are the NR band with the medium, 10\% and 90\% quantiles.
+    The distribution from a 30 GeV WIMP is also shown in purple. 
+    }
+    \label{fig:sr1_spectra}
+\end{figure}
 
 
+\par
+Solar neutrinos which also produce a flat contribution are not included as the rate is more finely constrained \cite{pp_solar_neutrinos_rate_ref}.
+\par
+Decays from three Xenon isotopes were included.
+${}^{127}$Xe and ${}^{124}$Xe contribute to the ER spectrum by double electron capture and double $\beta$ decay respectively.
+The rates of these are constrained by know abundances \cite{xenon_isotopes_ref}.
+\par
+Two interesting backgrounds considered here is weren't considered in the projected case are ${}^{37}$Ar and ${}^{127}$Xe.
+These are both short-lived isotopes, with half-lives of 35 days and 36.3 days respectively.
+They appear due to cosmogenic activation of the xenon when the xenon is at the surface level\footnote{of the mine. Not the surface of the LXe.}.
+Once underground these components decay away and so are not of concern in future data runs.
+The rates are therefore constrained by the delivery schedule of the xenon into the Davis cavern \cite{lz_argon37_ref}.
+There are expected to be $\approx$100 ${}^{37}$Ar events in this data set but there a very large uncertainty meaning that it could be has high at 300.
 
-\paragraph{${}^{37}$Ar}
-A source not considered in the projected sensitivity, ${}^{37}$Ar is 
+\par
+The two NR contributions considered are from ${}^{8}$B solar neutrinos and neutrons from the detector.
+There are expected to be 0 detector neutrons in this dataset, a value constrained by the radioassay of the detector components prior to construction \cite{LZ_assay_ref}.
 
-\cite{lz_argon37_ref}.
-
-\paragraph{Accidentals}
-
-
-
-
-
-\input{Chapters/Analysis_EffectiveFieldTheory/Figures/WIMP_Search/nr_efficiency}
-
-\subsection{Result}
-
-\input{Chapters/Analysis_EffectiveFieldTheory/Figures/WIMP_Search/final_dataset_events}
-
+\par
+The expected contribution from each component in the model is \autoref{tab:sr1_ws_lz_backgrounds}.
+The uncertainties on the values shown indicate the constraints placed on each component during the PLR.
 
 \begin{table}[]
     \centering
-    \begin{tabular}{c|c|c}
-        Background Component     & Expected Events    & Fit Result  \\ \hline
-        $\beta$ decays + Det. ER & 218 $\pm$ 36       & 222 $\pm$ 16 \\
-        $\nu$ ER                 & 27.3 $\pm$ 1.6     & 27.3 $\pm$ 1.6 \\
-        ${}^{127}$Xe             & 9.2 $\pm$ 0.8      & 9.3 $\pm$ 0.8 \\
-        ${}^{124}$Xe             & 5.0 $\pm$ 1.4      & 5.2 $\pm$ 1.4 \\
-        ${}^{136}$Xe             & 15.2 $\pm$ 2.4     & 15.3 $\pm$ 2.4 \\
-        ${}^{8}$B CE$\nu$NS      & 0.15 $\pm$ 0.01    & 0.15 $\pm$ 0.01 \\
-        Accidentals              & 1.2 $\pm$ 0.3      & 1.2 $\pm$ 0.3 \\
-        ${}^{37}$Ar              & [0, 291]           & 52.1${}^{+9.6}_{-8.9}$ \\
-        neutrons                 & 0.0${}^{+0.2}$     & 0.0${}^{+0.2}$
+    \begin{tabular}{c|c}
+        Background Component     & Expected Number of Events  \\ \hline
+        $\beta$ decays + Det. ER & 218 $\pm$ 36 \\
+        $\nu$ ER                 & 27.3 $\pm$ 1.6 \\
+        ${}^{127}$Xe             & 9.3 $\pm$ 0.8 \\
+        ${}^{124}$Xe             & 5.0 $\pm$ 1.4 \\
+        ${}^{136}$Xe             & 15.2 $\pm$ 2.4 \\
+        ${}^{8}$B CE$\nu$NS      & 0.15 $\pm$ 0.01 \\
+        Accidentals              & 1.2 $\pm$ 0.3 \\
+        ${}^{37}$Ar              & [0, 291]      \\
+        neutrons                 & 0.0${}^{+0.2}$
     \end{tabular}
-    \caption{Primary backgrounds that need to be considered for an EFT search}
+    \caption{Expected number of events from each component in the background model.}
     \label{tab:sr1_ws_lz_backgrounds}
 \end{table}
 
+\par
+The best-fit background model is shown in \autoref{fig:final_data_points} with the the data set overlaid.
+The best-fit values were identical to the SI result, as such the plot is shown from the SI result \cite{lz_ws_sr1_ref}.
+The WIMP contours (shown in purple) are for a 30 GeV/c${^2}$ which is analogous to $\Operator$1 interactions of the same mass.
 
-Despite using a smaller parameter space, the sheer increase in the exposure offered by LZ places world-leading limits on every operator coupling.
+\begin{figure}
+    \centering
+    \includegraphics[width=10cm]{Figures/EFT/All_SR1_Plots/final_data_points.png}
+    \caption{SR1 vanilla WIMP-search data (black points) overlaid on the background model.
+    The contours shown for each distribution are 1 and 2 $\sigma$.
+    ${}^{8}$B is shown in green, ${}^{37}$Ar is shown in orange, the combined ER spectrum in grey.
+    The red lines are the NR band with the medium, 10\% and 90\% quantiles.
+    The distribution from a 30 GeV WIMP is also shown in purple. 
+    }
+    \label{fig:final_data_points}
+\end{figure}
+
+\subsection{Limits}
+\par
+Consistent with the SI and SD search, a null result was found, setting limits on the operator couplings.
+These are shown in \autoref{fig:EFT_Result_Projected_Sensitivity} in the same dimensionless scale as the projected limits.
+\par
+World-leading sensitivity has been achieved for all operators at at least some masses.
+In several cases, such as $\Operator$6 the sensitivity of LZ is less than that of both LUX and XENON100. 
+This is due to the recoil distributions of these operators peaking outside of the ROI used here for high WIMP masses.
+Despite this reduced parameter space, the huge increase in exposure has made LZ very competitive.
+
+\input{Chapters/Analysis_EffectiveFieldTheory/Figures/WIMP_Search/final_dataset_events}
+
+For SR1 fewer parameters were taken into consideration with the PLR working in [S1,logS2] space.
+Increasing the set of parameters will allow for improved discrimination and a potential discovery but runs into significant computational limitations as discovered in both \cite{nicolelarsen_thesis_ref, shaunalsum_thesis_ref, billyboxer_thesis_ref}, a different approach such as that described in \cite{flamenest_ref} and \cite{lux_ml_plr_ref} offer some hope for this.
+
+\input{Chapters/Analysis_EffectiveFieldTheory/Figures/WIMP_Search/ws_limits}

@@ -120,7 +120,6 @@ The decays within the U and Th decay chains all have an isotope in them with a h
 It will therefore be possible to observe two decays from the same decay chain, which will appear as a pulse-pair (a pulse from each decay).
 There are 3 possible decays, one from decay chain ${}^{238}$U, ${}^{235}$U and ${}^{232}$Th.
 These are summarised in \autoref{tab:od_constrainable_decays_in_data}.
-In reality though, only ${}^{214}$Bi$ \to {}^{214}$Po and ${}^{219}$Rn $\to {}^{215}$Po can be searched for as the interactions from ${}^{212}$Bi $\to {}^{212}$Po are close enough together that they will be merged into one pulse.
 
 \begin{table}[!htbp]
     \centering
@@ -151,23 +150,19 @@ Only pulses above 200keV in visible energy are included in the 2D histograms as 
 
 \par
 In \autoref{fig:od_bipo_pulses_2d} there is a distribution where both the first and second pulse have a signal size around 170 phd.
-These correspond to the double $\alpha$-decay in the ${}^{235}U_{l}$ chain.
+These correspond to the double $\alpha$-decay of ${}^{219}$Rn$\to{}^{215}$Po
 The first pulse is slightly smaller than the second, which follows the pattern expected given the $\alpha$ energies shown in \autoref{tab:od_constrainable_decays_in_data}.
-The second pulse-pair (from ${}^{238}U_{m}$) has a $\alpha$-decay in the same energy region, $\backsim$170 phd.
-The first decay is a $\beta$-decay with the resultant electron have a spectrum of energies up the the end point of 3.27 MeV ($\backsim$ 400 phd).
-As such even though the second pulse will be within a small range, there is no clear feature in \autoref{fig:od_bipo_pulses_2d} as the first pulse will be a wide range of values.
-
-\par
-It is still possible to isolate ${}^{214}$Bi $\to {}^{214}$Po but taking advantage of the much shorter decay half-life of ${}^{214}$Po vs ${}^{215}$Po.
-This was done on the same same data as before with using the same position requirement, except now the time difference between the two pulses is considered.
-The of time separation of the pulses has to be less than 800 $\mu$s.
+The other two pulse-pairs will be spread out (in the $x$-axis) as the first pulses are $\beta$-decays and so are not visible as features in \autoref{fig:od_all_pulse_pairs_2d}.
+It is still possible to isolate these though by taking advantage of the much shorter decay half-life of ${}^{212}$Po and ${}^{214}$Po compared to ${}^{215}$Po.
+This was done by incorporating a time requirement cut, where the pulse-pairs had to be within 800 $\mu$s of each other.
 This was selected as it is 5 full half-lives, in which 97\% of all ${}^{214}$Po will have decayed, and is less than half the half-life of ${}^{215}$Po.
 The result of this is shown in \autoref{fig:od_time_dependent_pulses_2d}.
-Included for completeness as well in \autoref{fig:od_time_dependent_pulses_2d} is the opposite case.
-A new distribution has appeared is a second pulse size means of 240 phd, corresponding to the $\alpha$-decay of ${}^{214}$Po.
+The distribution is centred (in the $y$-axis) at 240 phd, corresponding to the $\alpha$-decay of ${}^{212}$Po.
+The $\alpha$-day from ${}^{214}$Po would be expected around 170 phd but the rate is sufficiently low that it cannot be seen.
 
 \par
-The distributions in \autoref{fig:od_time_dependent_pulses_2d} allow for the rates of both ${}^{214}$Bi $\to {}^{214}$Po and ${}^{219}$Rn $\to {}^{215}$Po to be constrained.
+The extracted distributions from \autoref{od_all_pulse_pairs_2d} and \autoref{fig:od_time_dependent_pulses_2d} are shown in \autoref{fig:od_extracted_alphas}.
+This was used to constrain the sub-chains ${}^{238}$U$_{m}$, ${}^{235}$U$_{l}$ and ${}^{232}$Th$_{l}$.
 This gives a rate of 98$\pm$2.5 mHz for ${}^{214}Bi \to {}^{214}Po$ and 7.7$\pm$1.2 mHz for ${}^{219}Rn \to {}^{215}Po$.
 Both are rates are lower than those from expected from even the `improved purification' case (discussed in \autoref{sec:simulated_od_requirements}).
 
@@ -185,9 +180,9 @@ LZ is not alone in having experienced this, with KamLAND measuring a higher than
 \par
 The spectra for each of the three visible $\alpha$s are shown in \autoref{fig:od_extracted_alphas}.
 The signal size has been converted into visible energy according by the energy scale previously discussed (\autoref{sec:od_energy_scale}).
-The observed energy of each of the $\alpha$'s verse the observed energy are shown in \autoref{fig:od_alpha_quenching}, the Birk's law fit is also provided using the parameters in \autoref{tab:Birks_law_parameters}.
+The observed energy of each of the $\alpha$s vs the observed energy are shown in \autoref{fig:od_alpha_quenching}, the Birk's law fit is also provided using the parameters in \autoref{tab:Birks_law_parameters}.
 It can be seen that the parameters taken from pure LAB remain in good agreement with Gd-doped LAB used here.
-This also isolates the difference between observed data and simulations to light propagation.
+This also isolates the difference between observed data and simulations to be due to light propagation.
 
 \input{Chapters/Analysis_OuterDetector/Figures/background_constraints/od_bipo_alphas}
 
@@ -264,7 +259,7 @@ This would effectively make contributions in lower light collection regions appe
         
     \end{tabular}
     \caption{Fitting contributions of OD backgrounds to the observed data. The reported errors are statistical only.}
-    \label{tab:od_constrainable_decays_in_data}
+    \label{tab:od_fitted_background_rates}
 \end{table}
 
 \subsection{Conclusion}

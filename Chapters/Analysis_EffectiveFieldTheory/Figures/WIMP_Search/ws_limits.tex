@@ -7,10 +7,10 @@
                    vertical sep=1.5cm,
                    horizontal sep=2.0cm}]
     
-    \pgfplotsforeachungrouped \x in {1}{
+    \pgfplotsforeachungrouped \x in {1,3,4,5,6,7,8,9}{
      \edef\tmp{
         \noexpand \nextgroupplot[
-                                xlabel=Mass (MeV),
+                                xlabel={Mass [GeV/c$^2$]},
                                 ylabel=$({c}^{s}_{\x}\times{m}^{2}_{w})^{2}$,
                                 mark size=0pt,
                                 width=0.45\textwidth,
@@ -45,9 +45,9 @@
                       {Data/HENR/Projected_Sensitivity/Results_method1/O\x.dat};
             
             \noexpand \addplot[black, dashed, name path = median] table[x=mass, y=median]
-                      {Data/HENR/sr1_ws/O\x.dat};
+                      {Data/HENR/sr1_ws/Limits/O\x.dat};
             \noexpand \addplot[black, dashed, name path = median] table[x=mass, y=ucl]
-                      {Data/HENR/sr1_ws/O\x.dat};         
+                      {Data/HENR/sr1_ws/Limits/O\x.dat};         
         }
         \tmp 
         }
@@ -55,4 +55,64 @@
 \end{tikzpicture}
 \caption{}
 \label{fig:EFT_Result_Projected_Sensitivity_1}
+\end{figure}
+
+
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+  \begin{groupplot}[view={0}{90},
+    group style = {group size = 2 by 3,
+                   vertical sep=1.5cm,
+                   horizontal sep=2.0cm}]
+    
+    \pgfplotsforeachungrouped \x in {10,11,12,13,14,15}{
+     \edef\tmp{
+        \noexpand \nextgroupplot[
+                                xlabel={Mass [GeV/c$^2$]},
+                                ylabel=$({c}^{s}_{\x}\times{m}^{2}_{w})^{2}$,
+                                mark size=0pt,
+                                width=0.45\textwidth,
+                                height=5.5cm,
+                                xmode=log,
+                                ymode=log,
+                                x label style={at={(axis description cs:0.75,-0.1)},anchor=near ticklabel},
+                                y label style={at={(axis description cs:-0.13,.75)},anchor=near ticklabel},
+                                ]
+            
+            \noexpand \addplot[blue, name path = xenon100] table[]
+                      {Data/HENR/Xenon100/O\x.dat};
+            
+            \noexpand \addplot[only marks, mark size=1, error bars/.cd,
+                               y dir=both, y explicit, error bar style={color=black}]
+                               table[x=mass,y=median, y error plus index=3, y error minus index=2] {Data/HENR/Projected_Sensitivity/LUX/O\x.dat};
+                        
+            \noexpand \addplot[green, opacity = 0.4, name path = nsig1] table[x=mass, y=nsig1]
+                      {Data/HENR/Projected_Sensitivity/Results_method1/O\x.dat};
+                      
+            \noexpand \addplot[green, opacity = 0.4, name path = psig1] table[x=mass, y=psig1]
+                      {Data/HENR/Projected_Sensitivity/Results_method1/O\x.dat};
+                      
+            \noexpand \addplot[yellow, opacity = 0.4, name path = psig2] table[x=mass, y=psig2]
+                      {Data/HENR/Projected_Sensitivity/Results_method1/O\x.dat};
+                      
+            \noexpand \addplot[green, opacity = 0.4, forget plot] fill between[of=nsig1 and psig1];
+            \noexpand \addplot[yellow, opacity = 0.4, forget plot] fill between[of=psig1 and psig2];
+            
+            \noexpand \addplot[black, name path = median] table[x=mass, y=median]
+                      {Data/HENR/Projected_Sensitivity/Results_method1/O\x.dat};
+            
+            \noexpand \addplot[black, dashed, name path = median] table[x=mass, y=median]
+                      {Data/HENR/sr1_ws/Limits/O\x.dat};
+            \noexpand \addplot[black, dashed, name path = median] table[x=mass, y=ucl]
+                      {Data/HENR/sr1_ws/Limits/O\x.dat}; 
+                     
+        }
+        \tmp 
+        }
+  \end{groupplot}
+\end{tikzpicture}
+\caption{}
+\label{fig:EFT_Result_Projected_Sensitivity}
 \end{figure}

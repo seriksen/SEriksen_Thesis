@@ -26,31 +26,42 @@ With the projected detector parameters, an S1$_c$ of 500 phd will be from pulses
 
 \subsection{Background Models}
 \par
-The background model considered was made up of 11 components which represent the most significant contributors which were presented in TABLE XXX.
+The background model considered was made up of 11 components which represent the most significant contributors based on what was presented in TABLE XXX.
+
+
+Contributions from ``Detector components", ``Surface contamination" and ``Environmental" sources are summed together, but kept separate as ER and NR components.
 
 
 \par
+One background that was not considered are $\gamma$-X events.
+These were excluded because in order to effectively model them the positional information of events need to be considered, and we have limited the observable parameters to \{S1$_c$,log$_{10}$(S2$_c$)\}. 
+When LUX included 5-dimensions to in their PLR for a RUN-4 EFT analysis the resultant PLR required $\approx$15,000 CPU-hours per mass point \cite{billyboxer_thesis_ref} and so it was desirable to avoid a similar situation here.
 
 
-\begin{itemize}
-    \item \textbf{SS}: Select events which have only scattered once, "single scatter". An event is a single scatter in the TPC if the energy-weighted standard deviation of the deposits is less than the detector resolution. This is taken to be $\sigma_r <$ 3.0 cm and $\sigma_z <$ 0.2 cm.
+\cite{gregrischbieter_thesis_ref}
+
+It is possible for light-to-charge ration of an S1-S2 pulse pair to be attenuated, causing an ER event to appear NR-like.
+For this S2-suppression, a $\gamma$-ray needs to scatter in two separate regions of the TPC, one where ionisation electrons are detected, and one where they are not.
+In this case, a single S1 will be detected (due to how close in time the scatters are), and a single S2.
+There are two significant locations where these events can originate: in the reverse field region (RFR) of the TPC and the walls of the TPC.
+These events have not been included here due to the need to include additional parameters in order to adequately model them: namely the position of the event needs to be taken into account.
+It should be noted that it is also possible to cut out these events using a tighter fiducial cut, but this directly impacts exposure.
+In future searches, LZ is planning on using a boosted decision tree machine learning technique that is based upon LUX Run-4 EFT analysis \cite{LUX_RUN4_EFT_2021}.
+
+
+\begin{enumerate}
+    \item \textbf{SS}: Select events which have only scattered once, ``single scatter". An event is a single scatter in the TPC if the energy-weighted standard deviation of the deposits is less than the detector resolution. This is taken to be $\sigma_r <$ 3.0 cm and $\sigma_z <$ 0.2 cm.
     \item \textbf{ROI}: Select events where the recoil energy is in the range expected from a WIMP scatter and set on S1$_c$, S2 (uncorrected). This is cut is dependent upon which model of dark matter we are using. Here S1$_c$ must be less than 500 phd and have at least a 3-fold coincidence in the TPC PMTs. S2 must be greater than 415, the value required for at least 5 emitted electrons. This electron requirement is to ensure that the S2 size is large enough for position reconstruction.
     \item \textbf{FID}: The inner volume, or fiducial volume of the TPC is taken, removing events near the edges. The FID is defined as a cylinder extended from the centre of the TPC to 4 cm from the TPC walls, 2 cm above the cathode grid, and 13 cm below the gate grid. This inner volume contains 5.6 tonnes of LXe, meaning that there is 1.4 tonnes of xenon used for self-shielding.
     \item \textbf{Veto}: TPC scatters where there is a time-coincident deposit in either of the veto detectors are removed. In the Skin detector the signal must be within 800 $\mu$s of the TPC scatter and be at least 3 phd in size. In the OD the deposit must be at least 200 keV in size and within 500 $\mu$s of the TPC scatter. This OD selection was chosen to maintain consistency with \cite{LZ_projected_sensitivity_paper_ref} with an older simulation framework.
-\end{itemize}
-A differential rate per recoil energy can then be calculated for each component.
+\end{enumerate}
+The events that are left are then defined as as a differential rate per recoil energy can then be calculated for each component.
 Other sources of backgrounds which would only scatter once anyway do not need to be simulated in this way, instead the rate can be determined directly from the flux and scattering cross-section.
-The rate of each of these components is shown in 
+The spectrial contributions from each of of the background components is shown in FIG XXX.
+The expected number of events from each of these components in the vanilla WIMP search region of interest and in the extended region used here are shown in 
+\autoref{tab:projected_lz_backgrounds}.
+A simulated dataset of these backgrounds is shown in  \autoref{fig:sensitivity_paper_backgrounds}.
 
-\par
-As we saw in \autoref{sec:lz_detector} the backgrounds can be categorised as coming from any of the following: detector contaminants, target contaminants or neutrinos.
-Detector contaminants encompasses the trace radioactivity of the detector components, any surface contamination on the detector walls as well as backgrounds present due to the location of the detector (cavern-$\gamma$s).
-This is written as Detector + Surface + Environment.
-The target contaminants are the radioisotopes dispersed in the LXe. 
-This primarily includes Radon which enters the LXe via emanation from the detector surfaces. 
-The neutrinos encompass both neutrinos from internal decays as well as coherent scattering from off-world neutrinos.
-These backgrounds were simulated and the framework described above and the analysis cuts applied.
-The rate each of the largest contributions in the ROI are shown in both \autoref{tab:projected_lz_backgrounds}.
 \begin{table}[]
     \centering
     \begin{tabular}{c|c|c|c}
@@ -73,18 +84,7 @@ The rate each of the largest contributions in the ROI are shown in both \autoref
     \caption{Primary backgrounds that need to be considered for an EFT search}
     \label{tab:projected_lz_backgrounds}
 \end{table}
-The form shown in \autoref{tab:projected_lz_backgrounds} is makeup of the background model in our PLR with 11 components.
-\par
-In addition to these backgrounds it is important to note an omitted contribution, namely $\gamma$-X.
-It is possible for light-to-charge ration of an S1-S2 pulse pair to be attenuated, causing an ER event to appear NR-like.
-For this S2-suppression, a $\gamma$-ray needs to scatter in two separate regions of the TPC, one where ionisation electrons are detected, and one where they are not.
-In this case, a single S1 will be detected (due to how close in time the scatters are), and a single S2.
-There are two significant locations where these events can originate: in the reverse field region (RFR) of the TPC and the walls of the TPC.
-These events have not been included here due to the need to include additional parameters in order to adequately model them: namely the position of the event needs to be taken into account.
-It should be noted that it is also possible to cut out these events using a tighter fiducial cut, but this directly impacts exposure.
-In future searches, LZ is planning on using a boosted decision tree machine learning technique that is based upon LUX Run-4 EFT analysis \cite{LUX_RUN4_EFT_2021}.
-\par
-The differential rate per recoil energy for these backgrounds are shown in \autoref{fig:sensitivity_paper_backgrounds} after the cuts have been applied.
+
 \input{Chapters/Analysis_EffectiveFieldTheory/Figures/Projected/backgrounds}
 
 \begin{figure}
@@ -102,8 +102,30 @@ The differential rate per recoil energy for these backgrounds are shown in \auto
 
 \subsection{Signal Model}
 \par
-The package used here is DMFormFactor v6.0 as was the choice for both LUX and XENON collaboration results\footnote{At the time of writing this is the newest public release. However these is a newer version which uses updated form factors which was used in \cite{pandax_2_eft_ref}.}.
-The Standard Halo Model parameters used to describe the dark matter are summarised in \autoref{tab:DMFormFactor_parameters}.
+\par
+Both of the analyses were performed in the isoscalar basis as it allows for comparion to both LUX and XENON collraboration results.
+More specifically, only the isoscalar basis was considered, with isovector interactions neglected.
+\par
+The case of 
+
+\begin{equation}
+    \frac{dR}{dE_R} = \frac{c^{a^2}_i \rho_\chi}{32 \pi m^3_\chi m^2_N} \int_{v_min} \frac{f(\vec{v}}{v} F^{a,a}_{i,i} (v^2, q^2) d^3 v
+\end{equation}
+
+\par
+The recoil spectra were generated using \textit{DMFormFactor}.
+This was chosen over the other software options mentioned in \autoref{sec:eft_theory} as it is the same as is used by the LUX, Panda-X and XENON collaborations.
+Two different version of the codebase were used.
+For the projected sensitivity, the recoils generated were from \textit{DMFormFactor} v6.0 which are the same version as those used in the published LUX and XENON100 results.
+For the SR1 result, a newer, but unpublished version of \textit{DMFormFactor} was used\footnote{unpublished at time of writing}.
+This has updated form factors, more accurately modelling the nuclei.
+The recent publication on $\mathcal{L}$ by Panda-X used this version \cite{pandax_2_eft_ref}.
+For a selection of operators the difference between the resultant form factors is shown in XXX.
+The change in the resultant Bessel functions alter the shape of the recoils.
+
+The WIMP signal model parameters used are shown in \autoref{tab:DMFormFactor_parameters}.
+Recoil spectra out to 1000 keV for each operator were generated.
+
 \begin{table}[]
     \centering
     \begin{tabular}{c|c}
@@ -120,7 +142,6 @@ To improve the realism of the recoil and to maintain consistency with previous e
 Each operator was generated out to 1000 keV and in the isoscalar basis and a selection of the resultant differential rates are shown in \autoref{fig:HENR_Spin_Recoil_Spectrum}.
 Each Operator was performed for a WIMP mass of [5, 7, 10, 12, 14, 21, 33, 50, 100, 200, 400, 1000, 4000] GeV.
 
-\input{Chapters/Analysis_EffectiveFieldTheory/Figures/signal_recoils}
 
 \par
 These were then used with the detector model to produce our observable quantities: \{$S1_c,log(S2_c)$\}, a selection of which are shown in FIGURE XXX.
@@ -128,14 +149,18 @@ These were then used with the detector model to produce our observable quantitie
 \input{Chapters/Analysis_EffectiveFieldTheory/Figures/Projected/signal_pdfs}
 
 
-\subsection{Backgrounds}
-
-
-
-
 \subsection{Limits}
 \par
-A one-sided PLR test statistic was used in order to maintain software compatibility with these legacy simulations which were the basis of \cite{LZ_projected_sensitivity_paper_ref}.
+Presented in \autoref{fig:EFT_Result_Projected_Sensitivity_1} and \autoref{EFT_Result_Projected_Sensitivity_2} are the limits from a one-sided PLR test statistic.
+This was chosen over using a two-sided test as the purpose is to determine the sensitivity of LZ to the couplings, $c^{a}_i$, not the discovery significance. 
+This approach is also in line with that used for the vanilla WIMP projected sensitivity \cite{LZ_projected_sensitivity_paper_ref} and other sensitivity studies within LZ \cite{LZ_Ibles_LZStats_Thesis_ref, umituktu_thesis_ref}.
+\par
+Included in the figures are the XENON100 \cite{xenon100_eft_ref} and LUX \cite{LUX_RUN4_EFT_2021} limits.
+The parameter space which the LZ detector is a significant step forward compared to current limits.
+The planned LZ exposure is orders of magnitude greater than the both LUX and XENON100 results, with 5.6 tonnes $\times$ 1000 live days for LZ compared to 34 kg $\times$ 224.6 live days with XENON100 and 100 kg $\times$ 311.2 live days for LUX.
+
+$c^a_i$ has dimensional of mass$^{-2}$ which is 
+
 The upper limits are shown in \autoref{fig:EFT_Result_Projected_Sensitivity_1} and \autoref{EFT_Result_Projected_Sensitivity_2}.
 Note that the limit is presented in terms of the dimensionless values $({c}^{s}_{i}\times{m}^{2}_{w})^{2}$ rather than just $({c}^{s}_{i}$ (which has dimensionality of [mass]$^{-2}$, where $m_w$ is the Higg's vacuum expectation value.
 This decision has been made due to several experiments making the decision to present them in this way (starting with XENON100 \cite{xenon100_eft_ref}).

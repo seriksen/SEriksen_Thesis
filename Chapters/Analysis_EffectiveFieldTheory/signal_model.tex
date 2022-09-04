@@ -1,5 +1,36 @@
 \section{Signal Model}
 \par
+Both of the analyses were performed in the isoscalar basis as it allows for comparion to both LUX and XENON collraboration results.
+More specifically, only the isoscalar basis was considered, with isovector interactions neglected.
+\par
+The case of 
+
+\begin{equation}
+    \frac{dR}{dE_R} = \frac{c^{a^2}_i \rho_\chi}{32 \pi m^3_\chi m^2_N} \int_{v_min} \frac{f(\vec{v}}{v} F^{a,a}_{i,i} (v^2, q^2) d^3 v
+\end{equation}
+
+\par
+The recoil spectra were generated using \textit{DMFormFactor}.
+This was chosen over the other software options mentioned in \autoref{sec:eft_theory} as it is the same as is used by the LUX, Panda-X and XENON collaborations.
+Two different version of the codebase were used.
+For the projected sensitivity, the recoils generated were from \textit{DMFormFactor} v6.0 which are the same version as those used in the published LUX and XENON100 results.
+For the SR1 result, a newer, but unpublished version of \textit{DMFormFactor} was used\footnote{unpublished at time of writing}.
+This has updated form factors, more accurately modelling the nuclei.
+The recent publication on $\mathcal{L}$ by Panda-X used this version \cite{pandax_2_eft_ref}.
+For a selection of operators the difference between the resultant form factors is shown in XXX.
+The change in the resultant Bessel functions alter the shape of the recoils.
+
+
+
+
+
+To improve the realism of the recoil and to maintain consistency with previous experiments the natural abundance of Xe isotopes were folded in.
+Each operator was generated out to 1000 keV and in the isoscalar basis and a selection of the resultant differential rates are shown in \autoref{fig:HENR_Spin_Recoil_Spectrum}.
+Each Operator was performed for a WIMP mass of [5, 7, 10, 12, 14, 21, 33, 50, 100, 200, 400, 1000, 4000] GeV.
+
+\input{Chapters/Analysis_EffectiveFieldTheory/Figures/signal_recoils}
+
+\par
 Let us first discuss the signal model which we expect.
 The differential rate we saw in CHAPTER XXX though difficult to calculate is fairly easy for the end user, with a suite of tools written to determine this.
 Some of the original authors of the theory produced one such program, DMFormFactor (written in Mathematica) \cite{dmformfactor_ref}.

@@ -12,20 +12,20 @@
             ymin=1e-4, ymode=log,]
             
         \addplot[red, only marks, mark size=1, 
-                 error bars/.cd,
-                 y dir=both, y explicit, error bar style={color=black}]
+                 error bars/.cd, error bar style={color=black},
+                 y dir=both, y explicit, ]
             table [x=energy,y=rate,y error plus index=2, y error minus index=3]
             {Data/OD_Backgrounds/background_constraints/od_bipo_first_alpha.dat};
             
         \addplot[blue, only marks, mark size=1, 
-                 error bars/.cd,
-                 y dir=both, y explicit, error bar style={color=black}]
+                 error bars/.cd, error bar style={color=black},
+                 y dir=both, y explicit, ]
             table [x=energy,y=rate,y error plus index=2, y error minus index=3]
             {Data/OD_Backgrounds/background_constraints/od_bipo_second_alpha.dat};
         
         \addplot[green, only marks, mark size=1, 
-                 error bars/.cd,
-                 y dir=both, y explicit, error bar style={color=black}]
+                 error bars/.cd, error bar style={color=black},
+                 y dir=both, y explicit, ]
             table [x=energy,y=rate,y error plus index=2, y error minus index=3]
             {Data/OD_Backgrounds/background_constraints/od_bipo_third_alpha.dat};
         

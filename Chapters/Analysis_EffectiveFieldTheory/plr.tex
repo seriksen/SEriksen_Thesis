@@ -1,28 +1,134 @@
 \section{Statistical Method}
 \par
-In dark matter searches, hypothesis testing is typically used to either exclude a specific model of dark matter or where an observation is has sufficient significance to claim a discovery.
-A frequentist hypothesis test is most typically used in which there are two well defined hypotheses.
+In this section the Profile Likelihood Ratio (PLR) analysis used in 
 
-
-In this chapter the statistical statistical technique used by the LZ collaboration is explained.
-A detailed explanation of the coding framework can be found in \cite{LZ_Ibles_LZStats_Thesis_ref}.
-
-
-
+\par
+In direct dark matter searches, hypothesis testing is frequently used to determine whether an observation excludes a dark matter model or is significant enough to claim a discovery.
+This is often performed using a frequentist approach where there are two well defined hypotheses, a null hypothesis ($H_0$) and an alternative hypothesis ($H_1$), which are tested to see which is the most compatible with the observation.
+In general the null hypothesis is assumed to be true and is either rejected in favour of the alternative or is failed to be rejected, neither hypothesis is every accepted, where the hypotheses are models that could describe the observation.
+The parameter of interest (POI), $\mu$, in $H_0$ is fixed to a defined value and is set to float in $H_1$ to all other possible values:
 \begin{equation}
     \begin{split}
         H_0: \mu = \mu_0 \\
         H_1: \mu \neq \mu_0
     \end{split}
 \end{equation}
+where $\mu$ is just the number of WIMP-nucleon scatters that are expected in each model, and $\mu_0$ is the expected number of scatter in the dataset.
 
+\par
+By detecting the 
+In the limit setting analysis in this chapter, $H_0$ is defined as the background plus signal model and $H_1$ as the background only model.
+The test statistic for the hypothesis test
+
+
+The of this section briefly covers how it was used for these studies.
+
+In this chapter $H_0$ is defined by a background only model, and $H_1$ as a background plus signal model.
+\par
+The evaluation of 
+A negative log-likelihood was used, $q = -2 \text{log}_{10}\lambda$, where $\lambda$ is the profile likelihood
 \begin{equation}
-    q = -2 \text{log}\lambda
+    \lambda(\vec{x}) = \frac{\mathcal{L}(\mu_0, \textbf{\nu} | \vec{x})}{\mathcal{L}(\hat{\mu}, \hat{\nu} | \vec{x})}
 \end{equation}
+
+
+\par
+Each model is defined in terms of 
+
+
+
+A log likelihood method is 
+
+
+where $\mu$ is simply the number of WIMP-nucleon scatters that are expected for each model.
+$\mu_0$ is the number of WIMP-nucleon scatters expected in the observation dataset.
+
+
+
+The outcome of the test is then either there not being enough evidence to reject a background only described what was observed or that the background model is rejected in favour of a background plus signal model.
+There models are comprised of the expected number of event for the background (or background plus signal) and a PDF which 
+
+
+$H_0$ is 
+
+\par
+In practice this means that both news and $\gamma$s
+
+
+hypotheses are compared to what is observed.
+
+used to either exclude a specific model of dark matter or where an observation is has sufficient significance to claim a discovery in an observation.
+
+$H_0$ is assumed to be correct and then tests are done see if the
+d
+
+The parameter for this is the parameter of intersect, $\mu$, which is simply the number WIMP-nucleon scatters that are expected to be observed.
+
+
+
+
+where $mu$ is the number of WIMP-nucleon scatters expected in the given model.
+This boils.
+
+\par
+The actual test statistic for these hypothesis tests is the profile likelihood ratio (PLR) defined as: 
+
+
+
+
+
 where $\lambda$ is the 
 
 In order to access the the 
 
+The observables used in both the SR1 study and the projected sensitively are just two dimensional: \{S1$_c$, log$_{10}$S2$_c$\} 
+
 \par
 In the projected study the test is summarised as:
 "finding the value $\mu$ above which the background plus signal model is incompatible with a background only model.
+
+Which has a dependency on the PDFs of both signal and backgrounds, $f_s(\textbf{x_e})$ and $f_b(\textbf{x_e})$.
+
+For considering $N$ backgrounds in the model.
+The log-likelihood for the analysis is given by:
+\begin{equation}
+\begin{split}
+    -2 \text{log}\mathcal{L}(\mu_s(\sigma),\textbf{\nu}) =& 2\bigg(\mu_s + \sum^{N}_{b=1} \mu_b \bigg) \\
+                                                          &-2\sum^{n_0}_{e=1} \bigg(\text{log}(\mu_s f_s(x_e)  + \sum^N_{b=1}\mu_b f_b(x_e)
+                                                          \bigg) \\
+                                                          &+\sum^N_{b=1} \frac{(\mu_b - a_b)^2}{s^2_b}
+\end{split}
+\end{equation}
+where $e$ represented running over each event in the data set.
+\par
+The codebase used here which implements the above, \textit{LZStats}, was developed primarily by I. Olicina.
+Details of the code can be found in his thesis \cite{LZ_Ibles_LZStats_Thesis_ref}.
+
+\subsection{Model PDFs}
+\par
+In both the projected sensitivity study and the SR1 study the PDFs were created in the same fashion, albeit with different software package\footnote{The tool for generating the PDFs used in the collaboration changed between when these two studies were done}.
+
+
+
+The approaches fall into two categories: those simulated through \textit{BACCARAT}, and those  simulated through the full-chain and not.
+
+\par
+Backgrounds which are unique to LZ as they are from the local environment were all simulated in \textit{BACCARAT} as energy deposit simulations.
+In the case of the projected limits, analysis cuts were applied at this stage, so are on the simulation truth as a detector response for 
+The energy deposits were when fed into a detector
+
+
+\par
+
+Contributions from neutrions were determined via DMCalc. 
+
+
+
+The simulations used to produce the PDFs for the PLR originate from those used in \cite{LZ_projected_sensitivity_paper_ref} where an energy deposit only approach was adopted based upon a detector response model for which the author takes no credit and so only the essential information is detailed here.
+A more complete description of the simulation framework and detector response can be found in the following Refs. \cite{lz_simulations_ref,theresafruth_thesis_ref}.
+\par
+In order to determine the detector response, a set of simulations were performed in the standard fashion; where an energy deposit in xenon is translated into scintillation photons and ionisation electrons using NEST \cite{nest_1_ref,nest_2_ref}.
+These were then propagated until eventual detection (or not) at the PMT faces where the PMT response is then incorporated.
+The resultant sum of these responses give us the S1 and S2 pulse sizes from which the detector response is made from, describing the size of the S1 and S2 for a given recoil.
+Our detector is then described by a finite number of parameters given \autoref{tab:projected_sensitivity_detector_parameters} and the response in S1$_c$ and S2$_c$ for a NR events is shown in \autoref{fig:projected_detector_model_response_for_flat_nr}.
+When it comes time to generate the PDFs required for our PLR we can simply use the differential scattering rate per recoil energy.

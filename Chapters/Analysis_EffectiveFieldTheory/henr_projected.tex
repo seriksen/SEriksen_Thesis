@@ -26,10 +26,10 @@ With the projected detector parameters, an S1$_c$ of 500 phd will be from pulses
 
 \subsection{Background Models}
 \par
-The background model considered was made up of 11 components which represent the most significant contributors based on what was presented in TABLE XXX.
-
-
+The background model considered was made up of 11 components which represent the most significant contributors discussed in \autoref{sec:lz_detector}.
 Contributions from ``Detector components", ``Surface contamination" and ``Environmental" sources are summed together, but kept separate as ER and NR components.
+This is performed as generally speaking the shape contribution is similar\footnote{this is particularly true in low energy recoil searches (<30 keV), where they all appear as flat contributions.}.
+Neutrinos are se
 
 
 \par
@@ -37,17 +37,10 @@ One background that was not considered are $\gamma$-X events.
 These were excluded because in order to effectively model them the positional information of events need to be considered, and we have limited the observable parameters to \{S1$_c$,log$_{10}$(S2$_c$)\}. 
 When LUX included 5-dimensions to in their PLR for a RUN-4 EFT analysis the resultant PLR required $\approx$15,000 CPU-hours per mass point \cite{billyboxer_thesis_ref} and so it was desirable to avoid a similar situation here.
 There are novel ways of over coming this such detailed in \cite{flamenest_ref} and \cite{lux_ml_plr_ref}, but these would have required a significant effort to intergrate into the LZ computing framework.
-
-
-\cite{gregrischbieter_thesis_ref}
-
-It is possible for light-to-charge ration of an S1-S2 pulse pair to be attenuated, causing an ER event to appear NR-like.
-For this S2-suppression, a $\gamma$-ray needs to scatter in two separate regions of the TPC, one where ionisation electrons are detected, and one where they are not.
-In this case, a single S1 will be detected (due to how close in time the scatters are), and a single S2.
-There are two significant locations where these events can originate: in the reverse field region (RFR) of the TPC and the walls of the TPC.
-These events have not been included here due to the need to include additional parameters in order to adequately model them: namely the position of the event needs to be taken into account.
-It should be noted that it is also possible to cut out these events using a tighter fiducial cut, but this directly impacts exposure.
 In future searches, LZ is planning on using a boosted decision tree machine learning technique that is based upon LUX Run-4 EFT analysis \cite{LUX_RUN4_EFT_2021}.
+
+
+
 
 
 \begin{enumerate}
@@ -59,7 +52,7 @@ In future searches, LZ is planning on using a boosted decision tree machine lear
 The events that are left are then defined as as a differential rate per recoil energy can then be calculated for each component.
 Other sources of backgrounds which would only scatter once anyway do not need to be simulated in this way, instead the rate can be determined directly from the flux and scattering cross-section.
 The spectrial contributions from each of of the background components is shown in FIG XXX.
-The expected number of events from each of these components in the vanilla WIMP search region of interest and in the extended region used here are shown in 
+The expected number of events from each of these components in the WIMP-SI search region of interest and in the extended region used here are shown in 
 \autoref{tab:projected_lz_backgrounds}.
 A simulated dataset of these backgrounds is shown in  \autoref{fig:sensitivity_paper_backgrounds}.
 
@@ -78,11 +71,11 @@ A simulated dataset of these backgrounds is shown in  \autoref{fig:sensitivity_p
         \textbf{NR contributions}                    &                        &                         &   \\
         Detector contaminants                        & 0.81                   & 0.91                    & 20\% \cite{LZ_projected_sensitivity_paper_ref}         \\
         ${}^{8}$B solar neutrinos                    & 36                     & 36                      & 4\%  \cite{b8_neutrino_rate_ref}       \\
-        hep solar neutrinos                          & 0.9                    & 0.9                     & 15\% \cite{pp_solar_neutrinos_rate_ref}        \\
+        hep solar neutrinos                          & 0.9                    & 0.9                     & 15\% \cite{solar_neutrinos_rate_ref, pp_solar_neutrinos_rate_ref}        \\
         Diffuse supernova neutrinos                  & 0.15                   & 0.15                    & 50\% \cite{dissuse_supernova_neutrinos_rate_ref}        \\
         Atmospheric neutrons                         & 0.65                   & 0.65                    & 25\% \cite{atmospheric_neutrinos_rate_ref}      
     \end{tabular}
-    \caption{Primary backgrounds that need to be considered for an EFT search}
+    \caption{Backgrounds considered in the PLR for a projected sensitivity to EFT operator coupling. The values for the WIMP-SI search region values differ from previous studies \cite{LZ_projected_sensitivity_paper_ref,LZ_Ibles_LZStats_Thesis_ref}. This is due to an upgraded NEST package version used here.}
     \label{tab:projected_lz_backgrounds}
 \end{table}
 

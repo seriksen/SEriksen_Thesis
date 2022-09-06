@@ -1,45 +1,32 @@
 \section{S2 Light Map}
 \label{sec:s2lightmap}
 \par
-Suppose that a single free electron was to be simulated in the liquid Xenon.
-Due to the electric field, this electron will accelerate upwards towards the gas layer.
-As it travels through the medium, it may interact with the Xenon, exciting numerous other electrons into being free.
-%A single free electron in the liquid phase can excite numerous other electrons into being free (depending upon energies) as it travels upwards in the electric field.
-Each of these electrons could also enter the gas-phase and produce optical photons.
-In this phase, the mean photon yield is $\approx$ 825.
-This number is discussed in more detail in \autoref{sec:s2radialvariation}.
-Therefore an initially simple simulation requires several thousand S2 photons to be simulated.
-For more complex simulations (such as those that are needed for scale tests of the analysis chain), this becomes a bottleneck and an impractical approach.
-
+A single free electron simulated in the LXe with accelerate upwards towards the gas layer due to the electric field.
+Once in the gas, the mean photon yield per electron is 825 \cite{NoPhotonsPerElectron}.
+As a single scatter event can produce in excess of dozens of electrons, the number of photons which need to be simulated quickly becomes unmanageable, creating a simulation bottleneck.
 \par
-In theory, each of these photons can be traced independently but current software and computing infrastructure cannot cope with such parallelism. 
-Instead, a probabilistic map is used to determine the photon hit pattern on the PMTs and flight time.
+To get around this, a probabilistic map is used to determine the photon hit pattern on the PMTs and flight time.
 For the S2 signal, this is broken up into two sets of probability density functions (PDF).
-The first, is the likelihood of a photon hitting a given PMT from a given position.
+The first is the likelihood of a photon hitting a given PMT from a given position.
 This is essentially the number of photons which hit this PMT divided by the number of photons which hit any PMT.
-It is a set of 3D histograms (one for each PMT).
-The second is the likely path taken by the photon, as this effects the time it takes for the photon to hit the PMT, and thus the signal.
-This kind of map can only be created by performing simulations of photons inside the gas-phase; where they would be produced during electroluminescence. 
-The information needed is the photon start position, the end position, and the time of flight.
-These maps are created such that they contain the cumulative probabilities.
-
+The second is the likely path taken by the photon, as this effects the time it takes for the photon to hit the PMT, and thus the resultant waveform.
 \par
-For every simulation after the map has been generated, there will be a significant speed increase as the photons themselves no longer need to be simulated.
-However, some processing is still required.
-When a subsequent simulation is performed, the electron paths are stopped once they reach the liquid surface.
+In order to create this light map, large scale simulations of the photons have to be performed at least once.
+For every simulation after the map has been generated, there is a significant speed increase as the photons themselves no longer need to be simulated.
+In the subsequent simulations, the electron paths are stopped once they reach the liquid surface.
 The position of the electron is used to determine the path it would have taken and points along this path are taken to be the photon origin. % to the anode.
 The maps are then used along with random numbers and binary searches to determine which PMT the photon hit (if any) as well as how long it took.
 
 \par
-A notable downside of this approach is that for different scenarios one may wish to investigate (such as using a different purity of Xenon or the temperature and therefore pressure) then a new light map should be used as these factors would affect the S2 photon production.
-
-
+A notable downside of this approach is that for different scenarios one may wish to investigate (such as using a different purity of Xenon or the temperature and therefore pressure) then a new light map is needed to account for these effects.
+A version of this approach had been used within BACCARAT for a number of years \cite{lz_simulations_ref}, but was outdated due to detector design changes.
+The S2 Light Map now in use within BACCARAT, created by the author, took into account the latest geometry and detector physics.
 
 \subsection{S2 Radial Variation} \label{sec:s2radialvariation}
 \par
-The electric field originates from three electrodes; a cathode grid just above the bottom PMTs, a gate grid just below the surface of the liquid Xenon, and an anode grid in the gaseous Xenon.
+The electric field originates from three electrodes: a cathode grid just above the bottom PMTs, a gate grid just below the surface of the liquid Xenon, and an anode grid in the gaseous Xenon.
 In previous simulations it was assumed that the anode and gate were both rigid structures and so had a fixed distance, and electric field between them.
-In this case, the number of photons produced in the gas gap by an electron is given by \autoref{eq:s2lightmap_nophotons} and is equal no matter the distance from the centre. 
+In this case, the number of photons produced in the gas gap by an electron is given by \autoref{eq:s2lightmap_nophotons} and is equal no matter the distance from the centre:
 \begin{equation}
     N_{photons/e} = eep \times (\alpha \times E_{gas} \times 1000 - \beta \times P - \gamma) \times d_{gas}
     \label{eq:s2lightmap_nophotons}
@@ -58,4 +45,4 @@ Where R is the radius of the wire, r is the point on the wire and A, B and C are
 As such, the electric field is not constant with radius and thus the number of photons produced by electroluminescence is changed.
 \par
 These changes were implemented into the simulation package as a scaling on the number of photons which the S2 Light Map is probed for.
-Implementing it in this way allows for the resultant signal size to scale with the electric field without having to require a dynamically changing detector grid geometry - a much more complex approach.
+Implementing it in this way allows for the resultant signal size to scale with the electric field without having to require a dynamically changing detector grid geometry - which is a much more complex approach.

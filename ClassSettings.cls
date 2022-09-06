@@ -171,4 +171,7 @@
 \usepackage{lscape}
 \usepackage{anyfontsize}
 
+\usepackage{rotating}
+\usepackage{graphicx}
+
 \endinput

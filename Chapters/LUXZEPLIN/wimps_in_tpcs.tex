@@ -2,20 +2,18 @@
 \label{sec:wimps_with_xenon}
 
 \par
-The high atomic mass of Xe is of benefit for spin-independent WIMP-nucleon scattering as can be seen in EQUATION XXX where there is a $A^2$ enhancement.
-Additionally, Xe is sensitive to spin-dependent interactions as natural Xe two isotopes which odd-neutrons; ${}^{129}Xe$ and ${}^{131}Xe$ which isotopic abundances of 26.4\% and 21.1\% respectively.
-Though the sensitivity to WIMP-proton spin-dependent interactions is less obvious as it requires neutron-proton mixing and is very dependent upon the nuclear model used.
-
+The choice to build a detector using xenon is motivated by the A$^2$ enhancement in the scattering rate (\autoref{eq:wimp_si_differential_rate}).
+Not only does the high atomic mass give good sensitivity to SI interactions, two naturally occurring xenon isotopes, ${}^{129}$Xe and ${}^{131}$Xe have a non-zero nuclear spin which makes them sensitive to SD interactions.
 \par
-A further benefit of Xe is that it does not naturally contain any long-lived radioactive isotopes, or activation products.
-There are however several isotopes than can be produced by cosmogenically: and two metastable isotopes ${}^{129m}Xe$ and ${}^{131m}Xe$.
+The target medium (xenon) will have to be held in place by some other material.
+This casing will contribute produced some backgrounds due to radioactive impurities which will be observed as interactions in the target medium.
+Xenon in liquid phase (LXe) is particularly good to counter this due to it's high density (approximately 3g/cm${}^{3}$), and therefore has a high stopping power to both $\beta$ and $\gamma$ radioactive decays\footnote{for reference, aluminium has a density of 2.7 g/cm${}^{3}$}.
+The inner volume of the the LXe medium will contain a very low background.
 
-
-\par
-In relation to a detector, the target material will have to be held in place by some other material.
-This casing will contribute to the observed interactions in the target material.
-Xenon remains an appropriate target particularly in liquid phase due to it's high density (approximately 3g/cm${}^{3}$), and therefore has a high stopping power for both $\beta$ and $\gamma$ radioactive decays\footnote{for reference, aluminium has a density of 2.7 g/cm${}^{3}$}.
-Therefore a detector of a reasonable size will contain a very low background central volume.
+%Though the sensitivity to WIMP-proton spin-dependent interactions is less obvious as it requires neutron-proton mixing and is very dependent upon the nuclear model used.
+%A further benefit of xenon is that it does not naturally contain any long-lived radioactive isotopes, or activation products.
+%This means that the background rate is drive by 
+%There are however several isotopes than can be produced by cosmogenically: and two metastable isotopes ${}^{129m}Xe$ and ${}^{131m}Xe$.
 
 
 \subsection{Energy deposits in Xenon}
@@ -23,10 +21,10 @@ Therefore a detector of a reasonable size will contain a very low background cen
 An interaction of a particle within the target medium will result in either an interaction with the atomic nucleus, causing a nuclear recoil (NR), or within the electron cloud, resulting in a electron recoil (ER).
 In both cases, the recoiling particle scatters with nearby atomic electrons and nuclei, transferring its kinetic energy: causing both excitation and ionisation of these atoms as a cascade of secondary recoils.
 Regardless of which type of recoil originates the ionised track, it culminates in scintillation light.
-The reader is directed towards both \cite{xenon_physics_ref} and \cite{carldahl_thesis_ref} for thorough reviews of these processes, but which are summarised below.
+The reader is directed towards both \cite{xenon_physics_ref} and \cite{carldahl_thesis_ref} for thorough reviews of these processes, which are summarised below.
 \par
 An excited atom of xenon can bond to another xenon atom to form an excited molecule, or excimer, denoted as Xe$_2^{*\nu}$, which is both electronically and vibrationally excited.
-This excimer will eventually vibrationally relax via collisions with other xenon atoms, and will eventually decay to the ground state via the emission of a photon.
+This excimer will eventually vibrationally relax via collisions with other xenon atoms, and will decay to the ground state via the emission of a photon.
 This process of excition luminescence, is shown below for an electronic recoil;
 \begin{align*}
     e^- + Xe &\rightarrow Xe^* + e^+  &\text{impact excitation} \\ 
@@ -34,7 +32,6 @@ This process of excition luminescence, is shown below for an electronic recoil;
     Xe_2^{*,\nu} + Xe &\rightarrow Xe_2^* + Xe &\text{relaxation} \\
     Xe_2^* &\rightarrow Xe + Xe + \gamma &\text{VUV emission} 
 \end{align*}
-\par
 An ionised atom can also produce scintillation light, though it's path to it is somewhat more complex.
 The ionised atom can form diatomic molecules with nearby atoms.
 Some of the electrons which were liberated during the cascade will recombine with the molecule, causing it to split leaving one of the atoms in a highly excited state (Xe$^{**}$).
@@ -123,8 +120,6 @@ With the full expansion of $G_2$ as;
 \begin{equation}
     G_2 = e^{-t/\tau} \epsilon Y_e G_1^{gas}(x,y)
 \end{equation}
-
-\par
 In typical analysis, the S1 and S2 signals are manipulated to account for the change in LCE with position.
 For this, two new quantities are introduced, as the corrected values: S1$_c$ and S2$_c$.
 Both the S1 and S2 are adjusted to the centre of the TPC in (x,y).
@@ -133,19 +128,14 @@ S1 is also adjusted to a z-position, typically taken to be the centre of the LXe
     S1_c = S1 \frac{G_1(0,0,z_c)}{G_1(x,y,z)} && S2_c = S2 \frac{G_1^{gas}(0,0)}{G_1^{gas}(x,y)} e^{t/\tau}
     \label{eq:s1c_and_s2c_full}
 \end{align}
-
-\par
 S1$_c$ and S2$_c$ are then just both linear relationships to the original quanta, related by a gain factor, $g$, which can be written as:
 \begin{align}
     S1_c = g_1 n_\gamma && S2_c = g_2 n_e
 \end{align}
-
-\par
 With this linear relationship, the reconstructed recoil energy from the event of two pulses (and S1 and S2) becomes:
 \begin{equation}
     E_R = \frac{W}{L}(\frac{S1_c}{g_1} + \frac{S2_c}{g_2})
 \end{equation}
-
 For NR events, L has an energy dependence.
 \par
 An example of the possible discrimination between ER and NR from a Xenon TPC is shown in \autoref{fig:er_nr_discrimination} for an arbitrary TPC detector.
@@ -158,3 +148,20 @@ The viability of using TPCs for direct dark matter searches can be summarised by
 Modelling of detector responses from S1 and S2 signals have undergone a huge amount of development in recent years, with the Noble Element Simulation Technique (NEST) library leading this.
 Both Argon and Xenon detectors are modelled for energy deposits of sub-keV to several MeV \cite{nest_1_ref}.
 Additional details of response modelling can be found in \cite{gregrischbieter_thesis_ref, flamenest_ref}.
+
+
+\iffalse
+\par
+
+
+There are numerous different detector designs to choose from, and the reader is directed towards \cite{direct_detector_designs_ref} for an indepth comparison.
+
+
+Fortunately, the majority of these will interact in the electron cloud surrounding the nucleus and result in an electronic recoil (ER).
+This differs from the nuclear recoil (NR) which would be observed from a WIMP-nucleon interaction.
+Therefore to detect a WIMP we are searching for an excess in NR events compared to out background.
+
+\par
+Therefore in order to achieve this, a target with minimal isotopes that will decay and cause an excess to be hidden need to be avoided.
+Additionally, any detector design should allow for particle discrimination - or more explicit ER and NR discrimination. 
+\fi

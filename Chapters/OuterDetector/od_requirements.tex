@@ -4,7 +4,9 @@
 As previously stated, the primary purpose of the OD is to act as an active veto for neutrons.
 Practically, this means that there are a number of performance requirements which the OD has to meet, all of which can be found in \cite{LZ_TechnicalDesignReview_ref}.
 A subset, which are addressed in this thesis are presented in \autoref{tab:veto_requirements}.
-\begin{table}[!htbp]
+R-160001 is defined for a 1 MeV neutron as that is the most likely neutron energy expected in the TPC (more on this later).
+R-160005 is set to a 5\% impact so as to not reduce the exposure (and therefore discovery potential) of LZ too much.
+\begin{table}[]
     \centering
     \begin{tabular}{p{0.3\textwidth}p{0.6\textwidth}} %{ c | c {\textwidth} } 
     \hline
@@ -15,8 +17,6 @@ A subset, which are addressed in this thesis are presented in \autoref{tab:veto_
     \caption{Selection of the OD veto performance requirements. Adapted from Table 12.2.6 from \cite{LZ_TechnicalDesignReview_ref}}
     \label{tab:veto_requirements}
 \end{table} 
-R-160001 is defined for a 1 MeV neutron as that is the most likely neutron energy expected in the TPC (more on this later).
-R-160005 is set to a 5\% impact so as to not reduce the exposure (and therefore discovery potential) of LZ too much.
 
 \par
 The veto method adopted by LZ is to act as a `dumb' veto, as no attempt will be made to determine the cause of light seen in the OD.
@@ -41,10 +41,10 @@ In order to make sense of it, the key backgrounds are explained here and a expec
 As part of the radioassay for LZ discussed previously, a dedicated campaign was undertaken to determine the rate of backgrounds in the GdLS \cite{scotthaselschwardt_thesis_ref}.
 This LS screener campaign was motivated by the need to measure the $^{14}$C rate, a low $\beta$-decay (156.5 keV) which would essentially set what the minimum veto energy threshold could be.
 If the rate of $^{14}$C is too high and the veto energy threshold set too low, then a large portion of TPC events would be vetoed mistakenly.
-In \cite{LZ_TechnicalDesignReview_ref}, the proposed veto energy threshold was 100 keV.
+In the LZ Technical Design Review (TDR), the proposed veto energy threshold was 100 keV \cite{LZ_TechnicalDesignReview_ref}.
 The radioassay also considered various decay chains and rare metals, both measured via $\alpha$ decays.
 \par
-One of the key discoveries of the screener campaign was the high ${}^{235}U$ rate, with the measured level far higher than the relative abundance of ${}^{235}U$ to ${}^{238}U$ would suggest (0.720\% and 99.274\% respectively), though is a feature seen in other experiments \cite{javierperez_thesis_ref,superkamiokande_neutron_tagging_ref}.
+One of the key discoveries of the screener campaign was the high ${}^{235}$U rate, with the measured level far higher than the relative abundance of ${}^{235}$U to ${}^{238}$U would suggest (0.720\% and 99.274\% respectively), though is a feature seen in other experiments \cite{javierperez_thesis_ref,superkamiokande_neutron_tagging_ref}.
 This prompted the decay chains to be probed as sub-chains of the full chain.
 The full decay chains considered ($^{232}$Th, $^{235}$U and $^{238}$U) are shown in \autoref{fig:decay_chains} along with how the sub-chains were defined.
 The results from the LS screener campaign are shown in \autoref{tab:gdls_assay_rates}.
@@ -58,30 +58,30 @@ The highest individual decay rate is from ${}^{14}$C.
 This prompted a change in the veto energy threshold to be above the ${}^{14}$C end-point: 200 keV.
 This value is then what has been used in sensitivity studies of LZ \cite{LZ_projected_sensitivity_paper_ref}.
 
-\begin{table}[!htbp]
+\begin{table}[]
     \centering
     \begin{tabular}{c|c|c}
         \multirow{2}{*}{Isotope or Subchain}  &  \multicolumn{2}{c}{GdLS rates (mBq/kg)}      \\ 
                              &  LS Screener          & Improved Purification \\ \hline
-        ${}^{238}U_{e}$      &  $< 1.04$             & $< 0.017$             \\ 
-        ${}^{238}U_{m}$      &  $0.092\pm0.02$       & $0.010\pm0.004$       \\
-        ${}^{235}U_{e}$      &  $0.011$              & $< 0.018$             \\
-        ${}^{235}U_{l}$      &  $0.10\pm0.04$        & $< 0.012$             \\
-        ${}^{232}Th_{e}$     &  $< 0.027$            & $< 0.0036$            \\
-        ${}^{232}Th_{l}$     &  $< 0.020$            & $< 0.0030$            \\
-        ${}^{40}K$           &  $< 0.22$             & $< 0.0092$            \\
-        ${}^{138}La$         &  $< 0.0055$           & $< 0.0017$            \\
-        ${}^{176}Lu$         &  $0.30\pm0.07$        & $0.0081\pm0.0018$     \\
-        ${}^{152}{Gd}$       &  $1.61\pm0.08$        & $1.61\pm0.08$         \\
-        ${}^{147}{Sm}$       &  $1.02\pm0.05$        & $1.02\pm0.05$         \\
-        ${}^{14}{C}$         &  $4.77\pm0.098$       & $4.77\pm0.098$ 
+        ${}^{238}$U$_{e}$      &  $< 1.04$             & $< 0.017$             \\ 
+        ${}^{238}$U$_{m}$      &  $0.092\pm0.02$       & $0.010\pm0.004$       \\
+        ${}^{235}$U$_{e}$      &  $0.011$              & $< 0.018$             \\
+        ${}^{235}$U$_{l}$      &  $0.10\pm0.04$        & $< 0.012$             \\
+        ${}^{232}$Th$_{e}$     &  $< 0.027$            & $< 0.0036$            \\
+        ${}^{232}$Th$_{l}$     &  $< 0.020$            & $< 0.0030$            \\
+        ${}^{40}$K           &  $< 0.22$             & $< 0.0092$            \\
+        ${}^{138}$La         &  $< 0.0055$           & $< 0.0017$            \\
+        ${}^{176}$Lu         &  $0.30\pm0.07$        & $0.0081\pm0.0018$     \\
+        ${}^{152}$Gd       &  $1.61\pm0.08$        & $1.61\pm0.08$         \\
+        ${}^{147}$Sm       &  $1.02\pm0.05$        & $1.02\pm0.05$         \\
+        ${}^{14}$C         &  $4.77\pm0.098$       & $4.77\pm0.098$ 
     \end{tabular}
     \caption{Activities of GdLS components during LS Screener testing and those projected from an improved purification technique. Values from Table 4.9 and 6.11 of \cite{scotthaselschwardt_thesis_ref}}
     \label{tab:gdls_assay_rates}
 \end{table}
 \par
-Another source that was measured in the GdLS radioassay was ${}^{7}Be$, with an activity of <2.69 \cite{scotthaselschwardt_thesis_ref}.
-This has been purposefully ignored in \autoref{tab:gdls_assay_rates} as ${}^{7}Be$ has a half-life of 50-days \cite{be7_decay_ref}.
+Another source that was measured in the GdLS radioassay was ${}^{7}$Be, with an activity of $<$2.69 \cite{scotthaselschwardt_thesis_ref}.
+This has been purposefully ignored in \autoref{tab:gdls_assay_rates} as ${}^{7}$Be has a half-life of 50-days \cite{be7_decay_ref}.
 Therefore it will not be a significant contributor to the OD rate a year after the GdLS cocktail is created.
 
 \input{Chapters/OuterDetector/Figures/decay_chains}
@@ -91,24 +91,24 @@ Therefore it will not be a significant contributor to the OD rate a year after t
 \par
 Another outcome of the LS Screener campaign was the requirement for a dedicated Cavern-$\gamma$ study which was mentioned in \autoref{sec:cavern_gamma_generator}.
 The Cavern-$\gamma$ study has already been discussed in \autoref{sec:cavern_gamma_generator} with the expected rates shown in \autoref{tab:cavern_gamma_generator_parameters}.
-It showed that the rate of these $\gamma$s were 50\% lower than was what was anticipated in the Technical Design Review \cite{LZ_TechnicalDesignReview_ref}.
+It showed that the rate of these $\gamma$s were 50\% lower than was what was anticipated in the TDR \cite{LZ_TechnicalDesignReview_ref}.
 \par
 One thing which wasn't included in that study however was the possibility of a fluctuation in the rate.
 In \autoref{sec:cavern_gamma_generator} it is was assumed that all of the decays originate from the walls of the cavern.
-This is not strictly true, as their is radon in the air which will contribute some amount to the $\gamma$ rate.
-This can be caused by seasonal changes in the air flow within the mine, feature documented in other mines \cite{finnish_mine_radon_ref,nepal_mine_radon_ref,minos_annual_modulation_ref}.
+This is not strictly true, as there is radon in the air which will contribute some amount to the $\gamma$ rate.
+This can be caused by seasonal changes in the air flow within the mine and is a feature well documented in other mines \cite{finnish_mine_radon_ref,nepal_mine_radon_ref,minos_annual_modulation_ref}.
 In the most extreme cases, such as from the Soudan Underground Laboratory \cite{cavern_gammas_in_Soudan_mine_ref} there could be as much as a 26\% fluctuation in the rate.
 
 \subsubsection{LZ Detector Components}
 \par
-A third source are decays originate from the detector components, all of which are contaminated with trace radioimpurities.
+A third category of backgrounds in the OD are decays originating from the detector components, all of which are contaminated with trace radioimpurities.
 All of these were subject to an assay \cite{LZ_assay_ref}.
 Although a lot of these decays result in particles with low penetrating power, there is a quantity which will reach the GdLS, though it is biased by proximity to the GdLS.
 It was shown in \cite{scotthaselschwardt_thesis_ref} that the detector components can contribute as much as 11.9 Hz to the OD rate above 200 keV with the majority (5.5Hz) from the acrylic tanks and associated support structure.
 \autoref{tab:gdls_non_assayed_activities} contains the activities of the components that are in closest proximity to the GdLS and were installed as part of the installation described in \autoref{sec:od_construction_sec}.
 The mass estimates of soft materials are the author's own, based upon measurements and logs taken whilst on-site.
 
-\begin{table}[!htbp]
+\begin{table}[]
     \centering
     \begin{tabular}{c|c|c|c|c|c|c|c}
         \multirow{2}{*}{Material or Component} & \multirow{2}{*}{Mass (kg)} & \multicolumn{6}{c}{Measured Activity (mBq/kg)}      \\ 
@@ -126,28 +126,29 @@ The mass estimates of soft materials are the author's own, based upon measuremen
         Acrylic Tanks                                & 3140  & 0.0284 & 0.0284 & 0.0244 & 0.0244 & 0 & 2.3 \\
         Neutron conduits                             & 130  & 0.27 & 0.16 & 0.04 & 0.04 & 0 & 0.4 \\
     \end{tabular}
-    \caption{Activities of components in close proximity to the GdLS. The activities are from \cite{LZ_assay_ref}
+    \caption{Radioactivity of components in close proximity to the GdLS. The activities are from \cite{LZ_assay_ref}
             Each material activity is given to the 68\% confidence level.}
     \label{tab:gdls_non_assayed_activities}
 \end{table}
 
 \par
-In addition to the measurements in \autoref{tab:gdls_non_assayed_activities}, the OCV was subject to the cavern air for a prolonged period of time so there may be a build up of Radon dust which is not taken into account.
-Similarly, the frequent opening of the valves on the OD tanks (as mentioned in \autoref{sec:cavern_gamma_generator}) will have allowed for cavern-air and dust to enter the tanks.
-Quantifying this will not be possible without damaging the tanks, but it may be an unexpected feature in data.
+In addition to the measurements in \autoref{tab:gdls_non_assayed_activities}, the OCV was subject to the cavern air for a prolonged period of time so there may be a build up of radon dust which is not taken into account.
+Similarly, the frequent opening of the valves on the OD tanks (as mentioned in \autoref{sec:od_construction_sec}) will have allowed for cavern-air and dust to enter the tanks.
+This may appear as additional background contributions in data.
+%Quantifying this will not be possible without damaging the tanks, but it may be an unexpected feature in data.
 
 \subsubsection{Expected Rate}
 \par
 All of the backgrounds discussed in this section were simulated with the `as build' detector geometry.
 For the GdLS internal decays, the improved purification case was considered.
-The simulations performed were energy deposits only, so no light collection efficiency or detection efficiency have been taken into account.
+The simulations performed were energy deposits only, so no light collection efficiency or detection efficiency have been taken into account (see \autoref{sec:lz_simluations_chain}).
 The rates observed in the OD above a number of energies is shown in \autoref{tab:od_expected_rates}.
 
 \par
 An interesting result of this is that with the improved purification of the GdLS, it may be possible for the veto threshold to be reduced to 100 keV.
-This is because a rate <100 Hz is required for a 500 $\mu$s veto time window for a less than 5\% impact on WIMP-search livetime, and is what was planned for in \cite{LZ_TechnicalDesignReview_ref}.
+This is because a rate $<$100 Hz is required for a 500 $\mu$s veto time window for a less than 5\% impact on WIMP-search livetime, and is what was planned for in \cite{LZ_TechnicalDesignReview_ref}.
 
-\begin{table}[!htbp]
+\begin{table}[]
     \centering
     \begin{tabular}{c|c|c|c|c} %{ c | c {\textwidth} } 
     \hline
@@ -162,22 +163,22 @@ This is because a rate <100 Hz is required for a 500 $\mu$s veto time window for
     \label{tab:od_expected_rates}
 \end{table} 
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\textwidth]{Figures/Placeholder.png}
-    \caption{Expected Rate of backgrounds in the OD.}
-    \label{fig:OD_estimated_background_rate}
-\end{figure}
+%\begin{figure}
+%    \centering
+%    \includegraphics[width=0.5\textwidth]{Figures/Placeholder.png}
+%    \caption{Expected Rate of backgrounds in the OD.}
+%    \label{fig:OD_estimated_background_rate}
+%\end{figure}
 
 
 
 \subsection{Veto Efficiency}
 \label{sec:od_simulation_efficiency}
 \par
-The most prevalent neutron sources that can enter the TPC are from ($\alpha$,n) reactions and spontaneous fission.
+The most prevalent neutron sources that can enter the TPC are from ($\alpha$,n) reactions and spontaneous fission \cite{LZ_projected_sensitivity_paper_ref}.
 ($\alpha$,n) are the most dangerous in terms of number expected, but also as only a single neutron will be released.
-Neutrons from spontaneous fission predominantly from uranium (USF) are of less concern as multiple neutrons are released \cite{usf_ref}, often with higher energies and they are accompanied by $\gamma$'s and $\beta$'s so there is a much greater probability of the OD seeing something, but also the TPC observing more than one scatter (effectively self vetoing).
-As such these are of less concern.
+Neutrons from spontaneous fission predominantly from uranium (USF) are of less concern as multiple neutrons are released \cite{usf_ref}.
+They are also often accompanied by $\gamma$s and $\beta$s so there is a much greater probability of them not being single scatter events.
 The neutron energy distribution expected in LZ is shown in \autoref{fig:simulation_background_neutron_energies}.
 \input{Chapters/OuterDetector/Figures/background_neutron_energies}
 

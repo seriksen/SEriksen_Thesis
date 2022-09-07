@@ -1,35 +1,36 @@
 \section{Detector Overview} \label{OD_detector_overview}
 \par
-As mentioned in \autoref{sec:lz_detector}, the Outer Detector is an active veto detector used to increase the usable xenon volume in the TPC.
+As mentioned in \autoref{sec:lz_detector}, the OD is an active veto detector used to increase the usable xenon volume in the TPC.
 In this section, a detailed explanation of the OD is provided.
 
 \subsection{Function}
 \par
-As previously discussed, it is theoretically possible that a dark matter candidate will scatter once in the target medium and then leave the experiment.
-Other sources are also able to interact in the target medium producing a single scatter event before leaving.
+As previously discussed, it is hoped that a dark matter candidate will scatter once in the target medium and then leave the experiment.
+Being able to detect this excess of events is the foundation of the LZ experiment.
+The limiting factor are backgrounds, some of which will also to interact once in the target medium producing a single scatter event before leaving.
 This is particularly true for neutrons, which produce nuclear recoils and are indistinguishable from a dark matter scatter in the TPC.
-However there is a reasonable probability of that these particles will also scatter before or after they enter the TPC volume.
-LZ makes use of this feature using veto detectors, the Skin and Outer Detector (OD):
+There is however a reasonable probability that these particles will also scatter or be captured after they enter the TPC volume.
+LZ makes use of this feature using veto detectors, the Skin and OD:
 \begin{itemize}
     \item \textbf{Skin}: a xenon skin that surrounds the TPC inside the cryovessel.
-    \item \textbf{OD}: a liquid scintillator held in acrylic tanks around the cryovessel which surrounded by ultra pure water.
+    \item \textbf{OD}: a liquid scintillator held in acrylic tanks around the cryovessel which is surrounded by ultra pure water.
 \end{itemize}
-Each of these detectors are made active by PMTs.
+Each of these detectors are instrumented with photomultiplier tubes (PMTs).
 If an interaction is detected in either of these within some time window around when a single scatter is observed in the TPC then the event can be tagged as a background, as it is inconsistent with dark matter.
 These veto detectors also allow for a continuous characterisation of backgrounds in the proximity of LZ which can be fed into parameterising background models.
 
 \par
-The OD is of vital importance as 46\% of neutrons with enter the TPC will be captured in the OD \autoref{fig:simulated_neutron_capture_volumes}.
+The OD is of vital importance as 46\% of neutrons which enter the TPC will be captured in the OD (\autoref{fig:simulated_neutron_capture_volumes}).
 Once captured the neutrons can be detected and flag that the event should be vetoed. 
 Without the OD, there is the potential for 46\% of neutrons which scatter in the TPC to be missed.
 In the worst case this could be linked to a false discovery claim, having observed an excess in nuclear recoils.
 It is therefore vital to have a working OD detector.
 
-\input{Chapters/OuterDetector/Figures/neutron_capture_volumes}
-
 \par
-The OD is a gadolinium doped liquid scintillator (GdLS) housed in a number of acrylic tanks that provide near complete coverage to the OCV designed to detect these neutrons.
+The OD is a gadolinium doped liquid scintillator (GdLS) housed in a number of acrylic tanks that provide near complete coverage to the outer crystat (OCV) designed to detect these neutrons.
 In the remainder of this section the key parts of the OD are described.
+
+\input{Chapters/OuterDetector/Figures/neutron_capture_volumes}
 
 \subsection{OD Scintillator}
 \par
@@ -39,17 +40,18 @@ The fluor will emit light at a wavelength peaking below 380 nm which is not idea
 This scintillation is absorbed by bis-MSB and emitted at a better wavelength (in terms of detectability), as it is less absorbed by the LS and matches closer the PMT response (discussed later in this section), peaking at around 410-425 nm.
 The absorption length and emission spectrum are shown in \autoref{fig:od_detection_properties}.
 Importantly, the absorption length of the LS increases from 1 m to in excess of 10 m in that range - and continues to rise.
+This makes the emitted light more readily detectable by the PMTs.
 
 \input{Chapters/OuterDetector/Figures/gdls_wavelengths}
 
 \par
-To improve neutron capture, the LS is doped with 0.1\% by mass (0.23 - 0.34\% by number) Gadolinium.
-This is dissolved into the LS via a chelating agent 3,5,5-trimethylhexanoic acid (TMHA), with three TMHA ions per Gd creating $Gd({C}_{9}{H}_{17}{O}_{2})_{3}$.
+To improve neutron capture, the LS is doped with 0.1\% by mass (0.23 - 0.34\% by number) gadolinium.
+This is dissolved into the LS via a chelating agent 3,5,5-trimethylhexanoic acid (TMHA), with three TMHA ions per Gd creating Gd(${}_{9}$H${}_{17}$O${}_{2}$)${}_{3}$.
 The GdLS used in LZ was produced in a batch used for DayaBay, details of which can be found in \cite{dayabay_gd_doping_ref}.
 The complete cocktail of components in the GdLS is shown in \autoref{tab:GdLS_Components}.
 Although only a small amount of Gadolinium is added, it is sufficient to reduce the neutron capture time down from $\approx$218$\mu$s of pure LAB down to $\approx$28$\mu$s \cite{ucsb_gdls_dicebox_simulations_ref}.
 
-\begin{table}[!htbp]
+\begin{table}
     \centering
     \begin{tabular}{c | c | c | c}
     \hline
@@ -68,11 +70,11 @@ Although only a small amount of Gadolinium is added, it is sufficient to reduce 
 \subsection{Acrylic Tanks}
 \par
 The GdLS is contained in a total of ten ultra-violet transparent acrylic tanks providing nearly a complete 4$\pi$ coverage around the OCV.
-Four side tanks (SATs) that curve around the OCV, three bottom tanks (BATs) under the OCV between it's legs, two top tanks (TATs), and a final smaller tank - the YBe plug which is removable for when the YBe calibration source is in use.
+Four side tanks (SATs) that curve around the OCV, three bottom tanks (BATs) under the OCV between its legs, two top tanks (TATs), and a final smaller tank - the YBe plug which is removable for when the YBe calibration source is in use.
 \autoref{fig:LZ_OD_schematic} shows each of the tanks.
 Details of the construction of the tanks can be found in \cite{scotthaselschwardt_thesis_ref}.
 
-\begin{figure}[!tbph]
+\begin{figure}[]
   \begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[height=10cm]{Figures/LZ/OD_Tanks_CAD.png}
@@ -88,7 +90,7 @@ Details of the construction of the tanks can be found in \cite{scotthaselschward
 \par
 The shape of the OCV includes a large flange halfway down it. 
 This means that the SATs cannot be placed next to the OCV wall and the area will fill with water.
-In order to reduce this foam is placed between the OCV and SATs.
+In order to reduce this, foam is placed between the OCV and SATs.
 This is shown in more detail in \autoref{sec:od_construction_sec}.
 
 \subsection{Light Collection}
@@ -96,18 +98,16 @@ This is shown in more detail in \autoref{sec:od_construction_sec}.
 Light is collected from the OD by an array of 120 Hamamatsu R5912 8"-diameter PMTs suspended in water $\approx$80cm from the acrylic tanks.
 The PMTs are arranged as 20-ladders spaced evenly around the water tank as shown in \autoref{fig:LZ_OD_schematic}.
 These PMTs are biased to provide a gain on the input of in-excess of $10^{5}$.
-The quantum of these PMTs to GdLS light is around 20\% at the dominant wavelengths with the full spectrum shown in \autoref{fig:gdls_wavelengths}.
+The quantum efficiency of these PMTs to GdLS light is around 20\% at the dominant wavelengths with the full spectrum shown in \autoref{fig:od_detection_properties}.
 
 \par
 To increase the amount of light collected by the PMTs, the OD is encased in Tyvek, a highly reflective paper-like material.
 In dominant scintillation wavelengths (400-500 nm), the reflectivity of Tyvek remains above 80\% in water \cite{tyvek_thesis_ref,tyvek_reflectivity_ref}. 
-Tyvek was selected over other reflective boundaries (such as Lumirror{\texttrademark}) due to it's lower radioactivity.
+Tyvek was selected over other reflective boundaries (such as Lumirror{\texttrademark}) due to it's lower radioactivity \cite{LZ_assay_ref}.
 Details of the Tyvek placement are discussed in \autoref{sec:od_construction_sec}.
-\par
-With the addition of a high-reflectivity surface the light collection efficiency (LCE) in the OD tanks is on average 7.4\%, but with some significant variability as shown in \autoref{fig:od_lce}.
-Most notably, light from the YBe plug is essentially undetectable.
+The light collection efficiency (LCE) in the OD is shown in \autoref{fig:od_lce}, where there is an average LCE of 7.4\%.
 
-\begin{figure}[!htbp]
+\begin{figure}
 \centering
 \resizebox{\textwidth}{!}{
 \input{Data/GdLS_Physics/Light_Collection/od_tanks_lce}

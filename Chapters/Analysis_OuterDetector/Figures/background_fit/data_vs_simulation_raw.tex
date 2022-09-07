@@ -1,4 +1,4 @@
-\begin{figure}[!htbp]%
+\begin{figure}[]%
 \centering
 \begin{tikzpicture}
 \centering
@@ -22,6 +22,8 @@
         \addplot[red, const plot]
             table [x=centre,y=rate]
             {Data/OD_Backgrounds/background_fit/no_scaling/total_improved_bg_phd.dat};
+        \legend{Data, Simulation};
+        
             
     \nextgroupplot[
             ylabel=Rate (Hz),
@@ -46,11 +48,12 @@
         \addplot[red, const plot]
             table [x=centre,y=rate]
             {Data/OD_Backgrounds/background_fit/no_scaling/total_improved_bg_coincidence.dat};
+        \legend{Data, Simulation};
     
     \end{groupplot}
 \end{tikzpicture}
     \caption{Comparison of two analysis quantities; pulse area and pulse multiplicity.
              Data rates are from a single week of Random Trigger data taken during SR1.
-             The simulation rates include all detector components and cavern-$\gamma$'s.}
+             The simulated rates include all detector components and cavern-$\gamma$'s.}
     \label{fig:od_sim_vs_data_raw}
 \end{figure}

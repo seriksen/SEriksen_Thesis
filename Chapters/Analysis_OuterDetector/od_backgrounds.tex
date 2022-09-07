@@ -1,36 +1,33 @@
 \section{Backgrounds}
 \label{sec:od_analysis_backgrounds}
 \par
-Using the aforementioned energy scale, noise cut, and scaling factor, in this section the background rate in the OD is measured and attempts are made to understand what is seen.
+Using the aforementioned energy scale, noise cut, and scaling factor, in this section the background rate in the OD is measured and attempts are made to understand the features observed in data.
 \par
-In \autoref{fig:od_random_trigger} a comparison between the observed events in the OD during the entirety of SR1 and those expected are shown from the Random Trigger.
-The expected rates are those described in \autoref{sec:simulated_od_requirements} and were simulated using the ``full-propagation" chain with the result scaled by the factor determined in the previous section.
+In \autoref{fig:od_random_trigger} a comparison between the observed events in the OD during the entirety of SR1 and those expected are shown from the Random Trigger (described in \autoref{sec:lz_detector}).
+The expected rates are those described in \autoref{sec:simulated_od_requirements} and were simulated using the full model chain with the resultant pulse areas scaled by factor 4.77 determined in the previous section.
 Both data and simulations were handled by the same analysis tools, with the noise cut applied to both.
-Included as well in \autoref{fig:od_random_trigger} is the expected rate in the OD if the GdLS had not undergo an improve purification.
-Neither case fits what is observed particularly well.
-More worryingly there is a peak in the data at 100 phd which does is not in the expected rate.
-
+Included as well in \autoref{fig:od_random_trigger} is the expected rate in the OD if the GdLS had not undergone an improved purification.
+All three distributions are normalised to exposure.
+Neither the improved purification or the original purification fits what is observed particularly well.
+More worryingly there is a peak in the data at 100 phd which does is not in the simulated distributions.
+\par
+In the remainder of this section, an effort is made to understand what is observed and why it is different to what was expected.
 
 \input{Chapters/Analysis_OuterDetector/Figures/background_rates/od_random_trigger}
 
-\par
-In the remainder of this section, an attempt is made to understand what is observed and why it is different to what is expected.
 
 \subsection{Rate Stability}
-
 \par
-To begin in the journey of understanding what is in the data, the first thing that was done was observe if the rate and distribution were stable over time.
-Events from a month before the beginning of SR1 until the end were monitored every week using the Random Trigger.
+To begin the journey of understanding what is in the data, the first check performed was to observe if the rate and distribution were stable over time.
+Events from a month before the beginning of the first science run (SR1) until the end were monitored every week using the Random Trigger.
 The rate of events above the noise-cut, 100 keV and 200 keV were measured and are shown in \autoref{fig:OD_SR1_Rate}.
-The noise-cut was applied as a base-cut, so the 100 keV is made up of the the noise-cut plus a phd cut, and similarly for 200 keV.
+The noise-cut was applied as a base-cut, so the 100 keV is made up of the the noise-cut plus a pulse area (phd) cut, and similarly for 200 keV.
 The three gaps in the data are when a calibrations were being performed.
 This occurred three times in the region shown: just before SR1, 4 weeks into SR1, and straight after SR1.
 \par
-There are minor fluctuations in the noise-cut rate, but these are linked a xenon chiller and is consistent with a grounding failure, thus the behaviour is not mirrored in the 100 keV or 200 keV rates.
+There are minor fluctuations in the noise-cut rate, but these are linked to a xenon chiller and is consistent with a grounding failure, thus the behaviour is not mirrored in the 100 keV or 200 keV rates.
 Importantly, over this period the OD rate remains stable, with no features in the observed distribution changing during that time.
-Therefore what was shown in \autoref{fig:od_random_trigger} is the truly representative of the backgrounds in the OD.
-
-\input{Chapters/Analysis_OuterDetector/Figures/background_rates/od_sr1_background_rate}
+Therefore what was shown in \autoref{fig:od_random_trigger} is the considered representative of the backgrounds in the OD.
 
 \par
 Viewing the rate in a slightly different way, the rate-per-phd for the SR1 period is shown in \autoref{fig:od_sr1_rate_vs_threshold}.
@@ -38,6 +35,8 @@ Overlaid is the expected rate of backgrounds from \autoref{tab:od_expected_rates
 Interestingly the rate above 100 keV is in fairly good agreement with what was predicted in \autoref{sec:simulated_od_backgrounds}.
 This is consistent with being able to set the veto energy threshold to 100 keV, assuming that achieves an appropriate veto efficiency.
 However differences arise at the 200 keV level, where the expected is 62.7$\pm$5.3 Hz were as the observed is 42.5$\pm$2.1 Hz, a fairly significant difference.
+
+\input{Chapters/Analysis_OuterDetector/Figures/background_rates/od_sr1_background_rate}
 
 \input{Chapters/Analysis_OuterDetector/Figures/background_rates/od_rate_vs_threshold}
 
@@ -51,13 +50,14 @@ For any pulse it is possible to reconstruct the location of the interaction that
 \label{eq:OD_xy_position}
 \end{equation}
 where Ch$_{phd}$ is the phd of a PMT channel and Ch$_{x}$ is the position of the PMT.
-Due to scheduling constraints associated with SR1, there was an insufficient variety of calibration sources were used at varying \{$x,y,z$\} positions in order to adequately determine the resolution of this approach, but it is something a future calibration campaign may be able to tackle. 
+\par
+Due to scheduling constraints associated with SR1, there was an insufficient variety of calibration sources used at varying \{$x,y,z$\} positions in order to adequately determine the resolution of this approach, but it is something a future calibration campaign may be able to tackle. 
 Additionally, this approach does not take into account the OCV in the centre of the detector, so reconstructed pulses will have an incorrect position, but the correct shape.
 The OCV can be taken into account by converting coordinate system, but has explicitly not been done here due to the lack of knowledge in the actual resolution of this approach.
-Regardless however, this approach does provide an insight in a way not thought possible based upon optical simulations.
+Regardless, this approach does provide an insight in a way not thought possible based upon optical simulations\footnote{due to the low light collection efficiency in the simulations}.
 
 \par
-This approach was performed on slices in phd-space, the result of which can be seen in \autoref{fig:od_backgrounds_position_reconstruction}.
+Spacial reconstruction was performed on slices in phd-space, the result of which can be seen in \autoref{fig:od_backgrounds_position_reconstruction}.
 The first region focuses on the peak at 100 phd ($\backsim$ 0.5 MeV).
 The second region focuses on the area above 2 MeV, where cavern-$\gamma$s should dominate.
 

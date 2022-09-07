@@ -8,17 +8,26 @@
                    height=6cm, width=0.5\textwidth]
     \nextgroupplot[
             ylabel=Rate (Hz),
-            xlabel=Pulse Area,
+            xlabel=Pulse Area (phd),
             width=0.95\textwidth,
             height=6cm,
             %xshift=0.5\textwidth,
             xmin=0, xmax=800,
-            ymin=1e-4, ymode=log,
+            ymin=1e-4, ymax=1e3,
+            ymode=log,
             ]
             \addplot[only marks, mark size=1.0pt] 
             plot[error bars/.cd, x dir=both, x explicit]
             table[x=pulsearea,y=weight,x error=xerror, y error=yerror]
             {Data/OD_Backgrounds/background_constraints/od_data.dat};
+            
+            \addplot[dashed, mark=none, name path=A,blue] coordinates {(75,0.00001) (75,10000)};
+            \addplot[dashed, mark=none, name path=B,blue] coordinates {(125,0.00001) (125,10000)};
+            \addplot[dashed, mark=none, name path=C,green] coordinates {(500,0.00001) (500,10000)};
+            \addplot[dashed, mark=none, name path=D,green] coordinates {(1000,0.00001) (1000,10000)};
+
+            \addplot[blue!50] fill between[of=A and B];
+            \addplot[green!50] fill between[of=C and D];
             
     \nextgroupplot[group/empty plot]
 
@@ -36,7 +45,7 @@
 		mesh/ordering=rowwise,
 		point meta = {z>1 ? nan : z}
 		] file {Data/playground/alpha_peak_r_z.csv};
-		
+	\node [rotate=90] at (axis cs:0,1050) {Region 1};
 	\nextgroupplot[colorbar, 
 	colorbar style={title=Rate (Hz),ymode=log,},
 	width=0.4\textwidth, view={0}{90},
@@ -81,6 +90,10 @@
 		] file {Data/playground/rg_th232_x_y.csv};
    
   \end{groupplot}
+  
+  \node at ($(group c1r2) + (-1.0cm, 3.5cm)$) {\textbf{Region 1 (blue)}};
+  \node at ($(group c1r3) + (-1.0cm, 3.5cm)$) {\textbf{Region 2 (green)}};
+  
 \end{tikzpicture}
 \caption{Position Reconstruction of pulses from various regions in pulse area space defined in the top plot. 
          Each pulse has had the noise cut applied and the position reconstructed using \autoref{eq:OD_xy_position}.}

@@ -17,7 +17,7 @@ The empirical formula for the non-linearity developed by DayaBay \cite{dayabay_a
 This equation was then used to fit the 7 data points which is shown in \autoref{fig:od_energy_scale}.
 This then gives a translation from signal size to energy for any signal, and importantly for the OD veto, a value in phd for 100 keV and 200 keV events.
 The amount of light observed by the LZ OD is in line with other LAB-based experiments as can be seen in \autoref{tab:od_phe_per_mev_comparison}.
-\begin{table}[!htbp]%
+\begin{table}[]%
     \centering
     \begin{tabular}{c|c|c}
         Source      & Specific observable         &  $\gamma$ energy (keV) \\ \hline
@@ -36,7 +36,7 @@ The amount of light observed by the LZ OD is in line with other LAB-based experi
 
 \input{Chapters/Analysis_OuterDetector/Figures/od_energy_scale}
 
-\begin{table}[!htbp]%
+\begin{table}[]%
     \centering
     \begin{tabular}{c|c}
         Detector & phe/MeV \\ \hline
@@ -53,17 +53,17 @@ The amount of light observed by the LZ OD is in line with other LAB-based experi
 
 \subsection{Energy Uncertainty}
 \par
-One key largest drawback of the energy calibration approach used here is that only a single location was used, in detector $z$-axis.
+One key drawback of the energy calibration approach used here is that only a single location was used, in detector $z$-axis.
 Therefore the variation in light collection efficiency in the OD is not taken into account (see \autoref{fig:od_lce}), and so energy deposits in other locations in the GdLS would be reconstructed with incorrect energies.
 This is tested in the following sections and appears to be insignificant as other factors are more important.
 
 
 \subsection{PMT Noise}
 \par
-The waveforms from PMTs in the OD were occasionally observed erratic behaviour such as that shown in \autoref{fig:noise_od_waveform}.
+The waveforms from PMTs in the OD occasionally displayed erratic behaviour such as that shown in \autoref{fig:noise_od_waveform}.
 This was tracked down to a grounding issue, which occasionally caused high energy pulses with large PMT multiplicities.
 During this high noise period no physical OD event can be made out from the noise.
-Included as well is a waveform from during a quiet period of data taking showing expected behaviour.
+Included as well is a waveform from during a quiet period of data taking showing the expected behaviour.
 
 \input{Chapters/Analysis_OuterDetector/Figures/od_noise_cut}
 
@@ -74,8 +74,8 @@ There are then two other distributions.
 The population with a amplitude to area pulse ratio of 0.05 are the noise events from grounding.
 The other population begin above a ratio of 0.15 but as the area increases the ratio drops, until at 400 phd the ratio is zero and can originate from the same behaviour.
 In order to remove these pulses from any analysis, a noise cut was developed to remove this based upon the pulse shape, requiring that a large portion of the pulse integral be within 100 ns of the pulse starting.
-Combined with a PMT multiplicity requirement of 5, any other PMT effect was also removed.
-This combined selection is used throughout this chapter being referred to as the "noise cut".
+Combined with a PMT multiplicity requirement of 5, PMT after-pulsing and dark counts are also removed.
+This combined selection is used throughout this chapter being referred to as the ``noise cut".
 
 %%%%%%%%%%%%%%
 \subsection{Comparison to Simulations}
@@ -86,9 +86,9 @@ In \autoref{fig:od_sim_vs_data_raw} a comparison between the expected OD backgro
 In the pulse area, the simulated pulse area is significantly lower than is observed in data.
 Around 50\% of this difference can be accounted for by a mismatch between the PMT gains simulated against those in the reconstruction database.
 This results in smaller simulated pulses but it is just a linear scaling.
-However when we look at the pulse multiplicity the is also a mis-match.
+However when we look at the pulse multiplicity (how many PMTs saw light in that pulse) the is also a mis-match.
 This is more significant as it indicates that the light propagation within the simulation is incorrect.
-In fact it would indicate that the LCE is twice what is currently simulated (\autoref{fig:od_lce}).
+In fact it would indicate that the light collection efficiency is twice what is currently simulated (\autoref{fig:od_lce}).
 
 \input{Chapters/Analysis_OuterDetector/Figures/background_fit/data_vs_simulation_raw}
 
@@ -99,33 +99,38 @@ An alternative approach to comparing simulations to data would be to translate p
 Both of these approach allow for the signal sizes to be compared whilst ignoring the underlying difference in light propagation.
 
 \par
-In order to determine the factor needed to scale the simulations to data, two data points were compared.
-The first was from ${}^{228}$Th.
-In the decay chain (\autoref{fig:decay_chains}) there is ${}^{208}$Tl, which has a prominent 2.6 MeV $\gamma$ which is what was used for the OD energy scale.
-The second was from ${}^{152}$Gd, a 2.2 MeV $\alpha$-decay.
+In order to determine the factor needed to scale the simulations to data, two reference decays were compared.
+The first was from ${}^{202}$Tl.
+${}^{202}$Tl appears in the ${}^{232}$Th decay chain (\autoref{fig:decay_chains}) and has a prominent 2.6 MeV $\gamma$.
+During the OD energy calibration, ${}^{228}$Th was used (which is also part of the chain).
+The second is from ${}^{152}$Gd, a 2.2 MeV $\alpha$-decay.
 As this decay is internal to the GdLS it is spread throughout the acrylic tanks and is always present in the OD background spectrum.
 As $\alpha$s are so heavily quenched in the GdLS, the visible energy is in the non-linear region of the energy scale.
 
 \par
-Full-propagation simulations were performed of ${}^{228}$Th in CSD-1 at 700 mm (\autoref{fig:CSD1_Geometry}).
-The 2.6 MeV $\gamma$ is the dominate decay which is able to escape the CSD and enter the OD, making it easy to pick out which feature corresponds to pulse area.
+Full-model simulations were performed of ${}^{228}$Th decays in CSD-1 at 700 mm (\autoref{fig:CSD1_Geometry}) to match the calibrations.
+The 2.6 MeV $\gamma$ is the dominant decay which is able to escape the CSD and enter the OD, making it easy to pick out which feature corresponds to pulse area.
 Similarly, simulations of ${}^{152}$Gd were performed with the spread throughout the GdLS.
 As only a single source was simulated a single peak is present in the pulse area distribution.
-In data as the distribution is so low in energy is appears as a shoulder.
+In data as the distribution is so low in energy is appears as a shoulder because of other backgrounds being present.
 A comparison between the simulated and observed spectra for each source is shown in \autoref{fig:od_scaling_points}.
 The distributions have been normalised such that the quantity of interest is at 1.
 
 \par
-The scaling factors were determined by fitting Gaussians to the pulse area distributions and dividing the means.
+The scaling factors were determined by fitting Gaussians to the pulse area distributions and dividing the Gaussian means.
 Both methods provided similar, yet slightly different scaling values of 4.54 from ${}^{152}$Gd and 4.77 from ${}^{208}$Tl.
 There are a number of possible reasons for this difference.
 In the case of ${}^{152}$Gd, there is another $\alpha$-decaying contaminant in the GdLS: ${}^{147}$Sm \cite{scotthaselschwardt_thesis_ref}.
 ${}^{147}$Sm decays emitting an $\alpha$ of of 2.3 MeV, however once quenching has been taken into account the difference in the observed energy will be negligible.
-The ${}^{152}$Gd is most likely being heavily influenced by its proximity to the high rate of very low energy events.
+The other decay limited to that region is ${}^{14}$C, a $\beta$ decay with an endpoint of 156.5 keV, overlapping with ${}^{152}$Gd.
+The decay as well as low energy $\gamma$ events are likely the cause of the spread.
+The ${}^{152}$Gd value will also have some variation due to position, smearing out the shoulder.
+The ${}^{152}$Gd value is most likely being heavily influenced by its proximity to the high rate of very low energy events.
+
 \par
 For a full background model, a range of scaling factors were compared against the observation.
-These are shown in \cite{fig:od_sim_vs_data_scaling_options}.
-Of the four which were tried, the scaling factor of 4.77 proved to be the closes match visually via features and so was taken as the value to use.
+These are shown in \autoref{fig:od_sim_vs_data_scaling_options}.
+Of the four which were tried, the scaling factor of 4.77 proved to be the closest match visually via features and so was taken as the value to use.
 This approach obviously has some significant uncertainty, which will become apparent later in the next section where the backgrounds are studied.
 
 

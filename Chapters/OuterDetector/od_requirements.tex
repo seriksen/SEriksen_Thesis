@@ -143,6 +143,8 @@ All of the backgrounds discussed in this section were simulated with the `as bui
 For the GdLS internal decays, the improved purification case was considered.
 The simulations performed were energy deposits only, so no light collection efficiency or detection efficiency have been taken into account (see \autoref{sec:lz_simluations_chain}).
 The rates observed in the OD above a number of energies is shown in \autoref{tab:od_expected_rates}.
+100 keV and 200 keV have been selected as they represent possible veto threshold energies.
+
 
 \par
 An interesting result of this is that with the improved purification of the GdLS, it may be possible for the veto threshold to be reduced to 100 keV.
@@ -183,7 +185,7 @@ The neutron energy distribution expected in LZ is shown in \autoref{fig:simulati
 \input{Chapters/OuterDetector/Figures/background_neutron_energies}
 
 \par
-A neutron only needs to be vetoed if it scatters once in the TPC (\textbf{SS}), depositing energy which is in the region of intersect (\textbf{ROI}) and within the inner fiducial region of the xenon (\textbf{FID}).
+A neutron only needs to be vetoed if it scatters once in the TPC (\textbf{SS}), depositing energy which is in the region of interest (\textbf{ROI}) and within the inner fiducial region of the xenon (\textbf{FID}).
 The efficiency, $\epsilon$, of vetoing these events is defined as;
 \begin{equation}
     \epsilon = 1 - \frac{\text{events passing}\mathbf{SS, ROI, FID, Veto}}{\text{events passing}\mathbf{SS, ROI, FID}}
@@ -191,24 +193,24 @@ The efficiency, $\epsilon$, of vetoing these events is defined as;
 \end{equation}
 As we are only interesting in the OD veto performance, any contribution from the Skin detector is ignored.
 The impact of the Skin on the efficiency has been shown previously to have a sub-1\% impact \cite{sallyshaw_thesis_ref}.
-A previous study of the veto efficiency on a limited sample of simulated background neutrons demonstrated that a 97\% efficiency could be achieved with a 200keV veto threshold and 500$\mu$s veto window \cite{LZ_TechnicalDesignReview_ref}.
+A previous study of the veto efficiency on a limited sample of simulated background neutrons demonstrated that a 97\% efficiency could be achieved with a 200 keV veto threshold and 500 $\mu$s veto window \cite{LZ_TechnicalDesignReview_ref}.
 However since the detector geometry has been significantly altered (as described in \autoref{sec:od_construction_sec}), the validity of these simulations is questionable, and so a new study has been performed here.
 \par
 For determining the veto efficiency a new set of simulations were performed, which, similar to those in \cite{LZ_TechnicalDesignReview_ref} were of energy deposits only; primarily for computation saving reasons.
-As such the detector response is not considered so any result is assuming a ``perfect detector".
+As such the detector response is not considered so any result is assuming a ``perfect detector"\footnote{100\% detection efficiency}.
 The simulation and analysis approach adopted here did differ slightly however as rather than simulations of background neutrons from ($\alpha$,n) and USF, mono-energetic neutrons were that originate inside the TPC \textbf{FID} were used.
-Essentially this meant that each neutron was in a post-\textbf{SS} state, having already scattered.
-This avoids the need to apply the \textbf{ROI} cut on the event as given the kinematics of the neutron-xenon scatter, the resultant recoil will essentially always be within the \textbf{ROI} \cite{xenon100_neutrons_ref}.
+This meant that each neutron was in a post-\textbf{SS} state, having already scattered.
+This avoids the need to apply the \textbf{ROI} cut on the event as given the kinematics of the neutron-xenon scatter, the resultant recoil will always be within the \textbf{ROI} \cite{xenon100_neutrons_ref}.
 \par
 Three neutron energies were simulated: 100 keV, 1 MeV and 6 MeV.
-These were chosen as they are close to the extremities of the expected neutron energies shown in \autoref{simulation_background_neutron_energies}.
+These were chosen as they are close to the extremities of the expected neutron energies shown in \autoref{fig:simulation_background_neutron_energies}.
 The \textbf{FID} was defined as in \cite{LZ_TechnicalDesignReview_ref}, to be a cylinder inside the TPC; 1.5 cm above to cathode and 9 cm before the anode.
 The volume extends out 68.8 cm radially to be 1.5 cm from the TPC wall.
 The result are shown in \autoref{fig:neutron_eff_energy_dep_tpc_neutrons} alongside a aforementioned previous study (labelled as TDR).
 Three energy deposit thresholds are presented: 0 keV, 100 keV and 200 keV.
 The 0 keV is the case where any signal, no matter the size causes a veto.
 Both 100 keV and 200 keV are justified from the background rate previously described.
-Although the definition of 0 keV used in the TDR is the same as the author has used, the results will differ and in earlier iterations of the simulation framework a lower bound was placed on what deposits would be saved.
+Although the definition of 0 keV used in the TDR is the same as the author has used, the results will differ and in earlier iterations of the simulation framework a lower bound was placed on what deposits would be saved\footnote{This means that $>$0 keV in the TDR result is actually a higher threshold, closer to 50 keV}.
 
 \input{Chapters/OuterDetector/Figures/tpc_neutron_efficiency}
 
@@ -221,7 +223,7 @@ As to whether these recoils are detectable in data will depend upon the true lig
 
 \subsection{Simulated Calibration Efficiency}
 \par
-The efficiency shown in \autoref{fig:neutron_eff_energy_dep_tpc_neutrons} shows that the veto efficiency requirement.
+The efficiency shown in \autoref{fig:neutron_eff_energy_dep_tpc_neutrons} shows that the veto efficiency requirement of 95\% will be met.
 In practice however this will need to be measured in the calibration campaign using one of the four neutron sources available to LZ during calibration which are summarised in \autoref{tab:LZ_Used_Calibration_Sources}.
 It is therefore important to know of any discrepancies between the neutron efficiency from background neutrons vs calibration neutrons.
 In this section a study of the veto efficiency from AmLi, an ($\alpha$,n) source, is performed.
@@ -238,11 +240,11 @@ To explore any potential impact on the efficiency with height, three source loca
 \begin{enumerate}
     \item \textbf{0mm:} In line with the cathode
     \item \textbf{700mm:} In the centre of the TPC
-    \item \textbf{1400mm:} At the top of the TPC
+    \item \textbf{1400mm:} In line with the anode
 \end{enumerate}
 A graphical depiction of there locations within LZ is shown in \autoref{fig:CSD1_Geometry}. 
 
-\begin{figure}[!htbp]
+\begin{figure}[]
 \centering
 \includegraphics[width=\textwidth]{Figures/Geometry/csd1_geometry_black_and_white.png}
 \caption{LZ geometry slice as implemented in GEANT4 from the water tank in. CSD-1 is shown along with the relevant Z-positions for calibration runs.}
@@ -259,8 +261,8 @@ The result of the simulations are shown in \autoref{fig:simulated_amli_neutron_e
 \input{Chapters/OuterDetector/Figures/amli_efficiency_all_positions}
 
 \par
-The efficiency for an AmLi source at 0 mm is the first time the 95\% veto efficiency requirement is not met, yet it met for 1400 mm despite appearing to be in geometrically similar locations.
-The difference can be account for in the reduced volume of the BATs compared to TATs + YBe plug, with area below the OCV being occupied by steel legs, water and foam.
+The efficiency for an AmLi source at 0 mm is the first time the 95\% veto efficiency requirement is not met, yet it is met for 1400 mm despite appearing to be in geometrically similar locations.
+The difference can be accounted for in the reduced volume of the BATs compared to TATs + YBe plug, with area below the OCV being occupied by steel legs, water and foam.
 
 \par
 Perhaps unexpectedly, the veto efficiency varies depending upon the height of the source.
@@ -278,7 +280,14 @@ In the OD, the neutron capture time in GdLS distribution is given by:
 The distributions in \autoref{fig:simulated_amli_capture_time} are best described by 3 terms the values.
 The $\tau$ values for each location are summarised in \autoref{tab:simulated_neutron_capture_time}.
 $\tau_1$ represented when the neutron spends almost all of it's pre-capture time in the GdLS.
-It is slightly above the GdLS capture time of $\backsim$28 $\mu$s \cite{ucsb_gdls_dicebox_simulations_ref} which is just due to the neutron having to travel through some amount of acrylic and foam.
+It is slightly above the GdLS capture time of $\backsim$28 $\mu$s \cite{ucsb_gdls_dicebox_simulations_ref} which is due to the neutron having to travel through some amount of non-GdLS medium first.
+\par
+Materials with a high H content, such the foam and acrylic, can effectively moderate and bound the neutron in that material.
+It does however take a long time for the neutrons to capture in these mediums, which from simulations are 1450 $\mu$s and 240 $\mu$s respectively.
+The neutron can still escape and enter the GdLS to be captured.
+$\tau_2$ and $\tau_3$ are from these processes, where the neutron is delayed entering the GdLS.
+The effect on the capture time in the GdLS is shown on a per-volume basis in \autoref{fig:gdls_capture_time_vs_volume}.
+
 \begin{table}[]
     \centering
     \begin{tabular}{c|c|c|c}
@@ -290,19 +299,14 @@ It is slightly above the GdLS capture time of $\backsim$28 $\mu$s \cite{ucsb_gdl
     \caption{Neutron capture time in GdLS from AmLi simulations where the source is in CSD-1 at three different locations.}
     \label{tab:simulated_neutron_capture_time}
 \end{table}
-\par
-Materials with a high H content, such the foam and acrylic, can effectively moderate and effectively bound the neutron in that material.
-It does however take a long time for the neutrons to capture in these mediums, which from simulations are 1450 $\mu$s and 240 $\mu$s respectively.
-The neutron can still escape and enter the GdLS to be capture.
-The effect on the capture time in the GdLS is shown on a per-volume basis in \autoref{fig:gdls_capture_time_vs_volume}.
 
 \input{Chapters/OuterDetector/Figures/amli_neutron_capture_time}
 
 \input{Chapters/OuterDetector/Figures/gdls_capture_time_vs_volume}
 
 \par
-In practice any energy deposit will have to result in optical photons which are subject to the light collection efficiency (shown in \autoref{fig:od_lce}) for a photon to reach a PMT and the efficiency of the PMT to generate a signal (shown in \autoref{fig:od_pmt_qe}).
-In order to determine the effect of this, full-propagation simulations were performed for a single AmLi calibration position, the 700 mm level.
+In practice any energy deposit will have to result in optical photons which are subject to the light collection efficiency (shown in \autoref{fig:od_lce}) for a photon to reach a PMT and the efficiency of the PMT to generate a signal (shown in \autoref{fig:od_detection_properties}).
+In order to determine the effect of this, full-model simulations were performed for a single AmLi calibration position, the 700 mm level.
 This position was chosen as the energy deposit efficiency was closest to that of a 1 MeV neutron.
 
 \par
@@ -310,12 +314,13 @@ As these simulations resulted in a detector signal, the full suite of LZ analysi
 The TPC contents of the event are reconstructed within the analysis package, providing both energy and position information of the event making the application of the analysis cuts is straight forward \cite{lz_simulations_ref}.
 The OD veto energy threshold values were converted from energy to signal size using the values from a previous mock data challenge which are detailed in \cite{jonathannikoleyczik_thesis_ref}.
 Additionally a PMT multiplicity cut was included.
-It was set such that 5 or more PMTs needed to have contributed to the waveform in order for the pulse to be considered real\footnote{real in terms of coming from what we are searching for rather than a detector component or otherwise.}.
+It was set such that 5 or more PMTs needed to have contribute to the waveform in order for the pulse to be considered real\footnote{real in terms of coming from what we are searching for rather than a detector component or otherwise.}.
 This was implemented to account for PMT effects, such as after pulsing and dark counts \cite{jonathannikoleyczik_thesis_ref}.
 However no actual PMT effects, such as after pulsing and dark counts, were included in this simulation.
-The result of this is shown in \autoref{fig:simulated_amli_full_propagation_efficiency} for AmLi at 700mm. 
+The result of this is shown in \autoref{fig:simulated_amli_full_propagation_efficiency} for AmLi at 700 mm. 
 The neutron efficiency in this case never reaches the performance requirement at any energy threshold; reducing to 91\% for a 200 keV threshold with a 500 $\mu$s window.
-This is then the performance which can be expected during the calibration campaign (described in the following chapter).
+This indicates that the 95\% veto requirement will no be met by the LZ OD.
+In the next chapter analysis of an AmLi calibration campaign is performed to measure the true veto efficiency.
 
 \input{Chapters/OuterDetector/Figures/amli_efficiency_700mm_full_propagation}
 

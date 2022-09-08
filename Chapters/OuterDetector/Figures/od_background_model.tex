@@ -1,0 +1,71 @@
+\begin{figure}[]%
+\centering
+\begin{tikzpicture}
+\centering
+    \begin{axis}[
+            ylabel=Rate (Hz/phd),
+            xlabel=Pulse Area (phd),
+            xmajorticks=false,
+            width=15cm,
+            height=10cm,
+            grid=major,
+            xmin=0, xmax=700,
+            ymin=1e-2, ymax=100,
+            ymode=log,
+            legend style = { column sep = 10pt, legend columns = 3, cells={line width=1.5pt}}
+            ]
+        \addplot[only marks, mark size=1.0pt, black, error bar legend] 
+            plot[error bars/.cd, x dir=both, x explicit, ]%y dir=both, y explicit, ]
+            table[x=pulsearea,y=weight,x error=xerror, y error=yerror]
+            {Data/OD_Backgrounds/background_constraints/od_data.dat};
+        \addlegendentry{data};
+            
+        \addplot[const plot, teal]
+            table [x=bin_low, y=weight]
+            {Data/OD_Backgrounds/background_fit/fit_components/rg_k40.dat};
+        \addlegendentry{Cavern ${}^{40}$K};
+        \addplot[const plot, cyan]
+            table [x=bin_low, y=weight]
+            {Data/OD_Backgrounds/background_fit/fit_components/rg_u238.dat};
+        \addlegendentry{Cavern ${}^{238}$U};
+        \addplot[const plot, green]
+            table [x=bin_low, y=weight]
+            {Data/OD_Backgrounds/background_fit/fit_components/rg_th232.dat};
+        \addlegendentry{Cavern ${}^{232}$Th};
+        \addplot[const plot, lime]
+            table [x=bin_low, y=weight]
+            {Data/OD_Backgrounds/background_fit/fit_components/ocv.dat};
+        \addlegendentry{Detector};
+        \addplot[const plot, yellow]
+            table [x=bin_low, y=weight]
+            {Data/OD_Backgrounds/background_fit/fit_components/Internal_improved_u238_early.dat};
+        \addlegendentry{${}^{238}$U early};
+        \addplot[const plot, pink]
+            table [x=bin_low, y=weight]
+            {Data/OD_Backgrounds/background_fit/fit_components/Internal_improved_u238_late.dat};
+        \addlegendentry{${}^{238}$U late};    
+        \addplot[const plot, olive]
+            table [x=bin_low, y=weight]
+            {Data/OD_Backgrounds/background_fit/fit_components/Internal_improved_th232_early.dat};
+        \addlegendentry{${}^{232}$Th early};
+        \addplot[const plot, brown]
+            table [x=bin_low, y=weight]
+            {Data/OD_Backgrounds/background_fit/fit_components/Internal_improved_C14.dat};
+        \addlegendentry{${}^{14}$C};
+        \addplot[const plot, orange]
+            table [x=bin_low, y=weight]
+            {Data/OD_Backgrounds/background_fit/fit_components/Internal_improved_Gd152.dat};
+        \addlegendentry{${}^{152}$Gd + ${}^{147}$Sm};
+        \addplot[const plot, violet]
+            table [x=bin_low, y=weight]
+            {Data/OD_Backgrounds/background_fit/fit_components/total_fit.dat};
+        \addlegendentry{fit};
+
+    \end{axis}
+\end{tikzpicture}
+    \caption{Result of fit to data.
+             \textbf{Top:} Contribution from each source. Only components with a contribution greater than 1 Hz have been included.
+             \textbf{Bottom:} Ratio of fit to data. The dashed lines indicate the fit region.
+             In generally there is good agreement.}
+    \label{fig:od_background_model}
+\end{figure}

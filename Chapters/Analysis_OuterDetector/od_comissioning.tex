@@ -99,8 +99,8 @@ An alternative approach to comparing simulations to data would be to translate p
 Both of these approach allow for the signal sizes to be compared whilst ignoring the underlying difference in light propagation.
 
 \par
-In order to determine the factor needed to scale the simulations to data, two reference decays were compared.
-The first was from ${}^{202}$Tl.
+In order to determine the factor needed to scale the simulations to observations, two reference decays were compared.
+The first was from ${}^{208}$Tl.
 ${}^{202}$Tl appears in the ${}^{232}$Th decay chain (\autoref{fig:decay_chains}) and has a prominent 2.6 MeV $\gamma$.
 During the OD energy calibration, ${}^{228}$Th was used (which is also part of the chain).
 The second is from ${}^{152}$Gd, a 2.2 MeV $\alpha$-decay.
@@ -110,7 +110,7 @@ As $\alpha$s are so heavily quenched in the GdLS, the visible energy is in the n
 \par
 Full-model simulations were performed of ${}^{228}$Th decays in CSD-1 at 700 mm (\autoref{fig:CSD1_Geometry}) to match the calibrations.
 The 2.6 MeV $\gamma$ is the dominant decay which is able to escape the CSD and enter the OD, making it easy to pick out which feature corresponds to pulse area.
-Similarly, simulations of ${}^{152}$Gd were performed with the spread throughout the GdLS.
+Similarly, simulations of ${}^{152}$Gd were performed with the decays spread throughout the GdLS.
 As only a single source was simulated a single peak is present in the pulse area distribution.
 In data as the distribution is so low in energy is appears as a shoulder because of other backgrounds being present.
 A comparison between the simulated and observed spectra for each source is shown in \autoref{fig:od_scaling_points}.
@@ -125,13 +125,13 @@ ${}^{147}$Sm decays emitting an $\alpha$ of of 2.3 MeV, however once quenching h
 The other decay limited to that region is ${}^{14}$C, a $\beta$ decay with an endpoint of 156.5 keV, overlapping with ${}^{152}$Gd.
 The decay as well as low energy $\gamma$ events are likely the cause of the spread.
 The ${}^{152}$Gd value will also have some variation due to position, smearing out the shoulder.
-The ${}^{152}$Gd value is most likely being heavily influenced by its proximity to the high rate of very low energy events.
+%The ${}^{152}$Gd value is most likely being heavily influenced by its proximity to the high rate of very low energy events.
 
 \par
-For a full background model, a range of scaling factors were compared against the observation.
+For a full background model (described in the previous chapter), a range of scaling factors were compared against the observation.
 These are shown in \autoref{fig:od_sim_vs_data_scaling_options}.
 Of the four which were tried, the scaling factor of 4.77 proved to be the closest match visually via features and so was taken as the value to use.
-This approach obviously has some significant uncertainty, which will become apparent later in the next section where the backgrounds are studied.
+This approach has some significant uncertainty, which will become apparent later in the next section where the backgrounds are studied.
 
 
 \input{Chapters/Analysis_OuterDetector/Figures/background_fit/scaling_results}

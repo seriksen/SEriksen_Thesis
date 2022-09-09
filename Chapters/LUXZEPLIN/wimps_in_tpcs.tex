@@ -6,8 +6,8 @@ The choice to build a detector using xenon is motivated by the A$^2$ enhancement
 Not only does the high atomic mass give good sensitivity to SI interactions, two naturally occurring xenon isotopes, ${}^{129}$Xe and ${}^{131}$Xe have a non-zero nuclear spin which makes them sensitive to SD interactions.
 \par
 The target medium (xenon) will have to be held in place by some other material.
-This casing will contribute produced some backgrounds due to radioactive impurities which will be observed as interactions in the target medium.
-Xenon in liquid phase (LXe) is particularly good to counter this due to it's high density (approximately 3g/cm${}^{3}$), and therefore has a high stopping power to both $\beta$ and $\gamma$ radioactive decays\footnote{for reference, aluminium has a density of 2.7 g/cm${}^{3}$}.
+This casing will contribute some amount of background due to radioactive impurities which will be observed as interactions in the target medium.
+Xenon in liquid phase (LXe) is particularly good to counter this due to its high density (approximately 3g/cm${}^{3}$), and twinned with the large atomic mass has a high stopping power to both $\beta$ and $\gamma$ radioactive decays\footnote{for reference, aluminium has a density of 2.7 g/cm${}^{3}$}.
 The inner volume of the the LXe medium will contain a very low background.
 
 %Though the sensitivity to WIMP-proton spin-dependent interactions is less obvious as it requires neutron-proton mixing and is very dependent upon the nuclear model used.
@@ -20,7 +20,7 @@ The inner volume of the the LXe medium will contain a very low background.
 \par
 An interaction of a particle within the target medium will result in either an interaction with the atomic nucleus, causing a nuclear recoil (NR), or within the electron cloud, resulting in a electron recoil (ER).
 In both cases, the recoiling particle scatters with nearby atomic electrons and nuclei, transferring its kinetic energy: causing both excitation and ionisation of these atoms as a cascade of secondary recoils.
-Regardless of which type of recoil originates the ionised track, it culminates in scintillation light.
+Regardless of which type of recoil occurs, an ionisation track is produced which culminates in scintillation light.
 The reader is directed towards both \cite{xenon_physics_ref} and \cite{carldahl_thesis_ref} for thorough reviews of these processes, which are summarised below.
 \par
 An excited atom of xenon can bond to another xenon atom to form an excited molecule, or excimer, denoted as Xe$_2^{*\nu}$, which is both electronically and vibrationally excited.
@@ -36,7 +36,7 @@ An ionised atom can also produce scintillation light, though it's path to it is 
 The ionised atom can form diatomic molecules with nearby atoms.
 Some of the electrons which were liberated during the cascade will recombine with the molecule, causing it to split leaving one of the atoms in a highly excited state (Xe$^{**}$).
 The excited atom will then relax down, allowing for photon emission as before.
-This process is referred to as recombination luminescence and for an electronic recoil is shown below;
+This process is referred to as recombination luminescence and is shown below for an electronic recoil;
 \begin{align*}
     e^- + Xe &\rightarrow Xe^+ + 2e^+- &\text{ionisation} \\ 
     Xe^+ + Xe + Xe &\rightarrow Xe_2^{+} + Xe &\text{diatomic molecule formation} \\
@@ -48,9 +48,10 @@ This process is referred to as recombination luminescence and for an electronic 
 \end{align*}
 \par
 The difference in how these interactions appear between electronic recoils and nuclear recoils is shown in \autoref{fig:er_nr_tracks}.
-From the nuclear recoil, the initial atom has a number of scatters, but they are typically below the ionisation level, as such, for any energy of scatter, an electron recoil will result in a number of photons.
+From a nuclear recoil, the initial atom has a number of scatters, but these are typically below the ionisation level.
+On the other hand, an electron recoil will result in a number of photons.
 Additionally, as the electron is less stopped by the LXe, the track length is significantly greater.
-If the interaction occurs in an electric field, not all of the electrons will recombine, allowing for potentially a second scintillation sight.
+If the interaction occurs in an electric field, not all of the electrons will recombine, allowing for potentially a second scintillation sighting.
 
 \begin{figure}
     \centering
@@ -67,10 +68,10 @@ The energy deposited in LXe, is split between the atoms and liberated electrons,
 \end{equation}
 Here, W is the W-factor for LXe, generally taken to be 13.7 $\pm$ 0.2 eV \cite{light_and_charge_of_xenon_ref}, though there are more recent measurements indicating it could be as low as 11.5 eV \cite{electron_excitation_energy_of_xenon_ref}. 
 N$_i$ and N$_{ex}$ are the number of ionised atoms and number of excited atoms respectively.
-L corresponds to the "Lindhard factor" or "quenching" which accounts for the reduced light and charge that's lost to heat.
+L corresponds to the ``Lindhard factor" or ``quenching" which accounts for the reduced light and charge that's lost to heat.
 It is generally taken that L=1 for electron recoils as the heat loss does not vary with energy, allowing the impact this has to be taken into W.
 \par
-The ratio between the excitation atoms to ionisated atoms allows for the difference between ER and NR events to distinguished, with the resultant number of photons observed differing between the two.
+The ratio between the excitation atoms to ionisated atoms allows for ER and NR events to be distinguished, with the resultant number of photons observed differing between the two.
 Experimentally, N$_{ex}$/N$_i$ has been measured as $\approx$ 1 for nuclear recoils, and 0.06 for electron recoils \cite{ionisation_to_excitation_ratio_xenon_ref}.
 
 \subsection{Dual-phase Time Projection Chamber}
@@ -83,13 +84,13 @@ Firstly a prompt scintillation signal in the liquid region - referred to as the 
 This is caused by excimers and recombination previously discussed.
 Secondly there is a delayed scintillation signal, or S2.
 This is observed in the gas phase via electroluminescence.
-Both of these signals produce VUV light ($\approx$175 nm) which can be detected by photomultipler tubes (PMTs) or silicon photomulitpliers (SiPMs).
+Both of these signals produce VUV light ($\approx$175 nm) which can be detected by photomultipler tubes (PMTs) or silicon photomultipliers (SiPMs).
 \par
 In a typical TPC design, as shown in \autoref{fig:TPC_theory}, an electric field is applied.
-This causes electrons that are freed as a result of the interaction to drift upwards towards the gas phase where there is a probability of being extracted into the gas phase and produce and S2 signal.
+This causes electrons that are freed as a result of the interaction to drift upwards towards the gas phase where there is a probability of being extracted into the gas phase and produce an S2 signal.
 \par
 With PMTs or SiPMs placed at both the top and bottom of the TPC, the size of the interaction signals can be measured.
-The preferred unit of this is "photons detected" (phd)\footnote{Historically the signal was measured in photoelectrons (phe) which can be traced back the to first TPC designs of the 1970s \cite{tpc_origins_ref}. However, as there is a non-negligible probability of two photoelectrons being emitted from a single VUV photon in a PMT \cite{pmts_in_xenon_ref}, phd has become more favourable as this can be taken into account.}.
+The preferred unit of this is ``photons detected" (phd)\footnote{Historically the signal was measured in photoelectrons (phe) which can be traced back the to first TPC designs of the 1970s \cite{tpc_origins_ref}. However, as there is a non-negligible probability of two photoelectrons being emitted from a single VUV photon in a PMT \cite{pmts_in_xenon_ref}, phd has become more favourable as this can be taken into account.}.
 
 \begin{figure}
     \centering
@@ -101,10 +102,10 @@ The preferred unit of this is "photons detected" (phd)\footnote{Historically the
 \par
 The position of an interaction in the TPC can be reconstructed using only the S1 and S2 signals.
 Firstly the $x-y$ position of an interaction can be reconstructed by the hit-pattern of photons on the gas phase PMTs. 
-As the electrons will not deviate significantly from the interaction site, the hit-pattern is a good approximation this location, with ~5mm resolution demonstrated \cite{lux_position_reconstruction_ref}.
+As the electrons will not deviate significantly from the interaction site while drifting, the hit-pattern is a good approximation of this location, with $\backsim$5 mm resolution demonstrated \cite{lux_position_reconstruction_ref}.
 The $z$-position can be directly measured by the time difference between the two signals.
-This is possible as the electrons reach a terminal velocity rapidly within the LXe, allowing for a resolution ~100$\mu$s \cite{LZ_TechnicalDesignReview_ref}.
-This high-resolution position reconstruction allows for the self-shielding of Xenon to be utilised, with the regions of LXe away from the TPC edge experiences a significantly lower background rate.
+This is possible as the electrons reach a terminal drift velocity rapidly within the LXe, allowing for a resolution $\backsim$0.5 cm \cite{LZ_TechnicalDesignReview_ref}.
+This high-resolution position reconstruction allows for the self-shielding of Xenon to be utilised by only selecting regions of LXe away from the TPC edge which will experiencing a significantly lower background rate.
 
 \par
 The size of the two pulses in terms of photons detected, which will now be referred to as S1 and S2, can be related to the underlying quanta which produced them via;
@@ -113,17 +114,17 @@ The size of the two pulses in terms of photons detected, which will now be refer
     S1 = n_\gamma G_1(x,y,z) && S2 = n_e G_2(x,y,z)
 \end{align}
 where both $G_1(x,y,z)$ and $G_2(x,y,z)$ account for the variable light collection efficiency.
-It is useful to note that $G_1$ varies between 0 and 1 as the photons will not produce more photons and so the maximum S1 can be is the number of photons produced.
+It is useful to note that $G_1$ varies between 0 and 1 as the photons will not produce additional photons and so the maximum S1 can be is the number of photons produced.
 On the other hand, $G_2$ can be greater than 1, as an extracted electron will produce more photons in the GXe.
-In fact, $G_2$ is actually dependent upon the length of time an electron spends in the LXe, $t$, the efficiency it has to be extracted on the liquid surface , $\epsilon$, the scintillation yield in the gas phase, $Y_e$, and the LCE in the gas $G_1^{gas}$.
-With the full expansion of $G_2$ as;
+In fact, $G_2$ is actually dependent upon the length of time an electron spends in the LXe, $t$, the efficiency the electron has to be extracted on the liquid surface, $\epsilon$, the scintillation yield in the gas phase, $Y_e$, and the light collection efficiency (LCE) in the gas $G_1^{gas}$.
+The full expression of $G_2$ is give by:
 \begin{equation}
     G_2 = e^{-t/\tau} \epsilon Y_e G_1^{gas}(x,y)
 \end{equation}
 In typical analysis, the S1 and S2 signals are manipulated to account for the change in LCE with position.
 For this, two new quantities are introduced, as the corrected values: S1$_c$ and S2$_c$.
-Both the S1 and S2 are adjusted to the centre of the TPC in (x,y).
-S1 is also adjusted to a z-position, typically taken to be the centre of the LXe.
+Both the S1 and S2 are adjusted to the centre of the TPC in \{$x,y$\}.
+S1 is also adjusted to a $z$-position, typically taken to be the centre of the LXe.
 \begin{align}
     S1_c = S1 \frac{G_1(0,0,z_c)}{G_1(x,y,z)} && S2_c = S2 \frac{G_1^{gas}(0,0)}{G_1^{gas}(x,y)} e^{t/\tau}
     \label{eq:s1c_and_s2c_full}

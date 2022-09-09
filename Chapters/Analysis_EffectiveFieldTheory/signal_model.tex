@@ -1,32 +1,44 @@
 \section{Signal Model}
 \par
-Both of the analyses were performed in the isoscalar basis as it allows for comparion to both LUX and XENON collraboration results.
-More specifically, only the isoscalar basis was considered, with isovector interactions neglected.
-\par
-The case of 
+Both of the analyses described in this chapter were performed in the \{$isoscalar,isovector$\} basis.
+This was chosen over \{$neutron,proton$\} as it allows for comparison to both LUX and XENON collaboration results and in future, Panda-X results\footnote{Panda-X have published Lagrangian results for an EFT analysis in the \{$isoscalar,isovector$\} basis \cite{pandax_2_eft_ref}}.
 
+
+\par
+The assumption taken was that a single operator dominates the interaction and that there is no mixing or interference between operators.
+As such only one operator was considered at a time, with its coupling to nucleons set to 1 and all others to 0.
+In this case, the differential recoil rate scales linearly with $c^{a^2}_i$, becoming:
 \begin{equation}
-    \frac{dR}{dE_R} = \frac{c^{a^2}_i \rho_\chi}{32 \pi m^3_\chi m^2_N} \int_{v_min} \frac{f(\vec{v}}{v} F^{a,a}_{i,i} (v^2, q^2) d^3 v
+    \frac{dR}{dE_R} = \frac{c^{a^2}_i \rho_\chi}{32 \pi m^3_\chi m^2_N} \int_{v_min} \frac{f(\vec{v})}{v} F^{a,a}_{i,i} (v^2, q^2) d^3 v
 \end{equation}
 
+
 \par
-The recoil spectra were generated using \textit{DMFormFactor}.
+The differential recoil spectra were generated using \textit{DMFormFactor}, a \textif{Mathematica} package \cite{dmformfactor_ref}.
+This was chosen over other software solutions such as \textit{WimpyDD} (python) \cite{wimpydd_ref} and \textit{DMFortFactor} (fortran) \cite{dmfortfactor_ref}.
 This was chosen over the other software options mentioned in \autoref{sec:eft_theory} as it is the same as is used by the LUX, Panda-X and XENON collaborations.
-Two different version of the codebase were used.
-For the projected sensitivity, the recoils generated were from \textit{DMFormFactor} v6.0 which are the same version as those used in the published LUX and XENON100 results.
-For the SR1 result, a newer, but unpublished version of \textit{DMFormFactor} was used\footnote{unpublished at time of writing}.
-This has updated form factors, more accurately modelling the nuclei.
-The recent publication on $\mathcal{L}$ by Panda-X used this version \cite{pandax_2_eft_ref}.
-For a selection of operators the difference between the resultant form factors is shown in XXX.
-The change in the resultant Bessel functions alter the shape of the recoils.
+The limits produced by XENON100 \cite{xenon100_eft_ref} and LUX \cite{LUX_RUN4_EFT_2021} used \textit{DMFormFactor} v6.0.
+The recent publication by Panda-X \cite{pandax_2_eft_ref} used an unpublished version of the codebase which uses different nuclear form factors\footnote{unpublished at time of writing, however it is expected to be released in early 2023}.
+In order to maintain consistency with operator limit analyses, \textit{DMFormFactor} v6.0 was used here.
+
+%The recent publication on $\mathcal{L}$ by Panda-X used this version \cite{pandax_2_eft_ref}.
+%For a selection of operators the difference between the resultant form factors is shown in XXX.
+%The change in the resultant Bessel functions alter the shape of the recoils.
 
 
-
+\par
+Between the sensitivity study and SR1, the parameters for the Standard Halo Model were altered.
+These are shown in \autoref{tab:DMFormFactor_parameters}.
+The complete analysis framework also changed between the two.
 
 
 To improve the realism of the recoil and to maintain consistency with previous experiments the natural abundance of Xe isotopes were folded in.
 Each operator was generated out to 1000 keV and in the isoscalar basis and a selection of the resultant differential rates are shown in \autoref{fig:HENR_Spin_Recoil_Spectrum}.
 Each Operator was performed for a WIMP mass of [5, 7, 10, 12, 14, 21, 33, 50, 100, 200, 400, 1000, 4000] GeV.
+
+
+\par
+The operators recoil spectra for a mass of m = 50 GeV/c$^2$ and m = 1000 GeV/c$^2$ are shown in \autoref{fig:HENR_recoil_spectra_m50} and \autoref{fig:HENR_recoil_spectra_m1000}.
 
 \input{Chapters/Analysis_EffectiveFieldTheory/Figures/signal_recoils}
 

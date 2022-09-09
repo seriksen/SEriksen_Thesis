@@ -3,6 +3,162 @@
 \begin{tikzpicture}
 \centering
   \begin{groupplot}[view={0}{90},
+    group style = {group size = 1 by 3}]
+    \iffalse
+    \nextgroupplot[
+    xlabel=Recoil Energy (keV),
+    ylabel=Differential Rate (kg/day/keV),
+    legend pos=north east,
+    mark size=0pt,
+    xmin=1, xmax=400, xmode=log,
+    ymin=1e-14, ymax=1e3, ymode=log]
+    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O01s_m50GeV_0.dat};
+    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O11s_m50GeV_0.dat};       
+    \legend{$\Operator$1s, $\Operator$11s};
+    \fi
+    \nextgroupplot[
+    xlabel=Recoil Energy (keV),
+    ylabel=Differential Rate (kg/day/keV),
+    legend pos=north east,
+    mark size=0pt,
+    xmin=1, xmax=400, xmode=log,
+    ymin=1e-14, ymax=1e3, ymode=log,
+    cycle list name=color list]
+    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O04s_m50GeV_0.dat};
+    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O06s_m50GeV_0.dat};     
+    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O07s_m50GeV_0.dat};
+    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O09s_m50GeV_0.dat};
+    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O10s_m50GeV_0.dat};
+    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O14s_m50GeV_0.dat};
+    \legend{$\Operator$4s, $\Operator$6s, $\Operator$7s, $\Operator$9s, $\Operator$10s, $\Operator$14s};
+    \iffalse
+    \nextgroupplot[
+    xlabel=Recoil Energy (keV),
+    ylabel=Differential Rate (kg/day/keV),
+    legend pos=north east,
+    mark size=0pt,
+    xmin=1, xmax=400, xmode=log,
+    ymin=1e-14, ymax=1e3, ymode=log]
+    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O03s_m50GeV_0.dat};
+    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O05s_m50GeV_0.dat};
+    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O08s_m50GeV_0.dat};
+    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O12s_m50GeV_0.dat};
+    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O13s_m50GeV_0.dat};
+    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O15s_m50GeV_0.dat};       
+    \legend{$\Operator$3s, $\Operator$5s, $\Operator$8s, $\Operator$12s, $\Operator$13s, $\Operator$15s};
+    \fi
+  \end{groupplot}
+\end{tikzpicture}
+\caption{Differential recoil spectra for the fourteen non-relativistic EFT WIMP-nucleon operators with a WIMP mass of 50 GeV/c$^2$.
+         \textbf{Top:} spin-independent \textbf{Middle:} spin-dependent \textbf{Bottom:} novel }
+\label{fig:HENR_recoil_spectra_m50}
+\end{figure}
+
+
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+  \begin{groupplot}[view={0}{90},
+    group style = {group size = 1 by 3}]
+    
+    \nextgroupplot[
+    xlabel=Recoil Energy (keV),
+    ylabel=Differential Rate (kg/day/keV),
+    legend pos=north east,
+    mark size=0pt,
+    xmin=1, xmax=400, xmode=log,
+    ymin=1e-14, ymax=1e3, ymode=log]
+    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O01s_m33GeV_0.dat};
+    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O11s_m33GeV_0.dat};       
+    \legend{$\Operator$1s, $\Operator$11s};
+    \iffalse
+    \nextgroupplot[
+    xlabel=Recoil Energy (keV),
+    ylabel=Differential Rate (kg/day/keV),
+    legend pos=north east,
+    mark size=0pt,
+    xmin=1, xmax=400, xmode=log,
+    ymin=1e-14, ymax=1e3, ymode=log,
+    cycle list name=color list]
+    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O04s_m1000GeV_0.dat};
+    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O06s_m1000GeV_0.dat};     
+    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O07s_m1000GeV_0.dat};
+    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O09s_m1000GeV_0.dat};
+    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O10s_m1000GeV_0.dat};
+    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O14s_m1000GeV_0.dat};
+    \legend{$\Operator$4s, $\Operator$6s, $\Operator$7s, $\Operator$9s, $\Operator$10s, $\Operator$14s};
+    
+    \nextgroupplot[
+    xlabel=Recoil Energy (keV),
+    ylabel=Differential Rate (kg/day/keV),
+    legend pos=north east,
+    mark size=0pt,
+    xmin=1, xmax=400, xmode=log,
+    ymin=1e-14, ymax=1e3, ymode=log]
+    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O03s_m1000GeV_0.dat};
+    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O05s_m1000GeV_0.dat};
+    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O08s_m1000GeV_0.dat};
+    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O12s_m1000GeV_0.dat};
+    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O13s_m1000GeV_0.dat};
+    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O15s_m1000GeV_0.dat};       
+    \legend{$\Operator$3s, $\Operator$5s, $\Operator$8s, $\Operator$12s, $\Operator$13s, $\Operator$15s};
+    \fi
+  \end{groupplot}
+\end{tikzpicture}
+\caption{Differential recoil spectra for the fourteen non-relativistic EFT WIMP-nucleon operators with a WIMP mass of 1000 GeV/c$^2$.
+         \textbf{Top:} spin-independent \textbf{Middle:} spin-dependent \textbf{Bottom:} novel }
+\label{fig:HENR_recoil_spectra_m1000}
+\end{figure}
+
+\iffalse
+
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+  \begin{groupplot}[view={0}{90},
+    group style = {group size = 3 by 1}]
+    \nextgroupplot[
+    xlabel=Recoil Energy (keV),
+    ylabel=Differential Rate (kg/day/keV),
+    legend pos=north east,
+    mark size=0pt,
+    xmin=1, xmax=400, xmode=log,
+    ymin=1e-14, ymax=1e3, ymode=log]
+    \foreach \henrop in \roguerecoiloperators{
+                \addplot 
+                    table
+                    %{Data/HENR/Signal/Recoils/dRdEr_EFT_O01s_m5GeV_0.txt};
+                    {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O\henrop_m5GeV_0.dat};
+            }
+    \nextgroupplot[
+    xlabel=Recoil Energy (keV),
+    legend pos=north east,
+    mark size=0pt,
+    xmin=1, xmax=400, xmode=log,
+    ymin=1e-14, ymax=1e3, ymode=log]
+    \foreach \henrop in \roguerecoiloperators{
+                \addplot
+                    table
+                    %{Data/HENR/Signal/Recoils/dRdEr_EFT_O01s_m5GeV_0.txt};
+                    {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O\henrop_m5GeV_0.dat};
+            }
+  \end{groupplot}
+\end{tikzpicture}
+\caption{Literal Aids
+\textbf{Left:} $Gd^{156}$ de-excitation path.
+\textbf{Right:} $Gd^{158}$ de-excitation path.
+}
+\label{fig:HENR_NotSpin_Recoil_Spectrum}
+\end{figure}
+
+
+\begin{figure}[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+  \begin{groupplot}[view={0}{90},
     group style = {group size = 2 by 1}]
     \nextgroupplot[
     xlabel=Recoil Energy (keV),
@@ -77,3 +233,5 @@
 }
 \label{fig:HENR_NotSpin_Recoil_Spectrum}
 \end{figure}
+
+\fi

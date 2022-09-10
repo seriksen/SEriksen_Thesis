@@ -35,6 +35,37 @@
             table [x=x, y=low]
             {Data/HENR/sr1_ws/nr_band.dat}; 
             
+        \addplot[gray, opacity = 0.6]
+            table [x=x, y=y]
+            {Data/HENR/sr1_ws/sr1_data/band_5kev.dat}; 
+        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 17,2.90) {\small 0.9 keV$_{ee}$};
+        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 17,2.82) {\small 5 keV$_{nr}$};
+        \addplot[gray, opacity = 0.6]
+            table [x=x, y=y]
+            {Data/HENR/sr1_ws/sr1_data/band_15kev.dat}; 
+        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 30,2.90) {\small 2.9 keV$_{ee}$};
+        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 30,2.82) {\small 15 keV$_{nr}$};
+        \addplot[gray, opacity = 0.6]
+            table [x=x, y=y]
+            {Data/HENR/sr1_ws/sr1_data/band_25kev.dat};
+        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 50,2.90) {\small 5.1 keV$_{ee}$};
+        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 50,2.82) {\small 25 keV$_{nr}$};
+        \addplot[gray, opacity = 0.6]
+            table [x=x, y=y]
+            {Data/HENR/sr1_ws/sr1_data/band_35kev.dat}; 
+        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 65,2.90) {\small 7.4 keV$_{ee}$};
+        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 65,2.82) {\small 35 keV$_{nr}$};
+        \addplot[gray, opacity = 0.6]
+            table [x=x, y=y]
+            {Data/HENR/sr1_ws/sr1_data/band_45kev.dat}; 
+        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 40,4.4) {\small 9.8 keV$_{ee}$};
+        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 40,4.3) {\small 45 keV$_{nr}$};
+        \addplot[gray, opacity = 0.6]
+            table [x=x, y=y]
+            {Data/HENR/sr1_ws/sr1_data/band_60kev.dat}; 
+        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 60,4.4) {\small 13.4 keV$_{ee}$};
+        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 50,4.4) {\small 60 keV$_{nr}$};
+            
         \addplot[black, only marks,]
             table [x=S1c, y=log_10S2c]
             {Data/HENR/sr1_ws/ws_data.dat};

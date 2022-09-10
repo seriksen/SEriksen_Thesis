@@ -1,4 +1,5 @@
 \section{Signal Model}
+\label{sec:eft_signal_models}
 \par
 Both of the analyses described in this chapter were performed in the \{$isoscalar,isovector$\} basis.
 This was chosen over \{$neutron,proton$\} as it allows for comparison to both LUX and XENON collaboration results and in future, Panda-X results\footnote{Panda-X have published Lagrangian results for an EFT analysis in the \{$isoscalar,isovector$\} basis \cite{pandax_2_eft_ref}}.
@@ -9,18 +10,18 @@ The assumption taken was that a single operator dominates the interaction and th
 As such only one operator was considered at a time, with its coupling to nucleons set to 1 and all others to 0.
 In this case, the differential recoil rate scales linearly with $c^{a^2}_i$, becoming:
 \begin{equation}
-    \frac{dR}{dE_R} = \frac{c^{a^2}_i \rho_\chi}{32 \pi m^3_\chi m^2_N} \int_{v_min} \frac{f(\vec{v})}{v} F^{a,a}_{i,i} (v^2, q^2) d^3 v
+    \frac{dR}{dE_R} = \frac{c^{a^2}_i \rho_\chi}{32 \pi m^3_\chi m^2_N} \int_{v_{min}} \frac{f(\vec{v})}{v} F^{a,a}_{i,i} (v^2, q^2) d^3 v
 \end{equation}
 
 
 \par
-The differential recoil spectra were generated using \textit{DMFormFactor}, a \textif{Mathematica} package \cite{dmformfactor_ref}.
-This was chosen over other software solutions such as \textit{WimpyDD} (python) \cite{wimpydd_ref} and \textit{DMFortFactor} (fortran) \cite{dmfortfactor_ref}.
+The differential recoil spectra were generated using \textit{DMFormFactor}, a \textit{Mathematica} package \cite{dmformfactor_ref}.
+This was chosen over other software solutions such as \textit{WimpyDD} (written in python) \cite{wimpydd_ref} and \textit{DMFortFactor} (written in fortran) \cite{dmfortfactor_ref} as it is the same as was used 
 This was chosen over the other software options mentioned in \autoref{sec:eft_theory} as it is the same as is used by the LUX, Panda-X and XENON collaborations.
 The limits produced by XENON100 \cite{xenon100_eft_ref} and LUX \cite{LUX_RUN4_EFT_2021} used \textit{DMFormFactor} v6.0.
 The recent publication by Panda-X \cite{pandax_2_eft_ref} used an unpublished version of the codebase which uses different nuclear form factors\footnote{unpublished at time of writing, however it is expected to be released in early 2023}.
 In order to maintain consistency with operator limit analyses, \textit{DMFormFactor} v6.0 was used here.
-
+Within \textit{DMFormFactor}, the natural abundance of Xe isotopes is folded in.
 %The recent publication on $\mathcal{L}$ by Panda-X used this version \cite{pandax_2_eft_ref}.
 %For a selection of operators the difference between the resultant form factors is shown in XXX.
 %The change in the resultant Bessel functions alter the shape of the recoils.
@@ -42,6 +43,7 @@ The operators recoil spectra for a mass of m = 50 GeV/c$^2$ and m = 1000 GeV/c$^
 
 \input{Chapters/Analysis_EffectiveFieldTheory/Figures/signal_recoils}
 
+\iffalse
 \par
 Let us first discuss the signal model which we expect.
 The differential rate we saw in CHAPTER XXX though difficult to calculate is fairly easy for the end user, with a suite of tools written to determine this.
@@ -128,3 +130,5 @@ isospin symmetric; a property of the strong force that can aid in simplifying th
     \caption{Key detector parameters for the LXe-TPC parameters as used in \cite{LZ_projected_sensitivity_paper_ref}}
     \label{tab:projected_sensitivity_detector_parameters}
 \end{table}
+
+\fi

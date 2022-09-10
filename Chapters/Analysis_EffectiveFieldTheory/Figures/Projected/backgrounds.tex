@@ -1,12 +1,12 @@
-\begin{figure}[!htbp]%
+\begin{figure}[]%
 \centering
     \begin{tikzpicture}
     \centering
         \begin{groupplot}[view={0}{90},
-            group style = {group size = 2 by 1}]
+            group style = {group size = 1 by 2}]
             \nextgroupplot[
-            width=0.5\textwidth, height=8cm,
-            xlabel=Recoil Energy (keV),
+            width=15cm, height=8cm,
+            %xlabel=Recoil Energy (keV),
             ylabel=Differential Rate (kg/day/keV),
             legend pos=north east,
             mark size=0pt,
@@ -38,7 +38,7 @@
       %          \addlegendentry{${}^{85}$Kr};
                   
             \nextgroupplot[
-            width=0.5\textwidth, height=8cm,
+            width=15cm, height=8cm,
             xlabel=Recoil Energy (keV),
             yticklabel pos=right,
             legend pos=north east,
@@ -69,6 +69,8 @@
         
         \end{groupplot}
     \end{tikzpicture}
-    \caption{Backgrounds considered in the projected sensitivity.}
+    \caption{Backgrounds considered in the projected sensitivity.
+             \textbf{Top:} electron recoil backgrounds.
+             \textbf{Bottom:} nuclear recoil backgrounds.}
     \label{fig:sensitivity_paper_backgrounds}
 \end{figure}

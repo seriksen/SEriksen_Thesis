@@ -1,6 +1,4 @@
 \section{Statistical Method}
-\par
-In this section the Profile Likelihood Ratio (PLR) analysis used in 
 
 \par
 In direct dark matter searches, hypothesis testing is frequently used to determine whether an observation excludes a dark matter model or is significant enough to claim a discovery.
@@ -13,96 +11,56 @@ The parameter of interest (POI), $\mu$, in $H_0$ is fixed to a defined value and
         H_1: \mu \neq \mu_0
     \end{split}
 \end{equation}
-where $\mu$ is just the number of WIMP-nucleon scatters that are expected in each model, and $\mu_0$ is the expected number of scatter in the dataset.
+where $\mu$ is just the number of WIMP-nucleon scatters that are expected in each model, and $\mu_0$ is the expected number of WIMP-nucleon scatters in the dataset.
 
 \par
-By detecting the 
-In the limit setting analysis in this chapter, $H_0$ is defined as the background plus signal model and $H_1$ as the background only model.
-The test statistic for the hypothesis test
+In the limit setting analyses in this chapter, $H_0$ is defined as the background plus signal model and $H_1$ as the background only model.
+By testing a signal model with a range of POI\footnote{varying the number of signal events expected}, a p-value cal be calculated. 
+Upper limits are set when the POI is disfavoured if a predicted signal rate is significantly greater than the expected observed rate.
 
-
-The of this section briefly covers how it was used for these studies.
-
-In this chapter $H_0$ is defined by a background only model, and $H_1$ as a background plus signal model.
-\par
-The evaluation of 
-A negative log-likelihood was used, $q = -2 \text{log}_{10}\lambda$, where $\lambda$ is the profile likelihood
+The test statistic used to assess the POI is defined by a negative log-likelihood:
 \begin{equation}
-    \lambda(\vec{x}) %= \frac{\mathcal{L}(\mu_0, \textbf{\nu} | \vec{x})}{\mathcal{L}(\hat{\mu}, \hat{\nu} | \vec{x})}
+    q = -2 \text{ln}(\lambda)
 \end{equation}
-
-
+where $\lambda$ is the actual PLR.
+$\lambda$ is comprised of the profile likelihood give by:
+\begin{equation}
+    \lambda(\mu) = \frac{\mathcal{L}(\mu_0, \boldsymbol{\hat{\hat{\nu}}})}{\mathcal{L}(\hat{\mu}, \boldsymbol{\hat{\nu}})}
+\end{equation}
+$\boldsymbol{\nu}$ are a set of nuisance parameters.
+The parameters with hats are allowed to float to maximise the likelihood.
+The difference between the single and double hat nuisance parameters is to take into account that the values of the nuisance parameters which maximise the likelihood when $\mu$ is fixed are not the same as those which maximise the likelihood when $\mu$ can float.
 \par
-Each model is defined in terms of 
+The unbinned likelihood which has been used in the analyses in this chapter are constructed from PDFs of the signal and backgrounds which are functions of a number of observable parmaters, $\boldsymbol{x}_e$ and is written as:
+\begin{equation}
+\begin{split}
+    \mathcal{L}(\mu_s,\boldsymbol{\nu}) \;=\;& \text{Pois} \bigg(N_0 | \mu_s + \sum^{N_b}_{b=1}\bigg) \\
+                                         & \times \prod^{N_0}_{e=1} \frac{1}{\mu_s + \sum^{N_b}_{b=1}} \bigg( \mu_s f_s (\boldsymbol{x}_e) + \sum^{N_b}_{b=1} \mu_b f_b(\boldsymbol{x}_e) \bigg ) \\
+                                         & \times \prod^{N_b}_{b=1} f_b(\mu_b | \a_b)
+\end{split}
+\end{equation}
+where $N_b$ is the total backgrounds considered in the analysis, $\mu_s$ and $\mu_b$ are the levels of the signal and background respectively. 
+$e$ represented running over each event in the data set, $N_0$.
+\par
+For both analyses, the signal and background PDFs 2-dimensional, constructed from the observables \{$S1_c,\text{log}_{10}(S2_c)$\} only.
+The codebase used here which implements the above, \textit{LZStats}, was developed primarily by I. Olicina.
+Details of the code can be found in his thesis \cite{LZ_Ibles_LZStats_Thesis_ref}.
 
-
-
-A log likelihood method is 
-
-
-where $\mu$ is simply the number of WIMP-nucleon scatters that are expected for each model.
-$\mu_0$ is the number of WIMP-nucleon scatters expected in the observation dataset.
-
-
-
+\iffalse
 The outcome of the test is then either there not being enough evidence to reject a background only described what was observed or that the background model is rejected in favour of a background plus signal model.
 There models are comprised of the expected number of event for the background (or background plus signal) and a PDF which 
 
-
-$H_0$ is 
-
-\par
-In practice this means that both news and $\gamma$s
-
-
-hypotheses are compared to what is observed.
-
-used to either exclude a specific model of dark matter or where an observation is has sufficient significance to claim a discovery in an observation.
-
-$H_0$ is assumed to be correct and then tests are done see if the
-d
-
-The parameter for this is the parameter of intersect, $\mu$, which is simply the number WIMP-nucleon scatters that are expected to be observed.
-
-
-
-
-where $mu$ is the number of WIMP-nucleon scatters expected in the given model.
-This boils.
-
-\par
-The actual test statistic for these hypothesis tests is the profile likelihood ratio (PLR) defined as: 
-
-
-
-
-
-where $\lambda$ is the 
-
-In order to access the the 
-
-The observables used in both the SR1 study and the projected sensitively are just two dimensional: \{S1$_c$, log$_{10}$S2$_c$\} 
 
 \par
 In the projected study the test is summarised as:
 "finding the value $\mu$ above which the background plus signal model is incompatible with a background only model.
 
-Which has a dependency on the PDFs of both signal and backgrounds, $f_s(\textbf{x_e})$ and $f_b(\textbf{x_e})$.
+Which has a dependency on the PDFs of both signal and backgrounds, $f_s($\textbf{$x_e$}) and $f_b($\textbf{$x_e$}).
 
 For considering $N$ backgrounds in the model.
 The log-likelihood for the analysis is given by:
-\begin{equation}
-\begin{split}
-    -2 \text{log}\mathcal{L}(\mu_s(\sigma),\textbf{\nu}) =& 2\bigg(\mu_s + \sum^{N}_{b=1} \mu_b \bigg) \\
-                                                          &-2\sum^{n_0}_{e=1} \bigg(\text{log}(\mu_s f_s(x_e)  + \sum^N_{b=1}\mu_b f_b(x_e)
-                                                          \bigg) \\
-                                                          &+\sum^N_{b=1} \frac{(\mu_b - a_b)^2}{s^2_b}
-\end{split}
-\end{equation}
-where $e$ represented running over each event in the data set.
-\par
-The codebase used here which implements the above, \textit{LZStats}, was developed primarily by I. Olicina.
-Details of the code can be found in his thesis \cite{LZ_Ibles_LZStats_Thesis_ref}.
+
+
 
 \subsection{Model PDFs}
 \par
@@ -132,3 +90,26 @@ These were then propagated until eventual detection (or not) at the PMT faces wh
 The resultant sum of these responses give us the S1 and S2 pulse sizes from which the detector response is made from, describing the size of the S1 and S2 for a given recoil.
 Our detector is then described by a finite number of parameters given \autoref{tab:projected_sensitivity_detector_parameters} and the response in S1$_c$ and S2$_c$ for a NR events is shown in \autoref{fig:projected_detector_model_response_for_flat_nr}.
 When it comes time to generate the PDFs required for our PLR we can simply use the differential scattering rate per recoil energy.
+
+
+\iffalse
+\begin{equation}
+\begin{split}
+    \mathcal{L}(\mu_s,\boldsymbol{\nu}) =& \text{Pois}(N | \mu_{tot}) \\
+                                     &\times \prod^{n_0}_{e=1} \frac{1}{\mu_{tot}} \bigg(\mu_s f_s(\boldsymbol{x}_e)  + \sum^N_{b=1} \mu_b f_b(\boldsymbol{x}_e) \bigg) \\
+                                     &\times \prod^{N}_{b=1} f_b (\mu_b | \nu_b )
+\end{split}
+\end{equation}
+where $\mu_{tot}$ is the total background 
+
+
+\begin{equation}
+\begin{split}
+    -2 \text{log}\mathcal{L}(\mu_s(\sigma),\textbf{\nu}) =& 2\bigg(\mu_s + \sum^{N}_{b=1} \mu_b \bigg) \\
+                                                          &-2\sum^{n_0}_{e=1} \bigg(\text{log}(\mu_s f_s(x_e)  + \sum^N_{b=1}\mu_b f_b(x_e)
+                                                          \bigg) \\
+                                                          &+\sum^N_{b=1} \frac{(\mu_b - a_b)^2}{s^2_b}
+\end{split}
+\end{equation}
+
+\fi

@@ -4,18 +4,17 @@ In this section limits are placed on the elastic EFT operator couplings using da
 The vanilla WIMP region of interest is considered here rather than an extended one as extending the region of interest would have resulted in a delay to this thesis.
 An analysis for SI and SD dark matter interactions have already been performed in this recoil energy range, with null results \cite{lz_ws_sr1_ref}.
 As this is the same dataset and cuts only a limited summary of the SR1 is presented here.
-Additionally all plots shown in this section except the signal models and limits originate from collaborators from LZ and are not the authors own creation.
+An overview of the calibration sources used for SR1 are described in \autoref{sec:lz_calibrations}.
+A more complete description of the backgrounds in SR1 are laid out in \cite{lz_sr1_backgrounds_ref}.
+All plots shown in this section except the signal models and limits originate from collaborators from within LZ and are not the authors own work.
 
 \subsection{Overview of SR1}
 \par
-SR1 ran for a total of 116 days from 23 December 2021 to 18 April 2022.
+SR1 ran for a total of 116 days from 23 December 2021 to 18 April 2022 during which time the detector was in a stable running state.
 During this period, several breaks occurred for both calibration runs and system maintenance reducing the data set down to 89 live days.
-For the entire period of SR1 the detector was in a stable state.
 The length of time running was driven by a requirement to demonstrate physics capability and so only ran until the sensitivity to SI interactions was comparable to previous experiments.
-In that sense, SR1 was more of an engineering run.
-As such no blinding or salting of the data set was performed, as with any new detector there are unexpected features that are best understood by being able to see them.
-In order to mitigate bias from this decision, analysis cuts were developed in side bands and calibration data.
-
+SR1 was primarily an engineering run, and as such no blinding or salting of the data set was performed, as with any new detector there are unexpected features that are best understood by being able to see and explore them.
+In order to mitigate bias in analysis development, analysis cuts were developed in side bands and from calibration data.
 
 \subsection{TPC Calibration}
 \par
@@ -187,10 +186,40 @@ The WIMP contours (shown in purple) are for a 30 GeV/c${^2}$ which is analogous 
     \label{fig:final_data_points}
 \end{figure}
 
+\subsection{Signal Model}
+\par
+Unlike the projected sensitivity, this analysis used the recommended astronomic properties laid out in \cite{standard_halo_model_conventions_ref}.
+These are summarised in \autoref{tab:sr1_DMFormFactor_parameters}.
+Of particular note is the increased velocity of the WIMP velocity.
+The impact of this on a selection of operator differential recoil rates is shown in FIGURE XXX.
+\par
+The increased velocity of the dark matter increased the flux, and therefore expected rate of recoils.
+As the expected signal rate increases, the lack of seeing a signal then sets a tighter constraint on the WIMP-nucleon scattering.
+A more complete comparison between how uncertainties in the standard model parameters affect sensitivity to dark matter searches can be found in \cite{LZ_Ibles_LZStats_Thesis_ref,billyboxer_thesis_ref}.
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{c|c}
+        Parameter         & Value  \\ \hline
+        $\nu_0$           & 238$km s^{-1}$ \\
+        $\nu_{esc}$       & 544$km s^{-1}$ \\
+        $\rho_{\chi}$     & 0.3 $GeV/cm^{3}$ \\
+        $|\nu_E|$         & 245 $km s^{-1}$ 
+    \end{tabular}
+    \caption{Standard Halo Model parameters used for SR1 sensitivity study.}
+    \label{tab:sr1_DMFormFactor_parameters}
+\end{table}
+
+
 \subsection{Limits}
 \par
-Consistent with the SI and SD search, a null result was found, setting limits on the operator couplings.
-These are shown in \autoref{fig:EFT_Result_Projected_Sensitivity} in the same dimensionless scale as the projected limits.
+On each operator for WIMP masses of [5, 7, 10, 12, 14, 21, 33, 50, 100, 200, 400, 1000, 4000] GeV/c$^2$, a 2-sided frequentist confidence interval is determined above a 90\% confidence level.
+Presented in \autoref{fig:EFT_Result_Projected_Sensitivity_1} and \autoref{fig:EFT_Result_Projected_Sensitivity_2} are the limits, presented in the same dimensionless form as the projected limits.
+Shown as before are the previous limits from both Xenon100 \cite{xenon100_eft_ref} and LUX \cite{LUX_RUN4_EFT_2021}.
+
+%Consistent with the SI and SD search, a null result was found, setting limits on the operator couplings.
+%These are shown in \autoref{fig:EFT_Result_Projected_Sensitivity_1} and \autoref{fig:EFT_Result_Projected_Sensitivity_2} in the same dimensionless scale as the projected limits.
+
 \par
 World-leading sensitivity has been achieved for all operators at at least some masses.
 In several cases, such as $\Operator$6 the sensitivity of LZ is less than that of both LUX and XENON100. 

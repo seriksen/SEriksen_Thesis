@@ -31,11 +31,11 @@ $\boldsymbol{\nu}$ are a set of nuisance parameters.
 The parameters with hats are allowed to float to maximise the likelihood.
 The difference between the single and double hat nuisance parameters is to take into account that the values of the nuisance parameters which maximise the likelihood when $\mu$ is fixed are not the same as those which maximise the likelihood when $\mu$ can float.
 \par
-The unbinned likelihood which has been used in the analyses in this chapter are constructed from PDFs of the signal and backgrounds which are functions of a number of observable parmaters, $\boldsymbol{x}_e$ and is written as:
+The unbinned likelihood which has been used in the analyses in this chapter are constructed from PDFs of the signal and backgrounds which are functions of a number of observable parameters, $\boldsymbol{x}_e$ and is written as:
 \begin{equation}
 \begin{split}
-    \mathcal{L}(\mu_s,\boldsymbol{\nu}) \;=\;& \text{Pois} \bigg(N_0 | \mu_s + \sum^{N_b}_{b=1}\bigg) \\
-                                         & \times \prod^{N_0}_{e=1} \frac{1}{\mu_s + \sum^{N_b}_{b=1}} \bigg( \mu_s f_s (\boldsymbol{x}_e) + \sum^{N_b}_{b=1} \mu_b f_b(\boldsymbol{x}_e) \bigg ) \\
+    \mathcal{L}(\mu_s,\boldsymbol{\nu}) =& \text{Pois} \bigg(N_0 | \mu_s + \sum^{N_b}_{b=1}\bigg) \\
+                                         & \times \prod^{N_0}_{e=1} \frac{1}{\mu_s + \sum^{N_b}_{b=1}} \bigg( \mu_s f_s (\boldsymbol{x}_e) + \sum^{N_b}_{b=1} \mu_b f_b(\boldsymbol{x}_e) \bigg) \\
                                          & \times \prod^{N_b}_{b=1} f_b(\mu_b | \a_b)
 \end{split}
 \end{equation}
@@ -92,7 +92,6 @@ Our detector is then described by a finite number of parameters given \autoref{t
 When it comes time to generate the PDFs required for our PLR we can simply use the differential scattering rate per recoil energy.
 
 
-\iffalse
 \begin{equation}
 \begin{split}
     \mathcal{L}(\mu_s,\boldsymbol{\nu}) =& \text{Pois}(N | \mu_{tot}) \\

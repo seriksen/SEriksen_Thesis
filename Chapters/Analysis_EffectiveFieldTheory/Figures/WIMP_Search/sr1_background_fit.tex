@@ -1,0 +1,84 @@
+\begin{figure}[]%
+\centering
+\begin{tikzpicture}
+\centering
+    \begin{axis}[
+            ylabel=Rate (/tonne/year/keV),
+            xlabel=Reconstructed Energy (keV$_{ee}$),
+            width=15cm,
+            height=10cm,
+            grid=major,
+            xmin=80, xmax=700,
+            ymin=1e-1, ymax=1e5,
+            ymode=log,
+            legend style = { column sep = 10pt, legend columns = 2, cells={line width=1.5pt}}
+            ]
+        \addplot[only marks, mark size=1.0pt, black, error bar legend] 
+            plot[error bars/.cd, x dir=both, x explicit, y dir=both, y explicit, ]
+            table[x=bin,y=weight,x error=x_error, y error=y_error]
+            {Data/HENR/sr1_ws/sr1_data/sr1_background_fit_data.dat};
+        \addlegendentry{data};
+        
+        \addplot[const plot, teal]
+            table [x=bins, y=h_bkg_Kr85]
+            {Data/HENR/sr1_ws/sr1_data/sr1_background_fit_model.dat};
+        \addlegendentry{${}^{85}$Kr};
+        
+        \addplot[const plot, cyan]
+            table [x=bins, y=h_bkg_Pb212]
+            {Data/HENR/sr1_ws/sr1_data/sr1_background_fit_model.dat};
+        \addlegendentry{${}^{212}$Pb}; 
+        
+        \addplot[const plot, green]
+            table [x=bins, y=h_bkg_Pb214]
+            {Data/HENR/sr1_ws/sr1_data/sr1_background_fit_model.dat};
+        \addlegendentry{${}^{214}$Pb}; 
+        
+        \addplot[const plot, lime]
+            table [x=bins, y=h_bkg_SolarER]
+            {Data/HENR/sr1_ws/sr1_data/sr1_background_fit_model.dat};
+        \addlegendentry{Solar ER};
+        
+        \addplot[const plot, yellow]
+            table [x=bins, y=h_bkg_Xe125]
+            {Data/HENR/sr1_ws/sr1_data/sr1_background_fit_model.dat};
+        \addlegendentry{${}^{125}$Xe};
+        
+        \addplot[const plot, pink]
+            table [x=bins, y=h_bkg_Xe127]
+            {Data/HENR/sr1_ws/sr1_data/sr1_background_fit_model.dat};
+        \addlegendentry{${}^{127}$Xe};
+        
+        \addplot[const plot, olive]
+            table [x=bins, y=h_bkg_Xe129m]
+            {Data/HENR/sr1_ws/sr1_data/sr1_background_fit_model.dat};
+        \addlegendentry{${}^{129m}$Xe};
+        
+        \addplot[const plot, brown]
+            table [x=bins, y=h_bkg_Xe131m]
+            {Data/HENR/sr1_ws/sr1_data/sr1_background_fit_model.dat};
+        \addlegendentry{${}^{131m}$Xe};        
+
+        \addplot[const plot, orange]
+            table [x=bins, y=h_bkg_Xe133]
+            {Data/HENR/sr1_ws/sr1_data/sr1_background_fit_model.dat};
+        \addlegendentry{${}^{133}$Xe};  
+
+        \addplot[const plot, red]
+            table [x=bins, y=h_bkg_Xe136]
+            {Data/HENR/sr1_ws/sr1_data/sr1_background_fit_model.dat};
+        \addlegendentry{${}^{136}$Xe};   
+        
+        \addplot[const plot, violet]
+            table [x=bins, y=h_bkg_full_model]
+            {Data/HENR/sr1_ws/sr1_data/sr1_background_fit_model.dat};
+        \addlegendentry{model};   
+        
+\end{axis}
+\end{tikzpicture}
+    \caption{Result of fit to data.
+             \textbf{Top:} Contribution from each source. Only components with a contribution greater than 1 Hz have been included.
+             \textbf{Bottom:} Ratio of fit to data. The dashed lines indicate the fit region.
+             In generally there is good agreement.}
+    \label{fig:sr1_tpc_background_fit_to_data}
+\end{figure}

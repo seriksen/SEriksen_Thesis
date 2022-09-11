@@ -11,17 +11,17 @@
             xmin=0, xmax=80,
             ]
             
-        \addplot[gray, opacity = 0.5, fill=gray]
+        \addplot[blue, opacity = 0.3, fill=blue]
             table [x=x, y=y]
             {Data/HENR/sr1_ws/sr1_data/beta_band_95.dat};
-        \addplot[gray, fill=gray]
+        \addplot[blue, opacity = 0.5, fill=blue]
             table [x=x, y=y]
             {Data/HENR/sr1_ws/sr1_data/beta_band_68.dat};
     
-        \addplot[green, opacity = 0.5, fill=green]
+        \addplot[green, opacity = 0.3, fill=green]
             table [x=x, y=y]
             {Data/HENR/sr1_ws/sr1_data/b8_band_95.dat};
-        \addplot[green, fill=green]
+        \addplot[green, opacity = 0.5, fill=green]
             table [x=x, y=y]
             {Data/HENR/sr1_ws/sr1_data/b8_band_68.dat};
             
@@ -43,30 +43,33 @@
         \addplot[gray, opacity = 0.6]
             table [x=x, y=y]
             {Data/HENR/sr1_ws/sr1_data/band_15kev.dat}; 
-        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 30,2.90) {\small 2.9 keV$_{ee}$};
-        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 30,2.82) {\small 15 keV$_{nr}$};
+        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 35,2.90) {\small 2.9 keV$_{ee}$};
+        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 35,2.82) {\small 15 keV$_{nr}$};
         \addplot[gray, opacity = 0.6]
             table [x=x, y=y]
             {Data/HENR/sr1_ws/sr1_data/band_25kev.dat};
-        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 50,2.90) {\small 5.1 keV$_{ee}$};
-        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 50,2.82) {\small 25 keV$_{nr}$};
+        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 52,2.90) {\small 5.1 keV$_{ee}$};
+        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 52,2.82) {\small 25 keV$_{nr}$};
         \addplot[gray, opacity = 0.6]
             table [x=x, y=y]
             {Data/HENR/sr1_ws/sr1_data/band_35kev.dat}; 
-        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 65,2.90) {\small 7.4 keV$_{ee}$};
-        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 65,2.82) {\small 35 keV$_{nr}$};
+        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 70,2.90) {\small 7.4 keV$_{ee}$};
+        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 70,2.82) {\small 35 keV$_{nr}$};
         \addplot[gray, opacity = 0.6]
             table [x=x, y=y]
             {Data/HENR/sr1_ws/sr1_data/band_45kev.dat}; 
-        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 40,4.4) {\small 9.8 keV$_{ee}$};
-        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 40,4.3) {\small 45 keV$_{nr}$};
+        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 30,4.45) {\small 9.8 keV$_{ee}$};
+        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 30,4.3) {\small 45 keV$_{nr}$};
         \addplot[gray, opacity = 0.6]
             table [x=x, y=y]
             {Data/HENR/sr1_ws/sr1_data/band_60kev.dat}; 
-        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 60,4.4) {\small 13.4 keV$_{ee}$};
+        \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 60,4.45) {\small 13.4 keV$_{ee}$};
         \node[gray, opacity = 0.6, text width=3cm] at (axis cs: 50,4.4) {\small 60 keV$_{nr}$};
+        
+        \addplot[gray, fill=gray]
+            coordinates{(0., 2.7)(3, 2.7)(3, 4.5)(0,4.5)};
             
-        \addplot[black, only marks,]
+        \addplot[black, only marks, mark size=0.5pt]
             table [x=S1c, y=log_10S2c]
             {Data/HENR/sr1_ws/ws_data.dat};
             

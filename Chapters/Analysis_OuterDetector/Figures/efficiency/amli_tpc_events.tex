@@ -1,0 +1,46 @@
+\begin{figure}[]%
+\centering
+\begin{tikzpicture}
+\centering
+    \begin{axis}[
+            ylabel=Log10(S2) (phd),
+            xlabel=S1 (phd),
+            width=15cm,
+            height=8cm,
+            xmin=0, xmax=150,
+            ymin=2.75, ymax=4.5,
+            %ymin=45, ymax=100,
+            %minor y tick num=1,
+            ]
+            
+        \addplot[black, only marks]
+            table []
+            {Data/Neutron_Efficiency/AmLi_Commissioning/amli_s1logs2.dat};
+        
+        \addplot[blue, ]
+            table [x=s1c, y=mean]
+            {Data/tpc/sr1_er_band.dat};     
+        \addplot[blue, dashed]
+            table [x=s1c, y=nsig1]
+            {Data/tpc/sr1_er_band.dat};     
+        \addplot[blue, dashed]
+            table [x=s1c, y=psig1]
+            {Data/tpc/sr1_er_band.dat};     
+
+        \addplot[red, ]
+            table [x=s1c, y=mean]
+            {Data/tpc/sr1_nr_band.dat};     
+        \addplot[red, dashed]
+            table [x=s1c, y=nsig1]
+            {Data/tpc/sr1_nr_band.dat};     
+        \addplot[red, dashed]
+            table [x=s1c, y=psig1]
+            {Data/tpc/sr1_nr_band.dat};     
+            
+    \end{axis}
+            
+\end{tikzpicture}
+    \caption{TPC events which passed all vetoes to attain a high purification neutron recoil selection.
+             Data points are from all three AmLi calibration positions.}
+    \label{fig:amli_tpc_events}
+\end{figure}

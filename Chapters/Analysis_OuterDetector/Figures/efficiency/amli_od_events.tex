@@ -1,0 +1,23 @@
+\begin{figure}[]%
+\centering
+\begin{tikzpicture}
+\centering
+    \begin{axis}[
+            ylabel=Count,
+            xlabel=Pulse Area (phd),
+            width=15cm,
+            height=8cm,
+            xmin=0, xmax=2000,
+            ymin=0,
+            ]
+            
+        \addplot[black, const plot]
+            table[x=bin,y=weight]
+            {Data/Neutron_Efficiency/AmLi_Commissioning/amli_od_pulses.dat};
+
+    \end{axis}
+            
+\end{tikzpicture}
+    \caption{Pulse area of all OD pulses associated with single scatter TPC events from AmLi calibration data.}
+    \label{fig:amli_od_pulsearea_events}
+\end{figure}

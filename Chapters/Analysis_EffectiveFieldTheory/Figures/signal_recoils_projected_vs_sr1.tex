@@ -1,0 +1,40 @@
+\begin{figure} %[!htbp]%
+\centering
+\begin{tikzpicture}
+\centering
+  \begin{groupplot}[view={0}{90},
+    group style = {group size = 1 by 2}]
+    
+    \nextgroupplot[
+    %xlabel=Recoil Energy (keV),
+    ylabel=Differential Rate (kg/day/keV),
+    legend pos=north east,
+    width=15cm,
+    height=7cm,
+    mark size=0pt,
+    xmin=0, xmax=1000,
+    ymin=1e-14, ymax=1e2, ymode=log]
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator01_m400.dat}; 
+    \addplot table [x=energy, y=rate] {Data/HENR/sr1_ws/Signal/recoils/recoil_operator01_m400.dat}; 
+    \legend{projected, sr1};
+    
+    \nextgroupplot[
+    xlabel=Recoil Energy (keV),
+    ylabel=Differential Rate (kg/day/keV),
+    legend pos=north east,
+    width=15cm,
+    height=7cm,
+    mark size=0pt,
+    xmin=0, xmax=1000,
+    ymin=1e-16, ymax=1e-6, ymode=log,
+    cycle list name=color list]
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator15_m400.dat}; 
+    \addplot table [x=energy, y=rate] {Data/HENR/sr1_ws/Signal/recoils/recoil_operator15_m400.dat}; 
+    \legend{projected, sr1};
+    
+  \end{groupplot}
+\end{tikzpicture}
+\caption{Differential recoil spectra for different standard halo model parameters.
+         \textbf{Top:} $\Operator$1 \textbf{Bottom:} $\Operator$15 }
+\label{fig:HENR_recoil_spectra_projected_vs_sr1}
+\end{figure}

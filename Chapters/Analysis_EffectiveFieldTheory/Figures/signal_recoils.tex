@@ -12,51 +12,54 @@
     width=15cm,
     height=7cm,
     mark size=0pt,
-    xmin=1, xmax=400, xmode=log,
-    ymin=1e-14, ymax=1e3, ymode=log]
-    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O01s_m50GeV_0.dat};
-    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O11s_m50GeV_0.dat};       
-    \legend{$\Operator$1s, $\Operator$11s};
+    xmin=0, xmax=400,
+    ymin=1e-13, ymax=1e3, ymode=log]
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator01_m50.dat};
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator11_m50.dat};       
+    \legend{$\Operator$1, $\Operator$11};
     
     \nextgroupplot[
     %xlabel=Recoil Energy (keV),
     ylabel=Differential Rate (kg/day/keV),
     legend pos=north east,
+    legend style = {legend columns = 2},
     width=15cm,
     height=7cm,
     mark size=0pt,
-    xmin=1, xmax=400, xmode=log,
-    ymin=1e-14, ymax=1e3, ymode=log,
+    xmin=0, xmax=400,
+    ymin=1e-16, ymax=1e-2, ymode=log,
     cycle list name=color list]
-    %\addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O04s_m50GeV_0.dat};
-    %\addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O06s_m50GeV_0.dat};     
-    %\addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O07s_m50GeV_0.dat};
-    %\addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O09s_m50GeV_0.dat};
-    %\addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O10s_m50GeV_0.dat};
-    %\addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O14s_m50GeV_0.dat};
-    %\legend{$\Operator$4s, $\Operator$6s, $\Operator$7s, $\Operator$9s, $\Operator$10s, $\Operator$14s};
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator04_m50.dat}; 
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator06_m50.dat}; 
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator07_m50.dat}; 
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator09_m50.dat}; 
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator10_m50.dat}; 
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator14_m50.dat}; 
+    \legend{$\Operator$4, $\Operator$6, $\Operator$7, $\Operator$9, $\Operator$10, $\Operator$14};
     
     \nextgroupplot[
     xlabel=Recoil Energy (keV),
     ylabel=Differential Rate (kg/day/keV),
     legend pos=north east,
+    legend style = {legend columns = 2},
     width=15cm,
     height=7cm,
     mark size=0pt,
-    xmin=1, xmax=400, xmode=log,
-    ymin=1e-14, ymax=1e3, ymode=log]
-    %\addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O03s_m50GeV_0.dat};
-    %\addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O05s_m50GeV_0.dat};
-    %\addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O08s_m50GeV_0.dat};
-    %\addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O12s_m50GeV_0.dat};
-    %\addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O13s_m50GeV_0.dat};
-    %\addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O15s_m50GeV_0.dat};       
-    %\legend{$\Operator$3s, $\Operator$5s, $\Operator$8s, $\Operator$12s, $\Operator$13s, $\Operator$15s};
+    xmin=0, xmax=400,
+    ymin=1e-16, ymax=1e-2, ymode=log,
+    cycle list name=color list]
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator03_m50.dat}; 
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator05_m50.dat}; 
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator08_m50.dat}; 
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator12_m50.dat}; 
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator13_m50.dat}; 
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator15_m50.dat};      
+    \legend{$\Operator$3, $\Operator$5, $\Operator$8, $\Operator$12, $\Operator$13, $\Operator$15};
     
   \end{groupplot}
 \end{tikzpicture}
 \caption{Differential recoil spectra for the fourteen non-relativistic EFT WIMP-nucleon operators with a WIMP mass of 50 GeV/c$^2$.
-         \textbf{Top:} spin-independent \textbf{Middle:} spin-dependent \textbf{Bottom:} novel }
+         \textbf{Top:} spin-independent responses \textbf{Middle:} spin-dependent responses \textbf{Bottom:} novel responses}
 \label{fig:HENR_recoil_spectra_m50}
 \end{figure}
 
@@ -75,51 +78,54 @@
     width=15cm,
     height=7cm,
     mark size=0pt,
-    xmin=1, xmax=400, xmode=log,
-    ymin=1e-14, ymax=1e3, ymode=log]
-    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O01s_m33GeV_0.dat};
-    \addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O11s_m33GeV_0.dat};       
-    \legend{$\Operator$1s, $\Operator$11s};
+    xmin=0, xmax=1000,
+    ymin=1e-14, ymax=1e2, ymode=log]
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator01_m1000.dat};
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator11_m1000.dat};       
+    \legend{$\Operator$1, $\Operator$11};
     
     \nextgroupplot[
     %xlabel=Recoil Energy (keV),
     ylabel=Differential Rate (kg/day/keV),
     legend pos=north east,
+    legend style = {legend columns = 2},
     width=15cm,
     height=7cm,
     mark size=0pt,
-    xmin=1, xmax=400, xmode=log,
-    ymin=1e-14, ymax=1e3, ymode=log,
+    xmin=0, xmax=1000,
+    ymin=1e-16, ymax=1e-2, ymode=log,
     cycle list name=color list]
-    %\addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O04s_m1000GeV_0.dat};
-    %\addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O06s_m1000GeV_0.dat};     
-    %\addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O07s_m1000GeV_0.dat};
-    %\addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O09s_m1000GeV_0.dat};
-    %\addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O10s_m1000GeV_0.dat};
-    %\addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O14s_m1000GeV_0.dat};
-    %\legend{$\Operator$4s, $\Operator$6s, $\Operator$7s, $\Operator$9s, $\Operator$10s, $\Operator$14s};
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator04_m1000.dat}; 
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator06_m1000.dat}; 
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator07_m1000.dat}; 
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator09_m1000.dat}; 
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator10_m1000.dat}; 
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator14_m1000.dat}; 
+    \legend{$\Operator$4, $\Operator$6, $\Operator$7, $\Operator$9, $\Operator$10, $\Operator$14};
     
     \nextgroupplot[
     xlabel=Recoil Energy (keV),
     ylabel=Differential Rate (kg/day/keV),
     legend pos=north east,
+    legend style = {legend columns = 2},
     width=15cm,
-    height=8cm,
+    height=7cm,
     mark size=0pt,
-    xmin=1, xmax=400, xmode=log,
-    ymin=1e-14, ymax=1e3, ymode=log]
-    %\addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O03s_m1000GeV_0.dat};
-    %\addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O05s_m1000GeV_0.dat};
-    %\addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O08s_m1000GeV_0.dat};
-    %\addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O12s_m1000GeV_0.dat};
-    %\addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O13s_m1000GeV_0.dat};
-    %\addplot table {Data/HENR/Projected_Sensitivity/Signal/Recoils/dRdEr_EFT_O15s_m1000GeV_0.dat};       
-    %\legend{$\Operator$3s, $\Operator$5s, $\Operator$8s, $\Operator$12s, $\Operator$13s, $\Operator$15s};
+    xmin=0, xmax=1000,
+    ymin=1e-16, ymax=1e-2, ymode=log,
+    cycle list name=color list]
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator03_m1000.dat}; 
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator05_m1000.dat}; 
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator08_m1000.dat}; 
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator12_m1000.dat}; 
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator13_m1000.dat}; 
+    \addplot table [x=energy, y=rate] {Data/HENR/Projected_Sensitivity/Signal/recoils/recoil_operator15_m1000.dat};      
+    \legend{$\Operator$3, $\Operator$5, $\Operator$8, $\Operator$12, $\Operator$13, $\Operator$15};
     
   \end{groupplot}
 \end{tikzpicture}
 \caption{Differential recoil spectra for the fourteen non-relativistic EFT WIMP-nucleon operators with a WIMP mass of 1000 GeV/c$^2$.
-         \textbf{Top:} spin-independent \textbf{Middle:} spin-dependent \textbf{Bottom:} novel }
+         \textbf{Top:} spin-independent responses \textbf{Middle:} spin-dependent responses \textbf{Bottom:} novel responses }
 \label{fig:HENR_recoil_spectra_m1000}
 \end{figure}
 

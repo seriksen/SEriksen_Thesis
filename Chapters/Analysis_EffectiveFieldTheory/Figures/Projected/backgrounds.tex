@@ -3,6 +3,83 @@
     \begin{tikzpicture}
     \centering
         \begin{groupplot}[view={0}{90},
+            group style = {group size = 1 by 3,
+                           vertical sep=2.0cm}]
+            
+            \nextgroupplot[
+            width=15cm, height=8cm,
+            xlabel=Recoil Energy (keV$_{er}$),
+            ylabel=Differential Rate (kg/day/keV),
+            legend pos=north east,
+            legend style = {legend columns = 3},
+            mark size=0pt,
+            xmin=0, xmax=1500,
+            ymin=1e-8, ymax=1e-1,
+            ymode=log,]
+                \addplot[teal, const plot]
+                    table[x=energy,y=rate]
+                    {Data/HENR/Projected_Sensitivity/Background_Rates/er_background_detector_er.dat};
+                \addplot[cyan, const plot]
+                    table[x=energy,y=rate]
+                    {Data/HENR/Projected_Sensitivity/Background_Rates/er_background_Solar.dat};
+                \addplot[green, const plot]
+                    table[x=energy,y=rate]
+                    {Data/HENR/Projected_Sensitivity/Background_Rates/er_background_Rn222.dat};
+                \addplot[lime, const plot]
+                    table[x=energy,y=rate]
+                    {Data/HENR/Projected_Sensitivity/Background_Rates/er_background_Rn220.dat};
+                \addplot[yellow, const plot]
+                    table[x=energy,y=rate]
+                    {Data/HENR/Projected_Sensitivity/Background_Rates/er_background_Kr85.dat};
+                \addplot[pink, const plot]
+                    table[x=energy,y=rate]
+                    {Data/HENR/Projected_Sensitivity/Background_Rates/er_background_Xe136.dat};
+                \legend{Detector, Solar $\nu$, ${}^{222}$Rn, ${}^{220}$Rn, ${}^{85}$Kr, ${}^{136}$Xe};
+                
+            \nextgroupplot[
+            width=15cm, height=8cm,
+            xlabel=Recoil Energy (keV$_{nr}$),
+            ylabel=Differential Rate (kg/day/keV),
+            legend pos=north east,
+            legend style = {legend columns = 3},
+            mark size=0pt,
+            xmin=0, xmax=300,
+            ymin=1e-13, ymax=1e-2,
+            ymode=log]
+            
+                \addplot[teal, const plot]
+                    table[x=energy,y=rate]
+                    {Data/HENR/Projected_Sensitivity/Background_Rates/nr_background_detector_nr.dat};
+                \addplot[cyan, const plot]
+                    table[x=energy,y=rate]
+                    {Data/HENR/Projected_Sensitivity/Background_Rates/nr_background_B8.dat};
+                \addplot[green, const plot]
+                    table[x=energy,y=rate]
+                    {Data/HENR/Projected_Sensitivity/Background_Rates/nr_background_hep.dat};
+                \addplot[lime, const plot]
+                    table[x=energy,y=rate]
+                    {Data/HENR/Projected_Sensitivity/Background_Rates/nr_background_DSN_DiffRate.dat};
+                \addplot[yellow, const plot]
+                    table[x=energy,y=rate]
+                    {Data/HENR/Projected_Sensitivity/Background_Rates/nr_background_atm.dat};
+                \legend{Detector, ${}^{8}$B, $hep$, $DSN$, $atm$};
+        
+        \end{groupplot}
+    \end{tikzpicture}
+    \caption{Backgrounds considered in the projected sensitivity.
+             \textbf{Top:} electron recoil backgrounds.
+             \textbf{Bottom:} nuclear recoil backgrounds.}
+    \label{fig:sensitivity_paper_backgrounds}
+\end{figure}
+
+
+
+\iffalse
+\begin{figure}[]%
+\centering
+    \begin{tikzpicture}
+    \centering
+        \begin{groupplot}[view={0}{90},
             group style = {group size = 1 by 2}]
             \nextgroupplot[
             width=15cm, height=8cm,
@@ -74,3 +151,4 @@
              \textbf{Bottom:} nuclear recoil backgrounds.}
     \label{fig:sensitivity_paper_backgrounds}
 \end{figure}
+\fi

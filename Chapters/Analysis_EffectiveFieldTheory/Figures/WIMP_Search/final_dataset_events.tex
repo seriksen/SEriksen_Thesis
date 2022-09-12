@@ -11,19 +11,15 @@
             xmin=0, xmax=80,
             ]
             
-        \addplot[blue, opacity = 0.3, fill=blue]
+        \addplot[blue, ]
             table [x=x, y=y]
-            {Data/HENR/sr1_ws/sr1_data/beta_band_95.dat};
-        \addplot[blue, opacity = 0.5, fill=blue]
-            table [x=x, y=y]
-            {Data/HENR/sr1_ws/sr1_data/beta_band_68.dat};
-    
-        \addplot[green, opacity = 0.3, fill=green]
-            table [x=x, y=y]
-            {Data/HENR/sr1_ws/sr1_data/b8_band_95.dat};
-        \addplot[green, opacity = 0.5, fill=green]
-            table [x=x, y=y]
-            {Data/HENR/sr1_ws/sr1_data/b8_band_68.dat};
+            {Data/HENR/sr1_ws/er_band.dat};    
+        \addplot[blue, dashed]
+            table [x=x, y=high]
+            {Data/HENR/sr1_ws/er_band.dat};     
+        \addplot[blue, dashed]
+            table [x=x, y=low]
+            {Data/HENR/sr1_ws/er_band.dat}; 
             
         \addplot[red, ]
             table [x=x, y=y]
@@ -73,12 +69,12 @@
             table [x=S1c, y=log_10S2c]
             {Data/HENR/sr1_ws/ws_data.dat};
             
-        \addplot[orange]
-            table [x=x, y=y]
-            {Data/HENR/sr1_ws/sr1_data/ar37_band_95.dat};
-        \addplot[orange]
-            table [x=x, y=y]
-            {Data/HENR/sr1_ws/sr1_data/ar37_band_68.dat};
+        %\addplot[orange]
+        %    table [x=x, y=y]
+        %    {Data/HENR/sr1_ws/sr1_data/ar37_band_95.dat};
+        %\addplot[orange]
+        %    table [x=x, y=y]
+        %    {Data/HENR/sr1_ws/sr1_data/ar37_band_68.dat};
     \end{axis}
 \end{tikzpicture}
     \caption{SR1 search data after all cuts.}

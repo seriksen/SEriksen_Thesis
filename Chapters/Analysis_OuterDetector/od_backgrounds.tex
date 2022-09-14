@@ -52,17 +52,17 @@ For any pulse it is possible to reconstruct the location of the interaction that
     x = \frac{\sum{\text{Ch}_{\text{phd}} \cdot \text{Ch}_\text{x}}}{\sum{\text{Ch}_\text{phd}}} 
 \label{eq:OD_xy_position}
 \end{equation}
-where Ch$_{phd}$ is the phd of a PMT channel and Ch$_{x}$ is the position of the PMT.
-In spherical coordinates, $\phi$ can be calculated in a similar fashion:
+where Ch$_{phd}$ is the phd of a PMT channel and Ch$_{x}$ is the physical position of the PMT.
+In spherical coordinates, $\phi$ can be calculated in a similar fashion using the $\phi$ position of each PMT, Ch$_\phi$:
 \begin{equation}
-    \phi = \text{tan}^{-1}\bigg( \frac{\sum{\text{Ch}_\text{phd} \cdot \text{cos}_\text{phd}}}{\sum{\text{Ch}_\text{phd} \cdot \text{cos}_\text{phd}}} \bigg)
+    \phi = \text{arctan}\bigg( \frac{\sum{\text{Ch}_\text{phd} \cdot \text{cos}(\text{Ch}_\text{\phi})}}{\sum{\text{Ch}_\text{phd} \cdot \text{sin}(\text{Ch}_\text{phd})}} \bigg)
 \label{eq:OD_phi_position}
 \end{equation}
 \par
 Due to scheduling constraints associated with SR1, there was an insufficient variety of calibration sources used at varying \{$x,y,z$\} positions in order to adequately determine the resolution of this approach, but it is something a future calibration campaign may be able to tackle. 
 Additionally, this approach does not take into account the OCV in the centre of the detector, so reconstructed pulses will have an incorrect position, but the correct shape\footnote{pulses can be reconstructed to \{0,0\} which is not physical as that is where the OCV is}.
-The OCV can be taken into account by converting coordinate system, but has explicitly not been done here due to the lack of knowledge in the actual resolution of this approach.
-Regardless, this approach does provide an insight in a way not thought possible based upon optical simulations\footnote{due to the low light collection efficiency in the simulations}.
+The OCV can be taken into account by including an offset in \{$x,y$\}, but has explicitly not been done here due to the lack of knowledge in the actual resolution of this approach.
+Regardless, this approach provides an insight in a way not thought possible based upon optical simulations\footnote{due to the low light collection efficiency in the simulations}.
 
 \par
 Spacial reconstruction was performed on slices in phd-space, the result of which can be seen in \autoref{fig:od_backgrounds_position_reconstruction}.

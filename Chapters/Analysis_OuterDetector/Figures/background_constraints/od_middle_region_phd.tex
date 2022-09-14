@@ -1,11 +1,11 @@
-\begin{figure}[!htbp]
+\begin{figure}[]
     \centering
     \begin{tikzpicture}
     
     \begin{axis}[
-        xlabel=Pulse Area,
-        ylabel=Rate (Hz/5phe),
-        width=15cm, height=10cm,
+        xlabel=Pulse Area (phd),
+        ylabel=Rate (Hz),
+        width=15cm, height=8cm,
         xmin=0, xmax=800,
         ymin=1e-4, ymode=log,
         legend pos=north east,
@@ -15,9 +15,9 @@
             plot[error bars/.cd, x dir=both, x explicit]
             table[x=pulsearea,y=rate,x error=x_error, y error=y_error]
             {Data/OD_Backgrounds/background_constraints/od_data_pulsearea_middle_tank_binwidth_5.dat};
-            
         \end{axis}
     \end{tikzpicture}
-    \caption{OD pulse area spectrum from pulses reconstructed to the middle of the OD side tanks, suppressing the rate from Cavern-$\gamma$'s.}
+    \caption{OD pulse area spectrum from pulses reconstructed to the middle of the OD side tanks, suppressing the rate from Cavern-$\gamma$'s.
+             The peak at 280 phd is from ${}^{60}$Co which originates from the OCV.}
     \label{fig:od_data_pulsearea_middle_tank}
 \end{figure}

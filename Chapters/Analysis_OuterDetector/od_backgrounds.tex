@@ -73,10 +73,9 @@ The second region focuses on the area above 500 phd ($\backsim$ 2 MeV), where ca
 
 \par
 There are two useful observations in both regions.
-Firstly, in \{$r-z$\} there is a clear bias to events at the bottom of the detector.
-This is consistent with cavern-$\gamma$s distribution shown in \autoref{fig:cavern_gamma_position_distribution}.
-This indicates that the cavern-$\gamma$s are the most significant contributor to the OD backgrounds, again in agreement with the prediction (\autoref{tab:od_expected_rates}).
-Secondly, in \{$x-y$\} there is an elevated rate of events in \{$+x,+y$\}.
+Firstly, in $r-z$ there is a clear bias to events at the bottom of the detector.
+This is consistent with the cavern-$\gamma$s distribution shown in \autoref{fig:cavern_gamma_position_distribution} and indicates that the cavern-$\gamma$s are the most significant contributor to the OD backgrounds, again in agreement with the prediction.
+Secondly, in $x-y$ there is an elevated rate of events in \{$+x,+y$\}.
 This can be understood easiest by labelling the SATs with letters A-D starting from the \{$+x,+y$\} quadrant and going around clockwise.
 Using this labelling, over the period of SR1, SAT A has a rate in excess of 8\% higher than any of the other tanks, with SAT B seeing the next highest rate (3\% higher than the mean).
 Both SATs C and D saw an equivalent rate.
@@ -84,6 +83,12 @@ In \autoref{fig:OD_conduit_geometry}, the SAT placement are shown along with the
 SAT A and SAT B are the only tanks which are obstructed by a single conduit, additionally both tanks cover an entire BAT and TAT.
 The CSD-ports and the OCV legs block the other SATs from the TATs and BATs.
 This results in the light having a more direct path to more PMTs and therefore higher probability of detection.
+\par
+A way of suppressing cavern-$\gamma$s is to take a slice in $z$, taking events reconstructed to be in the middle of the side tanks.
+The resultant pulse area spectrum for pulses above the noise-cut between $0<z<100$ is shown in \autoref{fig:od_data_pulsearea_middle_tank}.
+When compared to \autoref{fig:od_backgrounds_position_reconstruction} an additional feature appears around 300 phd.
+This is consistent with ${}^{60}$Co which originate from the OCV indicating that this is another significant contributor the OD background rate.
+In future it may be possible to accurately measure the rate of this using a volume cut, but that will require a more dedicated calibration campaign, as the true volume of the SAT selected is not clear.
 
 \begin{figure}[]
 \includegraphics[width=\textwidth]{Figures/Geometry/geometry_with_conduits.png}
@@ -93,28 +98,21 @@ This results in the light having a more direct path to more PMTs and therefore h
 \end{figure}
 
 
-\par
-A way of suppressing cavern-$\gamma$s is to take a slice in $z$, taking events reconstructed to be in the middle of the side tanks.
-The resultant pulse area spectrum for pulses above the noise-cut between $0<z<100$ is shown in \autoref{fig:od_data_pulsearea_middle_tank}.
-When compared to \autoref{fig:od_backgrounds_position_reconstruction} additional features appear around 300 phd.
-These are consistent with ${}^{60}$Co which is present in the OCV indicating that this is another contributor the OD background rate.
-In future it may be possible to accurately measure the rate of this using this volume cut, but that will require a more dedicated calibration campaign, as the true quantity of the SAT selected is not clear.
-
 \input{Chapters/Analysis_OuterDetector/Figures/background_constraints/od_middle_region_phd}
 
 
 \subsection{$\gamma$ constraints}
 \par
-Another area to look at is high energy $\gamma$s, from ($\alpha$,$\gamma$) reactions, which were discussed in \autoref{sec:cavern_gamma_generator}.
-In \autoref{fig:od_high_energy} the expected and observed rate per pulse area above 400 phd is shown.
+Another area to look at is high energy $\gamma$s from ($\alpha$,$\gamma$) reactions, which were discussed in \autoref{sec:cavern_gamma_generator}.
+In \autoref{fig:od_high_energy} the expected and observed rate above 400 phd is shown.
 The rate of events expected is significantly greater than that observed.
-The findings here support the discussion in \autoref{sec:cavern_gamma_generator}, that the statistical model used does not extend well to ${}^{17}$O (see \autoref{sec:cavern_gamma_generator}).
+The findings here support the discussion in \autoref{sec:cavern_gamma_generator}, that the statistical model used by GEANT4 does not extend well to ${}^{17}$O.
 However, there are still events seen in data between 1000 and 1800 phd that are not accounted for in simulations.
-These features have been attributed to neutron captures on the Fe of the water tank (which is made of steel) producing high energy $\gamma$'s \autoref{iron_neutrons_ref}.
+These features have been attributed to neutron captures on the Fe of the water tank (which is made of steel) producing high energy $\gamma$'s \cite{iron_neutrons_ref}.
 These neutrons originate primarily from the ${}^{252}$Cf calibration source, which was stored in a movable safe underground during SR1.
 The source was moved within the cavern during SR1 which matches with a change in the reconstructed position of these events.
 Backgrounds of this type were not previously considered within LZ, though are of great importance in fusion experiments \cite{iter_neutrons_ref}.
-Primarily due to the source safe placement during SR1, it was not possible to determine if there was any fluctuation in the high-energy $\gamma$-rate during SR1.
+Due to the source safe placement during SR1, it was not possible to determine if there was any fluctuation in the high-energy $\gamma$-rate during SR1.
 
 \input{Chapters/Analysis_OuterDetector/Figures/background_constraints/od_high_energy}
 
@@ -122,11 +120,11 @@ Primarily due to the source safe placement during SR1, it was not possible to de
 %%%%%%%%%%%%
 \subsection{$\alpha$ constraints}
 \par
-As was discussed in \autoref{sec:simulated_od_backgrounds} the exact rate of backgrounds from GdLS internals components is not known.
-Fortunately we are able to constrain the sum of the components. 
+As was discussed in \autoref{sec:simulated_od_backgrounds} the exact rate of backgrounds from GdLS internals components is not known as the improved purification cocktail was not assayed.
+Fortunately we are able to constrain some of the components. 
 The decays within the U and Th decay chains all have an isotope in them with a half-life shorter than the LZ event window, of 4.5 ms.
-It will therefore be possible to observe two decays from the same decay chain, which will appear as a pulse-pair (one pulse from each decay).
-There are 3 possible decays, one from decay chain ${}^{238}$U, ${}^{235}$U and ${}^{232}$Th.
+It is therefore possible to observe two decays from the same decay chain, which will appear as two pulses (one from each decay).
+There are 3 possible decays pairs for this, one from decay chain ${}^{238}$U, ${}^{235}$U and ${}^{232}$Th.
 These are summarised in \autoref{tab:od_constrainable_decays_in_data}.
 
 \begin{table}[]
@@ -145,14 +143,14 @@ These are summarised in \autoref{tab:od_constrainable_decays_in_data}.
 \end{table}
 
 \par
-The decay pairs were searched for by looking for pulses which were reconstructed to be in close temporal proximity to each other.
+The decay pairs were searched for by looking for pulses which were reconstructed to be in close spacial proximity to each other.
 As the GdLS is not circulated and the decay particles ($\beta$ and $\alpha$) do not have a significant penetrating power, the site of the two interactions will be very close to each other.
 Implementing a position requirement acts to reduce the impact of accidental coincident signals in other areas of the OD being mistakenly identified as part of the pulse pair.
-The data selection criteria used was simply requiring that the reconstructed $z$ and $\phi$ be within some range of each other: $z_{\text{diff}} < 100$ and $\phi_{\text{diff}} < 1.0$, where diff refers to the difference between pulses.
-It was also limited to pulses passing the noise-cut, primarily the PMT multiplicity (coincidence) requirements so that enough PMTs saw light to make the reconstruction meaningful.
+The data selection criteria used was simply requiring that the reconstructed $z$ and $\phi$ be within some range of each other: $z_{\text{diff}} < 25$ and $\phi_{\text{diff}} < 1.0$, where diff refers to the difference between the two pulses.
+It was also limited to pulses passing the noise-cut, ensuring that enough PMTs saw light to make the reconstruction meaningful.
 This cut is fairly loose to account for potential inefficiencies in the position reconstruction with $z$ and $\phi$ based on pulse size.
 The resultant pulse-pairs are shown in \autoref{fig:od_all_pulse_pairs_2d}.
-Only pulses above 200keV in visible energy are included in the 2D histograms as the features are easier to see.
+Only pulses above 200 keV in visible energy are included in the figure to make the features easier to see.
 
 \input{Chapters/Analysis_OuterDetector/Figures/background_constraints/od_bipo_pulses_2d}
 

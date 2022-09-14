@@ -1,10 +1,10 @@
-\begin{figure}[!htbp]
+\begin{figure}[]
     \centering
     \begin{tikzpicture}
     
     \begin{axis}[
-        xlabel=Pulse Area,
-        ylabel=Rate (Hz/5phe),
+        xlabel=Pulse Area (phd),
+        ylabel=Rate (Hz),
         width=15cm, height=10cm,
         xmin=400, xmax=3000,
         %ymax=1e-7, 
@@ -25,6 +25,7 @@
         \legend{Data, Expectation};
         \end{axis}
     \end{tikzpicture}
-    \caption{OD pulse area spectrum for high energy $\gamma$ events compared to the expected rate.}
+    \caption{OD pulse area spectrum for high energy $\gamma$ events compared to the expected rate.
+             The events observed in data between 1000 and 1800 phd are high energy $\gamma$-rays from neutron capture the iron.}
     \label{fig:od_high_energy}
 \end{figure}

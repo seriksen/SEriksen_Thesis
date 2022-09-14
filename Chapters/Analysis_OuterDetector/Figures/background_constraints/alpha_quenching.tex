@@ -17,7 +17,7 @@
         \addplot[red]
             table [x=Energy,y=Quenched]
             {Data/GdLS_Physics/Quenching/alpha.dat};
-        \addplot[black, only marks, mark size=1, 
+        \addplot[black, only marks, mark size=1, error bar legend,
                  error bars/.cd, error bar style={color=black},
                  y dir=both, y explicit,]
             table [x=energy,y=observed,y error plus index=2, y error minus index=3]

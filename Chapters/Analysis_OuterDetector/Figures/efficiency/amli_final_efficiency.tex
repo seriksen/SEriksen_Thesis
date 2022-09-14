@@ -15,10 +15,10 @@
             legend style = { column sep = 10pt, legend columns = -1,},
             legend pos=north west,
             ]
-        \addplot+[red, mark=none]
+        \addplot+[red, mark=none, forget plot]
                   table [x=bin,y=value]
                   {Data/Neutron_Efficiency/AmLi_Commissioning/pos_0_od_200kev_efficiency.dat};   
-        \addplot[red, only marks, mark size=1pt,
+        \addplot[black, only marks, mark size=1pt,
                  error bar legend,
                  error bars/.cd, error bar style={color=black},
                  y dir=both, y explicit, 
@@ -27,10 +27,10 @@
             table [x=bin,y=value, y error minus index=4, y error plus index=5, x error minus index=2, x error plus index=3,]
             {Data/Neutron_Efficiency/AmLi_Commissioning/pos_0_od_200kev_efficiency.dat};    
             
-        \addplot+[red, mark=none]
+        \addplot+[red, mark=none, forget plot]
           table [x=bin,y=value]
           {Data/Neutron_Efficiency/AmLi_Commissioning/pos_700_od_200kev_efficiency.dat};      
-        \addplot[green, 
+        \addplot[black, 
                  only marks, mark size=1pt,
                  error bar legend,
                  error bars/.cd, error bar style={color=black},
@@ -40,10 +40,10 @@
             table [x=bin,y=value, y error minus index=4, y error plus index=5, x error minus index=2, x error plus index=3,]
             {Data/Neutron_Efficiency/AmLi_Commissioning/pos_700_od_200kev_efficiency.dat};       
             
-        \addplot+[blue, mark=none]
+        \addplot+[blue, mark=none, forget plot]
           table [x=bin,y=value]
           {Data/Neutron_Efficiency/AmLi_Commissioning/pos_1400_od_200kev_efficiency.dat};         
-        \addplot[blue, 
+        \addplot[black, 
                  only marks, mark size=1pt,
                  error bar legend,
                  error bars/.cd, error bar style={color=black},

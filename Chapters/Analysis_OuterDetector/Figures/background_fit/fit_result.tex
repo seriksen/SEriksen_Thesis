@@ -12,7 +12,7 @@
             width=15cm,
             height=10cm,
             grid=major,
-            xmin=0, xmax=700,
+            xmin=20, xmax=600,
             ymin=1e-2, ymax=100,
             ymode=log,
             legend style = { column sep = 10pt, legend columns = 3, cells={line width=1.5pt}}
@@ -73,7 +73,7 @@
             width=15cm,
             height=5cm,
             grid=major,
-            xmin=0, xmax=700,
+            xmin=20, xmax=600,
             ymin=0, ymax=2,
             ]
         \addplot[only marks, mark size=1.0pt, black, error bar legend] 
@@ -81,14 +81,14 @@
             table[x=bin,y=value, y error=error]
             {Data/OD_Backgrounds/background_fit/fit_components/ratio.dat};
         
-        \addplot[black, mark=none, dashed] coordinates {(20,-1) (20,3)};
-        \addplot[black, mark=none, dashed] coordinates {(600,-1) (600,3)};
+        %\addplot[black, mark=none, dashed] coordinates {(20,-1) (20,3)};
+        %\addplot[black, mark=none, dashed] coordinates {(600,-1) (600,3)};
         
     \end{groupplot}
 \end{tikzpicture}
     \caption{Result of fit to data.
              \textbf{Top:} Contribution from each source. Only components with a contribution greater than 1 Hz have been included.
-             \textbf{Bottom:} Ratio of fit to data. The dashed lines indicate the fit region.
+             \textbf{Bottom:} Ratio of fit to data. 
              In generally there is good agreement.}
     \label{fig:od_background_fit_to_data}
 \end{figure}

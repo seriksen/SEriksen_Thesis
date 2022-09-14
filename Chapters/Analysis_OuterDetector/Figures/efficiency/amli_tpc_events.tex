@@ -12,11 +12,6 @@
             %ymin=45, ymax=100,
             %minor y tick num=1,
             ]
-            
-        \addplot[black, only marks]
-            table []
-            {Data/Neutron_Efficiency/AmLi_Commissioning/amli_s1logs2.dat};
-        
         \addplot[blue, ]
             table [x=s1c, y=mean]
             {Data/tpc/sr1_er_band.dat};     
@@ -37,10 +32,14 @@
             table [x=s1c, y=psig1]
             {Data/tpc/sr1_nr_band.dat};     
             
+        \addplot[black, only marks]
+            table []
+            {Data/Neutron_Efficiency/AmLi_Commissioning/amli_s1logs2.dat};
+            
     \end{axis}
             
 \end{tikzpicture}
-    \caption{TPC events which passed all vetoes to attain a high purification neutron recoil selection.
+    \caption{TPC events which passed all vetoes to attain a high purification of neutron recoils.
              Data points are from all three AmLi calibration positions.}
     \label{fig:amli_tpc_events}
 \end{figure}

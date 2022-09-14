@@ -3,33 +3,33 @@
 \begin{tikzpicture}
 \centering
     \begin{axis}[
-            ylabel=Rate (Hz/2keV),
+            ylabel=Rate (Hz),
             xlabel=Energy (MeV),
             width=15cm,
             height=8cm,
             grid=major,
-            xmin=0, xmax=3,
+            xmin=0.2, xmax=2.5,
             ymin=1e-4, ymode=log,]
             
-        \addplot[red, only marks, mark size=1, 
+        \addplot[red, only marks, mark size=1, error bar legend,
                  error bars/.cd, error bar style={color=black},
                  y dir=both, y explicit, ]
             table [x=energy,y=rate,y error plus index=2, y error minus index=3]
             {Data/OD_Backgrounds/background_constraints/od_bipo_first_alpha.dat};
             
-        \addplot[blue, only marks, mark size=1, 
+        \addplot[blue, only marks, mark size=1, error bar legend,
                  error bars/.cd, error bar style={color=black},
                  y dir=both, y explicit, ]
             table [x=energy,y=rate,y error plus index=2, y error minus index=3]
             {Data/OD_Backgrounds/background_constraints/od_bipo_second_alpha.dat};
         
-        \addplot[green, only marks, mark size=1, 
+        \addplot[green, only marks, mark size=1, error bar legend,
                  error bars/.cd, error bar style={color=black},
                  y dir=both, y explicit, ]
             table [x=energy,y=rate,y error plus index=2, y error minus index=3]
             {Data/OD_Backgrounds/background_constraints/od_bipo_third_alpha.dat};
         
-        \legend{${}^{219}$Rn, ${}^{215}$Po, ${}^{214}$Po}
+        \legend{${}^{219}$Rn, ${}^{215}$Po, ${}^{212}$Po}
     \end{axis}
             
 \end{tikzpicture}

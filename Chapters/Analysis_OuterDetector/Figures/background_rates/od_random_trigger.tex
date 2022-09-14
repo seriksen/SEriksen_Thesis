@@ -12,21 +12,23 @@
         legend pos=north east,
         grid=major]
             
-        \addplot[only marks, mark size=0.5pt,
-                 error bar legend,] 
-            plot[error bars/.cd, x dir=both, x explicit]
+        \addplot[black, only marks, mark size=1.0pt, error bar legend,
+                 error bars/.cd, error bar style={color=black},
+                 y dir=both, y explicit, 
+                 x dir=both, x explicit,]
             table[x=pulsearea,y=weight,x error=xerror, y error=yerror]
             {Data/OD_Backgrounds/background_constraints/od_data.dat};
         
         \addplot[red, const plot]
-            table [x=pulsearea,y=weight]
-            {Data/OD_Backgrounds/background_fit/starting_point/backgrounds_improved_purification.dat};
+            table [x=centre,y=rate]
+            {Data/OD_Backgrounds/background_fit/scaling_options/total_improved_scaling_4.77_phd.dat};
             
         \addplot[green, const plot]
-            table [x=pulsearea,y=weight]
-            {Data/OD_Backgrounds/background_fit/starting_point/backgrounds_original_purification.dat};
+            table [x=centre,y=rate]
+            {Data/OD_Backgrounds/background_fit/scaling_options/total_original_scaling_4.77_phd.dat};
         
         \legend{Data, Original purification, Improved purification};
+        
         \end{axis}
     \end{tikzpicture}
     \caption{OD pulse area spectrum from using the Random Trigger in the region. 

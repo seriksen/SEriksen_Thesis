@@ -19,17 +19,20 @@
         ymin=0, ymax=320,
         legend style = {column sep = 10pt, legend columns = -1,},
         ]
-        \addplot[red, smooth, error bar legend,
-                 error bars/.cd,
-                 y dir=both, y explicit, error bar style={color=black}] table[x=date,y=noise, y error=noise_error] {Data/OD_Backgrounds/background_rates/random_trig_rates.txt};
+        \addplot[red, smooth, forget plot] table[x=date,y=noise] {Data/OD_Backgrounds/background_rates/random_trig_rates.txt};
+        \addplot[black, only marks, mark size=1.0pt, error bar legend,
+                 error bars/.cd, error bar style={color=black},
+                 y dir=both, y explicit,] table[x=date,y=noise, y error=noise_error] {Data/OD_Backgrounds/background_rates/random_trig_rates.txt};
         \addlegendentry{Noise Cut};
-        \addplot[blue, smooth, error bar legend,
-                 error bars/.cd,
-                 y dir=both, y explicit, error bar style={color=black}] table[x=date,y=100kev, y error=200kev_error] {Data/OD_Backgrounds/background_rates/random_trig_rates.txt};
+        \addplot[blue, smooth, forget plot] table[x=date,y=noise] {Data/OD_Backgrounds/background_rates/random_trig_rates.txt};
+        \addplot[black, only marks, mark size=1.0pt, error bar legend,
+                 error bars/.cd, error bar style={color=black},
+                 y dir=both, y explicit,] table[x=date,y=100kev, y error=200kev_error] {Data/OD_Backgrounds/background_rates/random_trig_rates.txt};
         \addlegendentry{100 keV};
-        \addplot[green, smooth, error bar legend,
-                 error bars/.cd,
-                 y dir=both, y explicit, error bar style={color=black}] table[x=date,y=200kev, y error=200kev_error] {Data/OD_Backgrounds/background_rates/random_trig_rates.txt};
+        \addplot[green, smooth, forget plot] table[x=date,y=noise] {Data/OD_Backgrounds/background_rates/random_trig_rates.txt};
+        \addplot[black, only marks, mark size=1.0pt, error bar legend,
+                 error bars/.cd, error bar style={color=black},
+                 y dir=both, y explicit,] table[x=date,y=200kev, y error=200kev_error] {Data/OD_Backgrounds/background_rates/random_trig_rates.txt};
         \addlegendentry{200 keV};         
          \addplot[black, dashed] coordinates { (2021-12-23,-10)  (2021-12-23,350)};
          \node [rotate=90] at (axis cs:2021-12-26,150) {SR1 start};
@@ -39,7 +42,7 @@
         \end{axis}
     \end{tikzpicture}
     \caption{Rate in OD during and before SR1 data taking on a week-by-week basis using the Random Trigger.
-             The SR1 boundary is also shown which ran from 23-12-2021 to 18-04-2022. The gap in data during SR1 was due to a calibration campaign during which different trigger configurations were use, which did not include the Random Trigger.}
+             The SR1 boundary is also shown which ran from 23-12-2021 to 18-04-2022. The gap in data during SR1 was due to a calibration campaign during which different trigger configurations were used, which did not include the Random Trigger.}
     \label{fig:OD_SR1_Rate}
 \end{figure}
 

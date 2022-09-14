@@ -1,21 +1,26 @@
-\section{OD Energy Scale} \label{sec:od_energy_scale}
+\section{OD data preparation and correction of simulations}
+
+\subsection{OD Energy Scale} \label{sec:od_energy_scale}
 \par
 After construction and filling of the OD, the single photoelectron response for each PMT was determined using the OD optical calibration system (OCS) \cite{lz_ocs_system_ref}.
-A detailed description of the PMT monitoring during commissioning and SR1 can be found in the works of E. Fraser \cite{ewanfraser_thesis_ref}. 
+A detailed description of the PMT monitoring during commissioning and the first science run (SR1) can be found in the works of E. Fraser \cite{ewanfraser_thesis_ref}. 
 During this period, an energy calibration of the OD was also performed.
 Again, details of the methodology are the work of E. Fraser \cite{ewanfraser_thesis_ref} but summarised below, as the result is used throughout this chapter.
 \par
 For the energy calibration, 7 $\gamma$ sources were used which are summarised in \autoref{tab:od_energy_calibration_sources}.
-Each were lowered into the CSD's to the 700mm level (see \autoref{fig:CSD1_Geometry}).
+Each were lowered into a single CSD to the 700 mm level (see \autoref{fig:CSD1_Geometry}).
 The signals from these $\gamma$s were picked out giving 7 data points for a conversion between signal size and $\gamma$ energy.
 As discussed in \autoref{sec:od_physics}, there is a non-linear energy response in the scintillator, and therefore a non-linear energy scale below 300 keV.
-The empirical formula for the non-linearity developed by DayaBay \cite{dayabay_antineutrino_oscillation_ref, ls_nonlinear_energy_response_ref}, shown in \autoref{eq:ls_light_response}, was used to fit to these calibration points:
+The empirical formula which describes this non-linearity, developed by DayaBay \cite{dayabay_antineutrino_oscillation_ref, ls_nonlinear_energy_response_ref}, is given by:
 \begin{equation}
     \frac{E_{vis}}{E_{true}} = \frac{p_0  + p_3 \times E_{true}}{1 + p_1 \times e^{p_2 \times E_{true}}}
     \label{eq:ls_light_response}
 \end{equation}
-This equation was then used to fit the 7 data points which is shown in \autoref{fig:od_energy_scale}.
-This then gives a translation from signal size to energy for any signal, and importantly for the OD veto, a value in phd for 100 keV and 200 keV events.
+where $E_{true}$ is a amount of energy deposited, $E_{vis}$ is the amount of energy observed and $p_0$, $p_1$ and $p_3$ are constants.
+
+\par
+\autoref{eq:ls_light_response} was used to fit the 7 data points which is shown in \autoref{fig:od_energy_scale}.
+This then gives a translation from signal size to energy for any signal, and importantly for the OD veto, a value in photons detected (phd) for 100 keV and 200 keV events.
 The amount of light observed by the LZ OD is in line with other LAB-based experiments as can be seen in \autoref{tab:od_phe_per_mev_comparison}.
 \begin{table}[]%
     \centering
@@ -51,31 +56,33 @@ The amount of light observed by the LZ OD is in line with other LAB-based experi
     \label{tab:od_phe_per_mev_comparison}
 \end{table}
 
-\subsection{Energy Uncertainty}
+\subsubsection{Energy Uncertainty}
 \par
-One key drawback of the energy calibration approach used here is that only a single location was used, in detector $z$-axis.
+One of the largest drawbacks of the energy calibration approach used here is that only a single location was used, in detector $z$-axis.
 Therefore the variation in light collection efficiency in the OD is not taken into account (see \autoref{fig:od_lce}), and so energy deposits in other locations in the GdLS would be reconstructed with incorrect energies.
-This is tested in the following sections and appears to be insignificant as other factors are more important.
+This is tested in the following sections and luckily appears to be insignificant as other factors are more important.
+\par
+Due to error propagation from PMT single photoelectron calibrations there is $\backsim$7\% error on both the energy scale and pulse area values \cite{ewanfraser_thesis_ref}.
 
 
 \subsection{PMT Noise}
 \par
-The waveforms from PMTs in the OD occasionally displayed erratic behaviour such as that shown in \autoref{fig:noise_od_waveform}.
+The waveforms from PMTs in the OD occasionally displayed erratic behaviour such as is shown in \autoref{fig:od_noise_cut_waveforms}.
 This was tracked down to a grounding issue, which occasionally caused high energy pulses with large PMT multiplicities.
 During this high noise period no physical OD event can be made out from the noise.
-Included as well is a waveform from during a quiet period of data taking showing the expected behaviour.
-
-\input{Chapters/Analysis_OuterDetector/Figures/od_noise_cut}
-
+Included as well are waveforms from during a quiet period of data taking showing the regular behaviour.
 \par
 Within the pulse parameters it is fairly easy to pick out these noisy moments as can be seen in \autoref{fig:od_noise_cut}.
-The central distribution with a pulse amplitude to pulse area of 0.01 correspond to a regular PMT response and are the physics signals.
+The central distribution with a pulse amplitude over pulse area of 0.01 corresponds to a regular PMT response and represents a physics signals.
 There are then two other distributions.
-The population with a amplitude to area pulse ratio of 0.05 are the noise events from grounding.
-The other population begin above a ratio of 0.15 but as the area increases the ratio drops, until at 400 phd the ratio is zero and can originate from the same behaviour.
-In order to remove these pulses from any analysis, a noise cut was developed to remove this based upon the pulse shape, requiring that a large portion of the pulse integral be within 100 ns of the pulse starting.
+The population with a amplitude to area pulse ratio of 0.005 are the noise events from grounding.
+The other population begin above a ratio of 0.015 but as the area increases the ratio drops, until at 400 phd the ratio is zero and can originate from the same behaviour but is usually noise isolated to a single PMT.
+In order to remove these pulses from any analysis, a noise cut was developed to remove these based upon the pulse shape, requiring that a large portion of the pulse integral be within 100 ns of the pulse starting.
 Combined with a PMT multiplicity requirement of 5, PMT after-pulsing and dark counts are also removed.
 This combined selection is used throughout this chapter being referred to as the ``noise cut".
+
+
+\input{Chapters/Analysis_OuterDetector/Figures/od_noise_cut}
 
 %%%%%%%%%%%%%%
 \subsection{Comparison to Simulations}
@@ -83,33 +90,33 @@ This combined selection is used throughout this chapter being referred to as the
 
 When data and simulations were first compared, it became obvious that the light modelling in the OD was significantly different to reality.
 In \autoref{fig:od_sim_vs_data_raw} a comparison between the expected OD backgrounds and the observed background spectra are shown for two parameters: pulse area and PMT multiplicity.
+The pulse area is measured in photons detected (phd) and is derived from the single photoelectron calibrations.
 In the pulse area, the simulated pulse area is significantly lower than is observed in data.
 Around 50\% of this difference can be accounted for by a mismatch between the PMT gains simulated against those in the reconstruction database.
 This results in smaller simulated pulses but it is just a linear scaling.
-However when we look at the pulse multiplicity (how many PMTs saw light in that pulse) the is also a mis-match.
+However when we look at the pulse multiplicity (how many PMTs saw light in that pulse) there is also a mis-match.
 This is more significant as it indicates that the light propagation within the simulation is incorrect.
-In fact it would indicate that the light collection efficiency is twice what is currently simulated (\autoref{fig:od_lce}).
+In fact it would indicate that the light collection efficiency (LCE) is twice what is currently simulated (when compared to \autoref{fig:od_lce}).
 
 \input{Chapters/Analysis_OuterDetector/Figures/background_fit/data_vs_simulation_raw}
 
 \par
 Despite this difference there are a number of ways in which data and simulations can be compared.
-The simplest approach is to assume that all physics is correct in the simulation and the discrepancy can be accounted for entirely by incorrect linear scaling in the simulated PMT response.
-An alternative approach to comparing simulations to data would be to translate phd into energy for both simulations and data, though generally the less manipulation that is performed on data the better.
+The simplest approach is to assume that all of the physics is correct in the simulation and the discrepancy can be accounted for entirely by an incorrect linear scaling in the simulated PMT response.
+An alternative approach to compare simulations to data would be to translate phd into energy for both simulations and data, though generally the less manipulation that is performed on data the better.
 Both of these approach allow for the signal sizes to be compared whilst ignoring the underlying difference in light propagation.
 
 \par
 In order to determine the factor needed to scale the simulations to observations, two reference decays were compared.
-The first was from ${}^{208}$Tl.
-${}^{202}$Tl appears in the ${}^{232}$Th decay chain (\autoref{fig:decay_chains}) and has a prominent 2.6 MeV $\gamma$.
-During the OD energy calibration, ${}^{228}$Th was used (which is also part of the chain).
-The second is from ${}^{152}$Gd, a 2.2 MeV $\alpha$-decay.
+The first was from ${}^{208}$Tl which appears in the ${}^{232}$Th decay chain (shown in \autoref{fig:decay_chains}) and has a prominent 2.6 MeV $\gamma$ \cite{radon_chains_ref}.
+During the OD energy calibration, ${}^{228}$Th was used (which is also part of the decay chain).
+The second is from the 2.2 MeV $\alpha$-decay of ${}^{152}$Gd.
 As this decay is internal to the GdLS it is spread throughout the acrylic tanks and is always present in the OD background spectrum.
-As $\alpha$s are so heavily quenched in the GdLS, the visible energy is in the non-linear region of the energy scale.
+As $\alpha$s are heavily quenched in the GdLS, the visible energy is in the non-linear region of the energy scale.
 
 \par
 Full-model simulations were performed of ${}^{228}$Th decays in CSD-1 at 700 mm (\autoref{fig:CSD1_Geometry}) to match the calibrations.
-The 2.6 MeV $\gamma$ is the dominant decay which is able to escape the CSD and enter the OD, making it easy to pick out which feature corresponds to pulse area.
+The 2.6 MeV $\gamma$ is the dominant decay which is able to escape the CSD and enter the OD, making it the largest feature in data.
 Similarly, simulations of ${}^{152}$Gd were performed with the decays spread throughout the GdLS.
 As only a single source was simulated a single peak is present in the pulse area distribution.
 In data as the distribution is so low in energy is appears as a shoulder because of other backgrounds being present.
@@ -123,14 +130,15 @@ There are a number of possible reasons for this difference.
 In the case of ${}^{152}$Gd, there is another $\alpha$-decaying contaminant in the GdLS: ${}^{147}$Sm \cite{scotthaselschwardt_thesis_ref}.
 ${}^{147}$Sm decays emitting an $\alpha$ of of 2.3 MeV, however once quenching has been taken into account the difference in the observed energy will be negligible.
 The other decay limited to that region is ${}^{14}$C, a $\beta$ decay with an endpoint of 156.5 keV, overlapping with ${}^{152}$Gd.
-The decay as well as low energy $\gamma$ events are likely the cause of the spread.
+There are also low energy cavern-$\gamma$ events which are likely to cause some spread skewing in this region.
 The ${}^{152}$Gd value will also have some variation due to position, smearing out the shoulder.
+Additionally as ${}^{152}$Gd appears in the non-linear response area that may also contribute to the difference as simulating the complex absorption and reemission of photons in the LS is difficult \cite{ls_nonlinear_energy_response_ref}.
 %The ${}^{152}$Gd value is most likely being heavily influenced by its proximity to the high rate of very low energy events.
 
 \par
 For a full background model (described in the previous chapter), a range of scaling factors were compared against the observation.
 These are shown in \autoref{fig:od_sim_vs_data_scaling_options}.
-Of the four which were tried, the scaling factor of 4.77 proved to be the closest match visually via features and so was taken as the value to use.
+Of the four which were tried, the scaling factor of 4.54 proved to be the closest match visually via features and so was taken as the value to use.
 This approach has some significant uncertainty, which will become apparent later in the next section where the backgrounds are studied.
 
 

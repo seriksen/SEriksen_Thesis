@@ -11,8 +11,8 @@
             xmin=0, xmax=700,
             ymin=1e-4, ymode=log,]
             
-        \addplot[only marks, mark size=1.0pt] 
-            plot[error bars/.cd, x dir=both, x explicit]
+        \addplot[only marks, mark size=1.0pt, error bar legend] 
+            plot[error bars/.cd, x dir=both, x explicit, y dir=both, y explicit]
             table[x=pulsearea,y=weight,x error=xerror, y error=yerror]
             {Data/OD_Backgrounds/background_constraints/od_data.dat};
             
@@ -21,7 +21,7 @@
             {Data/OD_Backgrounds/background_fit/scaling_options/total_improved_scaling_4.37_phd.dat};
         \addplot[green, const plot]
             table [x=centre,y=rate]
-            {Data/OD_Backgrounds/background_fit/scaling_options/total_improved_scaling_4.5_phd.dat};
+            {Data/OD_Backgrounds/background_fit/scaling_options/total_improved_scaling_4.54_phd.dat};
         \addplot[blue, const plot]
             table [x=centre,y=rate]
             {Data/OD_Backgrounds/background_fit/scaling_options/total_improved_scaling_4.77_phd.dat};

@@ -3,15 +3,15 @@
 \par
 Using the aforementioned energy scale, noise cut, and scaling factor, in this section the background rate in the OD is measured and attempts are made to understand the features observed in data.
 \par
-In \autoref{fig:od_random_trigger} a comparison between the observed events in the OD during the entirety of SR1 and those expected are shown from the Random Trigger (described in \autoref{sec:lz_detector}).
-The expected rates are those described in \autoref{sec:simulated_od_requirements} and were simulated using the full model chain with the resultant pulse areas scaled by factor 4.77 determined in the previous section.
-Both data and simulations were handled by the same analysis tools, with the noise cut applied to both.
+In \autoref{fig:od_random_trigger} a comparison between the observed events in the OD during the entirety of the first science run (SR1) and those expected are shown from the Random Trigger (described in \autoref{sec:lz_detector}).
+The expected rates are those described in \autoref{sec:simulated_od_requirements} and were simulated using the full model chain (described in \autoref{sec:lz_detector}) with the resultant pulse areas scaled by a factor 4.54.
+Both data and simulations were handled by the same analysis tools, with the noise cut applied.
 Included as well in \autoref{fig:od_random_trigger} is the expected rate in the OD if the GdLS had not undergone an improved purification.
 All three distributions are normalised to exposure.
 Neither the improved purification or the original purification fits what is observed particularly well.
-More worryingly there is a peak in the data at 100 phd which does is not in either of the expected distributions.
+More worryingly there is a peak in the data at 100 phd which does is not present in either of the expected distributions.
 \par
-In the remainder of this section, an effort is made to understand what is observed and why it is different to what was expected.
+In the remainder of this section, an effort is made to understand what is observed and why it is different to what was expected from radioassays and simulations.
 
 \input{Chapters/Analysis_OuterDetector/Figures/background_rates/od_random_trigger}
 
@@ -19,18 +19,17 @@ In the remainder of this section, an effort is made to understand what is observ
 \subsection{Rate Stability}
 \par
 To begin the journey of understanding what is in the data, the first check performed was to observe if the rate and distribution of backgrounds were stable over time.
-The OD was filled in June 2021, but between then and around the start of the first science run (SR1) in December 2021 the electronics of the detector electronic parameters were being altered during a commissioning phase.
-As such, an OD background rate measurement is most reliable during SR1.
+The OD was filled in June 2021, but between then and around the start of SR1 in December 2021 the detector electronic parameters were being continuously altered during a commissioning phase.
+As such, an OD background rate measurement only became stable around and during SR1.
 A weekly monitoring of the OD events starting from a month before the beginning of SR1 until the end was performed using the Random Trigger (described in \autoref{sec:lz_detector}.
 The rate of events above the noise-cut, 100 keV and 200 keV were measured and are shown in \autoref{fig:OD_SR1_Rate}.
-The noise-cut was applied as a base-cut, so the 100 keV is made up of the the noise-cut plus a pulse area (measured in photons detected or phd) cut, and similarly for 200 keV.
-The three gaps in the data are when a calibrations were being performed.
+The noise-cut was applied as a base-cut, so the 100 keV is made up of the the noise-cut plus a pulse area cut, and similarly for 200 keV.
+The three gaps in the data are when calibrations were being performed.
 This occurred three times in the region shown: just before SR1, 4 weeks into SR1, and straight after SR1.
 \par
-There are minor fluctuations in the noise-cut rate, but these are linked to a xenon chiller and consistent with a grounding failure, thus the behaviour is not mirrored in the 100 keV or 200 keV rates.
-Importantly, over this period the OD rate remains stable, with no features in the observed distribution changing during that time.
-Therefore what was shown in \autoref{fig:od_random_trigger} is the considered representative of the backgrounds in the OD.
-
+There are minor fluctuations in the noise-cut rate, but these are linked to a xenon chiller and consistent with a grounding failure.
+Importantly, over this period the OD rate remains stable, with no features in the observed pulse area distribution changing during that time.
+Therefore what was shown in \autoref{fig:od_random_trigger} is considered representative of the backgrounds in the OD.
 \par
 Viewing the rate in a slightly different way, the rate-per-phd for the SR1 period is shown in \autoref{fig:od_sr1_rate_vs_threshold}.
 Overlaid is the expected rate of backgrounds from \autoref{tab:od_expected_rates} for 100 and 200 keV.
@@ -38,6 +37,7 @@ Interestingly the rate above 100 keV is in fairly good agreement with what was p
 This is consistent with being able to set the veto energy threshold to 100 keV, assuming that achieves an appropriate veto efficiency.
 However differences arise at the 200 keV level, where the expected is 62.7$\pm$5.3 Hz were as the observed is 42.5$\pm$2.1 Hz, a fairly significant difference.
 This indicates the there are fewer backgrounds in the OD than expected, and therefore a veto energy threshold of 200 keV would have a lower false veto rate than expected by simulations for any veto time window.
+This is consistent with the result from full chain simulations, but the background components which make up the distribution is clearly different.
 
 \input{Chapters/Analysis_OuterDetector/Figures/background_rates/od_sr1_background_rate}
 

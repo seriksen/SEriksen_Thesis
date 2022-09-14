@@ -17,8 +17,10 @@
             ymode=log,
             legend style = { column sep = 10pt, legend columns = 3, cells={line width=1.5pt}}
             ]
-        \addplot[only marks, mark size=1.0pt, black, error bar legend] 
-            plot[error bars/.cd, x dir=both, x explicit, ]%y dir=both, y explicit, ]
+        \addplot[black, only marks, mark size=1.0pt, error bar legend,
+                 error bars/.cd, error bar style={color=black},
+                 y dir=both, y explicit, 
+                 x dir=both, x explicit,] 
             table[x=pulsearea,y=weight,x error=xerror, y error=yerror]
             {Data/OD_Backgrounds/background_constraints/od_data.dat};
         \addlegendentry{data};

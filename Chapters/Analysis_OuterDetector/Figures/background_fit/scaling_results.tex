@@ -15,7 +15,7 @@
             ymode=log,
             ]
             
-        \addplot[red, only marks, mark size=1, 
+        \addplot[black, only marks, mark size=1.0pt, error bar legend,
                  error bars/.cd, error bar style={color=black},
                  y dir=both, y explicit, 
                  x dir=both, x explicit,
@@ -23,11 +23,7 @@
             table [x=pulsearea,y=weight,
             y error=yerror, x error=xerror]
             {Data/OD_Energy_Scale/gd152_data.dat};
-        \addplot[black, only marks, mark size=1, 
-                 error bars/.cd, error bar style={color=black},
-                 y dir=both, y explicit, 
-                 x dir=both, x explicit,
-                 ]
+        \addplot[red, const plot]
             table [x=pulsearea,y=weight,
             y error=yerror, x error=xerror]
             {Data/OD_Energy_Scale/gd152_sims.dat};            
@@ -42,7 +38,7 @@
             ymin=1e-2, ymax=10,
             ymode=log,
             ]
-        \addplot[red, only marks, mark size=1, 
+        \addplot[black, only marks, mark size=1.0pt, error bar legend,
                  error bars/.cd, error bar style={color=black},
                  y dir=both, y explicit, 
                  x dir=both, x explicit,
@@ -50,11 +46,7 @@
             table [x=pulsearea,y=weight,
             y error=yerror, x error=xerror]
             {Data/OD_Energy_Scale/tl208_data.dat};
-        \addplot[black, only marks, mark size=1, 
-                 error bars/.cd, error bar style={color=black},
-                 y dir=both, y explicit, 
-                 x dir=both, x explicit,
-                 ]
+        \addplot[red, const plot ]
             table [x=pulsearea,y=weight,
             y error=yerror, x error=xerror]
             {Data/OD_Energy_Scale/tl208_sims.dat};
@@ -65,7 +57,7 @@
     \caption{Scaling points to compare simulations to observations in pulse area.
     The observed values are shown in black and the simulation in red.
     \textbf{Top}: ${}^{152}$Gd from simulation and data.
-    \textbf{Top}: ${}^{208}$Tl from simulation and data.
+    \textbf{Bottom}: ${}^{208}$Tl from simulation and data.
     Each distribution has been normalised to the peak bin of the distribution of interest.}
     \label{fig:od_scaling_points}
 \end{figure}

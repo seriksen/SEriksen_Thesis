@@ -6,7 +6,7 @@
     group style = {group size = 1 by 2,vertical sep=2.0cm}
     ]
     \nextgroupplot[
-            ylabel=Rate (Hz/5phd),
+            ylabel=Rate (Hz),
             xlabel=Pulse Area (phd),
             width=15cm,
             height=8cm,
@@ -15,8 +15,8 @@
             ymin=1e-2, ymax=100,
             ymode=log,
             ]
-        \addplot[only marks, mark size=1.0pt] 
-            plot[error bars/.cd, x dir=both, x explicit]
+        \addplot[only marks, mark size=1.0pt, error bar legend] 
+            plot[error bars/.cd, x dir=both, x explicit, y dir=both, y explicit,]
             table[x=pulsearea,y=weight,x error=xerror, y error=yerror]
             {Data/OD_Backgrounds/background_constraints/od_data.dat};
         \addplot[red, const plot]
@@ -35,7 +35,7 @@
             %ymin=1e-2, ymax=50,
             ymode=log,
             ]
-        \addplot[black, only marks, mark size=0.5, 
+        \addplot[black, only marks, mark size=1.0pt, error bar legend,
                  error bars/.cd, error bar style={color=black},
                  y dir=both, y explicit, 
                  x dir=both, x explicit,

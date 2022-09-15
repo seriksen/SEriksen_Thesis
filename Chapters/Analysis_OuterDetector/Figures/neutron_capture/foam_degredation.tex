@@ -13,13 +13,13 @@
             %ymin=45, ymax=100,
             %minor y tick num=1,
             ]
-        \addplot[green, only marks,
+        \addplot[green, only marks,error bar legend,
                  error bars/.cd, error bar style={color=black},
                  y dir=both, y explicit, 
                  ]
             table [x=time,y=di,y error=error]
             {Data/cf252/foam_in_di_water.dat}; 
-        \addplot[blue, only marks,
+        \addplot[blue, only marks,error bar legend,
                  error bars/.cd, error bar style={color=black},
                  y dir=both, y explicit, 
                  ]

@@ -31,22 +31,23 @@ $\boldsymbol{\nu}$ are a set of nuisance parameters in each model which are the 
 The parameters with hats are allowed to float to maximise the likelihood.
 The difference between the single and double hat nuisance parameters is to take into account that the values of the nuisance parameters which maximise the likelihood when $\mu$ is fixed are not the same as those which maximise the likelihood when $\mu$ can float.
 \par
-An unbinned likelihood has been used in the analyses in this chapter.
-They are constructed from PDFs of the signal and backgrounds which are functions of a number of observable parameters, $\boldsymbol{x}_e$ and is defined as:
+An unbinned likelihood has been used in the analyses in this chapter, which contains both signal and background components, defined as:
 \begin{equation}
 \begin{split}
-    \mathcal{L}(\mu_s,\boldsymbol{\nu}) =& \text{Pois} \bigg(N_0 | \mu_s + \sum^{N_b}_{b=1}\bigg) \\
-                                         & \times \prod^{N_0}_{e=1} \frac{1}{\mu_s + \sum^{N_b}_{b=1}} \bigg( \mu_s f_s (\boldsymbol{x}_e) + \sum^{N_b}_{b=1} \mu_b f_b(\boldsymbol{x}_e) \bigg) \\
+    \mathcal{L}(\mu_s,\boldsymbol{\nu}) =& \text{Pois} \bigg(N_0 | \mu_s + \sum^{N_b}_{b=1} \mu_b \bigg) \\
+                                         & \times \prod^{N_0}_{e=1} \frac{1}{\mu_s + \sum^{N_b}_{b=1} \mu_b} \bigg( \mu_s f_s (\boldsymbol{x}_e) + \sum^{N_b}_{b=1} \mu_b f_b(\boldsymbol{x}_e) \bigg) \\
                                          & \times \prod^{N_b}_{b=1} f_b(\mu_b | a_b)
 \end{split}
 \end{equation}
-where $N_b$ is the total number of background components considered in the analysis, $\mu_s$ and $\mu_b$ are the levels of the signal and background respectively. 
+In the above equation, $N_b$ is the total number of background components considered in the analysis, and $\mu_s$ and $\mu_b$ are the levels of the signal and background, respectively. 
+$f_s(\boldsymbol{x}_e)$ and $f_b(\boldsymbol{x}_e)$ are functions of the observable parameters,  $\boldsymbol{x}_e$, which describing the components signal and background components.
+$f_b(\mu_b | a_b)$ are constraint functions on the rate of each background.
+Generally, these are Gaussian distributions, the width of which is defined by the uncertainty of the backgrounds.
 $e$ represents running over each event in the data set of size $N_0$.
+
 \par
 For both analyses, only two observables are considered \{$S1_c,\text{log}_{10}(S2_c)$\}.
 As such the signal and background PDFs are 2-dimensional, constructed from \{$S1_c,\text{log}_{10}(S2_c)$\} only.
-
-\par
 The codebase used which runs the PLR, \textit{LZStats}, was developed primarily by I. Olicina using \textit{RooStats} \cite{roostats_ref}.
 Details of the code can be found in his thesis \cite{LZ_Ibles_LZStats_Thesis_ref}.
 

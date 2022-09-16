@@ -6,16 +6,15 @@ As WIMPs travel at relative non-relativistic speeds, the recoil energy of the nu
     E_{R} = \frac{{\mu}_{N}^{2}\nu_{\chi}^2}{m_{N}}(1-\cos(\theta))
 \end{equation}
 \fi
-Direct detectors are comprised of a comprised of a large quantity of nucleons, N$_T$, which a WIMP may scatter on.
-The rate of these WIMP scatters interactions, $R$, in any detectors is given by:
+Direct dark matter detectors are built on the principle of having a large mass of material on which a WIMP can scatter \cite{direct_detection_of_wimps_ref}.
+Within a detector, the rate of these WIMP scatters interactions, $R$, is given by:
 \begin{equation}
     R = \sigma N_{T} n_{\chi} \langle v \rangle
     \label{eq:wimp_nucleon_rate}
 \end{equation}
-where $n_\chi$ is the number density of dark matter particles travelling with an average speed $\langle v \rangle$ relative to the target.
-$\sigma$ is the interaction cross section, representing the fraction of particles that will interact.
+where N$_{T}$ is the number of nucleons in the detector, $n_\chi$ is the number density of dark matter particles travelling with an average speed $\langle v \rangle$ relative to the target, and $\sigma$ is the interaction cross-section, representing the interaction strength between the dark matter and the nucleon.
 \par
-Given that each direct detector is sensitive to different recoil energies depending upon the design, it is beneficial to describe the event rate in an energy region, as the differential event rate per unit detector mass with respect to recoil energy:
+Given that each direct detector is sensitive to different recoil energies depending upon the design, it is beneficial to describe the event rate in an energy region as the differential scattering rate with respect to recoil energy \cite{supersymetry_wimpy_boi_ref}:
 \begin{equation}
 \begin{split}
     \frac{dR}{dE_R} &= \frac{\rho_{\chi}}{m_\chi m_N} \int^{\infty}_{v_{min}} v f(\vec{v}) \frac{d\sigma}{dE_R} d\vec{v} \\
@@ -23,31 +22,30 @@ Given that each direct detector is sensitive to different recoil energies depend
 \end{split}
 \label{eq:wimp_differential_rate}
 \end{equation}
-where we now have our dark matter velocity distribution $f(\vec{v})$ in the galactic halo.
-$q$ is the momentum transfer associated with the recoil given by $q = \sqrt{2m_A E_R}$ and $v_{min}$ is the minimum velocity for our dark matter to induce a recoil of energy $E_R$, so is a detector specific limit given by $v_{min} = \sqrt{(m_A E_R)/(2\mu^2)}$ where $\mu^2 = (m_\chi m_A)/(m_\chi + m_A)$ the WIMP-nucleon reduced mass.
-$\rho_{\chi}$ is the dark matter density.
+where $f(\vec{v})$ is the dark matter velocity distribution in the galactic halo, $\rho_{\chi}$ is the dark matter density, $q$ is the momentum transfer associated with the recoil given by $q = \sqrt{2m_A E_R}$ and $v_{min}$ is the minimum velocity of dark matter to induce a recoil of energy $E_R$.
+It is therefore a detector specific limit given by $v_{min} = \sqrt{(m_A E_R)/(2\mu^2)}$ where $\mu^2 = (m_\chi m_A)/(m_\chi + m_A)$ the WIMP-nucleon reduced mass.
 \par 
-We can relate the differential cross section with respect the momentum transfer to the scattering amplitude, $\mathcal{M}$, using Fermi's Golden Rule:
+We can relate the differential cross section with respect to the momentum transfer to the scattering amplitude, $\mathcal{M}$, using Fermi's Golden Rule:
 \begin{equation}
     \frac{d\sigma}{d|q|^2} = \frac{1}{\pi v^2} |\mathcal{M}|^2
     \label{eq:fermi_golden_rule_for_cross_section}
 \end{equation}
-Substituting this into \autoref{eq:wimp_differential_rate} to get the rate: 
+Substituting this into \autoref{eq:wimp_differential_rate} we obtain the differential rate: 
 \begin{equation}
     \frac{dR}{dE_R} = \frac{2\rho_{\chi}}{\pi m_{\chi} v^2} \int_{v_{min}} \frac{f(\vec{v})}{v} | \mathcal{M} |^2 d^3v
     \label{eq:wimp_differential_rate_scattering_amplitude}
 \end{equation}
 \par
 We are able to control the detector size and target properties (within reason).
-This leaves us with two parameters, outside of our direct control, but which we need to constrain in order to determine an expected rate in any given detector: the dark matter distribution, and the scattering amplitude.
+This leaves us with two parameters outside of our direct control but which we need to constrain in order to determine an expected rate in any given detector: the dark matter velocity distribution and the WIMP-nucleon scattering amplitude.
 
 \subsection{Local Astrophysical Dark Matter Properties}
 \par
-Within our dark matter model, two parameters are present: the velocity distribution and the density.
-Both of which have enough uncertainty to significantly impact upon the sensitivity of any direct detection experiment \cite{local_dm_uncertainties_ref}.
+The standard dark matter model has two parameters that need to be determined experimentally: the velocity distribution and the density. 
+Both have sufficient uncertainties to significantly impact the sensitivity of any direct detection experiment \cite{local_dm_uncertainties_ref}.
 \par
 The local dark matter density has long been studied, with the earliest references from 1922 \cite{first_dm_density_1_ref, first_dm_density_2_ref}.
-Since then many measurements have be done which constrain $\rho_{\chi}$.
+Since then, many measurements have been done which constrain $\rho_{\chi}$.
 These fall into two categories: galactic measurements and local measurements \cite{dm_density_ref}.
 Galactic measurements derive $\rho_{\chi}$ from rotation curves, which does not require the assumption of a galactic halo.
 Local measurements typically observe tracer star motion near the Sun \cite{gaia_tracer_dm_density_ref}.
@@ -55,47 +53,56 @@ Naturally there is variation in these two approaches where the galactic measures
 Prior to the second data release of Gaia, the best-fit of all the studies lay in the range 0.22-0.33 GeV/cm$^3$, as such $\rho_{\chi}$ has typically been taken to be 0.3 GeV/cm$^3$.
 This may change in the coming years as the current best-fit from Gaia studies suggest $\rho_{\chi}=0.5$ GeV/cm$^{3}$ \cite{gaia_dm_density_1_ref}.
 \par
-With regards to the velocity distribution, there are a number of models that are often used in experiments.
-Including simple isotropic models, isothermal sphere dark matter and the Standard Halo Model (SHM).
-We shall only consider the SHM here as it is the most common choice, and the reader is directed towards \cite{dm_velocity_isothermal_ref} and \cite{dm_velocity_shm_ref} for a more  discussion and derivations.
+With regard to the velocity distribution, there are a number of models that are often used. 
+Including simple isotropic models \cite{isotropic_dark_matter_models_ref}, isothermal sphere dark matter \cite{dm_velocity_isothermal_ref} and the Standard Halo Model (SHM) \cite{dm_velocity_shm_ref}. 
+We shall only consider the SHM here as it is the most common choice \cite{dark_matter_distribution_models_ref}.
 \par
-In the SHM, a Maxwell-Boltzmann velocity distribution is assumed which is truncated at the escape velocity ($v_{esc}$) of the Milky Way.
+In the SHM, a Maxwell-Boltzmann velocity distribution is assumed, which is truncated at the escape velocity ($v_{\text{esc}}$) of the Milky Way \cite{direct_dark_matter_of_wimps_concepts_ref}.
 This constrains the dark matter to be within the galaxy.
-The SHM also assumes the distribution of the dark matter is isotropic and spherically symmetrically distributed in the galaxy\footnote{This is not strictly true, and there are newer models referred to as SHM$^{++}$ which try and account for this, but they are not considered here \cite{extended_shm_ref}}.
-The velocity distribution within this framework can then be define written as \cite{shm_derivation_ref}:
+The SHM also assumes dark matter is isotropic and spherically symmetrically distributed in the galaxy\footnote{The distribution is not perfectly symmetrical, and there are newer models referred to as SHM$^{++}$ which try and account for this, but they are not considered here \cite{extended_shm_ref}}.
+The velocity distribution of dark matter within the Milky Way halo in the Earth frame is approximated as \cite{direct_dark_matter_of_wimps_concepts_ref, shm_derivation_ref}:
 \begin{equation}
- f(\vec{v}) = \frac{1}{(2\pi\sigma^2_{v})^{\frac{3}{2}}N_{esc}} e^{\frac{- |\vec{v}|^2}{2\sigma^2_v}} \Theta(v_{esc} - |\vec{v}|)
-\label{eq:shm_velocity_1}
+    f(\vec{v}) = \frac{1}{k} e^{\frac{- (\vec{v} - \vec{v}_E)^2 }{ v^2_0} }
+    \label{eq:shm_short_equation}
 \end{equation}
-where $\Theta$ is a Heaviside step function and $\sigma_v$ is the velocity dispersion.
+where $\vec{v}$ is the velocity of the dark matter with respect to the Earth, $\vec{v}_E$ is the velocity of the Earth around the centre of the galaxy and $\vec{v}_0$ is the peculiar velocity of the Sun relative to its circular velocity. 
+\autoref{eq:shm_short_equation} is only valid for when $|\vec{v} + \vec{v}_E| < v_{\text{esc}}$.
 
+
+%\begin{equation}
+% f(\vec{v}) = \frac{1}{(2\pi\sigma^2_{v})^{\frac{3}{2}}N_{esc}} e^{\frac{- |\vec{v}|^2}{2\sigma^2_v}} \Theta(v_{esc} - |\vec{v}|)
+%\label{eq:shm_velocity_1}
+%\end{equation}
+%where $\Theta$ is a Heaviside step function, $\sigma_v$ is the velocity dispersion, and .
+%
+%\par
+%The dark matter velocity distribution which was used in \autoref{eq:wimp_differential_rate_scattering_amplitude} was normalised such that $\int f(\vec{v}) dv = 1$.
+%As such we need to renormalise \autoref{eq:shm_velocity_1} to allow for the integral of $\sigma_{v}$ to be unitary as well.
+%We do this by:
+%\begin{equation}
+%    N_{esc} = erf(z) - 2z e^\frac{-z^2}{\pi^{\frac{1}{2}}}
+%\end{equation}
+%where erf is the error function (given by $\text{erf}(z) = 2/\sqrt{\pi}\int^{z}_{0} e^{-t^2} dt$) and $z=v_{esc}/v_0$.
+%We also need to define two other variables: $x=v_{min}/v_{0}$ and $y=|V_E|/v_0$ where $|V_E|$ is the velocity of the Earth with respect to the dark matter halo.
+%Using these we can define our integral as \cite{shm_derivation_ref}:
+%\begin{equation}
+%\begin{split}
+% \int \frac{f(\vec{v})}{v} = 
+%\begin{dcases}
+%\frac{1}{v_0 y}  & \text{if}\; z<y,x<|y-z| \\
+%\frac{1}{2N_{esc} v_{0}y} \bigg[\text{erf}(x+y) - \text{erf}(x-y) - \frac{4}{\sqrt{\pi}}ye^{-z^2} \bigg] & \text{if}\; z>y, x<|y-z| \\
+%\frac{1}{2N_{esc} v_{0}y} \bigg[\text{erf}(z) - \text{erf}(x-y) - \frac{2}{\sqrt{\pi}}(y + z - x)e^{-z^2} \bigg] & \text{if}\; |y-z|<x<|y+z|
+%\end{dcases}
+%\end{split}
+%\label{eq:shm_velocity_2}
+%\end{equation}
 \par
-The dark matter velocity distribution which was used in \autoref{eq:wimp_differential_rate_scattering_amplitude} was normalised such that $\int f(\vec{v}) dv = 1$.
-As such we need to renormalise \autoref{eq:shm_velocity_1} to allow for the integral of $\sigma_{v}$ to be unitary as well.
-We do this by:
-\begin{equation}
-    N_{esc} = erf(z) - 2z e^\frac{-z^2}{\pi^{\frac{1}{2}}}
-\end{equation}
-where erf is the error function (given by $\text{erf}(z) = 2/\sqrt{\pi}\int^{z}_{0} e^{-t^2} dt$) and $z=v_{esc}/v_0$.
-We also need to define two other variables: $x=v_{min}/v_{0}$ and $y=|V_E|/v_0$ where $|V_E|$ is the velocity of the Earth with respect to the dark matter halo.
-Using these we can define our integral as \cite{shm_derivation_ref}:
-\begin{equation}
-\begin{split}
- \int \frac{f(\vec{v})}{v} = 
-\begin{dcases}
-\frac{1}{v_0 y}  & \text{if}\; z<y,x<|y-z| \\
-\frac{1}{2N_{esc} v_{0}y} \bigg[\text{erf}(x+y) - \text{erf}(x-y) - \frac{4}{\sqrt{\pi}}ye^{-z^2} \bigg] & \text{if}\; z>y, x<|y-z| \\
-\frac{1}{2N_{esc} v_{0}y} \bigg[\text{erf}(z) - \text{erf}(x-y) - \frac{2}{\sqrt{\pi}}(y + z - x)e^{-z^2} \bigg] & \text{if}\; |y-z|<x<|y+z|
-\end{dcases}
-\end{split}
-\label{eq:shm_velocity_2}
-\end{equation}
-Depending upon the values used for these velocities, the resultant scattering rate can either be much greater or lower than in reality.
-Historically the parameters used for determining the event-rate have varied between experiments, making comparisons between results imprecise.
-However, resent collaboration between dark matter experiments have now agreed upon parameters \cite{standard_halo_model_conventions_ref}, these are summarised in \autoref{tab:standard_parameters_for_dm}.
+Depending upon the values used for both the dark matter density and the velocities, the scattering rate will vary, and therefore the sensitivity of any given experiment will vary.
+Historically the parameters used for determining the event rate have varied between experiments, making comparisons between results difficult.
+However, resent collaboration between dark matter experiments have now agreed upon a common set of parameters \cite{standard_halo_model_conventions_ref} summarised in \autoref{tab:standard_parameters_for_dm}.
 For a review of how these affect sensitivity to a dark matter discovery, the reader is directed to \cite{dm_velocity_effects_on_limits_ref}.
 
-\begin{table}[!htbp]
+\begin{table}[]
     \centering
     \begin{tabular}{c|c|c}
         Parameter                               & Description                       & Value         \\ \hline
@@ -109,24 +116,24 @@ For a review of how these affect sensitivity to a dark matter discovery, the rea
 
 \subsection{Scattering Amplitude}
 \par
-Coming back to the cross section momentarily, we need to highlight that it is actually comprised of a number of interactions.
-As we are only considering low momentum transfers this reduces to just two: a spin-independent (SI) and a spin-dependent (SD).
-So our differential cross section is actually given by:
+Coming back to the scattering cross-section, we need to highlight that it is actually comprised of a number of interactions \cite{wimp_lagrangian_ref}.
+As we are only considering low momentum transfers, this reduces to just two: a spin-independent (SI) and a spin-dependent (SD) component.
+Therefore our differential cross section is actually given by:
 \begin{equation}
     \frac{d\sigma}{d|q|^2} = \bigg(\frac{d\sigma}{d|q|^2}\bigg)_{SI} + \bigg(\frac{d\sigma}{d|q|^2}\bigg)_{SD}
 \end{equation}
-The SI interaction arises from the WIMP coupling to quarks via a Higgs, where as SD interactions arise from the axial-vector interaction between WIMPs and quarks \cite{supersymmetric_dark_matter_ref}.
-As the weighted contributions of each of these components is not known and to make experimentalists lives easier each interaction is generally considered independently, but for those interesting in mixing these these terms, the interaction Lagrangian can be found in \cite{wimp_lagrangian_ref}.
-In the following we are taking the SI case only and so setting the contribution from SD to zero.
+The SI interaction arises from the WIMP coupling to quarks mediated via a Higgs, whereas SD interactions arise from the axial-vector interaction between WIMPs and quarks \cite{supersymmetric_dark_matter_ref}.
+As the weighted contributions of the SI and SD components are not known and to make experimentalists lives easier, each interaction is generally considered independently, but for those interested in mixing these terms, the interaction Lagrangian can be found in \cite{wimp_lagrangian_ref}.
+In the following, we are taking the SI case only and so setting the contribution from SD to zero, following \cite{supersymetry_wimpy_again_ref}.
 
 \par
-Turning back to the scattering amplitude, we can can use the identity $|M|^2=\pi G^2_F C F^2(q)$ to factor out the nucleus momentum dependence into the nuclear form factor $F^2(q)$:
+Turning back to the scattering amplitude, we can use the identity $|M|^2=\pi G^2_F C F^2(q)$ to factor out the nucleus momentum dependence into the nuclear form factor $F^2(q)$ \cite{introduction_to_elementary_particles_ref}:
 \begin{equation}
     \frac{d\sigma}{d|q|^2} = \frac{G^2_F C}{v^2} F^2(q)
     \label{eq:wimp_scattering_cross_section_form_factor_1}
 \end{equation}
 where $G_F$ is the Fermi constant, $C$ is a dimensionless parameter containing the particle physics of the interaction.
-As we've already said that we are constraining ourselves to the limit of zero-momentum transfer we can define a corresponding WIMP-nucleus cross section, $\sigma_{0 \chi A}$:
+As we've already said that we are constraining ourselves to the limit of zero-momentum transfer, we can define a corresponding WIMP-nucleus cross section, $\sigma_{0 \chi A}$:
 \begin{equation}
     \sigma_{0 \chi A} = \int^{4\mu^2 v^2}_{0} \frac{d\sigma}{d|q|^2}(q=0) d|q|^2 = 4G^2_F \mu^2 C
 \end{equation}
@@ -143,24 +150,24 @@ If we assume that the coupling for WIMPs to protons and neutrons is similar\foot
 \begin{equation}
     \sigma_{0 \chi A} = \frac{\mu^2_A}{\pi} A^2 \sigma_{0 \chi N}
 \end{equation}
-We can then arrive at our SI differential recoil spectrum for WIMP-nucleon elastic scattering:
+We then arrive at our SI differential recoil spectrum for WIMP-nucleon elastic scattering:
 \begin{equation}
     \frac{dR}{dE_R} = \frac{2 \rho_\chi}{m_\chi} \int_{v_{min}} v f(\vec{v}) \bigg(\frac{A^2 \sigma_0}{4 \mu^2_N v^2} F^2(q) \bigg) d^3v
     \label{eq:wimp_si_differential_rate}
 \end{equation}
-
+An equivalent derivation for SD interactions can be found in \cite{wimp_theory_ref}.
  
 \subsection{Form Factors}
 \label{sec:form_factors}
 \par
 One feature which hasn't been mentioned in detail yet is the form factor, $F(q)$.
 The form factor contains the physics of the nucleus and is the Fourier transform of the density distribution within.
-For SI interactions this is taken to be the Helm form factor where the nucleus is represented as a solid sphere of radius $r_A$ with a smooth density of nucleons described by a Gaussian of thickness $s$ \cite{helm_form_factor_ref}:
+For SI interactions, this is taken to be the Helm form factor where the nucleus is represented as a solid sphere of radius $r_n with a smooth density of nucleons described by a Gaussian of thickness $s$ \cite{helm_form_factor_ref}:
 \begin{equation}
     F^2(q) = \bigg( \frac{3j_i(qr_n)}{qr_n} \bigg)^2 e^{-q^2 s^2}
 \end{equation}
 where $j_i$ is the Bessel function.
 As $r_n \backsim A^{1/3}$ fm, we can see that the WIMP cannot resolve the nucleus as a point-like object.
 \par
-For SD interactions, the coupling is not equal between protons and neutrons and so the choice of which atom description to use is fairly important.
+For SD interactions, the coupling is not equal between protons and neutrons and so the choice of which nucleus description to use is fairly important.
 Depending on which is used the resultant sensitivity to dark matter can be vary by orders of magnitude \cite{wimp_nuclear_model_ref,wimp_sd_form_factor_ref}.

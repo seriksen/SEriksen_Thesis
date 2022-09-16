@@ -1,27 +1,29 @@
 \section{Results from First Science Run}
 \par
-In this section limits are placed on the elastic EFT operator couplings using data from the first science run (SR1) of LZ.
-The region of interest considered here is limited to $\backsim$30 keV rather than an extended energy window used in the previous section\footnote{An extended energy region study is coming in a future paper}.
+In this section, limits are placed on the elastic EFT operator couplings using data from the first science run (SR1) of LZ.
+The region of interest considered here is limited to $\backsim$30 keV, i.e. 80 phd, rather than an extended energy window used in the previous section.
+A more complete analysis using an extended recoil energy range is currently under preparation.
 An analysis for SI and SD dark matter interactions have already been performed in this recoil energy range, with null results \cite{lz_ws_sr1_ref}.
-As this is the same dataset and cuts only a limited summary of the SR1 is presented here.
-An overview of the calibration sources used for SR1 are described in \autoref{sec:lz_calibrations}.
-A more complete description of the backgrounds in SR1 are laid out in \cite{lz_sr1_backgrounds_ref}.
+As the analysis presented here uses the same dataset and cuts only a limited summary of SR1 is presented here.
+An overview of the calibration sources used for SR1 is described in \autoref{sec:lz_calibrations}.
+A more complete description of the backgrounds in SR1 is laid out in \cite{lz_sr1_backgrounds_ref}.
 
 \subsection{Overview of SR1}
 \par
 SR1 ran for a total of 116 days from 23 December 2021 to 18 April 2022 during which time the detector was in a stable running state.
-During this period, several breaks occurred for both calibration runs and system maintenance reducing the data set down to 89 live days.
+As was mentioned in \autoref{sec:od_analysis_backgrounds}, several interruptions occurred for both calibration runs and system maintenance reducing the data set down to 89 live days.
 The length of time running was driven by a requirement to demonstrate physics capability and so only ran until the sensitivity to SI interactions was comparable to previous experiments.
-SR1 was primarily an engineering run, and as such no blinding or salting of the data set was performed, as with any new detector there are unexpected features that are best understood by being able to see and explore them.
+SR1 was primarily an engineering run, and as such, no blinding or salting of the data set was performed.
+As with any new detector, there are unexpected features that are best understood by being able to see and explore them.
 In order to mitigate bias in analysis development, analysis cuts were developed in side bands and from calibration data.
 
 \subsection{TPC Calibration}
 \par
-The spacial variation in $S1$ and $S2$ were corrected using primarily internal sources which are naturally dispersed throughout the detector volume.
+The spatial variation in $S1$ and $S2$ was corrected using primarily internal sources which are naturally dispersed throughout the detector volume.
 ${}^{83m}$Kr and ${}^{131m}$Xe were used for this along with injected tritium (injected as tritiated methane CH$_3$T).
 Energy calibrations were performed with the internal sources as well as ${}^{129m}$Xe, which is monoenergetic at higher energies outside of the region considered here.
-$g_1$ was determined to be 0.114$\pm$0.002 phd/photon and $g_2$ as 47.1$\pm$1.1 phd/electron.
-The size of a single electron was measured as 57.6$\pm$1.9 phd/electron which gives an electron extraction efficiency of 80.5$\pm$3.7\%.
+$g_1$ was determined to be 0.114$\pm$0.002 phd/photon and $g_2$ as 47.1$\pm$1.1 phd/electron \cite{lz_ws_sr1_ref}.
+The size of a single electron light signal was measured as 57.6$\pm$1.9 phd/electron which gives an electron extraction efficiency of 80.5$\pm$3.7\% \cite{lz_ws_sr1_ref}.
 For calibrating the detector model, NR events were produced produced using the DD neutrons and AmLi, whilst ER events were produced using tritium.
 The detector response model was tuned to these measurements which are shown in \autoref{fig:sr1_tpc_calibration} along with the ER and NR bands.
 \begin{figure}
@@ -42,7 +44,7 @@ They fall broadly into three categories: live time, S2-based cuts and S1-based c
 These three, along with the core cuts are briefly discussed below.
 
 
-\subsubsection{live time cuts}
+\subsubsection{Live Time Cuts}
 The live time cuts are named as such as they have a large adverse affect on the amount of data available.
 Data is removed which shows uncharacteristic behaviour in the form of a high rate of pulses.
 The two most significant cuts were an electron-train cut and a hot spot cut, together removing 35\% of the livetime.
@@ -52,7 +54,7 @@ Single photons are also observed after the same event which is thought to be fro
 The removal of time after an S2 until the detector rate settles corresponds to 29.8\% of live day loss.
 Occasionally hot spots appeared in the TPC due to electron emission from the grids. 
 These periods of time lasted approximately an hour at a time and reduced the live time by 6.6\%.
-There were several other cuts in this category which combined livetime by a future 1\%.
+There were several other cuts in this category which combined reduced livetime by a further 1\%.
 
 \subsubsection{S2 cuts}
 A suite of cuts were developed to remove S2s which did not look like an S2 should if it had originated from a LXe scatter.

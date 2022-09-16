@@ -1,15 +1,17 @@
-\section{Projected Sensitivity}
+\section{Full Exposure Sensitivity}
 \par
-In a typical direct detector WIMP search, the recoil energy region of interest is limited to recoils below 30 keV \cite{LZ_TechnicalDesignReview_ref, LZ_projected_sensitivity_paper_ref, xenonnt_projected_sensitivty_ref}.
-\autoref{fig:HENR_recoil_spectra_m50} and \autoref{fig:HENR_recoil_spectra_m1000} show that responses from a number of EFT operators peak at higher energies than this and therefore motivate extending this energy region.
-In this section the sensitivity of LZ to these responses in an extended region of interest is determined for the planned full exposure of LZ; 1000 live-days with 5.6 tonne of xenon.
-The approach adopted in this section is analogous to \cite{LZ_projected_sensitivity_paper_ref}, but with with an extended region of interest.
+In a typical WIMP search with liquid xenon, the recoil energy region of interest is limited to recoils below 30 keV \cite{LZ_TechnicalDesignReview_ref, LZ_projected_sensitivity_paper_ref, xenonnt_projected_sensitivty_ref}.
+We saw this in \autoref{fig:si_recoil_and_form_factor} where the rate of recoils drops of rapidly as the recoil energy increases.
+\autoref{fig:HENR_recoil_spectra_m50} and \autoref{fig:HENR_recoil_spectra_m1000} show that the response from a number of EFT operators peak at much higher energies and therefore motivate extending the search region.
+In this section the sensitivity of LZ to these signals in an extended region of interest is determined for the planned full exposure of LZ; 1000 live-days with 5.6 tonne of xenon.
+The approach adopted in this section is otherwise analogous to \cite{LZ_projected_sensitivity_paper_ref}.
 \par
-The projected detector parameters are shown in \autoref{tab:projected_sensitivity_detector_parameters}.
-The extended region of interest was set such that the it was below the end point of any calibration of NEST ($\backsim$ 300 keV from AmBe) and therefore no extrapolation was needed \cite{nest_1_ref}.
-The region of interest was defined as S1$_c$ [3, 500].
-This was determined from simulations of flat NR backgrounds, which is shown in \autoref{fig:projected_detector_model_response_for_flat_nr}.
-An S1$_c$ of 500 phd will be from recoils around 250 keV, but the largest recoil (within 3 $\sigma$) that can produce S1$_c$ of 500 phd is from 278 keV recoils.
+The assumed detector parameters from \cite{LZ_projected_sensitivity_paper_ref} are shown in \autoref{tab:projected_sensitivity_detector_parameters}.
+The extended region of interest was set such that it was below the end point of any calibration of NEST ($\backsim$ 300 keV from AmBe) and therefore no extrapolation is needed \cite{nest_1_ref}.
+The region of interest was defined as S1$_c$ [3, 500] phd.
+This was determined from simulations of flat NR backgrounds between 0 and 300 keV$_{NR}$, from which S1$_c$ and S2$_c$ were determined (described in \autoref{sec:lz_detector_chapter}).
+The mean of S1$_c$ and log$_{10}$(S2$_c$) per recoil energy are shown in \autoref{fig:projected_detector_model_response_for_flat_nr}.
+An S1$_c$ of 500 phd will be from recoils around 250 keV, but the largest recoil (within 3 $\sigma$) that can produce S1$_c$ of 500 phd is from 278 keV$_{NR}$ recoils.
 
 \begin{table}[]
     \centering
@@ -20,7 +22,7 @@ An S1$_c$ of 500 phd will be from recoils around 250 keV, but the largest recoil
         Drift field & 310 Vcm$^{-1}$ \\
         electron lifetime & 850 $\mu$s
     \end{tabular}
-    \caption{Key detector parameters for the LXe-TPC parameters in the projected detector performance case. 
+    \caption{Key detector parameters for the LXe-TPC parameters in the full exposure case. 
              Values from \cite{LZ_projected_sensitivity_paper_ref}.}
     \label{tab:projected_sensitivity_detector_parameters}
 \end{table}
@@ -29,16 +31,16 @@ An S1$_c$ of 500 phd will be from recoils around 250 keV, but the largest recoil
 
 \subsection{Analysis Cuts}
 \par
-Each detector originating background was simulated with ``energy-deposit" only simulations.
-A series of cuts were then applied to simulate the ``full-chain".
-As this is simulated only, only versions of the ``core-cuts" described in \autoref{sec:lz_analysis_cuts} were used.
+Each background originating from the detector was simulated with energy deposit only simulations.
+A series of cuts were then applied to simulate the full model.
+As this is simulated, only the core cuts described in \autoref{sec:lz_analysis_cuts} were used.
 They are described below:
 
 \begin{enumerate}
     \item \textbf{SS}: Select events which have only scattered once, ``single scatter". An event is a single scatter in the TPC if the energy-weighted standard deviation of the deposits is less than the detector resolution. This is taken to be $\sigma_r <$ 3.0 cm and $\sigma_z <$ 0.2 cm.
-    \item \textbf{ROI}: Select events where the recoil energy is in the range expected from a WIMP scatter and set on S1$_c$, S2 (uncorrected). This is cut is dependent upon which model of dark matter we are using. Here S1$_c$ must be less than 500 phd and have at least a 3-fold coincidence in the TPC PMTs. S2 must be greater than 415, the value required for at least 5 emitted electrons. This electron requirement is to ensure that the S2 size is large enough for position reconstruction.
-    \item \textbf{FID}: The inner volume, or fiducial volume of the TPC is taken, removing events near the edges. The FID is defined as a cylinder extended from the centre of the TPC to 4 cm from the TPC walls, 2 cm above the cathode grid, and 13 cm below the gate grid. This inner volume contains 5.6 tonnes of LXe, meaning that there is 1.4 tonnes of xenon used for self-shielding.
-    \item \textbf{Veto}: TPC scatters where there is a time-coincident deposit in either of the veto detectors are removed. In the Skin detector the signal must be within 800 $\mu$s of the TPC scatter and be at least 3 phd in size. In the OD the deposit must be at least 200 keV in size and within 500 $\mu$s of the TPC scatter. This OD selection was chosen to maintain consistency with \cite{LZ_projected_sensitivity_paper_ref} which used an older simulation framework.
+    \item \textbf{ROI}: Select events where the recoil energy is in the range expected from a WIMP scatter. This cut is dependent upon which model of dark matter we are using. Here S1$_c$ must be less than 500 phd and have at least a 3-fold coincidence in the TPC PMTs. S2 must be greater than 415, the value required for at least 5 emitted electrons. This electron requirement is to ensure that the S2 size is large enough for position reconstruction.
+    \item \textbf{FID}: The inner volume or fiducial volume of the TPC is taken, removing events near the edges. The FID is defined as a cylinder extending from the centre of the TPC to 4 cm from the TPC walls, 2 cm above the cathode grid, and 13 cm below the gate grid. This inner volume contains 5.6 tonnes of LXe, meaning that there are 1.4 tonnes of xenon used for self-shielding.
+    \item \textbf{Veto}: TPC scatters where there is a time-coincident deposit in either of the veto detectors are removed. In the Skin detector the signal must be within 800 $\mu$s of the TPC scatter and be at least 3 phd in size. In the OD the deposit must be at least 200 keV in size, and within 500 $\mu$s of the TPC scatter. This OD selection was chosen to maintain consistency with \cite{LZ_projected_sensitivity_paper_ref} which used an older simulation framework.
 \end{enumerate}
 In addition to these, the detection efficiency is applied.
 This was determined in the WIMP-SI projected sensitivity study detailed in \cite{LZ_projected_sensitivity_paper_ref}.
@@ -51,47 +53,54 @@ The PDFs used in the PLR are generated from feeding the recoil spectra of each c
 \subsection{Backgrounds}
 \par
 The background model considered was made up of 11 components which represent the most significant contributors discussed in \autoref{sec:lz_backgrounds} and summarised below.
-The groupings of certain backgrounds here was driven by the need to validate the simulations against previous low energy region of interest studies in \cite{LZ_projected_sensitivity_paper_ref,LZ_Ibles_LZStats_Thesis_ref}.
+The groupings of certain backgrounds here were driven by the need to validate the simulations against previous low energy region of interest studies in \cite{LZ_projected_sensitivity_paper_ref,LZ_Ibles_LZStats_Thesis_ref}.
+The differential rate per recoil energy for both ER and NR backgrounds considered is shown in \autoref{fig:sensitivity_paper_backgrounds}.
 
 \par
-Contributions from ``Detector components", ``Surface contamination" and ``Environmental" sources are summed together, but kept separate as ER and NR components.
-Within the ER contributions are the cavern-$\gamma$s, and plate-out radon progeny.
+Contributions from ``Detector components", ``Surface contamination", and ``Environmental" sources are summed together but kept separate as ER and NR components.
+Within the ER contributions are the cavern-$\gamma$s and plate-out radon progeny.
 The contributions from these are constrained by the radioassay performed by LZ prior to construction \cite{LZ_assay_ref} and $\gamma$-rate measurements \cite{LZ_Gamma_Ray_Background_ref}.
 The largest contributor to NR events are ($\alpha,n$) neutrons, again this is constrained by the radioassay.
+These are labelled as ``Detector contaminants" in both \autoref{fig:sensitivity_paper_backgrounds} and \autoref{tab:projected_lz_backgrounds}.
 \par
 The largest contributor to the ER rate is from an $^{136}$Xe.
 This decays via the emission of two $\beta$s \cite{xenon136_ref} and so cannot be vetoed.
 It will pass all analysis cuts as it will be evenly distributed within the TPC.
 This background becomes significant above electron recoils of 20 keV$_{ee}$.
-In the extended region it becomes the largest contributor to the backgrounds.
+In the extended region, it becomes the dominant background as can be seen in \autoref{fig:sensitivity_paper_backgrounds}.
 \par
 ${}^{222}$Rn progeny, ${}^{220}$Rn progeny and ${}^{85}$Kr are all dispersed within the TPC volume.
-In the low energy region ${}^{222}$Rn and ${}^{220}$Rn can be considered as flat $\beta$ from $^{214}$Pb and $^{216}$Pb respectively \cite{LZ_projected_sensitivity_paper_ref}.
-At higher energies the $\alpha$ decays of the decay chain become prevalent and the contribution is no longer flat.
+In the low energy region ${}^{222}$Rn and ${}^{220}$Rn can be considered as flat contributions as the dominant decay in each chain is $\beta$ from $^{214}$Pb and $^{216}$Pb respectively \cite{LZ_projected_sensitivity_paper_ref}.
+At higher energies, the $\alpha$ decays of the decay chain become prevalent and the contribution is no longer flat.
 ${}^{85}$Kr is a $\beta$ decay with essentially a flat contribution out to 300 keV$_{ee}$ \cite{kr85_rate_ref}.
-The contribution of these to the background rate are driven primarily by the xenon circulation and purification system. 
+The contributions of these processes to the total background rate are driven primarily by the xenon circulation and purification system. 
 \par
-The final contribution to the background rate are from neutrinos.
-The ER contribution is from neutrino-electron scattering from solar neutrinos primarily from the $pp$ solar chain \cite{solar_neutrinos_ref}.
+The final contribution to the background rate is from neutrinos.
+The ER contribution stems from neutrino-electron scattering of solar neutrinos primarily from the $pp$ solar chain \cite{solar_neutrinos_ref}.
+The NR contribution is split between low and high energy contributors. 
 Low energy NR events are from solar neutrinos from the $^{8}$B \cite{b8_neutrino_rate_ref} and $hep$ \cite{solar_neutrinos_rate_ref}, both of which have a negligible impact on the rate above 5 keV$_{nr}$.
 High energy NR events are from atmospheric \cite{atmospheric_neutrinos_rate_ref} and diffuse supernova neutrinos \cite{dissuse_supernova_neutrinos_rate_ref}.
 \par
-Several background mentioned in \autoref{sec:lz_backgrounds} were not included in this model.
+Several backgrounds mentioned in \autoref{sec:lz_backgrounds} were not included in this model.
 Most notably $^{37}$Ar, $^{127}$Xe and $\gamma$-X.
-$^{37}$Ar and $^{127}$Xe were excluded as this is a 1000-day projection, due to take place after a number of years after detector running.
+$^{37}$Ar and $^{127}$Xe were excluded as this is a 1000-day projection, which requires a number of years of detector running.
 Both $^{37}$Ar and $^{127}$Xe are created by xenon activation from cosmic rays and decay away once the xenon is inside the TPC underground \cite{lz_argon37_ref, lux_xenon_activation_ref}.
-They are therefore only of significant concern for the year of data taking.
-$\gamma$-X events are more interesting as they are a background that is more significant at higher region energies than low energies \cite{gregrischbieter_thesis_ref}.
+They are therefore only of significant concern for the first year of data taking.
+$\gamma$-X events are more interesting as they are a background that is more significant at higher energies \cite{gregrischbieter_thesis_ref}.
+It is expected that the contribution from these in LZ will be less significant than it has been for smaller detectors due to the increased amount of self-shielding \cite{LZ_TechnicalDesignReview_ref}.
 These were excluded because in order to effectively model them the positional information of events need to be considered, and we have limited the observable parameters to \{S1$_c$,log$_{10}$(S2$_c$)\}.
 Including addition dimensions is fairly trivial, but the PLR evaluation does not scale favourably to increased dimensionality.
 When LUX included 5-dimensions into their PLR for RUN-4 analysis the resultant PLR required $\backsim$15,000 CPU-hours per mass point \cite{billyboxer_thesis_ref} and so it was desirable to avoid a similar situation here.
-There are novel ways of over coming this with GPU approaches detailed in \cite{flamenest_ref} and \cite{lux_ml_plr_ref}, but these would have required a significant effort to integrate into the LZ computing framework.
+There are novel ways of overcoming this with GPU approaches detailed in \cite{flamenest_ref} and \cite{lux_ml_plr_ref}, but these would have required a significant effort to integrate into the LZ computing framework.
 In future searches, LZ is planning on using a boosted decision tree machine learning technique to veto $\gamma$-X that is based upon LUX Run-4 EFT analysis \cite{LUX_RUN4_EFT_2021}.
 
 \par
-The differential rate per recoil energy for both ER and NR backgrounds considered is shown in \autoref{fig:sensitivity_paper_backgrounds}.
 The number of events expected from each background in the region of interest is shown in \autoref{tab:projected_lz_backgrounds}.
-A simulated dataset of these backgrounds is shown in  \autoref{fig:sensitivity_paper_backgrounds}.
+Included as well in \autoref{tab:projected_lz_backgrounds} are the background rates for a WIMP-SI search to highlight the increase in the number of backgrounds.
+Increasing the recoil energy window does not significantly increase the rate of the NR backgrounds.
+Contributions from ${}^{8}$B and $hep$ neutrinos are completely unchanged as they are confined to low energy.
+The contribution from the other NR sources decreases with recoil energy and so the additional contribution is minimal.
+A simulated dataset of these backgrounds is shown in  \autoref{fig:projected_background_dataset}.
 
 \begin{table}[]
     \centering
@@ -106,13 +115,14 @@ A simulated dataset of these backgrounds is shown in  \autoref{fig:sensitivity_p
         ${}^{136}$Xe 2$\nu\beta\beta$                & 495                    & 19183                   & 50\% \cite{double_beta_decay_rate_ref}        \\
         ${}^{85}$Kr                                  & 83                     & 557                     & 20\% \cite{kr85_rate_ref}         \\ \hline
         \textbf{NR contributions}                    &                        &                         &   \\
-        Detector contaminants                        & 0.81                   & 1.91                    & 20\% \cite{LZ_projected_sensitivity_paper_ref}         \\
+        Detector contaminants                        & 0.81                   & 1.51                    & 20\% \cite{LZ_projected_sensitivity_paper_ref}         \\
         ${}^{8}$B solar neutrinos                    & 36                     & 36                      & 4\%  \cite{b8_neutrino_rate_ref}       \\
         hep solar neutrinos                          & 0.9                    & 0.9                     & 15\% \cite{solar_neutrinos_rate_ref, pp_solar_neutrinos_rate_ref}        \\
-        Diffuse supernova neutrinos                  & 0.15                   & 0.15                    & 50\% \cite{dissuse_supernova_neutrinos_rate_ref}        \\
-        Atmospheric neutrons                         & 0.65                   & 0.65                    & 25\% \cite{atmospheric_neutrinos_rate_ref}      
+        Diffuse supernova neutrinos                  & 0.15                   & 0.17                    & 50\% \cite{dissuse_supernova_neutrinos_rate_ref}        \\
+        Atmospheric neutrons                         & 0.65                   & 0.85                    & 25\% \cite{atmospheric_neutrinos_rate_ref}      
     \end{tabular}
-    \caption{Backgrounds considered in the PLR for a projected sensitivity to EFT operator coupling. The values for the WIMP-SI search region values differ from previous studies \cite{LZ_projected_sensitivity_paper_ref,LZ_Ibles_LZStats_Thesis_ref}. This is due to an upgraded NEST package version used here.}
+    \caption{Backgrounds considered in the PLR for a full exposure sensitivity. N is the number of events expected and $\sigma$/N is the error associated with the rate in the extended energy region.
+    The values for the WIMP-SI search region values differ from previous studies \cite{LZ_projected_sensitivity_paper_ref,LZ_Ibles_LZStats_Thesis_ref}. This is due to an upgraded NEST package version used here.}
     \label{tab:projected_lz_backgrounds}
 \end{table}
 
@@ -122,25 +132,24 @@ A simulated dataset of these backgrounds is shown in  \autoref{fig:sensitivity_p
     \centering
     \includegraphics[width=15cm]{Figures/EFT/Projected_backgrounds/projected_backgrounds_s1_s2.png}
     \caption{Simulated data set for a background-only 1000 live day run with a 5.6 tonne fiducial mass. The ER and NR bands are shown in blue and red respectively; the solid lines are the mean and the dashed are 10\% and 90\% quantiles.}
-    \label{fig:my_label}
+    \label{fig:projected_background_dataset}
 \end{figure}
 
-\subsection{Limits}
+\subsection{Projected Sensitivity}
 \par
-Presented in \autoref{fig:EFT_Result_Projected_Sensitivity_1} and \autoref{fig:EFT_Result_Projected_Sensitivity_2} are the limits from a one-sided PLR test statistic.
-A one-sided PLR was chosen over using a two-sided test as the purpose is to determine the sensitivity of LZ to the couplings, $c^{a}_i$, not the discovery significance. 
+Presented in \autoref{fig:EFT_Result_Projected_Sensitivity_1} and \autoref{fig:EFT_Result_Projected_Sensitivity_2} are the projected sensitivities from a one-sided PLR test statistic.
+A one-sided PLR was chosen over using a two-sided test as the purpose is to determine the sensitivity of LZ to the couplings, $c^s_i$, not the discovery significance. 
 This approach is also in line with that used for the SI and SD projected sensitivity studies \cite{LZ_projected_sensitivity_paper_ref} as well a other sensitivity studies within LZ \cite{LZ_Ibles_LZStats_Thesis_ref, umituktu_thesis_ref}.
-The -2$\sigma$ is excluded from the plot as it is expected to be power contained \cite{power_constrained_limits_ref}, again a reporting style adopted from \cite{LZ_projected_sensitivity_paper_ref}.
+The -2$\sigma$ is excluded from the plot as the limit will be power contained \cite{power_constrained_limits_ref}, again a reporting style adopted from \cite{LZ_projected_sensitivity_paper_ref}.
 Included in the figures are the XENON100 \cite{xenon100_eft_ref} and LUX \cite{LUX_RUN4_EFT_2021} limits.
-Only a single data point is shown from LUX as their analysis was originally done in an \{$neutron,proton$\} basis, and given the huge quantity of work it took they decided to reduce the problem to a single WIMP mass per operator.
+Only a single data point is shown from LUX as their analysis was originally done in an \{$neutron,proton$\} basis for elastic operators, and only reported an $isoscalar$ limit for a single WIMP mass for each operator.
 \par
-The limits are presented in terms of the dimensionless values $({c}^{s}_{i}\times{m}^{2}_{w})^{2}$ where $m_w$ is the Higg's vacuum expectation value.
-${c}^{s}_{i}$ has dimensionality of [mass]$^{-2}$, which originates from the decision of the authors of \textit{DMFormFactor} to normalise spinors to unity, to use dimensionless representations of the operators and to scale the couplings by $m^{-2}_w$.
-The limits shown here are scaled by $m^2_w$ in order to be reported without dimensions.
+The sensitivity projections are presented in terms of the dimensionless values $({c}^{s}_{i}\times{m}^{2}_{w})^{2}$ where $m_w$ is the Higg's vacuum expectation value.
+${c}^{s}_{i}$ has a dimensionality of [mass]$^{-2}$, which originates from the decision of the authors of \textit{DMFormFactor} to normalise spinors to unity, to use dimensionless representations of the operators and to scale the couplings by $m^{-2}_w$.
 Reporting results in this format mirrors the LUX and XENON100 approach, allowing for a direct comparison.
 \par
-The parameter space which the LZ detector is a sensitive to represents a significant step forward compared to current limits.
-The planned LZ exposure is orders of magnitude greater than the both LUX and XENON100 results, with 5.6 tonnes $\times$ 1000 live days for LZ compared to 34 kg $\times$ 224.6 live days with XENON100 and 100 kg $\times$ 311.2 live days for LUX.
+The parameter space to which the LZ detector is sensitive represents a significant step forward compared to current limits, improving by typically 3-4 orders of magnitude.
+This is largely driven by the increased exposure of LZ with 5.6 tonnes $\times$ 1000 live days, compared to 34 kg $\times$ 224.6 live days from XENON100 and 100 kg $\times$ 311.2 live days from LUX.
 The level of $\gamma$-X events will be the primary hold back to any potential discovery in the EFT region, but assuming that they can be successfully modelled in a more complex PLR, LZ has a very high projected sensitivity to EFT signatures.
 
 \input{Chapters/Analysis_EffectiveFieldTheory/Figures/Projected/projected_limits_result}

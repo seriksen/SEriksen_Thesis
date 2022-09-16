@@ -1,44 +1,45 @@
 \section{Signal Model}
 \label{sec:eft_signal_models}
 \par
-Both of the analyses described in this chapter were performed in the \{$isoscalar,isovector$\} basis.
-This was chosen over the \{$neutron,proton$\} basis as it allows for comparison to both LUX and XENON collaboration results and in future, Panda-X results\footnote{Panda-X have published Lagrangian results for an EFT analysis in the \{$isoscalar,isovector$\} basis \cite{pandax_2_eft_ref}}.
-In this chapter only $isoscalar$ signals are included in order to reduce the scope of the analysis.
+Both of the analyses described in this chapter were performed on the \{$isoscalar,isovector$\} basis.
+
+This was chosen over the \{$neutron,proton$\} basis as it allows for comparison to both LUX \cite{LUX_RUN4_EFT_2021} and XENON \cite{xenon100_eft_ref} results and in future, Panda-X \cite{pandax_2_eft_ref}.
+In this chapter, only $isoscalar$ signals are presented.
 
 \par
 The assumption used in this chapter is that a single operator dominates the interaction and that there is no mixing or interference between operators.
 As such only one operator was considered at a time, with its coupling to nucleons set to 1 and all other operator couplings to 0.
-In this case, the differential recoil rate introduced in \autoref{sec:eft_theory} scales linearly with $c^{a^2}_i$, becoming:
+In this case, the differential recoil rate introduced in \autoref{sec:eft_theory} scales linearly with the operator coupling.
+This is just \autoref{eq:final_eft_differential_cross_section}:
 \begin{equation}
-    \frac{dR}{dE_R} = \frac{c^{a^2}_i \rho_\chi}{32 \pi m^3_\chi m^2_N} \int_{v_{min}} \frac{f(\vec{v})}{v} F^{a,a}_{i,i} (v^2, q^2) d^3 v
-    \label{eq:eft_operator_signal_equation}
-\end{equation}
-
+    \frac{dR}{dE_R} = \frac{c^{0^2}_i \rho_\chi}{32 \pi m^3_\chi m^2_N} \int_{v_{min}} \frac{f(\vec{v})}{v} F^{0,0}_{i,i} (v^2, q^2) d^3 v
+    \label{eq:analysis_eft_operator_signal_equation}
+\end{equation} 
 
 \par
 The differential recoil spectra were generated using \textit{DMFormFactor}, a \textit{Mathematica} package \cite{dmformfactor_ref}.
-Other software solutions exist to evaluate \autoref{eq:eft_operator_signal_equation} such as \textit{WimpyDD} (written in python) \cite{wimpydd_ref} and \textit{DMFortFactor} (written in fortran) \cite{dmfortfactor_ref}, however none of these provide exactly the same result due to the normalisations, form factors and folding in of xenon isotope abundances used within each codebase.
-\textit{DMFormFactor} was selected as it is the same as is used by the LUX, Panda-X and XENON collaborations.
-The limits produced by XENON100 \cite{xenon100_eft_ref} and LUX \cite{LUX_RUN4_EFT_2021} used \textit{DMFormFactor} v6.0.
-The recent publication by Panda-X \cite{pandax_2_eft_ref} used an unpublished version which uses different nuclear form factors\footnote{unpublished at time of writing, however the public release is expected in early 2023}.
-In order to maintain consistency with previous operator limit analyses and to enable public reputability, \textit{DMFormFactor} v6.0 was used in these analyses present in this chapter.
+Other software solutions exist to evaluate \autoref{eq:analysis_eft_operator_signal_equation} such as \textit{WimpyDD} (written in python) \cite{wimpydd_ref} and \textit{DMFortFactor} (written in fortran) \cite{dmfortfactor_ref}, however none of these provide exactly the same result due to the choice of normalisation, form factors and folding in of xenon isotope abundances used within each codebase.
+\textit{DMFormFactor} was selected for this analysis as it is the same as is used by the LUX \cite{LUX_RUN4_EFT_2021}, Panda-X \cite{pandax_2_eft_ref} and XENON \cite{xenon100_eft_ref} collaborations.
+The limits produced by XENON100 and LUX used \textit{DMFormFactor} v6.0.
+The recent publication by Panda-X used an unpublished version which uses different nuclear form factors\footnote{unpublished at time of writing, however the public release is expected in early 2023}.
+In order to maintain consistency with previous single operator limit analyses, \textit{DMFormFactor} v6.0 was used in the analyses presented in this chapter.
 
 \par
-Between the sensitivity study and SR1, the parameters for the Standard Halo Model (SHM) were altered.
-As mentioned in \autoref{chap:detection_theory}, the parameters for the Standard Halo Model (SHM) used for generating signal models within direct dark matter experiments have been standardised since mid-2021 \cite{standard_halo_model_conventions_ref}.
-However, the sensitivity study began before that date and so used the parameters previously used within the LZ collaboration, in \cite{LZ_projected_sensitivity_paper_ref,LZ_TechnicalDesignReview_ref,LZ_Ibles_LZStats_Thesis_ref}.
-These are also the same parameters used in both the Xenon100 analysis \cite{xenon100_eft_ref} and LUX RUN-4 analysis \cite{LUX_RUN4_EFT_2021}.
+Between the full exposure study and SR1, the parameters for the Standard Halo Model (SHM) were altered.
+As mentioned in \autoref{chap:detection_theory}, the parameters for the SHM used for generating signal models within direct dark matter experiments have been standardised since mid-2021 \cite{standard_halo_model_conventions_ref}.
+However, the full exposure study began before that date and so used the parameters previously used within the LZ collaboration, in \cite{LZ_projected_sensitivity_paper_ref,LZ_TechnicalDesignReview_ref,LZ_Ibles_LZStats_Thesis_ref}.
+These are also the same parameters used in both the Xenon100 analysis and LUX RUN-4 analysis.
 The SR1 study used the recommended astronomic properties.
 Both sets of parameters are shown in \autoref{tab:DMFormFactor_parameters}.
 
 \par
-The differential recoil spectra for each operator was evaluated for a WIMP masses of [5, 7, 10, 12, 14, 21, 33, 50, 100, 200, 400, 1000, 4000, 10000] GeV/c$^{2}$ out to 1000 keV.
-The recoil spectra for WIMP masses of 50 GeV/c$^2$ and 1000 GeV/c$^2$ are shown in \autoref{fig:HENR_recoil_spectra_m50} and \autoref{fig:HENR_recoil_spectra_m1000} using the projected sensitivity values.
-The shape of the recoil spectra are due to the Bessel functions introduced for evaluating the form factors (see \autoref{sec:eft_theory}).
+The differential recoil spectra for each operator were evaluated for WIMP masses of [5, 7, 10, 12, 14, 21, 33, 50, 100, 200, 400, 1000, 4000, 10000] GeV/c$^{2}$ out to 1000 keV.
+The recoil spectra for WIMP masses of 50 GeV/c$^2$ and 1000 GeV/c$^2$ are shown in \autoref{fig:HENR_recoil_spectra_m50} and \autoref{fig:HENR_recoil_spectra_m1000} using the full exposure values.
+The dips in the shape of the recoil spectra are due to the Bessel functions introduced for evaluating the form factors.
 
 \par
-In \autoref{fig:HENR_recoil_spectra_projected_vs_sr1}, a comparison between the SHM projected and SR1 values is shown for 3 operators.
-As the dark matter velocity is elevated in the SR1 case, the dark matter flux is increased.
+In \autoref{fig:HENR_recoil_spectra_projected_vs_sr1}, a comparison between the SHM full exposure and SR1 values is shown for 2 operators.
+As the dark matter velocity is larger in the SR1 case, the dark matter flux is increased.
 Therefore the expected rate of recoils is greater.
 In terms of sensitivity, the lack of seeing a signal with the SR1 parameters will set a tighter constraint on the WIMP-nucleon scattering.
 A more complete comparison between how uncertainties in the standard model parameters affect sensitivity to dark matter searches can be found in \cite{LZ_Ibles_LZStats_Thesis_ref,billyboxer_thesis_ref}.
@@ -50,9 +51,9 @@ A more complete comparison between how uncertainties in the standard model param
         $\nu_0$           & 220 km/s           & 238 km/s         \\ 
         $\nu_{esc}$       & 544 km/s           & 544 km/s         \\
         $\rho_{\chi}$     & 0.3 GeV/cm$^{3}$   & 0.3 GeV/cm$^{3}$ \\
-        $|\nu_E|$         & 245 km/s           & 245 km/s  
+        $|\nu_E|$         & 245 km/s           & 252 km/s  
     \end{tabular}
-    \caption{Standard Halo Model parameters used for projected sensitivity study.}
+    \caption{Standard Halo Model parameters used for full exposure and SR1 sensitivity studies.}
     \label{tab:DMFormFactor_parameters}
 \end{table}
 

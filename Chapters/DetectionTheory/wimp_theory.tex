@@ -156,18 +156,39 @@ We then arrive at our SI differential recoil spectrum for WIMP-nucleon elastic s
     \label{eq:wimp_si_differential_rate}
 \end{equation}
 An equivalent derivation for SD interactions can be found in \cite{wimp_theory_ref}.
+\par
+In the left plot of \autoref{fig:si_recoil_and_form_factor}, the differential event rate for a selection of frequently used targets is shown.
+In \autoref{fig:si_recoil_and_form_factor}, a WIMP mass of 100 GeV/c$^2$ is used with a WIMP-nucleon cross-section of 10$^{-45}$ cm$^2$ (i.e. 1 zb).
+Results from experiments are typically normalised to a cross-section of 1 zb to allow for easier comparison.
+The heavy target nuclei have a larger event rate for low-energy nuclear recoils.
+This is due to the A$^2$ enhancement seen in \autoref{eq:wimp_si_differential_rate}.
+A lower scattering rate is seen for lighter nuclei, but at higher recoil energies, they have a higher rate than heavy nuclei.
+This is due to a rate suppression by the form factors (discussed in the next section) and a decrease in kinematically-allowed WIMP velocities with an increase in $m_A$ and $E_R$.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{Figures/LZ/SI_recoil_rate_and_spectra.png}
+    \caption{\textbf{Left:} SI nuclear recoil rate for a selection of target elements for a WIMP mass of 100 GeV/c$^2$ and WIMP-nucleon corss section of $\sigma_N=$1 zb and the recommended parameters for the SHM. The averaged atomic mass of each target from natural abundance is in the brackets.
+    \textbf{Right:} The Helm form factors for a selection of target nuclei. The key is the same in both plots.
+    Both plots are from \cite{LZ_Ibles_LZStats_Thesis_ref}
+    \label{fig:si_recoil_and_form_factor}.
+           }
+\end{figure}
  
 \subsection{Form Factors}
 \label{sec:form_factors}
 \par
 One feature which hasn't been mentioned in detail yet is the form factor, $F(q)$.
 The form factor contains the physics of the nucleus and is the Fourier transform of the density distribution within.
-For SI interactions, this is taken to be the Helm form factor where the nucleus is represented as a solid sphere of radius $r_n with a smooth density of nucleons described by a Gaussian of thickness $s$ \cite{helm_form_factor_ref}:
+For SI interactions, this is taken to be the Helm form factor where the nucleus is represented as a solid sphere of radius $r_n$, with a smooth density of nucleons described by a Gaussian of thickness $s$ \cite{helm_form_factor_ref}:
 \begin{equation}
     F^2(q) = \bigg( \frac{3j_i(qr_n)}{qr_n} \bigg)^2 e^{-q^2 s^2}
 \end{equation}
 where $j_i$ is the Bessel function.
-As $r_n \backsim A^{1/3}$ fm, we can see that the WIMP cannot resolve the nucleus as a point-like object.
+\par
+%As $r_n \backsim A^{1/3}$ fm, we can see that the WIMP cannot resolve the nucleus as a point-like object.
+In the right plot of \autoref{fig:si_recoil_and_form_factor}, the Helm form factors for a selection of popular targets are shown.
+
 \par
 For SD interactions, the coupling is not equal between protons and neutrons and so the choice of which nucleus description to use is fairly important.
 Depending on which is used the resultant sensitivity to dark matter can be vary by orders of magnitude \cite{wimp_nuclear_model_ref,wimp_sd_form_factor_ref}.

@@ -1,7 +1,7 @@
 \section{Results from First Science Run}
 \par
 In this section, limits are placed on the elastic EFT operator couplings using data from the first science run (SR1) of LZ.
-The region of interest considered here is limited to $\backsim$30 keV, i.e. 80 phd, rather than an extended energy window used in the previous section.
+The region of interest considered here is limited to $\backsim$40 keV, i.e. 80 phd, rather than an extended energy window used in the previous section.
 A more complete analysis using an extended recoil energy range is currently under preparation.
 An analysis for SI and SD dark matter interactions have already been performed in this recoil energy range, with null results \cite{lz_ws_sr1_ref}.
 As the analysis presented here uses the same dataset and cuts only a limited summary of SR1 is presented here.
@@ -24,13 +24,13 @@ ${}^{83m}$Kr and ${}^{131m}$Xe were used for this along with injected tritium (i
 Energy calibrations were performed with the internal sources as well as ${}^{129m}$Xe, which is monoenergetic at higher energies outside of the region considered here.
 $g_1$ was determined to be 0.114$\pm$0.002 phd/photon and $g_2$ as 47.1$\pm$1.1 phd/electron \cite{lz_ws_sr1_ref}.
 The size of a single electron light signal was measured as 57.6$\pm$1.9 phd/electron which gives an electron extraction efficiency of 80.5$\pm$3.7\% \cite{lz_ws_sr1_ref}.
-For calibrating the detector model, NR events were produced produced using the DD neutrons and AmLi, whilst ER events were produced using tritium.
+For calibrating the detector model, NR events were produced using the DD neutrons and AmLi, whilst ER events were produced using tritium.
 The detector response model was tuned to these measurements which are shown in \autoref{fig:sr1_tpc_calibration} along with the ER and NR bands.
 \begin{figure}
     \centering
     \includegraphics[width=10cm]{Figures/EFT/All_SR1_Plots/SR1WS_calOnly_0629_twoPanel.pdf}
     \caption{Calibration of ER and NR bands, shown in blue and red respectively.
-             The solid line is the median and the dashed are the 10\% and 90\% quantiles.
+             The solid line is the median, and the dashed are the 10\% and 90\% quantiles.
              \textbf{Top:} ER events produced by $\beta$-decays from injected CH$_3$T.
              \textbf{Bottom:} NR events produced by DD neutrons.
              }
@@ -45,44 +45,48 @@ These three, along with the core cuts are briefly discussed below.
 
 
 \subsubsection{Live Time Cuts}
-The live time cuts are named as such as they have a large adverse affect on the amount of data available.
+The live time cuts are named as such as they have a large adverse effect on the amount of data available.
 Data is removed which shows uncharacteristic behaviour in the form of a high rate of pulses.
 The two most significant cuts were an electron-train cut and a hot spot cut, together removing 35\% of the livetime.
-After a large S2 event, a period of a sustained high rate is observed. 
+After a large S2 event, a period of sustained high rate is observed. 
 This is due to electrons attaching to impurities and then being released at some later time, causing a delayed extraction and an elevated rate after the S2.
-Single photons are also observed after the same event which is thought to be from delayed fluorescence.
+Single photons are also observed after the same event, which is thought to be from delayed fluorescence.
 The removal of time after an S2 until the detector rate settles corresponds to 29.8\% of live day loss.
 Occasionally hot spots appeared in the TPC due to electron emission from the grids. 
 These periods of time lasted approximately an hour at a time and reduced the live time by 6.6\%.
 There were several other cuts in this category which combined reduced livetime by a further 1\%.
 
 \subsubsection{S2 cuts}
-A suite of cuts were developed to remove S2s which did not look like an S2 should if it had originated from a LXe scatter.
-These targeted accidental events.
+This selection is designed to remove events which originate in or near the GXe. 
+If the scatter occurs very close to the GXe then the time separation between the S1 and S2 is sufficiently low that the pulse finding algorithm cannot separate them. 
+Similarly, GXe scatters would have merged S1 and S2s. 
+Events with a poor position reconstruction (which uses the S2 hit pattern) are also removed this way.
 
 \subsubsection{S1 cuts}
-
-
-developed a hot spot where 
+The S1 cuts were to ensure that the S1 pulse is not caused by a PMT process or a background process which would not produce an S2.
+The most significant cut in this suite removed S1 events where a single PMT contributed significantly more to the waveform than neighbouring PMTs.
 
 \subsubsection{Core cuts}
-All of these core cuts focus on removing clean scatters in the TPC, but which do not match the properties of dark matter.
-Only events with a single S1-S2 pulse pair are selected, multiple S1 or multiple S2 events are removed.
+The core cuts focus on removing clean scatters in the TPC, but which do not match the properties of dark matter.
+Only events with a single S1-S2 pulse pair are selected, and multiple S1 or multiple S2 events are removed.
 \par
-The fiducial region was defined in $z$ by the drift time (time between the S1 and S2 pulses) of between [86,936.5] $\mu$s which corresponds to approximately 12.8 cm below the gate grid and 2.2 cm from the cathode grid.
-$r$ was defined as either [4.0,5.0,5.2] cm from the TPC wall. The variation in the $r$ is to remove regions where the electric field is non-uniform, and effects from being close to the wall.
-Within this region a the volume of xenon is 5.5$\pm$0.2 tonnes.
+The fiducial region was defined in $z$ by the drift time (time between the S1 and S2 pulses) in the interval [86,936.5] $\mu$s, which corresponds to approximately 12.8 cm below the gate grid and 2.2 cm from the cathode grid.
+$r$ was defined as either [4.0,5.0,5.2] cm from the TPC wall. 
+The variation in $r$ is to remove regions where the electric field is non-uniform, and effects from being close to the wall.
+Within this region, the volume of xenon is 5.5$\pm$0.2 tonnes.
 %\autoref{fig:sr1_fiducial_cut} shows the fiducial volume definition.
 \par
 The region of interest was defined as 3 phd $<$ S1$_c <$ 80 phd, S2 $>$ 600 phd and S2$_c <$ 10$^5$ phd.
+The relation between S1$_c$ and recoil energy for nuclear recoil events is shown in \autoref{fig:sr1_detector_model_response_for_flat_nr}.
 \par
-The OD veto window was set to the value discussed in the previous chapter of 1200 $\mu$s, with an energy threshold of 200 keV.
+The OD veto window was set to the value discussed in \autoref{sec:od_analysis_veto_efficiency} of 1200 $\mu$s, with an energy threshold of 200 keV.
 The Skin veto window was set to 400 $\mu$s.
-Additionally a prompt veto window was implemented to remove events where the S1 is within [-300,300] ns of a pulse in either the Skin or OD.
+Additionally, a prompt veto window was implemented to remove events where the S1 is within [-300,300] ns of a pulse in either the Skin or OD to remove $\gamma$ events.
 
 \par
 The combined efficiency of all of these cuts is shown in \autoref{fig:sr1_nr_efficiency}.
-A total of 335 events remained after the application of all of these cuts which are shown in \autoref{fig:henr_ws_sr1_events}.
+A total of 335 events remained after the application of all of these cuts \cite{lz_ws_sr1_ref}.
+%which are shown in \autoref{fig:henr_ws_sr1_events}.
 
 %\begin{figure}
 %    \centering
@@ -96,52 +100,89 @@ A total of 335 events remained after the application of all of these cuts which 
 %    \label{fig:sr1_fiducial_cut}
 %\end{figure}
 
+\input{Chapters/Analysis_EffectiveFieldTheory/Figures/WIMP_Search/signal_vs_energy.tex}
+
 \begin{figure}
     \centering
     \includegraphics[width=10cm]{Figures/EFT/All_SR1_Plots/NR_efficiency.png}
     \caption{Signal efficiency as a function of NR energy for the trigger (blue), S1 threshold (orange), all analysis cuts expect ROI (green) and the ROI (black).
-    The vertical dashed line is the the 50\% efficiency point.
+    The vertical dashed line is the 50\% efficiency point. Figure from \cite{lz_ws_sr1_ref}.
     }
     \label{fig:sr1_nr_efficiency}
 \end{figure}
 
-\input{Chapters/Analysis_EffectiveFieldTheory/Figures/WIMP_Search/final_dataset_events}
+%\input{Chapters/Analysis_EffectiveFieldTheory/Figures/WIMP_Search/final_dataset_events}
 
 
 \subsection{Background Model}
 \par
-In the background model, 9 components were included.
-The grouping is based upon the distribution in the ROI and the level of uncertainty.
+In the background model, 9 components were included listed in \autoref{fig:sr1_er_background_pre_fit}.
+The grouping is based on the distribution in the ROI and the level of uncertainty and is discussed below.
 
 \par
-The ${}^{222}$Rn chain and ${}^{220}$Rn chain both produce flat $\beta$ contributions in this region.
-The rate of these contributions was determined from $\alpha$-peak fitting to the ER band outside of the ROI which can be seen in \autoref{fig:sr1_spectra}.
+In the ROI, there are three dominant $\beta$-decays which make up a flat contribution: ${}^{214}$Pb from the ${}^{222}$Rn chain, ${}^{212}$Pb from the ${}^{220}$Rn chain and ${}^{85}$Kr.
+The rate of ${}^{214}$Pb and ${}^{212}$Pb was determined from $\alpha$-peak fitting other decays in the decay chains outside of the ROI \cite{lz_sr1_backgrounds_ref}.
+This is analogous to what was shown in \autoref{sec:od_analysis_backgrounds}.
+The rate of ${}^{85}$Kr was determined by in situ mass spectroscopy measurements \cite{lz_sr1_backgrounds_ref}. 
+%which can be seen in \autoref{fig:sr1_spectra}.
 The $\gamma$ spectrum from the detector contaminants is also flat in this region and is constrained from the radioassay \cite{LZ_assay_ref}.
 These contributions are treated as a single background labelled \textit{Flat ER} in subsequent plots.
 This is the largest contribution to the expected rate, with 218 $\pm$ 36 events.
 \par
-Two contributes which were ignored in the projected sensitivity have been included here: ${}^{127}$Xe and ${}^{37}$Ar.
-As previously discussed, these have half-lives of approximate a month each, the contribution during SR1 cannot be ignored.
-Both components originate from cosmic activation of xenon and so the amount of each in the TPC depends upon how long the xenon spent above ground prior to being moved underground.
+Two contributions which were ignored in the projected sensitivity have been included here: ${}^{127}$Xe and ${}^{37}$Ar.
+As previously discussed, these have half-lives of approximately a month each, and so the contribution during SR1 cannot be ignored.
+Both components originate from cosmic activation of xenon, and so the amount of each in the TPC depends upon how long the xenon spent above ground prior to being moved underground.
 The contribution from $^{127}$Xe was constrained by sideband analysis from K-shell x-rays deexcitation \cite{marisarthurs_thesis_ref}.
-${}^{37}$Ar cannot be constrained by sideband analysis as its decays are within the ROI.
-However the contribution can be constrained by the delivery schedule of the xenon \cite{lz_argon37_ref}.
-This put the expected count to be $\approx$100 in this data set but there a very large uncertainty meaning that it could be has high at 300.
-In the PLR, ${}^{37}$Ar was allowed to float from anywhere between 0 and 291 events.
+${}^{37}$Ar cannot be constrained by sideband analysis as its decays are entirely within the ROI.
+However, the contribution can be constrained by the delivery schedule of the xenon \cite{lz_argon37_ref}.
+This put the expected count to be $\approx$100 in this data set, but there is a very large uncertainty meaning that it could be as high as 300.
+In the PLR, ${}^{37}$Ar was allowed to float from anywhere between 0 and 291 events \cite{lz_argon37_ref}.
 \par
-Two other xenon isotopes were considered ${}^{124}$Xe and ${}^{136}$Xe, both of which are constrained by the mass of xenon \cite{lz_ws_sr1_ref}.
+Two other xenon isotopes were considered ${}^{124}$Xe and ${}^{136}$Xe, both of which are constrained by the total mass of xenon \cite{lz_ws_sr1_ref}.
 \par
-Accidental events, where unrelated S1 and S2 pulses are produced in an event window were also included.
-The rate of this was data driven by selecting unphysical single scatter events, based upon electron drift time.
+Accidental events, where unrelated S1 and S2 pulses are produced in an event window, were also included in the background model.
+The rate of this was determined by the rate of unphysical single scatter events based upon electron drift time \cite{lz_ws_sr1_ref}.
+\par
+The final ER contribution considered are neutrinos with the rate constrained in the same way as the sensitivity study.
 \par
 Two contributions to NR events were considered: neutrinos and detector components.
 The contribution from NR neutrinos is limited due to the S2$>$600 phd requirement.
 Only ${}^{8}$B neutrinos were considered \cite{lz_ws_sr1_ref}.
 The rate of neutrons from detector components is constrained by the radioassay and by the number of events which are vetoed by the OD \cite{lz_sr1_backgrounds_ref}.
+\par
+The background model prior to fitting to the data is shown in \autoref{fig:sr1_er_background_pre_fit}.
+The ${}^{37}$Ar component value in the plot uses the post-fit value in the figure. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=10cm]{Figures/EFT/All_SR1_Plots/sr1_bg_model.png}
+    \caption{Background model before fitting to data with the exception of ${}^{37}$Ar, which uses the post-fit rate.
+             The total model is shown in dark blue.
+             The SR1 data which passed all analysis cuts is shown by the black points.
+             Figure from \cite{lz_sr1_backgrounds_ref}.}
+    \label{fig:sr1_er_background_pre_fit}
+\end{figure}
+
+%\input{Chapters/Analysis_EffectiveFieldTheory/Figures/WIMP_Search/sr1_background_fit}
 
 
-\input{Chapters/Analysis_EffectiveFieldTheory/Figures/WIMP_Search/sr1_background_fit}
-
+\begin{table}[]
+    \centering
+    \begin{tabular}{c|c|c}
+        Background Component     & Expected Events & Fit Result             \\ \hline
+        Flat ER                  & 218 $\pm$ 36    & 222 $\pm$ 16           \\
+        $\nu$ ER                 & 27.3 $\pm$ 1.6  & 27.3 $\pm$ 1.6         \\
+        ${}^{127}$Xe             & 9.3 $\pm$ 0.8   & 9.3 $\pm$ 0.8          \\
+        ${}^{124}$Xe             & 5.0 $\pm$ 1.4   & 5.2 $\pm$ 1.4          \\
+        ${}^{136}$Xe             & 15.2 $\pm$ 2.4  & 15.3 $\pm$ 2.4         \\
+        ${}^{8}$B CE$\nu$NS      & 0.15 $\pm$ 0.01 & 0.15 $\pm$ 0.01        \\
+        Accidentals              & 1.2 $\pm$ 0.3   & 1.2 $\pm$ 0.3          \\
+        ${}^{37}$Ar              & [0, 291]        & 52.1${}^{+9.6}_{-8.9}$ \\
+        neutrons                 & 0.0${}^{+0.2}$  & 0.0${}^{+0.2}$
+    \end{tabular}
+    \caption{Number of events from each component in the background model for SR1 before and after the fit.}
+    \label{tab:sr1_ws_lz_backgrounds}
+\end{table}
 
 %\begin{figure}
 %    \centering
@@ -155,52 +196,68 @@ The rate of neutrons from detector components is constrained by the radioassay a
 %    \label{fig:final_data_points}
 %\end{figure}
 
-\subsection{Limits}
+\subsection{Signal Model}
 \par
-On each operator for WIMP masses of [5, 7, 10, 12, 14, 21, 33, 50, 100, 200, 400, 1000, 4000] GeV/c$^2$, a 2-sided frequentist confidence interval is determined above a 90\% confidence level.
-Shown in \autoref{tab:sr1_ws_lz_backgrounds} are the constraints and final fit values (from a background-only hypothesis) of the nuisance parameters in this analysis.
-This is supported by \autoref{fig:henr_ws_sr1_fitted_events}, which shows the final dataset along with the likelihood of of each point being part of any given background component.
-Many data points are made up of more than one colour.
-This indicates that the background component PDFs overlap.
-Each data point is well modelled by the backgrounds considered.
+The signal models were generated using the recoil spectra described previously in this chapter.
+Limiting the maximum recoil energy of 70 keV$_{NR}$ means that some of the operators will have a significant rate outside of the ROI.
+Shown in \autoref{tab:sr1_signal_integrated_rates} is the fraction of the total integrated rate for each operator up to 70 keV$_{NR}$ is shown for a number of masses.
+For some operators, as the WIMP mass increases, the rate of recoils decreases significantly, so the sensitivity will be reduced. 
 
 
 \begin{table}[]
     \centering
-    \begin{tabular}{c|c}
-        Background Component     & Expected Number of Events  \\ \hline
-        $\beta$ decays + Det. ER & 218 $\pm$ 36 \\
-        $\nu$ ER                 & 27.3 $\pm$ 1.6 \\
-        ${}^{127}$Xe             & 9.3 $\pm$ 0.8 \\
-        ${}^{124}$Xe             & 5.0 $\pm$ 1.4 \\
-        ${}^{136}$Xe             & 15.2 $\pm$ 2.4 \\
-        ${}^{8}$B CE$\nu$NS      & 0.15 $\pm$ 0.01 \\
-        Accidentals              & 1.2 $\pm$ 0.3 \\
-        ${}^{37}$Ar              & [0, 291]      \\
-        neutrons                 & 0.0${}^{+0.2}$
+    \begin{tabular}{c|c|c|c}
+    
+        \multirow{2}{*}{Operator} & \multicolumn{3}{c}{Fraction of spectra} \\ 
+                                  & 10 GeV/c$^2$ & 100 GeV/c$^2$ & 1000 GeV/c$^2$ \\ \hline
+        1                         & 1.0          & 0.997         & 0.993 \\
+        3                         & 1.0          & 0.882         & 0.730 \\
+        4                         & 1.0          & 0.954         & 0.816 \\
+        5                         & 1.0          & 0.942         & 0.736 \\
+        6                         & 1.0          & 0.458         & 0.085 \\
+        7                         & 1.0          & 0.986         & 0.900 \\
+        8                         & 1.0          & 0.991         & 0.963 \\
+        9                         & 1.0          & 0.821         & 0.320 \\
+        10                        & 1.0          & 0.726         & 0.344 \\
+        11                        & 1.0          & 0.986         & 0.949 \\
+        12                        & 1.0          & 0.958         & 0.902 \\
+        13                        & 1.0          & 0.903         & 0.629 \\
+        14                        & 1.0          & 0.859         & 0.359 \\
+        15                        & 1.0          & 0.762         & 0.447
     \end{tabular}
-    \caption{Expected number of events from each component in the background model.}
-    \label{tab:sr1_ws_lz_backgrounds}
+    \caption{Fraction of recoil spectra below 70 keV$_{NR}$ for each operator.}
+    \label{tab:sr1_signal_integrated_rates}
 \end{table}
+
+
+
+\subsection{Limits}
+\par
+On each operator for WIMP masses of [5, 7, 10, 12, 14, 21, 33, 50, 100, 200, 400, 1000, 4000] GeV/c$^2$, a 2-sided frequentist confidence interval is determined above a 90\% confidence level.
+Shown in \autoref{tab:sr1_ws_lz_backgrounds} are the constraints and final fit values (from a background-only hypothesis) of the nuisance parameters in this analysis.
+This is supported by \autoref{fig:henr_ws_sr1_fitted_events}, which shows the final dataset and the likelihood of each point being part of any given background component.
+Many data points have more than one colour, indicating that the background component PDFs overlap.
+Each data point is well modelled by the backgrounds considered.
 
 \input{Chapters/Analysis_EffectiveFieldTheory/Figures/WIMP_Search/ws_fitted_dataset_events}
 
 
 \par
-Although several data points are within the NR band, a background only model was found to preferable, with zero signal events being the best fit for all masses and operators.
-This is consistent with the SI and SD searches \cite{lz_ws_sr1_ref}.
-These events are leakage from the ER band.
-Presented in \autoref{fig:EFT_Result_SR1_Sensitivity_1} and \autoref{fig:EFT_Result_SR1_Sensitivity_2} are the upper limits, presented in the same dimensionless form as the projected limits.
+Although several data points are within the NR band, a background only model was found to have a higher likelihood, with zero signal events being the best fit for all masses and operators.
+This is consistent with the SI and SD searches \cite{lz_ws_sr1_ref}, where these events were associated with leakage from the ER band.
+
+\par
+Presented in \autoref{fig:EFT_Result_SR1_Sensitivity_1} and \autoref{fig:EFT_Result_SR1_Sensitivity_2} are the upper limits, presented in the same dimensionless form as the projected sensitivity.
 Shown also are the limits from both Xenon100 \cite{xenon100_eft_ref} and LUX \cite{LUX_RUN4_EFT_2021}.
-World-leading sensitivity has been achieved for all operators at at least some masses.
-In several cases, such as $\Operator$6 the sensitivity of LZ is less than that of both LUX and XENON100. 
-This is due to the recoil distributions of these operators peaking outside of the ROI used here for high WIMP masses.
+World-leading sensitivity has been achieved for all operators, but not at every mass.
+Most notably, the limit for $\Operator$6 is less than both LUX and XENON100.
+This is due to the recoil distributions of these operators peaking outside of the ROI used here for high WIMP masses that was seen in \autoref{tab:sr1_signal_integrated_rates}.
 Despite this reduced parameter space, the huge increase in exposure has made LZ very competitive.
 
 
 \par
-LZ is in a very good state, able to demonstrate world leading sensitivity to WIMP-nucleon scattering.
-With a planned exposure 17$\times$ larger than SR1, and additional observable in the PLR, the discovery potential of LZ is 
-Within SR1 there is still interesting studies to be done, with the expansion of the region of interest to include more of each signal model to either set tighter constraints or an excess of events.
+LZ is in a very good state, demonstrating world-leading sensitivity to WIMP-nucleon scattering.
+With a planned exposure 17$\times$ larger than SR1, and additional observables in the PLR, the potential for LZ to discover LZ is very exciting.
+Within SR1, there are still interesting studies to be done, with the expansion of the region of interest to include more of each signal model to either set tighter constraints or an excess of events.
 
 \input{Chapters/Analysis_EffectiveFieldTheory/Figures/WIMP_Search/ws_limits}

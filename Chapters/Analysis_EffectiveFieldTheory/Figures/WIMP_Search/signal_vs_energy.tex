@@ -10,27 +10,27 @@
             xlabel={Recoil Energy [keV$_{nr}$]},
             ylabel={S1$_{c}$ [phd]},
             mark size=0pt,
-            xmin=0, xmax=300,
-            ymin=0, ymax=600]
+            xmin=0, xmax=100,
+            ymin=0, ymax=150]
 
             \addplot[yellow, name path = psig2] table[x=energy, y=psig2]
-                      {Data/HENR/Projected_Sensitivity/data_cuts/s1_vs_recoil.dat};
+                      {Data/HENR/sr1_ws/Signal/data_cuts/s1_vs_recoil.dat};
             \addplot[yellow, name path = nsig2] table[x=energy, y=nsig2]
-                      {Data/HENR/Projected_Sensitivity/data_cuts/s1_vs_recoil.dat};
+                      {Data/HENR/sr1_ws/Signal/data_cuts/s1_vs_recoil.dat};
             
             \addplot[green, name path = psig1] table[x=energy, y=psig1]
-                      {Data/HENR/Projected_Sensitivity/data_cuts/s1_vs_recoil.dat};
+                      {Data/HENR/sr1_ws/Signal/data_cuts/s1_vs_recoil.dat};
             \addplot[green, name path = nsig1] table[x=energy, y=nsig1]
-                      {Data/HENR/Projected_Sensitivity/data_cuts/s1_vs_recoil.dat};
+                      {Data/HENR/sr1_ws/Signal/data_cuts/s1_vs_recoil.dat};
                       
             \addplot[yellow, forget plot] fill between[of=nsig2 and psig2]; 
             \addplot[green, forget plot] fill between[of=nsig1 and psig1];
             
             \addplot[black] table[x=energy, y=mean]
-                    {Data/HENR/Projected_Sensitivity/data_cuts/s1_vs_recoil.dat};
+                    {Data/HENR/sr1_ws/Signal/data_cuts/s1_vs_recoil.dat};
             
-            \addplot[blue, dashed] coordinates { (0,500)  (325,500)};
-            \addplot[black, dashed] coordinates { (278,0)  (278,700)};
+            \addplot[blue, dashed] coordinates { (0,80)  (100,80)};
+            \addplot[black, dashed] coordinates { (72,0)  (72,200)};
                   
             \nextgroupplot[
             width=0.48\textwidth, height=8cm,
@@ -38,30 +38,30 @@
             ylabel={log$_{10}$(S2$_{c}$ [phd])},
             yticklabel pos=right,
             mark size=0pt,
-            xmin=0, xmax=300,
-            ymin=2.0, ymax=5.0]
+            xmin=0, xmax=100,
+            ymin=2.5, ymax=4.5]
             
             \addplot[yellow, name path = psig2] table[x=energy, y=psig2]
-                      {Data/HENR/Projected_Sensitivity/data_cuts/logs2_vs_recoil.dat};
+                      {Data/HENR/sr1_ws/Signal/data_cuts/logs2_vs_recoil.dat};
             \addplot[yellow, name path = nsig2] table[x=energy, y=nsig2]
-                      {Data/HENR/Projected_Sensitivity/data_cuts/logs2_vs_recoil.dat};
+                      {Data/HENR/sr1_ws/Signal/data_cuts/logs2_vs_recoil.dat};
             \addplot[yellow, forget plot] fill between[of=nsig2 and psig2];          
             
             \addplot[green, name path = psig1] table[x=energy, y=psig1]
-                      {Data/HENR/Projected_Sensitivity/data_cuts/logs2_vs_recoil.dat};
+                      {Data/HENR/sr1_ws/Signal/data_cuts/logs2_vs_recoil.dat};
             \addplot[green, name path = nsig1] table[x=energy, y=nsig1]
-                      {Data/HENR/Projected_Sensitivity/data_cuts/logs2_vs_recoil.dat};
+                      {Data/HENR/sr1_ws/Signal/data_cuts/logs2_vs_recoil.dat};
             \addplot[green, forget plot] fill between[of=nsig1 and psig1];
             
             \addplot[black] table[x=energy, y=mean]
-                    {Data/HENR/Projected_Sensitivity/data_cuts/logs2_vs_recoil.dat};
+                    {Data/HENR/sr1_ws/Signal/data_cuts/logs2_vs_recoil.dat};
                     
-            \addplot[black, dashed] coordinates { (278,2)  (278,5)};
+            \addplot[black, dashed] coordinates { (72,2.5)  (72,4.5)};
         
         \end{groupplot}
     \end{tikzpicture}
-    \caption{Detector response in S1 (\textbf{Left}) and S2 (\textbf{Right}) space for a given recoil in the LZ detector assuming the projected detector parameters.
-             The black line is the mean response, the green band is 1$\sigma$ and the yellow is 3$\sigma$. The blue dashed line is the S1$_c$ cut. The dashed black lines are the largest recoil energy signal within 3$\sigma$ of that cut.
+    \caption{Detector response in S1 (\textbf{Left}) and S2 (\textbf{Right}) space for a given recoil in the LZ detector for SR1 detector parameters.
+    The black line is the mean response, the green band is 1$\sigma$ and the yellow is 3$\sigma$. The blue dashed line is the S1$_c$ cut. The dashed black lines are the largest recoil energy signal within 3$\sigma$ of that cut.
     }
-    \label{fig:projected_detector_model_response_for_flat_nr}
+    \label{fig:sr1_detector_model_response_for_flat_nr}
 \end{figure}

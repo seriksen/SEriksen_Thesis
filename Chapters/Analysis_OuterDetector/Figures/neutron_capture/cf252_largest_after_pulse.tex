@@ -4,12 +4,12 @@
 \centering
     \begin{axis}[
             ylabel=Count,
-            xlabel=Photons Detected (phd),
+            xlabel=Pulse Area (phd),
             width=15cm,
             height=8cm,
             grid=major,
             xmin=0, xmax=2500,
-            %ymin=45, ymax=100,
+            ymin=0, ymax=500,
             %minor y tick num=1,
             ]
         \addplot[black, only marks, mark size=1.0,
@@ -19,10 +19,14 @@
                  ]
             table [x=pulsearea,y=weight, x error=xerror, y error=yerror]
             {Data/cf252/cf252_od_largest_after400ns.dat}; 
+
+         \addplot[red, dashed]
+            coordinates{(600, 0)(600,500)};
             
     \end{axis}
             
 \end{tikzpicture}
-    \caption{Largest OD pulse in an event window 400ns after the first coincidence pulse.}
+    \caption{Largest OD pulse in an event window 400 ns after the largest triple detector coincidence pulse.
+             Pulses with a pulse area to the right of the red dashed line are caused by neutron captures on gadolinium.}
     \label{fig:cf252_gd152_captures}
 \end{figure}

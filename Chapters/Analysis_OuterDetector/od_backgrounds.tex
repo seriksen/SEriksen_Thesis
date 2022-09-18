@@ -1,15 +1,15 @@
 \section{Backgrounds}
 \label{sec:od_analysis_backgrounds}
 \par
-Using the aforementioned energy scale, noise cut, and scaling factor, in this section the background rate in the OD is measured and attempts are made to understand the features observed in data.
+Using the aforementioned energy scale, noise cut, and scaling factor, in this section, the background rate in the OD is measured, and attempts are made to understand the features observed in the data.
 \par
-In \autoref{fig:od_random_trigger} a comparison between the observed events in the OD during the entirety of the first science run (SR1) and those expected are shown from the Random Trigger (described in \autoref{sec:lz_detector}).
-The expected rates are those described in \autoref{sec:simulated_od_requirements} and were simulated using the full model chain (described in \autoref{sec:lz_detector}) with the resultant pulse areas scaled by a factor 4.54.
+In \autoref{fig:od_random_trigger}, a comparison between the observed events in the OD during the entirety of the first science run (SR1) and those expected are shown from the Random Trigger (described in \autoref{sec:lz_detector}).
+The expected rates are those described in \autoref{sec:simulated_od_requirements} and were simulated using the full model chain (described in \autoref{sec:lz_detector}) with the resultant pulse areas scaled by a factor of 4.54.
 Both data and simulations were handled by the same analysis tools, with the noise cut applied.
 Included as well in \autoref{fig:od_random_trigger} is the expected rate in the OD if the GdLS had not undergone an improved purification.
 All three distributions are normalised to exposure.
-Neither the improved purification or the original purification fits what is observed particularly well.
-More worryingly there is a peak in the data at 100 phd which does is not present in either of the expected distributions.
+Neither the improved purification nor the original purification fits what is observed particularly well.
+More worryingly, there is a peak in the data at 100 phd which is not present in either of the expected distributions.
 \par
 In the remainder of this section, an effort is made to understand what is observed and why it is different to what was expected from radioassays and simulations.
 
@@ -19,25 +19,25 @@ In the remainder of this section, an effort is made to understand what is observ
 \subsection{Rate Stability}
 \par
 To begin the journey of understanding what is in the data, the first check performed was to observe if the rate and distribution of backgrounds were stable over time.
-The OD was filled in June 2021, but between then and around the start of SR1 in December 2021 the detector electronic parameters were being continuously altered during a commissioning phase.
+The OD was filled in June 2021, but between then and around the start of SR1 in December 2021, the detector electronic parameters were continuously altered during a commissioning phase.
 As such, an OD background rate measurement only became stable around and during SR1.
-A weekly monitoring of the OD events starting from a month before the beginning of SR1 until the end was performed using the Random Trigger (described in \autoref{sec:lz_detector}.
-The rate of events above the noise-cut, 100 keV and 200 keV were measured and are shown in \autoref{fig:OD_SR1_Rate}.
-The noise-cut was applied as a base-cut, so the 100 keV is made up of the the noise-cut plus a pulse area cut, and similarly for 200 keV.
+Weekly monitoring of the OD events starting from a month before the beginning of SR1 until the end was performed using the Random Trigger.
+The rate of events above the noise cut, 100 keV, and 200 keV were measured and are shown in \autoref{fig:OD_SR1_Rate}.
+The noise cut was applied as a base cut, so the 100 keV is made up of the noise cut plus a pulse area cut, and similarly for 200 keV.
 The three gaps in the data are when calibrations were being performed.
 This occurred three times in the region shown: just before SR1, 4 weeks into SR1, and straight after SR1.
 \par
 There are minor fluctuations in the noise-cut rate, but these are linked to a xenon chiller and consistent with a grounding failure.
-Importantly, over this period the OD rate remains stable, with no features in the observed pulse area distribution changing during that time.
+Importantly, over this period, the OD rate remains stable, with no features in the observed pulse area distribution changing during that time.
 Therefore what was shown in \autoref{fig:od_random_trigger} is considered representative of the backgrounds in the OD.
 \par
 Viewing the rate in a slightly different way, the rate-per-phd for the SR1 period is shown in \autoref{fig:od_sr1_rate_vs_threshold}.
 Overlaid is the expected rate of backgrounds from \autoref{tab:od_expected_rates} for 100 and 200 keV.
 Interestingly the rate above 100 keV is in fairly good agreement with what was predicted in \autoref{sec:simulated_od_backgrounds}.
 This is consistent with being able to set the veto energy threshold to 100 keV, assuming that achieves an appropriate veto efficiency.
-However differences arise at the 200 keV level, where the expected is 62.7$\pm$5.3 Hz were as the observed is 42.5$\pm$2.1 Hz, a fairly significant difference.
-This indicates the there are fewer backgrounds in the OD than expected, and therefore a veto energy threshold of 200 keV would have a lower false veto rate than expected by simulations for any veto time window.
-This is consistent with the result from full chain simulations, but the background components which make up the distribution is clearly different.
+However, differences arise at the 200 keV level, where the expected rate is 62.7$\pm$5.3 Hz whilst the observed rate is 42.5$\pm$2.1 Hz, a fairly significant difference.
+This indicates that there are fewer backgrounds in the OD than expected, and therefore a veto energy threshold of 200 keV would have a lower false veto rate than expected by simulations for any veto time window.
+%This is consistent with the result from full chain simulations, but the background components which make up the distribution are clearly different.
 
 \input{Chapters/Analysis_OuterDetector/Figures/background_rates/od_sr1_background_rate}
 
@@ -46,8 +46,8 @@ This is consistent with the result from full chain simulations, but the backgrou
 %%%%%%%%%%%%
 \subsection{Position Reconstruction}
 \par
-Next we can look at the spacial distribution of events.
-For any pulse it is possible to reconstruct the location of the interaction that caused the pulse by a weighted average such as:
+Next, we can look at the spatial distribution of events.
+For any pulse, it is possible to reconstruct the location of the interaction that caused the pulse by a weighted average such as:
 \begin{equation}
     x = \frac{\sum{\text{Ch}_{\text{phd}} \cdot \text{Ch}_\text{x}}}{\sum{\text{Ch}_\text{phd}}} 
 \label{eq:OD_xy_position}
@@ -61,11 +61,11 @@ In spherical coordinates, $\phi$ can be calculated in a similar fashion using th
 \par
 Due to scheduling constraints associated with SR1, there was an insufficient variety of calibration sources used at varying \{$x,y,z$\} positions in order to adequately determine the resolution of this approach, but it is something a future calibration campaign may be able to tackle. 
 Additionally, this approach does not take into account the OCV in the centre of the detector, so reconstructed pulses will have an incorrect position, but the correct shape\footnote{pulses can be reconstructed to \{0,0\} which is not physical as that is where the OCV is}.
-The OCV can be taken into account by including an offset in \{$x,y$\}, but has explicitly not been done here due to the lack of knowledge in the actual resolution of this approach.
+The OCV can be taken into account by including an offset in \{$x,y$\}, but this has explicitly not been done here due to the lack of knowledge in the actual resolution of this approach.
 Regardless, this approach provides an insight in a way not thought possible based upon optical simulations\footnote{due to the low light collection efficiency in the simulations}.
 
 \par
-Spacial reconstruction was performed on slices in phd-space, the result of which can be seen in \autoref{fig:od_backgrounds_position_reconstruction}.
+Spatial reconstruction was performed on slices in phd-space, the result of which can be seen in \autoref{fig:od_backgrounds_position_reconstruction}.
 The first region focuses on the unexplained peak at 100 phd ($\backsim$ 0.5 MeV).
 The second region focuses on the area above 500 phd ($\backsim$ 2 MeV), where cavern-$\gamma$s should dominate.
 
@@ -74,26 +74,27 @@ The second region focuses on the area above 500 phd ($\backsim$ 2 MeV), where ca
 \par
 There are two useful observations in both regions.
 Firstly, in $r-z$ there is a clear bias to events at the bottom of the detector.
-This is consistent with the cavern-$\gamma$s distribution shown in \autoref{fig:cavern_gamma_position_distribution} and indicates that the cavern-$\gamma$s are the most significant contributor to the OD backgrounds, again in agreement with the prediction.
+This is consistent with the cavern-$\gamma$s distribution shown in \autoref{fig:cavern_gamma_position_distribution} and indicates that the cavern-$\gamma$s are the most significant contributor to the OD backgrounds.
 Secondly, in $x-y$ there is an elevated rate of events in \{$+x,+y$\}.
 This can be understood easiest by labelling the SATs with letters A-D starting from the \{$+x,+y$\} quadrant and going around clockwise.
 Using this labelling, over the period of SR1, SAT A has a rate in excess of 8\% higher than any of the other tanks, with SAT B seeing the next highest rate (3\% higher than the mean).
 Both SATs C and D saw an equivalent rate.
 In \autoref{fig:OD_conduit_geometry}, the SAT placement are shown along with the conduits.
-SAT A and SAT B are the only tanks which are obstructed by a single conduit, additionally both tanks cover an entire BAT and TAT.
-The CSD-ports and the OCV legs block the other SATs from the TATs and BATs.
-This results in the light having a more direct path to more PMTs and therefore higher probability of detection.
+SAT A and SAT B are the only tanks which are obstructed by a single conduit.
+They are also the only side tanks which cover an entire BAT and TAT.
+The CSD ports and the OCV legs block the other SATs from achieving full coverage of the TATs and BATs.
+In SAT A and SAT B, this results in the light having a more direct path to more PMTs and, therefore, a higher probability of detection.
 \par
-A way of suppressing cavern-$\gamma$s is to take a slice in $z$, taking events reconstructed to be in the middle of the side tanks.
-The resultant pulse area spectrum for pulses above the noise-cut between $0<z<100$ is shown in \autoref{fig:od_data_pulsearea_middle_tank}.
+A way of suppressing cavern-$\gamma$s is to select a slice in $z$, taking events reconstructed to be in the middle of the side tanks.
+The resultant pulse area spectrum for pulses above the noise cut in the interval $0<z<100$ is shown in \autoref{fig:od_data_pulsearea_middle_tank}.
 When compared to \autoref{fig:od_backgrounds_position_reconstruction} an additional feature appears around 300 phd.
-This is consistent with ${}^{60}$Co which originate from the OCV indicating that this is another significant contributor the OD background rate.
-In future it may be possible to accurately measure the rate of this using a volume cut, but that will require a more dedicated calibration campaign, as the true volume of the SAT selected is not clear.
+This is consistent with ${}^{60}$Co which originate from the OCV, indicating that this is another significant contributor to the OD background rate.
+In future, it may be possible to accurately measure this rate using a volume cut, but that will require a more dedicated calibration campaign, as the true volume of the SAT selected is unclear.
 
 \begin{figure}[]
 \includegraphics[width=\textwidth]{Figures/Geometry/geometry_with_conduits.png}
 \centering
-\caption{LZ geometry schematic. The OD geometry excluding the BATs and TATs is shown in black. The BATs and bottom on OCV are shown in green. The TATs, CSD ports and PMT conduits in blue. The DD calibration conduits and the High-Voltage feed through for the TPC are shown in red.}
+\caption{LZ geometry schematic. The OD geometry excluding the BATs and TATs is shown in black. The BATs and bottom of the OCV are shown in green. The TATs, CSD ports and PMT conduits are shown in blue. The DD calibration conduits and the High-Voltage feed through for the TPC are shown in red.}
 \label{fig:OD_conduit_geometry}
 \end{figure}
 
@@ -106,25 +107,24 @@ In future it may be possible to accurately measure the rate of this using a volu
 Another area to look at is high energy $\gamma$s from ($\alpha$,$\gamma$) reactions, which were discussed in \autoref{sec:cavern_gamma_generator}.
 In \autoref{fig:od_high_energy} the expected and observed rate above 400 phd is shown.
 The rate of events expected is significantly greater than that observed.
-The findings here support the discussion in \autoref{sec:cavern_gamma_generator}, that the statistical model used by GEANT4 does not extend well to ${}^{17}$O.
+The findings here support the discussion in \autoref{sec:cavern_gamma_generator} that the statistical model used by GEANT4 does not extend well to ${}^{17}$O.
 However, there are still events seen in data between 1000 and 1800 phd that are not accounted for in simulations.
-These features have been attributed to neutron captures on the Fe of the water tank (which is made of steel) producing high energy $\gamma$'s \cite{iron_neutrons_ref}.
+These features have been attributed to neutron captures on the Fe of the water tank (which is made of steel), producing high energy $\gamma$s \cite{iron_neutrons_ref}.
 These neutrons originate primarily from the ${}^{252}$Cf calibration source, which was stored in a movable safe underground during SR1.
-The source was moved within the cavern during SR1 which matches with a change in the reconstructed position of these events.
+The source was moved around within the cavern during SR1, which matches with a change in the reconstructed position of these events.
 Backgrounds of this type were not previously considered within LZ, though are of great importance in fusion experiments \cite{iter_neutrons_ref}.
-Due to the source safe placement during SR1, it was not possible to determine if there was any fluctuation in the high-energy $\gamma$-rate during SR1.
+Due to the safe's placement during SR1, it was not possible to determine if there was any fluctuation in the high-energy $\gamma$-rate during SR1.
 
 \input{Chapters/Analysis_OuterDetector/Figures/background_constraints/od_high_energy}
-
 
 %%%%%%%%%%%%
 \subsection{$\alpha$ constraints}
 \par
 As was discussed in \autoref{sec:simulated_od_backgrounds} the exact rate of backgrounds from GdLS internals components is not known as the improved purification cocktail was not assayed.
-Fortunately we are able to constrain some of the components. 
+Fortunately, we are able to constrain some of the components. 
 The decays within the U and Th decay chains all have an isotope in them with a half-life shorter than the LZ event window, of 4.5 ms.
-It is therefore possible to observe two decays from the same decay chain, which will appear as two pulses (one from each decay).
-There are 3 possible decays pairs for this, one from decay chain ${}^{238}$U, ${}^{235}$U and ${}^{232}$Th.
+It is, therefore, possible to observe two decays from the same decay chain, which will appear as two pulses (one from each decay) in an event.
+There are 3 possible decay pairs for this, one from ${}^{238}$U, ${}^{235}$U and ${}^{232}$Th.
 These are summarised in \autoref{tab:od_constrainable_decays_in_data}.
 
 \begin{table}[]
@@ -143,40 +143,41 @@ These are summarised in \autoref{tab:od_constrainable_decays_in_data}.
 \end{table}
 
 \par
-The decay pairs were searched for by looking for pulses which were reconstructed to be in close spacial proximity to each other.
-As the GdLS is not circulated and the decay particles ($\beta$ and $\alpha$) do not have a significant penetrating power, the site of the two interactions will be very close to each other.
+The decay pairs were searched for by looking for pulses which were reconstructed to be in close spatial proximity to each other.
+As the GdLS is not circulated and the decay particles ($\beta$ and $\alpha$) do not have significant penetrating power, the site of the two interactions will be very close to each other.
 Implementing a position requirement acts to reduce the impact of accidental coincident signals in other areas of the OD being mistakenly identified as part of the pulse pair.
 The data selection criteria used was simply requiring that the reconstructed $z$ and $\phi$ be within some range of each other: $z_{\text{diff}} < 25$ and $\phi_{\text{diff}} < 1.0$, where diff refers to the difference between the two pulses.
-It was also limited to pulses passing the noise-cut, ensuring that enough PMTs saw light to make the reconstruction meaningful.
+It was also limited to pulses passing the noise cut, ensuring that enough PMTs saw light to make the reconstruction meaningful.
 This cut is fairly loose to account for potential inefficiencies in the position reconstruction with $z$ and $\phi$ based on pulse size.
-The resultant pulse-pairs are shown in \autoref{fig:od_all_pulse_pairs_2d}.
+The resultant pulse pairs are shown in \autoref{fig:od_all_pulse_pairs_2d}.
 Only pulses above 200 keV in visible energy are included in the figure to make the features easier to see.
 
 \input{Chapters/Analysis_OuterDetector/Figures/background_constraints/od_bipo_pulses_2d}
 
 \par
-In \autoref{fig:od_all_pulse_pairs_2d} there is a distribution where both the first and second pulse have a signal size around 170 phd.
+In \autoref{fig:od_all_pulse_pairs_2d}, there is a distribution where both the first and second pulse have a signal size of around 170 phd.
 This corresponds to the double $\alpha$-decay of ${}^{219}$Rn$\to{}^{215}$Po.
 The first pulse is slightly smaller than the second, which follows the pattern expected given the $\alpha$ energies shown in \autoref{tab:od_constrainable_decays_in_data}.
-The other two pulse-pairs will be spread out (in the $x$-axis) as the first pulses are $\beta$-decays and so are not visible as features in \autoref{fig:od_all_pulse_pairs_2d}.
-It is still possible to isolate these though by taking advantage of the much shorter decay half-life of ${}^{212}$Po and ${}^{214}$Po compared to ${}^{215}$Po.
-This was done by incorporating a time requirement, where the pulse-pairs had to be within 800 $\mu$s of each other.
-This time was chosen as it corresponds to 5 full half-lives of ${}^{214}$Po, in which 97\% of all ${}^{214}$Po will have decayed, and is less than half the half-life of ${}^{215}$Po.
+The other two pulse pairs will be spread out (in the $x$-axis) as the first pulses are from $\beta$-decays and so are not visible as features in \autoref{fig:od_all_pulse_pairs_2d}.
+It is still possible to isolate these by taking advantage of the much shorter decay half-life of ${}^{212}$Po and ${}^{214}$Po compared to ${}^{215}$Po.
+This was done by incorporating a time requirement, where the pulse pairs had to be within 320 $\mu$s of each other.
+This time was chosen as it corresponds to 2 full half-lives of ${}^{214}$Po, in which 75\% of all ${}^{214}$Po will have decayed and is sufficiently lower than the half-life of ${}^{215}$Po so that it's contribution will be minimal.
 The result of this is shown in \autoref{fig:od_time_dependent_pulses_2d}.
 The distribution centred at 240 phd (in the $y$-axis), corresponding to the $\alpha$-decay of ${}^{212}$Po.
-The $\alpha$ from ${}^{214}$Po would be expected around 180 phd but the rate is sufficiently low that it cannot be seen.
+The $\alpha$ from ${}^{214}$Po would be expected around 180 phd, but the rate is sufficiently low that it cannot be seen.
 
 \par
 Each sub-chain, ${}^{238}$U$_{m}$, ${}^{235}$U$_{l}$ and ${}^{232}$Th$_{l}$, is expected to contribute to the OD background rate via the two decays in the range [15, 192] mHz, [20, 185] mHz and [5, 50] mHz respectively.
-The lower bound on each expectation is assuming that the GdLS underwent the improved purification (discussed in \autoref{sec:simulated_od_requirements}).
-The upper bound is assuming the rate is what was measured in the LS screener assay \cite{scotthaselschwardt_thesis_ref}.
+The lower bound on each expectation assumes that the GdLS underwent the improved purification (discussed in \autoref{sec:simulated_od_requirements}).
+The upper bound assumes the rate is what was measured in the LS screener assay \cite{scotthaselschwardt_thesis_ref}.
 The rates calculated here are 98$\pm$2.5 mHz for ${}^{219}Rn \to {}^{215}Po$ (${}^{235}$U$_{l}$) and 7.7$\pm$1.2 mHz for ${}^{212}Bi \to {}^{212}Po$ (${}^{232}$Th$_{l}$).
 These were determined by isolating the feature in each distribution.
-A second reverse search was also performed, where the $\alpha$ peak was found and then and earlier first pulse found which provided an equivalent result.
-As no feature was observed for ${}^{238}$U$_{m}$ is can be assumed that it does not contribute any significant rate.
+A second reverse search was also performed, where the $\alpha$ peak was found, and then the earlier first pulse was found, which provided an equivalent result.
+As no feature was observed for ${}^{238}$U$_{m}$, it can be assumed that it does not contribute any significant rate.
 The likely reason for this is that the improved purification worked especially well for removing that sub-chain.
-Both the rates of ${}^{219}Rn \to {}^{215}Po$ and ${}^{212}Bi \to {}^{212}Po$ are between the LS screener value and the improved purification estimate.
-This indicates that the purification was done, but did not decrease all of the impurities as much as hoped for.
+Both the rates of ${}^{219}$Rn$\to {}^{215}$Po and ${}^{212}$Bi$\to {}^{212}$Po are between the LS screener value and the improved purification estimate.
+This indicates that the purification was performed but did not decrease all of the impurities as much as hoped for.
+As the rates measured only included cases where both pulses were above 200 keV, the rate of ${}^{212}$Bi$\to {}^{212}$Po will be slightly higher given the $\beta$ spectrum of ${}^{212}$Bi. 
 %There is efficiency of tagging ${}^{212}Bi \to {}^{212}Po$ is lower than that of ${}^{219}Rn \to {}^{215}Po$ as the half-life is only 300 ns.
 %As can seen been in \autoref{fig:od_noise_cut_waveforms}, a pulse can last significantly longer than this.
 %Therefore in order to be picked out, the pulses need to be far enough apart that the pulse finding algorithm can differentiate them.
@@ -184,13 +185,13 @@ This indicates that the purification was done, but did not decrease all of the i
 
 \par
 The projections of the $\alpha$ pulses from \autoref{fig:od_all_pulse_pairs_2d} and \autoref{fig:od_time_dependent_pulses_2d} are shown in \autoref{fig:od_extracted_alphas}.
-The signal size has been converted into visible energy according by the energy scale previously discussed.
+The signal size has been converted into visible energy according to the energy scale previously discussed.
 The observed energy for each $\alpha$ was determined by a Gaussian fit to each peak.
-The observed energy of each $\alpha$ verses the observed energy are shown in \autoref{fig:od_alpha_quenching}.
+The observed energy of each $\alpha$ versus the observed energy is shown in \autoref{fig:od_alpha_quenching}.
 Included as well is the 2.2 MeV $\alpha$-decay from ${}^{152}$Gd that has been previously discussed.
 The Birk's law expectation is also shown using the parameters in \autoref{tab:Birks_law_parameters}.
-Each data point lines up with good agreement with the quenching parameters for pure LAB.
-These parameters for quenching are used in the simulation chain which further isolates the simulation-observation difference to optical propagation.
+Each data point lines up in good agreement with the quenching parameters for pure LAB.
+These parameters for quenching are used in the simulation chain, which further isolates the simulation-observation difference to optical propagation.
 The second point is the peak at 100 phd in \autoref{fig:od_random_trigger}, assuming that it's an $\alpha$-decay.
 \par
 In \autoref{fig:od_alpha_quenching} an additional point is included from the peak at 100 phd in \autoref{fig:od_random_trigger} assuming that it's an $\alpha$.
@@ -198,12 +199,12 @@ This indicates that it is likely from a $\backsim$5.4 MeV $\alpha$.
 Turning back to \autoref{fig:decay_chains}, that is a fairly common $\alpha$ energy in all of the decay chains.
 However ${}^{238}$U$_{m}$, ${}^{235}$U$_{l}$ and ${}^{232}$Th$_{l}$ can all be ruled out as they do not have high enough rates.
 The early chains of each decay chain can also be ruled out as the $\alpha$ decays are all below 5 MeV.
-This opens up the possibility that it is a 5.3 MeV $\alpha$ from ${}^{210}$Po which is in the late chain of ${}^{238}$U.
+This opens up the possibility that it is a 5.3 MeV $\alpha$ from ${}^{210}$Po, which is in the late chain of ${}^{238}$U.
 This suggestion appears at odds with the extremely low internal rate of ${}^{238}$U just measured.
 However, it is known and measured that there is significant radon in the cavern air, and as previously discussed (\autoref{sec:od_construction_sec}) the acrylic tanks were open to the cavern air for long periods prior to filling.
-There was opportunity for decay daughters to plate-out on the inside of the acrylic tanks, a feature that is of great concern within the TPC \cite{radon_plateout_ref} (which was discussed in \autoref{sec:lz_detector}).
-${}^{210}$Pb is the only long-lived particle in the any of the decay chains after radon, with a half-life in excess of 22-years. 
-The remainder of the isotopes would drastically reduce in abundance after a few weeks, leaving only ${}^{210}$Pb daughters visible, at a sustained rate.
+There was an opportunity for decay daughters to plate-out on the inside of the acrylic tanks, a feature that is of great concern within the TPC \cite{radon_plateout_ref} (which was discussed in \autoref{sec:lz_detector}).
+${}^{210}$Pb is the only long-lived particle in any of the decay chains after radon, with a half-life in excess of 22 years. 
+The remainder of the isotopes would drastically reduce in abundance after a few weeks, leaving only ${}^{210}$Pb daughters visible at a sustained rate.
 This allows the acrylic holding the scintillator to act as a reservoir, providing a constant supply of $\alpha$ decays from ${}^{210}$Po.
 LZ is not alone in having experienced this, with KamLAND measuring a higher than expected rate of ${}^{238}$U$_l$ decays as well \cite{KamLAND_LS_contaminants_ref}.
 
@@ -220,9 +221,9 @@ The final background that can be constrained is ${}^{152}$Gd.
 The GdLS is loaded with 0.1\% (by mass) of natural gadolinium.
 The total mass of GdLS used in the detector is 16638 kg.
 With a natural abundance of 0.2\% of ${}^{152}$Gd, this gives a maximum possible rate of 27Hz, with a 5\% uncertainty from the doping by mass.
-Unfortunately this does not constrain the contributions to the shoulder in \autoref{fig:od_random_trigger}.
+Unfortunately, this does not constrain the contributions to the shoulder in \autoref{fig:od_random_trigger}.
 As previously discussed, there are two other decays of note, ${}^{14}$C, a $\beta$ decay with an end-point of 156 keV, and ${}^{147}$Sm which decays via the emission of a 2.3 MeV $\alpha$.
-All three were measured in the LS Screener assay and would note have changed with the change with an improved purification \cite{scotthaselschwardt_thesis_ref}
+All three were measured in the LS Screener assay and would not have changed with the change with an improved purification \cite{scotthaselschwardt_thesis_ref}
 
 %All three were previously measured in the LS screener campaign, with ${}^{14}$C being the dominant contributor \cite{scotthaselschwardt_thesis_ref}.
 %This does not mean that ${}^{152}$Gd and ${}^{147}$Sm can be ignored, as
@@ -231,48 +232,49 @@ All three were measured in the LS Screener assay and would note have changed wit
 \par
 Using all of the information of the OD backgrounds discussed so far in this section, we finish with a fit of the expected backgrounds to what is observed.
 Full chain simulations of all of the backgrounds identified in \autoref{sec:simulated_od_backgrounds} were performed with every signal scaled by 4.54.
-Rather than fitting to the full observable space, a sub range was defined between 20 phd and 600 phd.
-The lower limit was set so as to be far enough away from the noise-cut that any uncertainty in scaling factor would not remove these events.
-The upper limit was set by the point where the rate of cavern-$\gamma$s diverges from the observation.
-In this region the expected background rate is 78.43$\pm$2.51 Hz.
+Rather than fitting to the full observable space, a sub-range was defined between 20 phd and 600 phd.
+The lower limit was set so as to be far enough away from the noise cut that any uncertainty in the scaling factor would not remove these events.
+The upper limit was set by the point where the predicted rate of cavern-$\gamma$s diverged from the observation.
+In this region, the expected background rate is 78.43$\pm$2.51 Hz.
 This is slightly below the observed rate of 85.26$\pm$0.22 Hz.
 \par
 A fit was performed using RooFit \cite{roostats_ref}, where the contribution of each background component was allowed to float within a defined range.
 In order to keep the number of fit parameters small a number of steps were taken.
-Firstly, all detector components were in combined.
+Firstly, all detector components were combined.
 This means that the spectra of each sub-component were summed, with the shape fixed but the magnitude variable.
-${}^{60}$Co decay from the OCV is the largest contributor to this.
-Secondly, contributions from ${}^{152}$Gd and ${}^{147}$Sm were combined together as the energy resolution is not sufficient to separate them.
+${}^{60}$Co decay from the OCV is the most significant contributor here.
+Secondly, contributions from ${}^{152}$Gd and ${}^{147}$Sm were combined as the energy resolution is not sufficient to separate them.
 Cavern-$\gamma$s were allowed to float within the uncertainties measured in \cite{LZ_Gamma_Ray_Background_ref}.
-${}^{238}$U$_l$ was allowed to float between a range of [0, 15] Hz, where 15 is roughly double the size of the integrated rate of the peak at 100 phd above the rest of the spectra.
+${}^{238}$U$_l$ was allowed to float in the range of [0, 15] Hz, where 15 is roughly double the size of the integrated rate of the peak at 100 phd above the rest of the spectra.
 ${}^{238}$U$_{m}$ and ${}^{235}$U$_{l}$ were constrained by the rates measured earlier.
 All other backgrounds were allowed to float up to the maximum value measured in the LS screener campaign \cite{scotthaselschwardt_thesis_ref}.
-The shape of each spectra was fixed with only the integrated rate variable.
+The shape of each spectrum was fixed with only the integrated rate variable.
 \par
 The result of the fit is shown in \autoref{fig:od_background_fit_to_data}.
-Only components which contributed more than 0.5 Hz to the OD rate have been included in \autoref{fig:od_background_fit_to_data}, but the fitted line shown includes the contributions from all components.
+Only components that contributed more than 0.5 Hz to the OD rate are included in \autoref{fig:od_background_fit_to_data}, but the fitted line shown contains the contributions from all components.
 The individual fitted rates for each component are shown in \autoref{tab:od_constrainable_decays_in_data}.
-Included as well in \autoref{tab:od_constrainable_decays_in_data} are the rate of each component from the initial assumption from an improved purification case.
-
+Included in \autoref{tab:od_constrainable_decays_in_data} are the rate of each component from the initial assumption from an improved purification case.
+\par
+Generally, there is good agreement between the fit and what was observed.
+There is a difference of less than 10\% over most of the range with the main features of the distribution captured.
+The most significant difference is at 50 phd where no background appears to be able to fill in this region.
+This is likely an uncertainty from the scaling factor.
+The flat scaling of 4.54 did not take into account any position variation.
+Given that the light collection efficiency observed is significantly greater than simulated, it is logical to suggest that the variation in the light collection efficiency (shown in \autoref{fig:od_lce}) is also different.
+This would effectively make contributions in lower light collection regions appear smaller than they are observed to be, which may go so way to explain the difference.
+Without further calibrations, incorporating a variation in spectral shape is exceptionally complicated.
 \par
 The cavern-$\gamma$s remain the highest contributor to the OD background rate, contributing to the rate across the entire phd range.
 The rate from cavern-${}^{238}$U has increased to fill the background shape at 300 phd.
-At low phd values, the dominating contribution is from ${}^{14}$C with the rate being very close to what was expected.
+At low phd values, the dominating contribution is from ${}^{14}$C, with the rate being very close to what was expected.
 The rate of ${}^{152}$Gd and ${}^{147}$Sm has decreased, but this could equally have been done to ${}^{14}$C.
-There is little to differentiate between these sources, but may be possible by extending to a lower pulse area.
-${}^{238}$U$_l$ can successfully account for the peak observed at 100 phd, contributing in excess of 8 Hz to the OD rate.
+There is little to differentiate between these sources in the fit region.
+${}^{238}$U$_l$ can successfully account for the peak observed at 100 phd, contributing over 8 Hz to the OD rate.
 \par
-Generally there is good agreement between the fit and what was observed with a difference of less than 10\% over most of the range with the main features of the distribution captured.
-The largest difference is at 50 phd where no background appears to be able to fill in this region.
-This can be understood as an uncertainty in the scaling factor.
-The flat scaling of 4.54 did not take into account any position variation, and given that the light collection efficiency observed is significantly greater than simulated, it is logical to suggest that the variation in the light collection efficient (shown in \autoref{fig:od_lce}) is different as well.
-This would effectively make contributions in lower light collection regions appear smaller than they are observed to be, which may go so way to explain what is seen.
-Without further calibrations, incorporating a variation in spectral shape is extremely complicated.
-\par
-Many of the low rate decays have not changed between the expected rate and the fit.
+Many low-rate decays have not changed between the expected rate and the fit.
 This is due to the domination of a few background components.
-After future calibrations it will be possible to include these more meaningfully by suppressing the cavern-$\gamma$s as previously discussed.
-Regardless, this first attempt at measuring the background rates in the OD demonstrate that the components are well understood with the key features identified.
+After future calibrations, it will be possible to include these more meaningfully by suppressing the cavern-$\gamma$s as previously discussed.
+Regardless, this first attempt at measuring the background rates in the OD demonstrates that the components are well understood with the key features identified.
 
 \input{Chapters/Analysis_OuterDetector/Figures/background_fit/fit_result}
 

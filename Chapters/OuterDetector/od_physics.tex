@@ -1,16 +1,19 @@
 \section{Interaction Detection}
 \label{sec:od_physics}
 \par
-Any energy deposit in the GdLS will produce a light yield that can be described by Birk's Law \cite{birks_law_ref}:
+GdLS, like all LAB-based scintillators, does not have a linear energy response with respect to kinetic energies of charged particles \cite{nonlinear_gdls_ref}.
+This is both energy- and particle-dependent and is primarily due to ionisation quenching, and Cherenkov radiation \cite{lab_quenching_theory_ref}.
+Ionisation quenching in GdLS will produce a light yield that can be described by Birk's law \cite{birks_law_ref} generalised by Chou et al. \cite{generalised_birks_ref}:
 \begin{equation} 
     \frac{dL}{dx} = S \frac{\frac{dE}{dx}}{1 + kB\frac{dE}{dx} + C\frac{dE}{dx}^2}
     \label{eq:birkslaw}
 \end{equation}
-where L is the the light yield, S is the scintillation efficiency, $\frac{dE}{dx}$ is the energy loss of the particle per path length, and $kB$ and $C$ are Birk's law parameters which differ depending upon the source: $\gamma$'s, electron recoils, etc.
+where L is the light yield, S is the scintillation efficiency, $\frac{dE}{dx}$ is the energy loss of the particle per path length, and $kB$ and $C$ are Birk's law parameters which differ depending upon the source: $\gamma$s, electron recoils, etc.
 This suppressed light yield is brought on by recombination and the quenching of exciting molecules via transfer to surrounding ones.
 This results in highly ionised particles producing signals significantly lower in amplitude than their energy would indicate.
+
 \par
-The parameters of Birk's law have to be measured for each material as the coefficient, $kB$ contains the probability of quenching and links the local density of ionised molecules to the energy loss, a factor that is material dependent. 
+The parameters of Birk's law have to be measured for each material as the coefficient, $kB$ contains the probability of quenching and links the local density of ionised molecules to the energy loss, a factor that is material-dependent. 
 These parameters have been well studied for cocktails of similar makeup to the LZ GdLS with identical PPO and bis-MSB concentrations \cite{ls_alpha_quenching_ref,ls_proton_quenching_ref}.
 The low amount of Gadolinium-doping means that these should not differ significantly from that.
 The parameters for GdLS are shown in \autoref{tab:Birks_law_parameters}.
@@ -34,10 +37,10 @@ In GdLS a 100 keV electron will produce roughly the same amount of light as a 2 
 \subsection{Neutron Propagation}
 \par
 A neutron is most easily detectable from the products after a neutron capture.
-The probability of a neutron being captured is generally proportional to the amount of time the neutron spends is proximity to any given nuclei, so the slower the neutron is travelling the more readily it will be captured.
+The probability of a neutron being captured is generally proportional to the amount of time the neutron spends in proximity to any given nuclei, so the slower the neutron is travelling, the more readily it will be captured.
 Neutrons which enter the detector will be travelling relatively fast, making capture difficult.
-They can however be slowed down by scattering off particles.
-In the lab-frame, the ratio between a neutrons initial energy ($E$) and final energy ($E'$) when colliding with an at rest nucleus of mass A is given by:
+They can, however be slowed down by scattering off particles.
+In the lab frame, the ratio between a neutron's initial energy ($E$) and final energy ($E'$) when colliding with an at-rest nucleus of mass A is given by:
 \begin{equation}
     \frac{E'}{E} = \frac{A^2 + 1 + 2A\cos{\theta}}{(A + 1)^2}
 \end{equation}

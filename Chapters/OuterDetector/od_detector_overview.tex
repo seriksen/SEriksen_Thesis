@@ -7,28 +7,29 @@ In this section, a detailed explanation of the OD is provided.
 \par
 As previously discussed, it is hoped that a dark matter candidate will scatter once in the target medium and then leave the experiment.
 Being able to detect this excess of events is the foundation of the LZ experiment.
-The limiting factor are backgrounds, some of which will also to interact once in the target medium producing a single scatter event before leaving.
+The limiting factor is backgrounds, some of which will also interact just once in the target medium, producing a single scatter.
 This is particularly true for neutrons, which produce nuclear recoils and are indistinguishable from a dark matter scatter in the TPC.
-There is however a reasonable probability that these particles will also scatter or be captured after they enter the TPC volume.
+There is, however, a reasonable probability that some of these backgrounds will also scatter or be captured after they exit the TPC volume.
 LZ makes use of this feature using veto detectors, the Skin and OD:
 \begin{itemize}
     \item \textbf{Skin}: a xenon skin that surrounds the TPC inside the cryovessel.
-    \item \textbf{OD}: a liquid scintillator held in acrylic tanks around the cryovessel which is surrounded by ultra pure water.
+    \item \textbf{OD}: a liquid scintillator held in acrylic tanks around the cryovessel which is surrounded by ultra-pure water.
 \end{itemize}
-Each of these detectors are instrumented with photomultiplier tubes (PMTs).
+Each of these detectors is instrumented with photomultiplier tubes (PMTs).
 If an interaction is detected in either of these within some time window around when a single scatter is observed in the TPC then the event can be tagged as a background, as it is inconsistent with dark matter.
-These veto detectors also allow for a continuous characterisation of backgrounds in the proximity of LZ which can be fed into parameterising background models.
+These veto detectors also allow for a continuous characterisation of backgrounds in the proximity of LZ, which can be fed into parameterising background models.
 
 \par
-The OD is of vital importance as 46\% of neutrons which enter the TPC will be captured in the OD (\autoref{fig:simulated_neutron_capture_volumes}).
-Once captured the neutrons can be detected and flag that the event should be vetoed. 
-Without the OD, there is the potential for 46\% of neutrons which scatter in the TPC to be missed.
-In the worst case this could be linked to a false discovery claim, having observed an excess in nuclear recoils.
+The OD is of vital importance as 46\% of neutrons which enter the TPC will be captured in the OD.
+This is shown in \autoref{fig:simulated_neutron_capture_volumes}.
+Once captured, the neutrons can be detected and flag that the event should be vetoed. 
+Without the OD, there is the potential for 46\% of neutrons which scatter in the TPC to be missed, effectively doubling the background rate of nuclear recoils.
+In the worst case, this could be linked to a false discovery claim, having observed an excess of nuclear recoils.
 It is therefore vital to have a working OD detector.
 
 \par
-The OD is a gadolinium doped liquid scintillator (GdLS) housed in a number of acrylic tanks that provide near complete coverage to the outer crystat (OCV) designed to detect these neutrons.
-In the remainder of this section the key parts of the OD are described.
+The OD is a gadolinium-doped liquid scintillator (GdLS) housed in a number of acrylic tanks that provide near complete coverage to the outer cryostat (OCV) designed to detect these neutrons.
+In the remainder of this section, the key parts of the OD are described.
 
 \input{Chapters/OuterDetector/Figures/neutron_capture_volumes}
 
@@ -36,11 +37,11 @@ In the remainder of this section the key parts of the OD are described.
 \par
 The liquid scintillator (LS) contains three components: a solvent made from linear-alkylbenzene (LAB), a fluor of 2,5-diphenyloxazole (PPO), and a wavelength shifter of 1,4-bis(2-methylstyryl(benzene)) (bis-MSB).
 Energy deposited in the LS will excite LAB molecules, which will generally transfer their energy to the fluor. 
-The fluor will emit light at a wavelength peaking below 380 nm which is not ideal for detection due to self-absorption.
-This scintillation is absorbed by bis-MSB and emitted at a better wavelength (in terms of detectability), as it is less absorbed by the LS and matches closer the PMT response (discussed later in this section), peaking at around 410-425 nm.
+The fluor will emit light at a wavelength peaking below 380 nm, which is not ideal for detection due to self-absorption.
+This scintillation is absorbed by bis-MSB and emitted at a better wavelength in terms of detectability, as it is less absorbed by the LS and matches closer to the PMT response (discussed later in this section), peaking at around 410-425 nm.
 The absorption length and emission spectrum are shown in \autoref{fig:od_detection_properties}.
 Importantly, the absorption length of the LS increases from 1 m to in excess of 10 m in that range - and continues to rise.
-This makes the emitted light more readily detectable by the PMTs.
+This makes the emitted light more readily able to reach the PMTs.
 
 \input{Chapters/OuterDetector/Figures/gdls_wavelengths}
 
@@ -49,13 +50,13 @@ To improve neutron capture, the LS is doped with 0.1\% by mass (0.23 - 0.34\% by
 This is dissolved into the LS via a chelating agent 3,5,5-trimethylhexanoic acid (TMHA), with three TMHA ions per Gd creating Gd(${}_{9}$H${}_{17}$O${}_{2}$)${}_{3}$.
 The GdLS used in LZ was produced in a batch used for DayaBay, details of which can be found in \cite{dayabay_gd_doping_ref}.
 The complete cocktail of components in the GdLS is shown in \autoref{tab:GdLS_Components}.
-Although only a small amount of Gadolinium is added, it is sufficient to reduce the neutron capture time down from $\approx$218$\mu$s of pure LAB down to $\approx$28$\mu$s \cite{ucsb_gdls_dicebox_simulations_ref}.
+Although only a small amount of gadolinium is added, it is sufficient to reduce the neutron capture time down from $\approx$218$\mu$s of pure LAB down to $\approx$28$\mu$s \cite{ucsb_gdls_dicebox_simulations_ref}.
 
 \begin{table}
     \centering
     \begin{tabular}{c | c | c | c}
     \hline
-    {Component (shortname)} & {Purpose} & {Weight (g/mol)} & {Mass (g)} \\ \hline
+    {Component (short name)} & {Purpose} & {Weight (g/mol)} & {Mass (g)} \\ \hline
     $C_{17.14}H_{28.28}$ (LAB) & n,$\gamma$ & 234.4  & 853.55 \\
     $C_{15}H_{11}NO$ (PPO) & primary wavelength shifter & 221.3 & 3.00 \\
     $C_{24}H_{22}$ (Bis-MSB) & wavelength shifter & 310.4 & 0.015 \\
@@ -70,8 +71,8 @@ Although only a small amount of Gadolinium is added, it is sufficient to reduce 
 \subsection{Acrylic Tanks}
 \par
 The GdLS is contained in a total of ten ultra-violet transparent acrylic tanks providing nearly a complete 4$\pi$ coverage around the OCV.
-Four side tanks (SATs) that curve around the OCV, three bottom tanks (BATs) under the OCV between its legs, two top tanks (TATs), and a final smaller tank - the YBe plug which is removable for when the YBe calibration source is in use.
-\autoref{fig:LZ_OD_schematic} shows each of the tanks.
+Four side tanks (SATs) that curve around the OCV, three bottom tanks (BATs) under the OCV between its legs, two top tanks (TATs), and a final smaller tank - the YBe plug, which is removable for when the YBe calibration source is in use.
+\autoref{fig:LZ_OD_schematic} shows a render of each of the tanks.
 Details of the construction of the tanks can be found in \cite{scotthaselschwardt_thesis_ref}.
 
 \begin{figure}[]
@@ -89,7 +90,7 @@ Details of the construction of the tanks can be found in \cite{scotthaselschward
 
 \par
 The shape of the OCV includes a large flange halfway down it. 
-This means that the SATs cannot be placed next to the OCV wall and the area will fill with water.
+This means that the SATs cannot be placed next to the OCV wall, and the area will fill with water.
 In order to reduce this, foam is placed between the OCV and SATs.
 This is shown in more detail in \autoref{sec:od_construction_sec}.
 
@@ -102,17 +103,17 @@ The quantum efficiency of these PMTs to GdLS light is around 20\% at the dominan
 
 \par
 To increase the amount of light collected by the PMTs, the OD is encased in Tyvek, a highly reflective paper-like material.
-In dominant scintillation wavelengths (400-500 nm), the reflectivity of Tyvek remains above 80\% in water \cite{tyvek_thesis_ref,tyvek_reflectivity_ref}. 
-Tyvek was selected over other reflective boundaries (such as Lumirror{\texttrademark}) due to it's lower radioactivity \cite{LZ_assay_ref}.
+In dominant scintillation wavelengths (400-500 nm), the reflectivity of Tyvek is above 80\% in water \cite{tyvek_thesis_ref,tyvek_reflectivity_ref}. 
+Tyvek was selected over other reflective boundaries (such as Lumirror{\texttrademark}) due to its lower radioactivity \cite{LZ_assay_ref}.
 Details of the Tyvek placement are discussed in \autoref{sec:od_construction_sec}.
-The light collection efficiency (LCE) in the OD is shown in \autoref{fig:od_lce}, where there is an average LCE of 7.4\%.
+The simulated light collection efficiency (LCE) from 420 nm photons in the OD is shown in \autoref{fig:od_lce}, where there is an average LCE of 7.4\%.
 
 \begin{figure}
 \centering
 \resizebox{\textwidth}{!}{
 \input{Data/GdLS_Physics/Light_Collection/od_tanks_lce}
 }
-\caption[Light Collection Efficiency for 420nm photons originating in GdLS]{Light Collection Efficiency for 420nm photons originating in GdLS, producing a mean LCE of 7.4\%.
+\caption[Light Collection Efficiency for 420 nm photons originating in GdLS]{Light Collection Efficiency for 420 nm photons originating in GdLS, producing a mean LCE of 7.4\%.
 The LCE map is what is expected after the design changes discussed in \autoref{sec:od_construction_sec}.}
 \label{fig:od_lce}
 \end{figure}

@@ -5,8 +5,8 @@ The LUX-ZEPLIN (LZ) experiment is a second-generation direct detection dark matt
 The LZ experiment is hosted at the Sanford Underground Research Facility (South Dakota, USA), at the 4850 level underground\footnote{4850-feet underground}.
 
 \par
-The LZ experiment is a multi-detector system, which work together to increase the sensitivity to dark matter candidates.
-LZ is comprised of three discrete detectors; a TPC, and two active veto-detectors.
+The LZ experiment is a multi-detector system which work together to increase the sensitivity to dark matter candidates.
+LZ is comprised of three discrete detectors: a TPC, and two active veto-detectors.
 A diagram of the detector systems is shown in \autoref{fig:LZ_Cut_CAD}.
 
 \begin{figure}
@@ -19,11 +19,11 @@ A diagram of the detector systems is shown in \autoref{fig:LZ_Cut_CAD}.
 
 \par
 During the course of this thesis, the construction of the LZ experiment was completed, followed by a successful commissioning and calibration phase.
-The first Science Run (SR1) concluded in April 2022 with the first result for the WIMP search announced July 2022.
-At time of writing, the detector is undergoing Pre-SR2 upgrades, with SR2 due to commence November 2022.
+The first Science Run (SR1) concluded in April 2022, with the first result for the WIMP search announced in July 2022.
+At the time of writing, the detector is undergoing Pre-SR2 upgrades, with SR2 due to commence in November 2022.
 
 \par
-In the remainder of this chapter, the design and construction of the LZ experiment are detailed with particular emphasis on the TPC and OD which are relevant for the remainder of this thesis. 
+In the remainder of this chapter, the design and construction of the LZ experiment are detailed, with particular emphasis on the TPC and OD, which are relevant for the remainder of this thesis. 
 The full design is detailed in the Technical Design Review (TDR) \cite{LZ_TechnicalDesignReview_ref}.
 
 \subsection{Time Projection Chamber}
@@ -34,23 +34,23 @@ The schematic of the LZ TPC is shown in \autoref{fig:lz_tpc_schematic}.
 Photons which are emitted inside of the TPC are detected by 494 Hamamatsu R11410-22 3-inch diameter PMTs, arranged into two arrays.
 The first array contains 253 PMTs and is located at the top of the TPC in the GXe, looking down.
 The second array, containing 241 PMTs and located at the bottom is immersed in the LXe looking up.
-These PMTs were selected as they were developed with low levels of radioactivity and a high quantum efficiency at wavelengths around 175nm, the characteristic of LXe scintillation.
-The arrangement of these PMT arrays is not identical, with the bottom array optimised for light collection of S1 signals, and the top array optimised for position reconstruction of S2 signals.
+These PMTs were selected as they were developed with low levels of radioactivity and a high quantum efficiency at wavelengths around 175 nm, the characteristic emission of LXe scintillation.
+The arrangement of these PMT arrays is not identical, with the bottom array optimised for light collection of S1 signals and the top array optimised for position reconstruction of S2 signals.
 \par
 The TPC contains three electrodes: a cathode at the bottom, a gate below the liquid surface and an anode in the gas phase, each of which are woven mesh grids \cite{lz_grids_ref}.
 The walls of the TPC are enclosed by titanium rings encased in polytetrafluoroethylene (PTFE) panels - a highly reflective material (in excess of 97.3\% in LXe \cite{ptfe_lxe_reflectivity_ref}).
 The titanium rings are connected by a ladder of resistors.
-These titanium rings act to shape the electric field, creating a vertical field across the entire active region such that any charge created in the active region will drift upwards through the liquid to the electroluminescence region.
+These titanium rings shape the electric field, creating a vertical field across the active region so that any charge created in the active region will drift upwards through the liquid to the electroluminescence region.
 \par
-The TPC active region, which is defined as the volume between the cathode grid and the gate grid, is a cylinder of 1.46m diameter and height that contains 7-tonnes of Liquid Xenon.
-This active region is a significant size increase compared to previous generation detectors such as LUX (250kg) \cite{lux_ref}, XENON1T (2.2-tonne) \cite{xenon1t_ref} and PandaX (500kg) \cite{pandax_ref}.
-Other current generation xenon TPC experiments include PandaX-4T (3.7-tonne) \cite{pandax_4t_ref} and XENONnT (5.9-tonne) \cite{xenonnt_projected_sensitivty_ref}, with both having recently published results from first runs \cite{pandax_4t_sr1_ref,xenonnt_sr1_er_ref}. 
+The TPC active region, which is defined as the volume between the cathode grid and the gate grid, is a cylinder of 1.46m in diameter and height that contains 7 tonnes of Liquid Xenon.
+This active region is a significant size increase compared to previous generation detectors such as LUX (250 kg) \cite{lux_ref}, XENON1T (2.2 tonne) \cite{xenon1t_ref} and PandaX (500 kg) \cite{pandax_ref}.
+Other current generation xenon TPC experiments include PandaX-4T (3.7 tonne) \cite{pandax_4t_ref} and XENONnT (5.9 tonne) \cite{xenonnt_projected_sensitivty_ref}, with both having recently published results from first runs \cite{pandax_4t_sr1_ref,xenonnt_sr1_er_ref}. 
 \par
-The electroluminescence region is defined as the distance from the surface of the LXe to the anode grid, an 8mm distance.
-The distance between the gate grid and the anode grid is 13mm.
+The electroluminescence region is defined as the distance from the surface of the LXe to the anode grid, a distance of 8 mm.
+The distance between the gate grid and the anode grid is 13 mm.
 In the region, the electric field can reach 10 kV/cm.
 This is typically referred to as the extraction field.
-The electric field in the active region can reach 310 V/cm when applying an operating voltage of -50keV to the cathode.
+The electric field in the active region can reach 310 V/cm when applying an operating voltage of -50 keV to the cathode.
 \par
 Below the cathode is a fourth grid which acts to shield the bottom array PMTs from the electric field.
 Between this grid and the cathode is a reverse-field region (RFR), where the ionisation from interactions cannot be detected.
@@ -70,25 +70,26 @@ Between this grid and the cathode is a reverse-field region (RFR), where the ion
 \label{sec:lz_veto_detectors}
 \par
 In addition to the TPC, the LZ experiment makes use of two additional detectors.
-Neither of these are designed to directly detector dark matter, but rather to improve the sensitivity of the TPC by identifying events which would otherwise impact the TPCs ability to detector dark matter via anti-coincidence.
-The detection principle is shown in \autoref{fig:LZ_Veto_Principle}.
+Neither of these are designed to directly detect dark matter but rather to improve the sensitivity of the TPC by identifying and vetoing events which would otherwise impact the ability to detect dark matter.
+The veto operating principle is shown in \autoref{fig:LZ_Veto_Principle}.
 
 \par
-Firstly, surrounding the TPC is a layer of LXe referred to as the xenon Skin, or Skin detector.
+Firstly, surrounding the TPC is a layer of LXe referred to as the xenon skin, or Skin detector.
 This region of LXe has to exist due to the geometrical challenge of placing the TPC inside of a cryovessel.
-As such it has been made active by 38 Hamamatsu R8778 2-inch PMTs in the barrel and bottom dome and 93 R8520 1-inch PMTs in the top barrel region.
-Similarly to the TPC, the inner-wall of the cryostat is coated with PTFE, but is optically de-coupled from the TPC.
+It is made active by 38 Hamamatsu R8778 2-inch PMTs in the barrel and bottom dome and 93 R8520 1-inch PMTs in the top barrel region.
+Similarly to the TPC, the inner wall of the cryostat is coated with PTFE, but is optically de-coupled from the TPC.
+It is designed primarily to veto $\gamma$ events.
 
 \par
-Outside of the cryostat is the second veto detector is the Outer Detector (OD).
+Outside of the cryostat is the second veto detector, the Outer Detector (OD).
 This is made up of a number of acrylic tanks which contain a liquid scintillator doped with gadolinium (GdLS).
-Together these provide near 4$\pi$ coverage around the TPC and act to identify neutron interations.
+Together these provide near 4$\pi$ coverage around the TPC and act to identify neutron interactions.
 The OD is described in more detail in \autoref{chapter:lz_outer_detector}.
 
 \begin{figure}
     \centering
     \includegraphics[width=0.75\textwidth]{Figures/LZ/lz_veto_plan.png}
-    \caption{Depiction of operating principle of the veto detectors and the particles that they are designed to veto.}
+    \caption{Depiction of the operating principle of the veto detectors and the particles that they are designed to veto.}
     \label{fig:LZ_Veto_Principle}
 \end{figure}
 
@@ -98,12 +99,12 @@ The OD is described in more detail in \autoref{chapter:lz_outer_detector}.
 \par
 In order for the experiment to work and have understandable results, a set of calibrations are conducted to characterise the energy scale, energy threshold and photon detection efficiency.
 LZ has a large variety of sources available which are able to characterise each detector.
-A summary of the sources used for commissioning and the first science run (SR1) are shown in \autoref{tab:LZ_Used_Calibration_Sources}.
+A summary of the sources used for commissioning and the first science run (SR1) is shown in \autoref{tab:LZ_Used_Calibration_Sources}.
 Additional sources available to LZ are outlined in the LZ Technical Design Review \cite{LZ_TechnicalDesignReview_ref}.
 \par
 Radioactive impurities within the xenon are evenly distributed through the TPC detector volume.
-These are used to model the position reconstruction, $G_1$ and $G_2$ of the TPC as well as the energy scale.
-As the Skin detector contains the same xenon, and therefore the same sources they can be used for the Skin position reconstruction and energy scale.
+These are used to model the position reconstruction, $G_1$ and $G_2$ of the TPC, as well as the energy scale.
+As the Skin detector contains the same xenon and, therefore, the same sources, they can be used for the Skin position reconstruction and energy scale.
 In addition to the naturally occurring impurities, other sources can be injected into the xenon via the circulation system \cite{christophernedlik_thesis_ref}.
 \par
 Beyond the internal and injected sources, a suite of external sources are also used.
@@ -111,7 +112,8 @@ These are deployed in calibration source deployment tubes (CSD) which run into t
 These sources are used primarily for energy calibration of all three detectors.
 The other external sources external to the TPC are neutron generators which are deployed in a unique fashion.
 For $^{88}$YBe deployment, an OD tank is removed and replaced by the source.
-Deuterium-deuterium (DD) is deployed externally to the water tank, it is a directional source with neutrons directed through a calibration tube that extends through the OD acrylic tanks to the OCV.
+Deuterium-deuterium (DD) is deployed externally to the water tank. 
+It is a directional source with neutrons directed through a calibration tube that extends through the OD acrylic tanks to the OCV.
 
 \begin{table}
     \centering
@@ -150,12 +152,12 @@ Given that the detector has to be made of something, there is no getting away fr
 As this can be a limiting factor for sensitivity to dark matter, LZ undertook a comprehensive screening campaign prior to construction \cite{LZ_assay_ref}.
 In addition to radioactivity embedded within the detector materials, there is also surface contamination.
 The greatest contribution to this is from plate-out of ${}^{222}$Rn progeny as well as any dust on the detector.
-The frequent $\alpha$-decays within the decay chain lead to ($\alpha$,$n$) reactions.
+The frequent $\alpha$-decays within the decay chain also lead to ($\alpha$,$n$) reactions.
 To reduce the levels of surface contamination introduced during detector assembly, the TPC was assembled in a radon-reduced clean room\footnote{better than a class 1000 cleanroom} with extensive UV inspections to ensure that the dust levels were kept to a minimum.
 
 \par
 The environment in which the detector is placed also contributes to the background rate.
-The $\gamma$-flux from the cavern in which the detector is placed is the largest contributor to this category \cite{LZ_Gamma_Ray_Background_ref}.
+The $\gamma$-flux from the cavern where the detector is placed is the largest contributor to this category \cite{LZ_Gamma_Ray_Background_ref}.
 The origins of these $\gamma$-rays are detailed in the following chapter.
 Other contributions are from radioactive isotopes created by exposure to cosmic rays on the Earth's surface.
 Of particular note are $^{127}$Xe and ${}^{37}$Ar from activation of xenon \cite{lux_xenon_activation_ref,lz_argon37_ref}, and $^{46}$Sc from activation of titanium \cite{LZ_TechnicalDesignReview_ref}.
@@ -180,16 +182,16 @@ These appear as ER events which leak into the NR band.
 
 
 \par
-Finally there are astrophysical backgrounds from neutrinos, an irreducible background, not removable by any analysis cut.
-These contribute to the ER background via neutrino-electron scattering and to the NR backgrounds via neutrino-nucleus scattering.
+Finally, there are astrophysical backgrounds from neutrinos, an irreducible background, not removable by any analysis cut.
+These contribute to the ER background via neutrino-electron scattering and to the NR background via neutrino-nucleus scattering.
 Electron recoils are caused by solar neutrinos primarily from the $pp$ solar chain \cite{solar_neutrinos_ref}.
-Nuclear recoil neutrinos fall into two categories: low energy recoils from solar neutrinos ($^{8}$B and $hep$), and high energy recoils from atmospheric and diffuse supernova neutrinos (DSN).
+Nuclear recoil neutrinos fall into two categories: low energy recoils from solar neutrinos ($^{8}$B and $hep$) and high energy recoils from atmospheric and diffuse supernova neutrinos (DSN).
 
 \subsection{Analysis Cuts}
 \label{sec:lz_analysis_cuts}
 \par
 As indicated, some of the backgrounds can be reduced by analysis cuts. 
-The core cuts are listed below;
+The core cuts for searching for an excess of recoils in LZ are listed below.
 \begin{itemize}
     \item \textbf{SS}: Select events which have only scattered once, ``single scatter". This refers to the particle which sets off the cascade seen in \autoref{fig:er_nr_tracks}. Particles which scatter more than once are not compatible with dark matter as their likelihood to scatter twice is too low. This cut is defined as events which have a single S1 pulse and a single S2 pulse in the event.
     \item \textbf{FID}: Removal of events where reconstruction of energy is poor and to incorporate LXe self-shielding. This cut is applied on the reconstructed \{$x,y,z$\} of a scatter to select events in an inner region of the TPC LXe. Decays originating from the detector components are suppressed in this way.
@@ -197,7 +199,7 @@ The core cuts are listed below;
     \item \textbf{Veto}: Remove events which are inconsistent with dark matter due to scattering more than once. This removes both neutrons and $\gamma$s. The veto detectors work as anti-coincidence detectors so an event is vetoed if the Skin or OD saw a pulse within some time window of the S1 in the TPC.
 \end{itemize}
 In data taking, additional cuts are often required to account for experimental features not anticipated in simulations.
-As such the above list should be considered as a ``core" selection, with a requirement of data-driven cuts potentially required later.
+As such, the above list should be considered as a ``core" selection, with a requirement of data-driven cuts potentially required later.
 
 \subsection{Dark Matter Search Strategy}
 \par
@@ -206,7 +208,7 @@ In order to do this, an event needs to be defined and recorded, and ultimately t
 The planned approach is detailed in \cite{LZ_TechnicalDesignReview_ref}, with the approach adapted for the first data run in \cite{lz_ws_sr1_ref}.
 
 \par
-An event is defined simply as a window of time in which the read out from all PMTs is saved, typically for LZ this is a window of 4 ms in length.
+An event is defined simply as a window of time in which the read-out from all PMTs is saved, typically for LZ this is a window of 4 ms in length.
 LZ utilises a number of different triggers to determine when data should be recorded, utilising the logic based upon \cite{lux_trigger_logic_ref}, with application to LZ detailed in \cite{nicolasangelides_thesis_ref}.
 From the trigger activation, a period of time before and after the trigger is recorded.
 The two triggers of relevance to this thesis are briefly discussed below.
@@ -214,7 +216,7 @@ The two triggers of relevance to this thesis are briefly discussed below.
 \paragraph{S2 Trigger}
 \par
 This is the primary dark matter search trigger.
-Tuned to trigger on a large pulse in the TPC that is inline with what is expected from an S2 pulse.
+Tuned to trigger on a large pulse in the TPC that is in line with what is expected from an S2 pulse.
 The S1 pulse will reside within the pre-trigger time window.
 The Veto detectors search the post-trigger window for $\gamma$ and neutron events.
 
@@ -224,8 +226,9 @@ It can act as a measurement of backgrounds as it is a fixed amount of data recor
 
 \par
 On data which passes the cuts above, a statistical analysis is performed.
-A multidimensional Profile Likelihood Ratio (PLR) fit is used to probe how well a background only model vs a background and WIMP signal model fit the data.
-In both projected sensitivity and SR1, LZ has limited this to two dimensions: \{S1$_c$, log$_{10}$S2$_c$\}, however, future analysis will extend this to include \{$x,y,z$\} as has been done in previous TPC experiments \cite{LUX_RUN1_EFT_2021,LUX_RUN4_EFT_2021,shaunalsum_thesis_ref}.
+A multidimensional Profile Likelihood Ratio (PLR) fit is used to probe how well a background-only model vs a background and WIMP signal model fit to the data.
+In both projected sensitivity and SR1, LZ has limited this to two dimensions, \{S1$_c$, log$_{10}$S2$_c$\}.
+However, future analysis will extend this to include \{$x,y,z$\} as has been done in previous TPC experiments \cite{LUX_RUN1_EFT_2021,LUX_RUN4_EFT_2021,shaunalsum_thesis_ref}.
 A full description of the PLR used for the WIMP sensitivity projections and SR1 can be found in \cite{LZ_Ibles_LZStats_Thesis_ref}. 
 A detailed description of the application to LZ monte-carlo data generated between the sensitivity projection and SR1 is described in \cite{jonathannikoleyczik_thesis_ref}.
 
@@ -233,22 +236,22 @@ A detailed description of the application to LZ monte-carlo data generated betwe
 \label{sec:lz_simluations_chain}
 \par
 The models used to fit to data come from simulations of signal and background processes.
-Additionally these simulations influenced the design and construction of the experiment.
+Additionally, these simulations influenced the design and construction of the experiment.
 A brief overview of the simulation chain is given below and in \autoref{fig:lz_simulation_chain}.
 A more thorough explanation is available in \cite{lz_simulations_ref} and \cite{theresafruth_thesis_ref}.
 \par
 The primary simulation package used by LZ is called BACCARAT\footnote{The acronym comes from, \textbf{B}asically \textbf{A} \textbf{C}omponent-\textbf{C}entric \textbf{A}nalog \textbf{R}esponse to \textbf{A}ny\textbf{T}hing}.
 BACCARAT is used to simulate particle interactions built upon the GEANT4 simulation package \cite{geant4_geometry_ref}.
-Inside of BACCARAT, the LZ experiment is built as a detector geometry.
+Inside BACCARAT, the LZ experiment is built as a detector geometry.
 From a simulation of a particle, interactions and energy deposits are recorded.
-If the deposit occurred within the xenon volume, the Noble Element Simulation Technique (NEST) is used to convert the deposit into scintillation photons and ionisation electrons \cite{nest_1_ref}, otherwise GEANT4 libraries are used.
-There are two running modes for BACCARAT: energy deposits only, or optical photon propagation.
-If energy deposit only simulations are run, then the output is run through a detector model response, LZLAMA.
-In the detector model response the energy deposits are converted into reconstructed quantities, such as S1$_c$ and log$_{10}$S2$_c$, which characterise an event.
-The detector model response is informed from both data and optical photon propagation.
+If the deposit occurred within the xenon volume, the Noble Element Simulation Technique (NEST) is used to convert the deposit into scintillation photons, and ionisation electrons \cite{nest_1_ref}.
+There are two running modes for BACCARAT: energy deposits only and optical photon propagation.
+If energy deposit-only simulations are run, then the output is run through a detector model response, LZLAMA.
+In the detector model response, the energy deposits are converted into reconstructed quantities, such as S1$_c$ and log$_{10}$S2$_c$, which characterise an event.
+The detector model response is informed by both data and optical photon simulations.
 \par
-If optical photon propagation is used, then individual photons are propagated and recorded if they reach a PMT.
-The photon hits on a PMT are converted into waveforms by the Detector Electronics Response (DER) package which models the PMT response.
+If optical photon propagation simulations are used, then individual photons are propagated and recorded if they reach a PMT.
+The photons which hit PMTs are converted into waveforms by the Detector Electronics Response (DER) package, which models the PMT response.
 The output of the DER should match, or be close to, what is observed in data.
 The waveforms are then processed by the same analysis package (LZAP) that the data is processed with, where pulses are found, classified and reconstructed.
 The output of this is the same quantities as from LZLAMA.
@@ -257,7 +260,7 @@ The output of this is the same quantities as from LZLAMA.
 \begin{figure}
     \centering
     \includegraphics[width=15cm]{Figures/LZ/FullAndFastChains.png}
-    \caption{LZ simulation and analysis frame for both the energy deposit only simulations (fast chain) and optical propagation chain (full chain).
+    \caption{LZ simulation and analysis frame for both the energy deposit-only simulations (fast chain) and optical propagation chain (full chain).
              Image produced by the LZ collaboration.}
     \label{fig:lz_simulation_chain}
 \end{figure}

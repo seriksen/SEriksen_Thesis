@@ -19,21 +19,24 @@
         ymin=0, ymax=320,
         legend style = {column sep = 10pt, legend columns = -1,},
         ]
-        \addplot[red, smooth, forget plot] table[x=date,y=noise] {Data/OD_Backgrounds/background_rates/random_trig_rates.txt};
-        \addplot[black, only marks, mark size=1.0pt, error bar legend,
+        
+        \addplot[red, only marks, mark size=1.5pt, error bar legend,
                  error bars/.cd, error bar style={color=black},
                  y dir=both, y explicit,] table[x=date,y=noise, y error=noise_error] {Data/OD_Backgrounds/background_rates/random_trig_rates.txt};
         \addlegendentry{Noise Cut};
-        \addplot[blue, smooth, forget plot] table[x=date,y=noise] {Data/OD_Backgrounds/background_rates/random_trig_rates.txt};
-        \addplot[black, only marks, mark size=1.0pt, error bar legend,
+        \addplot[blue, only marks, mark size=1.5pt, error bar legend,
                  error bars/.cd, error bar style={color=black},
                  y dir=both, y explicit,] table[x=date,y=100kev, y error=200kev_error] {Data/OD_Backgrounds/background_rates/random_trig_rates.txt};
         \addlegendentry{100 keV};
-        \addplot[green, smooth, forget plot] table[x=date,y=noise] {Data/OD_Backgrounds/background_rates/random_trig_rates.txt};
-        \addplot[black, only marks, mark size=1.0pt, error bar legend,
+        \addplot[green, only marks, mark size=1.5pt, error bar legend,
                  error bars/.cd, error bar style={color=black},
                  y dir=both, y explicit,] table[x=date,y=200kev, y error=200kev_error] {Data/OD_Backgrounds/background_rates/random_trig_rates.txt};
-        \addlegendentry{200 keV};         
+        \addlegendentry{200 keV};
+        
+        \addplot+[red, smooth, forget plot] table[x=date,y=noise] {Data/OD_Backgrounds/background_rates/random_trig_rates.txt};
+        \addplot+[blue, smooth] table[x=date,y=100kev] {Data/OD_Backgrounds/background_rates/random_trig_rates.txt};
+        \addplot+[green, smooth] table[x=date,y=200kev] {Data/OD_Backgrounds/background_rates/random_trig_rates.txt};
+        
          \addplot[black, dashed] coordinates { (2021-12-23,-10)  (2021-12-23,350)};
          \node [rotate=90] at (axis cs:2021-12-26,150) {SR1 start};
          \addplot[black, dashed] coordinates { (2022-04-18,-10)  (2022-04-18,350)};

@@ -28,7 +28,7 @@
     xlabel={Pulse Area (phd)},
     xmin=0, ymin=0,
     colorbar,
-    colorbar style={ylabel={Count},ymode=log,},
+    colorbar style={ylabel={Count (log$_{10}$},},
     ]
     \addplot3[
       surf,
@@ -36,7 +36,7 @@
 	  mesh/cols=22,
 	  mesh/ordering=rowwise,
 	  point meta = {z<0.1 ? nan : z}
-    ] file {Data/OD_Energy_Scale/noise_cut_2d_low.dat};
+    ] file {Data/OD_Energy_Scale/noise_cut_2d_low_2.dat};
     
     \addplot3[
       surf,
@@ -44,7 +44,7 @@
 	  mesh/cols=30,
 	  mesh/ordering=rowwise,
 	  point meta = {z<0.1 ? nan : z}
-    ] file {Data/OD_Energy_Scale/noise_cut_2d_high.dat};
+    ] file {Data/OD_Energy_Scale/noise_cut_2d_high_2.dat};
 \end{axis}
 \end{tikzpicture}
 \caption{Representative pulses seen in the OD during SR1.

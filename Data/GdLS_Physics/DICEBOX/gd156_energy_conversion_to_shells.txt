@@ -1,7 +1,7 @@
 Label	Bins	Weight
-gamma	0	84.146735245422
-K-shell	1	6.803220025918767
-L-shell	2	6.988882983407252
-M-shell	3	1.6441794873186477
-N-shell	4	0.41698225793334703
+gamma	0	0.84
+K-shell	1	0.07
+L-shell	2	0.07
+M-shell	3	0.02
+N-shell	4	0.004
 O-shell	5	0.0

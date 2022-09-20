@@ -7,15 +7,15 @@ However, there are several significant factors which limit the feasibility of us
     \item Optical propagation being required to be performed at least once
     \item Other regions of the detector containing significantly more complex geometry
 \end{itemize}
-For example, if a probabilistic map were to be applied to the entire TPC liquid xenon region, several weeks worth of a full computing cluster would be required in order to produce the equivalent statistics.
+For example, if a probabilistic map were to be applied to the entire TPC liquid xenon region, several weeks worth of a full computing cluster would be required to produce the equivalent statistics.
 Although there are ways in which this could be reduced - such as Z-line symmetry - the initial overhead remains impractically high.
-Additionally the computing cost\footnote{cost in terms of time and computing memory} of looking up the results are likely to mitigate any gain, so are not necessarily faster than just simulating them.
+Additionally, the computing cost\footnote{cost in terms of time and computing memory} of looking up the results are likely to mitigate any gain, so are not necessarily faster than just simulating them.
 
 \subsection{Geant4 Simulations}
 \par
 Before attempting to improve the speed of simulation, it is important to understand why simulation speed is limited. 
 LZ particle propagation simulations are performed in BACCARAT, a software package built upon GEANT4.
-In GEANT4, a detector is defined by solid-based modelling or CSG (Constructed Solid Geometry) \cite{geant4_geometry_ref}.
+In GEANT4, a detector is defined by solid-based modelling or Constructed Solid Geometry (CSG) \cite{geant4_geometry_ref}.
 A detector (or scene) is defined by a set of primitive volumes that can be described by some parameters.
 An example of this is a sphere; a primitive solid that can be described by a single parameter; radius.
 Primitives can be rotated, displaced and combined with other primitives via boolean operations to create more complex solids such as that shown in \autoref{fig:csg_geometry_example}.
@@ -42,16 +42,16 @@ A PV can be part of a higher up LV.
 \par
 When a particle is simulated, its track starts inside a volume of a solid which is in the geometry tree.
 In the direction of travel, a check must be performed to determine intersections with the volume as well as all immediate daughter volumes.
-As each daughter is a subtraction in volume of it's parent, the number of interactions is generally limited.
-Even so the number of sibling volumes is often a reliable indicator of particle tracking performance.
+As each daughter is a subtraction in volume of its parent, the number of interactions is generally limited.
+Even so, the number of sibling volumes is often a reliable indicator of particle tracking performance.
 Therefore it is logical for the tree to be as narrow as possible to reduce the number of sibling volumes.
 This can be at odds with how a detector is designed, such as if a solid has to have holes for other solids to pass through.
-The problem with this is that the interior of the solid isn't fully defined by the volume anymore\footnote{An example of this in LZ geometry are the calibration tubes, passing through the water tank, outer detector, and OCV}.
+The problem with this is that the interior of the solid is no longer fully defined by the volume\footnote{An example of this in LZ geometry are the calibration tubes, passing through the water tank, outer detector, and OCV}.
 In this case, the geometry tree is widened so that volumes inside become siblings of the problem volume, which in turn increases the number of intersection calculations.
-This must be the case to enforce the requirement that each volume is contained entirely by it's mother volume and that it does not overlap with siblings.
+This must be the case to enforce the requirement that each volume is contained entirely by its mother volume and that it does not overlap with siblings.
 \par
-GEANT4 in part mitigates this by separating the geometry tree nodes into perpendicular facing boxes, called voxels \cite{geant4_voxel_ref} which are not part of the detector volumes.
-During particle propagation, the voxels are checked first for intersections.
+GEANT4, in part, mitigates this by separating the geometry tree nodes into perpendicular facing boxes, called voxels \cite{geant4_voxel_ref} which are not part of the detector volumes.
+During particle propagation, the voxels are first checked for intersections.
 If there is an intersection, the detector volumes contained within that voxel are then checked.
 Though useful, the voxels are limited to a single tree level, with the check performed iteratively (1 axis at a time) to save memory and so can have a significant impact on computation speed.
 The GEANT4 approach can be summarised as:
@@ -74,8 +74,8 @@ An alternative processor widely available is a GPU, which is designed to maximis
 This is achieved by having individual poorer thread performance but by having more threads available\footnote{Additionally, each task should be as independent as possible and require very few resources}.
 If a simulation can be moved onto a GPU it will allow for more concurrent tasks that will massively outweigh the slower performance of each task, resulting in more simulations per second.
 \par
-There have been many different attempts to transfer parts or entire simulations on to GPUs, such as Chroma \cite{chroma_whitepaper_ref}, ANTS2 \cite{ants2_whitepaper_ref}, Exascale Computing Project \cite{ExaSMR_whitepaper_ref} and MPEXS \cite{mpexs_whitepaper_ref}.
-The majority of these make use of NVIDIA CUDA \cite{cuda_ref}, an application programming interface (API) allowing for GPU hardware to be used for general purpose computing.
+There have been many different attempts to transfer parts of or entire simulations on to GPUs, such as Chroma \cite{chroma_whitepaper_ref}, ANTS2 \cite{ants2_whitepaper_ref}, Exascale Computing Project \cite{ExaSMR_whitepaper_ref} and MPEXS \cite{mpexs_whitepaper_ref}.
+The majority of these make use of NVIDIA CUDA \cite{cuda_ref}, an application programming interface (API) allowing for GPU hardware to be used for general-purpose computing.
 %[TODO XXX Geant4 VecGeom]
 \par
 Chroma is of particular interest as it was proposed and designed for optical simulations and it has been utilised in several experiments \cite{chroma_with_tpcs1_ref,chroma_with_tpcs2_ref,chroma_with_tpcs3_ref}, and has more recently received attention by 3rd generation direct detection dark matter experiments \cite{DARWIN_GPU_simulations_2022_ref}.
@@ -95,7 +95,7 @@ An example BVH is shown in \autoref{fig:bvh_example}.
 \par
 During a simulation, the photon is first generated on the CPU and then copied over to the GPU for propagation.
 When the photon is stopped generally by being absorbed at a surface, it is transferred back to the CPU.
-Chroma has been shown to be 50-200x speed improvement when compared to GEANT4 single-core processing \cite{chroma_whitepaper_ref,chroma_presentation_ref}.
+Chroma has been shown to be a 50-200x speed improvement when compared to GEANT4 single-core processing \cite{chroma_whitepaper_ref,chroma_presentation_ref}.
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{Figures/Simulations/bounding_volume_hierarchy.png}
@@ -107,7 +107,7 @@ Chroma has been shown to be 50-200x speed improvement when compared to GEANT4 si
 \end{figure}
 \par
 Despite this, Chroma has some significant drawbacks.
-Firstly, the code-base is in python, which makes integration within GEANT4 simulation frameworks impractical which are C++.
+Firstly, the code-base is in python, which makes integration within the C++ GEANT4 simulation frameworks impractical.
 Secondly, the inefficient handling of photon generation.
 Copying information between the GPU and CPU should be minimised in order to increase performance.
 Finally, although tessellation is adequate for some surfaces, many detectors are comprised of exclusively curved surfaces.
@@ -124,15 +124,16 @@ This means that a primitive can be correctly defined mathematically.
 Additionally, more complex solids can be created by CSG as in GEANT4.
 The primitives are described as boundaries \cite{real_time_collision_detection_ref}.
 \par
-A key benefit of Chroma over Opticks is that it relies upon CUDA only, and is therefore not a significant challenge to port to OpenCL \cite{chroma_whitepaper_ref}.
-This will allow for non-NVIDIA GPU workflows.
+Opticks has an important drawback compared to Chroma.
+Chroma relies upon CUDA only and it is therefore not a significant challenge to port to OpenCL \cite{chroma_whitepaper_ref}.
+This allows for non-NVIDIA GPU workflows.
 However, for the foreseeable future, the performance will still lack significantly behind OptiX.
-Additionally, all of the clusters which LZ currently use or plan to use contain NVIDIA GPUs, with the upcoming primary computing resource Perlmutter using NVIDIA A100 GPUs \cite{perlmutter_ref}.
+Additionally, all of the clusters which LZ currently use or plans to use contain NVIDIA GPUs, with the upcoming primary computing resource Perlmutter using NVIDIA A100 GPUs \cite{perlmutter_ref}.
 \par
 OptiX uses an acceleration structure which sorts primitives into spatial groups; essentially a tree of bounding boxes.
 This is then used by a traversal algorithm to search for primitives that potentially intersect with a ray\footnote{OptiX provides acceleration to the geometrical intersection, not the intersection itself.}.
-All details of the creation and traversing of the acceleration structures are handled internally by OptiX using user defined bounding box programs.
-The speed of the intersection calculations is related to the spatial grouping and the creation of these groups remain a key research area in ray tracing \cite{NVIDIA_OptiX_GPU_Ray_Tracing_ACM_paper_ref,accelerated_bvh_ref}.
+All details of the creation and traversing of the acceleration structures are handled internally by OptiX via user-defined bounding box programs.
+The speed of the intersection calculations is related to the spatial grouping, and the creation of these groups remains a key research area in ray tracing \cite{NVIDIA_OptiX_GPU_Ray_Tracing_ACM_paper_ref,accelerated_bvh_ref}.
 \par
 Opticks is an open-source framework designed to convert GEANT4 geometry into an appropriate GPU form and perform photon simulations.
 This includes the detector geometry and optical properties.
@@ -160,13 +161,13 @@ In addition to the solids conversion, material and boundary properties are also 
 Separate CUDA programs handle the ray behaviour when influenced by these properties.
 
 \par
-In the next sections the translation of the LZ geometry is described along with initial performance metrics.
-The proposed integration into the LZ simulation framework is discussed indepth by the author in \cite{SEriksen_Opticks_CHEP_2021_ref}.
+In the next two sections, the translation of the LZ geometry is described along with initial performance metrics.
+The proposed integration into the LZ simulation framework is discussed in-depth by the author in \cite{SEriksen_Opticks_CHEP_2021_ref}.
 
 \subsection{LZ Geometry Conversion}
 \par
 In order to use the LZ geometry, it must first be extracted from GEANT4 where it is defined.
-The simplest way to export a GEANT4 defined geometry is via a GDML (Geometry Description Markup Language) file \cite{GDML_USER_GUIDE_ref}.
+The simplest way to export a GEANT4 defined geometry is via a Geometry Description Markup Language (GDML) file \cite{GDML_USER_GUIDE_ref}.
 GDML is a subset of XML which is designed to describe the geometry by describing a detector as a series of trees which correspond to the hierarchy of volumes \cite{GDML_USER_GUIDE_ref}.
 A small excerpt of the LZ geometry GDML is shown below;
 \begin{lstlisting}[backgroundcolor=\color{lightgrey},
@@ -188,7 +189,7 @@ The structure of the GEANT4 geometry is as PV/LV/PV/LV which means that if put i
 As the PV contains the placement information of the LV and what sibling volumes it has the PV information can be propagated into the LV and removed.
 
 \par
-The LZ detector contains a number of solids which are of significant complexity that the tree describing them is greater than 7 in depth.
+The LZ detector contains a number of solids which are of sufficient complexity that the tree describing them is greater than 7 in depth.
 These are typically unbalanced due to the way in which they were created in GEANT4, for example where a shape contains many holes (and therefore multiple subtractions).
 These would likely have been implemented as one subtraction at a time from the primary solid.
 A balanced approach would be to union subtractions together and then perform a single subtraction.
@@ -227,7 +228,8 @@ These complemented primitives are conceptually ``inside-out", but are implemente
 \label{fig:UnionSolidBinaryTree}
 \end{figure}
 \par
-This approach works for most unbalanced trees, however it doesn't work for some of LZs components.
+This approach works for most unbalanced trees. 
+However, it doesn't work for some of LZ's components.
 For example, around the PMTs in the TPC exists a titanium plate and PTFE lining.
 The titanium plate holds the PMTs in place, and the PTFE creates a reflective surface for photons on top of the titanium.
 As the solids must have space for each PMT they are implemented as one solid with each hole subtracted out.
@@ -258,48 +260,49 @@ This adaptation decreased simulation time for S2 light by 56\%, a significant im
 \end{figure}
 
 \par
-The LZ geometry is comprised of in-excess of 900,000 shapes, and although there is some duplication, this still leaves around 14,000 unique shapes.
+The LZ geometry is comprised of in excess of 900,000 shapes, and although there is some duplication, this still leaves around 14,000 unique shapes.
 Given the complications with solids such as the titanium plate, the scope of the conversion was limited to just the TPC and Skin.
-This still leaves 9,000 unique shapes which is 30-times greater than that of experiments which have previous used Opticks, such as JUNO and DayaBay \cite{Opticks_CHEP_2021_ref}.
+This still leaves 9,000 unique shapes, which is 30-times greater than that of experiments which have previously used Opticks, such as JUNO and DayaBay \cite{Opticks_CHEP_2021_ref}.
 Given this increased complexity many problems arose during the translation including GEANT4 optical properties used by LZ not having CUDA equivalent ones implemented in Opticks.
 Where possible the LZ geometry was simplified to allow for progress to be made.
 The most significant issue was with the GEANT4``groundfrontpainted" surface finish not having a CUDA implementation in Opticks.
 This is where the surface of a volume is rough, so the normal of the surface is offset by some angle depending upon the micro-facet that the photon is incident upon and there can be internal Lambertian reflections \cite{optical_photons_in_geant4_ref}.
 The author did develop this but it was not used within the conversion here as it requires significant validation to ensure the results are comparable to the GEANT4 implementation.
-Instead where-ever this optical surface occurred, it was replaced by the optical properties of another part of the detector which was well defined.
+Instead, where-ever this optical surface occurred, it was replaced by the optical properties of another part of the detector, which was well defined.
 The completed TPC conversion is shown in \autoref{fig:OpticksLZTPC}.
 \begin{figure}
 \includegraphics[width=8cm]{Figures/Simulations/LZ_In_Opticks.png}
 \centering
-\caption{TPC of LZ raytraced. Translated from Geant4 GDML file into a set of NumPy arrays using Opticks and viewed within Opticks via the OpenGL Buffer.
+\caption{TPC of LZ raytraced. Translated from Geant4 GDML file into a set of NumPy arrays using Opticks and viewed within Opticks via the OpenGL buffer.
 The blue, green and red lines towards the bottom of the figure are the axes of the detector.}
 \label{fig:OpticksLZTPC}
 \end{figure}
 
 \subsection{Performance and Outlook}
 \par
-As LZ utilised multiple clusters across the globe, with the computing environment kept constant by the use of containers.
+LZ utilises multiple clusters across the globe.
+In order to keep the computing environment constant, containers are used.
 As such, as part of this work Opticks was containerised \cite{opticks_docker_ref} which also resulted in removing significant portions of legacy code and requirements from Opticks.
 NVIDIA OptiX 6.5.0 and CUDA 10.2 were chosen as they were the newest fully supported versions within the Opticks framework.
 Making use of NVIDIA container runtime to access the GPU, the container was successfully run - with graphics - on a range of computing resources.
 This allowed for integration into the LZ framework to begin, the plan for which is described by the author in \cite{SEriksen_Opticks_CHEP_2021_ref,lz_status_with_opticks_ref}.
 \par
 As the geometry was cut down during the conversion and optical properties changed, the most valuable test that could be performed was a performance comparison to the S2 Light Map generation (\autoref{sec:s2lightmap}).
-For this, 1,000,000,000 photons were generated as a ``photon bomb", a subset of which are shown in \autoref{fig:OpticksLZTPC_S1_Photons}.0
+For this, 1,000,000,000 photons were generated as a ``photon bomb", a subset of which are shown in \autoref{fig:OpticksLZTPC_S1_Photons}.
 On a Tesla T4 GPU, after a 4-minute initialisation time using the serialised geometry, 200,000 photons per second were generated and propagated.
 This marks a 720x improvement over single-core Geant4 propagation where 277 photons per second were generated and propagated.
 %and propagated for the S2 Light Map or 360x improvement over the expected gain when compared to GEANT4.
 On the production clusters - such as Perlmutter - the performance is expected to increase.
 This improvement highlights one of the reasons for choosing an OptiX-based approach rather than pure CUDA, as the improvement would have been closer to 200x such as was shown in \cite{chroma_presentation_ref}.
-However, it still lacks behind the improvement demonstrated using Opticks in \cite{Opticks_CHEP_2019_ref}, though this is primarily due to higher grade GPUs being used with RTX-cores.
+However, it still lags behind the improvement demonstrated using Opticks in \cite{Opticks_CHEP_2019_ref}, though this is primarily due to higher grade GPUs being used with RTX-cores.
 With the newer NVIDIA OptiX 7.0.0+ \cite{NVidiaOptiX_7_ref}, the algorithms are expected to continue to increase in speed which should provide additional performance.
-Unfortunately the accuracy of this simulation has not been determined as that would require a major validation campaign of the optical processes, a process which needs to be performed before integration into the LZ simulation framework, but would have significantly delayed this thesis.
+Unfortunately, the accuracy of this simulation has not been determined as that would require a major validation campaign of the optical processes, a process which needs to be performed before integration into the LZ simulation framework, but would have significantly delayed this thesis.
 
 
 \begin{figure}
 \includegraphics[width=10cm]{Figures/Simulations/LZ_S1_photons_In_Opticks.png}
 \centering
-\caption{TPC of LZ raytraced. Translated from Geant4 GDML file into NPY set using Opticks and viewed within Opticks via the OpenGL Buffer.
-The blue, green and red lines extended outside the OCV are the axes of the detector. After each reflection a photons colour has been set to change.}
+\caption{TPC of LZ raytraced. Translated from Geant4 GDML file into NPY set using Opticks and viewed within Opticks via the OpenGL buffer.
+The blue, green and red lines extended outside the OCV are the axes of the detector. After each reflection, a photon's colour has been set to change.}
 \label{fig:OpticksLZTPC_S1_Photons}
 \end{figure}

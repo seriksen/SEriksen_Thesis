@@ -2,23 +2,23 @@
 \label{sec:s2lightmap}
 \par
 A single free electron simulated in the LXe will drift upwards towards the gas layer due to the electric field.
-Once extracted from the the liquid and in the gas, the mean photon yield per electron is 825 \cite{NoPhotonsPerElectron}.
-As a single scatter event can produce in excess of dozens of electrons, the number of photons which need to be simulated quickly becomes unmanageable, creating a simulation bottleneck for large scale simulations.
+Once extracted from the liquid and in the gas, the mean photon yield per electron is 825 \cite{NoPhotonsPerElectron}.
+As a single scatter event can produce in excess of dozens of electrons, the number of photons which need to be simulated quickly becomes unmanageable, creating a bottleneck for large-scale simulations.
 \par
 To get around this, a probabilistic map is used to determine the photon hit pattern on the PMTs and flight time.
 For the S2 signal, this is broken up into two sets of probability density functions (PDF).
 The first is the likelihood of a photon hitting a given PMT from a given position.
 This is essentially the number of photons which hit this PMT divided by the number of photons which hit any PMT.
-The second is the likely path taken by the photon, as this effects the time it takes for the photon to hit the PMT, and thus the resultant waveform.
+The second is the likely path taken by the photon, as this affects the time it takes for the photon to hit the PMT and thus the resultant waveform.
 \par
-In order to create this light map, large scale simulations of the photons have to be performed at least once.
+In order to create this light map, large-scale simulations of the photons have to be performed at least once.
 For every simulation after the map has been generated, there is a significant speed increase as the photons themselves no longer need to be simulated.
-In the subsequent simulations, the electron paths are stopped once they reach the liquid surface.
-The position of the electron is used to determine the path it would have taken and points along this path are taken to be the photon origins. % to the anode.
+In the subsequent simulations, the electrons are stopped once they reach the liquid surface.
+The position of the electron is used to determine the path it would have taken, and points along this path are taken to be the photon's origins. % to the anode.
 For each photon, the maps are randomly sampled to determine which PMT the photon hit (if any) as well as how long it took.
 
 \par
-A notable downside of this approach is that for different conditions one may wish to investigate (such as using a different purity of Xenon or the temperature and therefore pressure) a new light map is needed to account for these effects.
+A notable downside of this approach is that for different conditions one may wish to investigate (such as using a different purity of Xenon or the temperature and therefore pressure), a new light map is needed to account for these effects.
 A version of this approach had been used within BACCARAT for a number of years \cite{lz_simulations_ref}, but was outdated due to detector design changes.
 The S2 Light Map now in use within BACCARAT, created by the author, took into account the latest geometry and detector physics.
 
@@ -36,13 +36,13 @@ $eep$ is the electron emission probability at the surface.
 %is taken from PiXeY data and fitted to give $eta = -0.03754 \times (eliq^{2}) + 0.5266 \times eliq - 0.84645$, where $eliq$ is the electric field in the liquid Xenon \cite{ElectronExtractionEfficiency}.
 The emission probability is included as we want to use the average number of photons per electron.
 This simplification was known to be incorrect as a stronger signal\footnote{more photons being detected} should be observed in the detector centre.
-Tests conducted at SLAC indicated that there is bending of the wires according to \autoref{WireDeflection} due to the electric field:
+Tests conducted at SLAC, by LZ collaborators, indicated that there is bending of the wires according to \autoref{WireDeflection} due to the electric field:
 \begin{equation}
     x(r,E) = A \sqrt{ \bigg( 1 + \cos{ \Big( \frac{r \pi}{R} } \Big) \bigg) \bigg( B^2 + r^2 \bigg) } \bigg( e^{(r-C)} + 1 \bigg)^{-1} 
     \label{WireDeflection}
 \end{equation}
 Where R is the radius of the wire, r is the point on the wire and A, B and C are all polynomials of the form: $A(E) = \sum_{j=0}^{M} a_{j} E^{j}$. E is the electric field, $a_{j}$ are constants and $M$ is just the number of terms, which for A and B is 2 and for C is 1.
-As such, the electric field is not constant with radius and thus the number of photons produced by electroluminescence is changed.
+As such, the electric field is not constant with radius and thus the number of photons produced by electroluminescence varies.
 \par
 These changes were implemented into the simulation package as a scaling on the number of photons which the S2 Light Map is probed for.
 Implementing it in this way allows for the resultant signal size to scale with the electric field without having to require a dynamically changing detector grid geometry - which is a much more complex approach.

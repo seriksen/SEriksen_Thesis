@@ -44,6 +44,7 @@ These cuts are a subset of the cuts developed for the SR1 WIMP search \cite{lz_w
     \item \textbf{ROI}: This cut selects scatters with recoil energies akin to a WIMP-nucleon scatter. Only events with an S1$_c$ between [3, 80] are selected and S2 $>$ 600. The latter is to ensure that at least 5 electrons are extracted.
     \item \textbf{NR}: Only events which fall within the $\pm 1\sigma$ band of the nuclear recoil expectation are selected. The NR band used is from DD neutron calibrations.
 \end{itemize}
+These definitions differ from those in \autoref{sec:od_simulation_efficiency} as they are applied to data here rather than simulations.
 A summary of the number of events available for this analysis is presented in \autoref{tab:amli_calibration_summary}, and the resulting TPC events are shown in \autoref{fig:amli_tpc_events}.
 OD pulses were subject to the noise cut being applied.
 All OD pulses passing these criteria with single scatter events are shown in \autoref{fig:amli_od_pulsearea_events}.
@@ -95,14 +96,14 @@ None of the events vetoed by the OD are near the NR band.
 This indicates that all events which were vetoed are not neutrons but rather backgrounds in the OD.
 Several events which weren't vetoed by the OD are in the NR band.
 These events are not neutrons but are consistent with ER leakage into the NR band.
-The lack of seeing any neutrons in this dataset is consistent with the low neutron rate from ($\alpha$,$n$) and USF from the detector materials \cite{LZ_TechnicalDesignReview_ref}.
+The lack of seeing any neutrons in this dataset is consistent with the low neutron rate from ($\alpha$,$n$) and spontaneous fission from the detector materials \cite{LZ_TechnicalDesignReview_ref}.
 
 \input{Chapters/Analysis_OuterDetector/Figures/efficiency/sr1_vetoed_events}
 
 \par
 Turning back to the veto efficiency, it is lower than was expected from simulations with not all of the performance requirements met (see \autoref{tab:veto_requirements})
 With a neutron tagging efficiency of 84.6\%, the requirement R-160001 is not met.
-However, in SR1, the impact on livetime in the \textbf{ROI} was 4.99\%, and so requirement R-160005 is satisfied.
+However, in SR1, the impact on live-time in the \textbf{ROI} was 4.99\%, and so requirement R-160005 is satisfied.
 Looking at the shape of the efficiency curve in \autoref{fig:commissioning_amli_efficiency_with_bg_rate}, and compared to the simulation result (\autoref{fig:simulated_amli_full_propagation_efficiency} in the previous chapter) the curves appears to be slightly different in shape.
 This prompted the study in the next section into neutron propagation.
 
@@ -117,7 +118,7 @@ ${}^{252}$Cf decays via spontaneous fission releasing on average 3.7 neutrons ea
 During the fission, a number of $\gamma$s with a combined energy of up to 10 MeV are also released.
 The vast majority of these $\gamma$s are released within the first 100 ns of the fission event \cite{cf252_fission_ref,californium_spectra_ref}.
 Given that the $\gamma$s are released close in time to when the neutrons are released, they can be used to tag the neutron creation time, $t_0$.
-An waveforms in each detector from an event during the ${}^{252}$Cf calibration run is shown in \autoref{fig:cf252_event_viewer}.
+The waveforms in each detector from an event during the ${}^{252}$Cf calibration run is shown in \autoref{fig:cf252_event_viewer}.
 There is a signal in all three detectors at the same time which is from the $\gamma$s.
 The later pulses in the OD are then from neutron capture, two captures in this case.
 %\begin{figure}[!htbp]
@@ -160,11 +161,11 @@ The final set of pulses after $t_0$ are neutrons which capture on gadolinium and
 
 \par
 The time difference between the capture pulse and $t_0$ is shown in \autoref{fig:cf252_gd_capture_time}.
-A fit (following \autoref{eq:neutron_capture_time}) was performed and found that two exponential were best, with $\tau_0 = 31.39 \pm 0.4\mu$s and $\tau_1 = 124.5 \pm 1.7\mu$s, with a $\chi^2$/ndof$=0.821$.
+A fit (following \autoref{eq:neutron_capture_time}) was performed and found that two exponentials were best, with $\tau_0 = 31.39 \pm 0.4\mu$s and $\tau_1 = 124.5 \pm 1.7\mu$s, with a $\chi^2$/ndof$=0.821$.
 Included as well is the result of simulated neutrons from the same starting position.
 $\tau_0$ is in good agreement with the simulations, indicating that once the neutrons reach the GdLS they are captured quite fast.
 However, neutrons are clearly being held up in other regions of the detector, somewhere between the calibration tube and the GdLS that isn't simulated.
-The most likely reason is that water has gotten in between the OCV and acrylic tanks.
+The simplest explanation is that water has gotten in between the OCV and acrylic tanks.
 The foam installed between the OCV and the OD acrylic tanks (documented in \autoref{sec:od_construction_sec}) was installed to displace water, but it is possible that the foam has saturated with water.
 
 \input{Chapters/Analysis_OuterDetector/Figures/neutron_capture/cf252_capture_time}

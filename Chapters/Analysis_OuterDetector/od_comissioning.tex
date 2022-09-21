@@ -9,7 +9,7 @@ Again, details of the methodology are the work of E. Fraser \cite{ewanfraser_the
 \par
 For the energy calibration, 7 $\gamma$ sources were used which are summarised in \autoref{tab:od_energy_calibration_sources}.
 Each were lowered into a single CSD to the 700 mm level (see \autoref{fig:CSD1_Geometry}).
-The signals from these $\gamma$s were picked out giving 7 data points for a conversion between signal size and $\gamma$ energy.
+The signals from these $\gamma$s were picked out, giving 7 data points for a conversion between signal size and $\gamma$ energy.
 As discussed in \autoref{sec:od_physics}, there is a non-linear energy response in the scintillator, and therefore a non-linear energy scale below 300 keV.
 The empirical formula which describes this non-linearity, developed by DayaBay \cite{dayabay_antineutrino_oscillation_ref, ls_nonlinear_energy_response_ref}, is given by:
 \begin{equation}
@@ -60,7 +60,7 @@ The amount of light observed by the LZ OD is in line with other LAB-based experi
 \par
 One of the largest drawbacks of the energy calibration approach used here is that only a single location was used, in the detector $z$-axis.
 Therefore the variation in light collection efficiency in the OD is not taken into account (see \autoref{fig:od_lce}), and so energy deposits in other locations in the GdLS would be reconstructed with incorrect energies.
-This is tested in the following sections and luckily appears to be insignificant as other factors are more important.
+This is tested in the following sections and luckily appears to be insignificant as other factors are dominant.
 \par
 Due to error propagation from PMT single photoelectron calibrations, there is $\backsim$7\% error on both the energy scale and pulse area values \cite{ewanfraser_thesis_ref}.
 
@@ -69,8 +69,8 @@ Due to error propagation from PMT single photoelectron calibrations, there is $\
 \par
 The waveforms from PMTs in the OD occasionally displayed erratic behaviour, an example of which is shown in \autoref{fig:od_noise_cut_waveforms}.
 This was tracked down to a grounding issue, which occasionally caused high-energy pulses with large PMT multiplicities.
-During this high noise period, no physical OD event can be made out from the noise.
-Included as well are waveforms from during a quiet period of data taking showing the regular behaviour.
+During this high noise period, no physical OD event can be distinguished from the noise.
+Included as well are waveforms from a quiet period of data taking showing the typical behaviour.
 \par
 Within the pulse parameters, it is fairly easy to pick out these noisy moments, as can be seen in \autoref{fig:od_noise_cut}.
 The central distribution with a pulse amplitude over pulse area of 0.01 corresponds to a regular PMT response and represents a true signal.
@@ -81,7 +81,7 @@ This distribution is also due to noise where at least one PMT is saturated and s
 In order to remove these pulses from any analysis, a noise cut was developed to remove these based on the pulse shape, requiring that a large portion of the pulse integral be within 100 ns of the pulse starting.
 Additionally, a PMT multiplicity requirement of 5 was used.
 This removed single PMT noise from after-pulsing and dark counts.
-This combined selection is used throughout this chapter, being referred to as the ``noise cut".
+This combined selection is used throughout this chapter and is referred to as the ``noise cut".
 
 
 \input{Chapters/Analysis_OuterDetector/Figures/od_noise_cut}
@@ -121,7 +121,7 @@ Full model simulations were performed of ${}^{228}$Th decays in CSD-1 at 700 mm 
 The 2.6 MeV $\gamma$ is the dominant decay which is able to escape the CSD and enter the OD, making it the largest feature in data.
 Similarly, simulations of ${}^{152}$Gd were performed with the decays spread throughout the GdLS.
 As only a single source was simulated, a single peak is present in the pulse area distribution.
-In data, as the distribution is so low in energy, it appears as a shoulder because other backgrounds are present.
+In data, as the distribution is so low in energy, it appears as a shoulder when plotted because other backgrounds are present.
 A comparison between the simulated and observed spectra for each source is shown in \autoref{fig:od_scaling_points}.
 The distributions have been normalised such that the quantity of interest is at 1.
 
@@ -133,7 +133,7 @@ In the case of ${}^{152}$Gd, there is another $\alpha$-decaying in the GdLS: ${}
 ${}^{147}$Sm decays, emitting an $\alpha$ of 2.3 MeV. 
 However, once quenching has been taken into account, the difference in the observed energy will be negligible.
 The other decay limited to that region is ${}^{14}$C, a $\beta$ decay with an endpoint of 156.5 keV, overlapping with ${}^{152}$Gd.
-There are also low energy cavern-$\gamma$ events which are likely to cause some skewing of the feature.
+There are also low-energy cavern-$\gamma$ events which are likely to cause some skewing of the feature.
 The ${}^{152}$Gd value will also have some variation due to position.
 %Additionally, as ${}^{152}$Gd appears in the non-linear response area that may also contribute to the difference as simulating the complex absorption and reemission of photons in the LS is difficult \cite{ls_nonlinear_energy_response_ref}.
 %The ${}^{152}$Gd value is most likely being heavily influenced by its proximity to the high rate of very low energy events.
@@ -142,7 +142,7 @@ The ${}^{152}$Gd value will also have some variation due to position.
 For a full background model (described in the previous chapter), a range of scaling factors were compared against the observation.
 These are shown in \autoref{fig:od_sim_vs_data_scaling_options}.
 Of the four which were tried, the scaling factor of 4.54 proved to be the closest match visually via features and so was taken as the value to use.
-This approach has some significant uncertainty, which will become apparent later in the next section where the backgrounds are studied.
+This approach has some significant uncertainty, which will become apparent in the next section where the backgrounds are studied.
 
 
 \input{Chapters/Analysis_OuterDetector/Figures/background_fit/scaling_results}

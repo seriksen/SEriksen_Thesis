@@ -9,13 +9,13 @@ Ionisation quenching in GdLS will produce a light yield that can be described by
     \label{eq:birkslaw}
 \end{equation}
 where L is the light yield, S is the scintillation efficiency, $\frac{dE}{dx}$ is the energy loss of the particle per path length, and $kB$ and $C$ are Birk's law parameters which differ depending upon the source: $\gamma$s, electron recoils, etc.
-This suppressed light yield due to recombination and the quenching of exciting molecules via transfer to surrounding ones.
+This suppressed light yield is due to recombination and the quenching of exciting molecules via transfer to surrounding ones.
 This results in highly ionised particles producing significantly lower amplitude signals than their energy would indicate.
 
 \par
 The parameters of Birk's law have to be measured for each material as the coefficient, $kB$, contains the probability of quenching and links the local density of ionised molecules to the energy loss, a factor that is material-dependent. 
 These parameters have been well studied for cocktails of similar makeup to the LZ GdLS with identical PPO and bis-MSB concentrations \cite{ls_alpha_quenching_ref,ls_proton_quenching_ref}.
-The low amount of gadolinium-doping means that these should not differ significantly from that.
+The low amount of gadolinium-doping means that these should not differ significantly from those studies.
 The parameters for LAB quenching are shown in \autoref{tab:Birks_law_parameters}.
 The effect on observed energy using these parameters is shown in \autoref{fig:gdls_quenching} where $\alpha$ particles are the most heavily quenched.
 In GdLS, a 100 keV electron will produce roughly the same amount of light as a 2 MeV $\alpha$.
@@ -37,7 +37,8 @@ In GdLS, a 100 keV electron will produce roughly the same amount of light as a 2
 \subsection{Neutron Propagation}
 \par
 A neutron is most readily detectable from the products after a neutron capture.
-The probability of a neutron being captured is generally proportional to the amount of time the neutron spends in proximity to any given nuclei, so the slower a neutron is travelling, the more readily it will be captured.
+The probability of a neutron being captured is generally proportional to the amount of time the neutron spends in proximity to any given nuclei.
+Effectively, the slower a neutron is travelling, the more readily it will be captured.
 Neutrons which enter the detector will be travelling relatively fast, making capture difficult.
 They can, however, be slowed down by scattering off particles.
 In the lab frame, the ratio between a neutron's initial energy ($E$) and final energy ($E'$) when colliding with an at-rest nucleus of mass A is given by:
@@ -68,11 +69,11 @@ Between the excited and ground states of the gadolinium isotopes, ${}^{156}$Gd a
 When the simulation framework was set up for the LZ experiment, GEANT4 was not adequate for modelling high atomic mass de-excitations where there are a huge number of possible cascade combinations \cite{ucsb_gdls_dicebox_simulations_ref}.
 Other experiments with GdLS have the same problem, such as DayaBay \cite{dayabay_overview_ref} and RENO \cite{reno_overview_ref}.
 However, the quantity of scintillator in those detectors is large enough that the entirety of the de-excitation energy is generally deposited in the medium.
-The LZ OD is significantly thinner than those, and so there is a non-negligible probably of not all of the energy being deposited in the GdLS.
+The LZ OD is significantly thinner than those, and so there is a non-negligible probability of not all of the energy being deposited in the GdLS.
 As such LZ incorporated DICEBOX \cite{dicebox_simulations_ref} simulations, which are sampled allowing for a more realistic simulation \cite{lz_simulations_ref}.
 A detailed comparison of the DICEBOX result against GEANT4 can be found in \cite{ucsb_gdls_dicebox_simulations_ref}.
 \par
-Using DICEBOX, the proportion of how the energy is dissipated in the isotope is shown in \autoref{fig:od_gdls_dicebox_deexcitation}, and the resultant $\gamma$ spectrum in \autoref{fig:gd_capture_resulting_gamma_spectrum}.
+From DICEBOX simulations, the way the energy is dissipated in the isotope is shown in \autoref{fig:od_gdls_dicebox_deexcitation}, and the resultant $\gamma$ spectrum in \autoref{fig:gd_capture_resulting_gamma_spectrum}.
 For both ${}^{156}$Gd and ${}^{158}$Gd, the de-excitation occurs in an average of 4-5 steps, with the vast majority of the energy going directly to $\gamma$ emission.
 Because of this, the de-excitation of gadolinium is often quoted as ``4.7 $\gamma$s".
 This highlights the importance of doping the scintillator as there is a much higher probability of being able to observe an n-Gd capture with multiple $\gamma$s than it is as a single $\gamma$ from an n-H capture.

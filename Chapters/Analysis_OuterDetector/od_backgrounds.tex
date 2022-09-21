@@ -192,7 +192,7 @@ Included as well is the 2.2 MeV $\alpha$-decay from ${}^{152}$Gd that has been p
 The Birk's law expectation is also shown using the parameters in \autoref{tab:Birks_law_parameters}.
 Each data point lines up in good agreement with the quenching parameters for pure LAB.
 These parameters for quenching are used in the simulation chain, which further isolates the simulation-observation difference to optical propagation.
-The second point is the peak at 100 phd in \autoref{fig:od_random_trigger}, assuming that it's an $\alpha$-decay.
+%The second point is the peak at 100 phd in \autoref{fig:od_random_trigger}, assuming that it's an $\alpha$-decay.
 \par
 In \autoref{fig:od_alpha_quenching} an additional point is included from the peak at 100 phd in \autoref{fig:od_random_trigger} assuming that it's an $\alpha$.
 This indicates that it is likely from a $\backsim$5.4 MeV $\alpha$.
@@ -240,7 +240,7 @@ This is slightly below the observed rate of 85.26$\pm$0.22 Hz.
 \par
 A fit was performed using RooFit \cite{roostats_ref}, where the contribution of each background component was allowed to float within a defined range.
 In order to keep the number of fit parameters small a number of steps were taken.
-Firstly, all detector components were combined.
+Firstly, contributions from all detector components were combined.
 This means that the spectra of each sub-component were summed, with the shape fixed but the magnitude variable.
 ${}^{60}$Co decay from the OCV is the most significant contributor here.
 Secondly, contributions from ${}^{152}$Gd and ${}^{147}$Sm were combined as the energy resolution is not sufficient to separate them.
@@ -261,7 +261,7 @@ The most significant difference is at 50 phd where no background appears to be a
 This is likely an uncertainty from the scaling factor.
 The flat scaling of 4.54 did not take into account any position variation.
 Given that the light collection efficiency observed is significantly greater than simulated, it is logical to suggest that the variation in the light collection efficiency (shown in \autoref{fig:od_lce}) is also different.
-This would effectively make contributions in lower light collection regions appear smaller than they are observed to be, which may go so way to explain the difference.
+This would effectively make contributions in lower light collection regions appear smaller than they are observed to be, which may go some way to explain the difference.
 Without further calibrations, incorporating a variation in spectral shape is exceptionally complicated.
 \par
 The cavern-$\gamma$s remain the highest contributor to the OD background rate, contributing to the rate across the entire phd range.

@@ -5,7 +5,7 @@ In this section, a detailed explanation of the OD is provided.
 
 \subsection{Function}
 \par
-As previously discussed, it is hoped that a dark matter candidate will scatter once in the target medium and then leave the experiment.
+As previously discussed in \autoref{sec:lz_detector_chapter}, it is hoped that a dark matter candidate will scatter once in the target medium and then leave the experiment.
 Being able to detect this excess of events is the foundation of the LZ experiment.
 The limiting factor is backgrounds, some of which will also interact just once in the target medium, producing a single scatter.
 This is particularly true for neutrons, which produce nuclear recoils and are indistinguishable from a dark matter scatter in the TPC.
@@ -16,11 +16,12 @@ LZ makes use of this feature using veto detectors, the Skin and OD:
     \item \textbf{OD}: a liquid scintillator held in acrylic tanks around the cryovessel which is surrounded by ultra-pure water.
 \end{itemize}
 Each of these detectors is instrumented with photomultiplier tubes (PMTs).
-If an interaction is detected in either of these within some time window around when a single scatter is observed in the TPC then the event can be tagged as a background, as it is inconsistent with dark matter.
+If an interaction is detected in either of these within a certain time window around when a single scatter is observed in the TPC then the event can be tagged as a background, as it is inconsistent with dark matter.
 These veto detectors also allow for a continuous characterisation of backgrounds in the proximity of LZ, which can be fed into parameterising background models.
 
 \par
-The OD is of vital importance as 46\% of neutrons which enter the TPC will be captured in the OD.
+The OD is a gadolinium-doped liquid scintillator (GdLS) housed in a number of acrylic tanks that provide near complete coverage to the outer cryostat (OCV) designed to detect neutrons.
+The OD is of vital importance as simulations of the expected neutron backgrounds indicate that 46\% of neutrons which enter the TPC will be captured in the OD.
 This is shown in \autoref{fig:simulated_neutron_capture_volumes}.
 Once captured, the neutrons can be detected and flag that the event should be vetoed. 
 Without the OD, there is the potential for 46\% of neutrons which scatter in the TPC to be missed, effectively doubling the background rate of nuclear recoils.
@@ -28,7 +29,6 @@ In the worst case, this could be linked to a false discovery claim, having obser
 It is therefore vital to have a working OD detector.
 
 \par
-The OD is a gadolinium-doped liquid scintillator (GdLS) housed in a number of acrylic tanks that provide near complete coverage to the outer cryostat (OCV) designed to detect these neutrons.
 In the remainder of this section, the key parts of the OD are described.
 
 \input{Chapters/OuterDetector/Figures/neutron_capture_volumes}

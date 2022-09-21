@@ -2,12 +2,12 @@
 \par
 Since the earliest days of astronomical photography, discrepancies between what is expected and what is observed have arisen.
 There is now a significant body of evidence for the existence of some kind of dark matter (DM), which contributes five times more mass to the universe than baryonic matter.
-One of the most promising candidates is Weakly Interacting Massive Particles (WIMPs), a particle which interacts via weak and gravitational forces only.
-One such experiment which is searching for WIMP-nucleon interactions is the LUX-ZEPLIN (LZ) experiment, housed at the Sanford Underground Research Facility.
+One of the most promising candidates is Weakly Interacting Massive Particles (WIMPs), a particle which interacts via gravity and a force of similar or weaker strength than the weak force.
+One experiment which is searching for WIMP-nucleon interactions is the LUX-ZEPLIN (LZ) experiment, housed at the Sanford Underground Research Facility.
 LZ utilises a dual-phase xenon time projection chamber (TPC) to search for rare interactions.
 
 \par
-This thesis begins with an overview of the astronomical and cosmological evidence for DM.
+\autoref{chap:dark_matter_evidence} contains an overview of the astronomical and cosmological evidence for DM.
 This is followed by a description of the leading candidates and the current search strategies adopted to find them.
 
 \par
@@ -15,25 +15,28 @@ In \autoref{chap:detection_theory} the theory of how WIMPs can be detected via n
 This chapter concludes with a description of non-relativistic Effective Field Theory (EFT), which is the basis of the analysis in the final chapter.
 
 \par
-\autoref{sec:lz_detector_chapter} introduced how xenon can be used to search for WIMPs in dual-phase time projection chamber experiments.
-This chapter then describes the LUX-ZEPLIN experiment, the expected backgrounds, calibration sources, the dark matter search strategy and an overview of the simulation framework.
+\autoref{sec:lz_detector_chapter} introduces how xenon can be used to search for WIMPs in dual-phase time projection chamber experiments.
+This chapter then describes the LZ experiment, the expected backgrounds, calibration sources, the dark matter search strategy and an overview of the simulation framework.
 
 \par
 In \autoref{chap:lz_simulations} developments to the LZ simulation capabilities are described, with a focus on the migration of CPU-based simulations to a GPU implementation.
 
 \par
-\autoref{chapter:lz_outer_detector} a detailed description of the Outer Detector and its subsystems is given.
+In \autoref{chapter:lz_outer_detector} a detailed description of the Outer Detector and its subsystems is given.
 This is followed by details of the final assembly, along with design changes that occurred.
 Finally, two performance requirements are evaluated using simulations.
 
 \par
 In \autoref{chap:analysis_of_the_od} the same performance requirements introduced in the previous chapter are evaluated on the completed detector during the commissioning phase.
-This is taken further with a fit of the background spectrum and a comparison between neutron propagation in simulations and what is observed.
-Differences between the expectation from simulations and what is observed are linked to installation and assembly processes.
+This is taken further with a fit of the background spectrum and a comparison between neutron propagation in simulations and what is observed in data.
+%Differences between the expectation from simulations and what is observed are linked to installation and assembly processes.
 The OD veto cut used in the first science run by LZ is defined by the work in this chapter.
 
 \par
-The final analysis presented in this thesis is of non-relativistic elastic WIMP-nucleon EFT coupling described in \autoref{chap:detection_theory}.
+The final analysis presented in this thesis, presented in \autoref{chap:analysis_eft_work}, is of non-relativistic elastic WIMP-nucleon EFT coupling described in \autoref{chap:detection_theory}.
 In this chapter, the statistical method and signal models are described.
-This is followed by a projected sensitivity study from a 1000 live day exposure.
-This chapter concludes with a description of the first science run of LZ and the resultant limits on isoscalar couplings to the EFT operators.
+This is followed by a projected sensitivity study from a 1000 live-day exposure.
+This chapter concludes with a description of the first science run of LZ and its sensitivity to isoscalar coupling strengths of EFT operators.
+
+\par
+The overall findings of this work are summarised in \autoref{chap:conclusion}.

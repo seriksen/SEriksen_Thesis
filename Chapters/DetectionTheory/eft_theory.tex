@@ -81,7 +81,6 @@ Any analysis has to make a decision as to which basis to use.
 Historically there has been little consistency, with often the same experiment changing between $\{neutron, proton\}$ basis and $\{isoscalar, isovector\}$ basis between data runs.
 The choice for some experiments to adopt the $\{neutron, proton\}$ basis has been driven by similarity in reporting results with the standard spin-dependent analysis.
 In the last few years however, $\{isoscale, isovector\}$ basis has become more common, with CDMS \cite{cdms_eft_ref}, XENON100 \cite{xenon100_eft_ref}, DEAP-3600 \cite{deap3600_eft_ref} and PandaX-II \cite{pandax_2_eft_ref} all reporting results in this basis.
-Therefore, in any evaluation, a decision needs to be made as to which approach to use.
 The translation is fairly trivial with the coupling constants between isoscalar ($c^0$), isovector ($c^1$), proton ($c^p$) and neutron ($c^n$) given by:
 \begin{equation}
 \begin{split}
@@ -92,21 +91,21 @@ The translation is fairly trivial with the coupling constants between isoscalar 
 \end{equation}
 In practical terms, this means that the Lagrangian (\autoref{eq:eft_initial_lagrangian}) requires a slight alteration to:
 \begin{equation}
-    \mathcal{L}_{int}  = \sum_{\tau = (0,1)} \sum^{15}_{i=1}c^{\tau}_{i} \Operator \chi_1 \chi_2 N_1 N_2
+    \mathcal{L}_{int}  = \sum_{\tau = (0,1)} \sum^{15}_{i=1}c^{\tau}_{i} \Operator_i \chi_1 \chi_2 N_1 N_2
 \end{equation}
 for $\{isoscalar,isovector\}$, and to:
 \begin{equation}
-    \mathcal{L}_{int} = \sum_{N = (p,n),(\tau)} \sum^{15}_{i=1}c^{(N)}_{i} \Operator \chi_1 \chi_2 N_1 N_2
+    \mathcal{L}_{int} = \sum_{N = (p,n),(\tau)} \sum^{15}_{i=1}c^{(N)}_{i} \Operator_i \chi_1 \chi_2 N_1 N_2
 \end{equation}
 for $\{neutron,proton\}$.
 $i$ is to sum over each operator.
-A priori we know nothing about the strength of these coefficients, and so we cannot say that we know one operator is more significant than another operator.
+A priori we know nothing about the strength of these coefficients, $c_i$, and so we cannot say that we know one operator is more significant than another operator.
 
 \subsection{Treatment of the nucleus}
 \par
-Now in order to relate the theory outlined above to what is observable experimentally we must consider that a dark matter particle interacts with nucleons that are bound in nuclei rather than free nucleons.
+Now in order to relate the theory outlined above to what is observable experimentally, we must consider that a dark matter particle interacts with nucleons that are bound in nuclei rather than free nucleons.
 As such, the matrix element of each operator needs to be evaluated inside the target nucleus and so inserted between nuclear states.
-The way which this is performed in \cite{Fitzpatrick_2013_ref} is to decomposing the velocity into the the component that acts on the centre-of-mass of the nucleus and the component that is dependant on the relative velocity of the nucleus.
+The way this is performed in \cite{Fitzpatrick_2013_ref} is by decomposing the velocity into the component that acts on the centre-of-mass of the nucleus and the component that is dependent on the relative velocity of the nucleus.
 The resultant spin-averaged matrix element is given by:
 \begin{equation}
     \frac{1}{(2j_A + 1)}\frac{1}{(2j_\chi + 1)} \sum_{spins} |\mathcal{M}|^2 \equiv
@@ -114,12 +113,13 @@ The resultant spin-averaged matrix element is given by:
     \label{eq:eft_scattering_amplitude_in_terms_of_operator_form_factors}
 \end{equation}
 where $m_N$ is the nucleon mass, $m_A$ is the target nucleus mass, and $j_A$ and $j_\chi$ are the spins of the nucleus and WIMP respectively. 
-$F^{a,b}_{ij} (v^2,q^2)$ is the unique form factor associated to each nucleus and combination of WIMP-nucleon operators, which is dependant upon both the velocity and momentum-transfer.
+$F^{a,b}_{ij} (v^2,q^2)$ is the unique form factor associated with each nucleus and combination of WIMP-nucleon operators, which is dependent upon both the velocity and momentum transfer.
+The combination of two form factors is due to going from $\mathcal{M}$ to $|\mathcal{M}|^2$, so each term contains two EFT operators.
 
 \par
 Substituting \autoref{eq:eft_scattering_amplitude_in_terms_of_operator_form_factors} into \autoref{eq:wimp_differential_rate_scattering_amplitude} gives the WIMP-nucleon differential rate:
 \begin{equation}
-    \frac{dR}{dE_R} = \frac{\rho_{\chi}}{32 \pi m_\chi^3 m_N^2} \int_{v>v_{min}} \frac{f(\vec{v})}{v} \sum_{i,j=1}^{15} \sum_{a,b=0,1} c_i^a c_j^b F_{i,j}^{(a,b)} d^3 v
+    \frac{dR}{dE_R} = \frac{\rho_{\chi}}{32 \pi m_\chi^3 m_N^2} \int^{\infty}_{v>v_{min}} \frac{f(\vec{v})}{v} \sum_{i,j=1}^{15} \sum_{a,b=0,1} c_i^a c_j^b F_{i,j}^{a,b} d^3 v
     \label{eq:final_eft_differential_cross_section}
 \end{equation}
 
@@ -130,19 +130,21 @@ Due to the complexity of evaluating the nuclear form factors and the uncertainti
 This is performed by simply evaluating the scattering amplitude assuming a single operator.
 In this case, for the isoscalar scatter rate of operator $i$, \autoref{eq:final_eft_differential_cross_section} simplifies to:
 \begin{equation}
-    \frac{dR}{dE_R} = \frac{\rho_{\chi} {c_i^{0}}^2}{32 \pi m_\chi^3 m_N^2} \int_{v>v_{min}} \frac{f(\vec{v})}{v} F_{i,i}^{(0,0)} d^3 v
+    \frac{dR}{dE_R} = \frac{\rho_{\chi} {c_i^{0}}^2}{32 \pi m_\chi^3 m_N^2} \int^{\infty}_{v>v_{min}} \frac{f(\vec{v})}{v} F_{i,i}^{0,0} d^3 v
     \label{eq:final_eft_differential_cross_section}
 \end{equation}
 The current best limits come from LUX \cite{LUX_RUN4_EFT_2021}, which was a study performed in the \{$neutron,proton$\} basis.
 A mass point for each operator was also analysed in the $\{isoscale, isovector\}$ basis and compared to XENON100 \cite{xenon100_eft_ref} and shown to be roughly equivalent.
-It is interesting to note however that a recent publication by Panda-X extended this to a generalised spin analysis, using linear combinations of the operators \cite{pandax_2_eft_ref}.
+The reader will have to wait until \autoref{chap:analysis_eft_work} to see these, along with the author's results.
+It is interesting to note, that a recent publication by Panda-X extended this to a generalised spin analysis, using linear combinations of the operators \cite{pandax_2_eft_ref}.
 
 \par
-Thinking about the scattering slightly more simplistically, the differential rate can be expressed as:
+Thinking about the scattering slightly more simplistically, the differential rate can be expressed as \cite{simple_eft_ref}:
 \begin{equation}
-    \frac{d\sigma}{dE_R} \approx G_F^2 \sum_{i} R_i (\vec{v}^{\perp 2}, \frac{\vec{q}^2}{m_N^2}) W_i(q^2b^2)
+    \frac{d\sigma}{dE_R} \approx G_F^2 \sum_{i} R_i (\vec{v}^{\perp 2}, \frac{\vec{q}^2}{m_N^2}) W_i(q^2,b^2)
 \end{equation}
-where $W_i(q^2b^2)$ encompasses the nuclear tensor and $R_i (\vec{v}^{\perp 2}, \frac{\vec{q}^2}{m_N^2})$ is the WIMP tensor containing all of the dark matter particle physics.
+where $W_i(q^2,b^2)$ encompasses the nuclear tensor and $R_i (\vec{v}^{\perp 2}, \frac{\vec{q}^2}{m_N^2})$ is the WIMP tensor containing all of the dark matter particle physics.
+$b$ is the nuclear size.
 The design of a direct dark matter experiment sets the nuclear charge, spin and isospin to determine $R_i$.
 $W_i$ is then probed experimentally.
 
@@ -273,7 +275,7 @@ In this case, we can write it as:
 \end{equation}
 In \autoref{eq:eft_scattering_amplitude_in_terms_of_operator_form_factors} we have introduced $F_{ij}^{a,b}(v^2,q^2)$, which is the unique form factor associated to each nucleus and combination of WIMP-nucleon operators.
 \par
-The actual evaluation of these nuclear form factors are not particularly straight forward, and with uncertainties on which nuclear model is the most accurate still debated, can have a non-negligible impact on any dark matter sensitivity.
+The actual evaluation of these nuclear form factors is not particularly straightforward, and the choice nuclear model is the most accurate still debated, can have a non-negligible impact on any dark matter sensitivity.
 The approach adopted in \cite{Fitzpatrick_2013_ref} is to perform a multipole decomposition where the following identities are used:
 \begin{equation}
 \begin{split}
@@ -396,7 +398,7 @@ Most notably:
 The new quantity introduced here, $m_M$, is just the strength of the WIMP and nucleon moments being coupled, and is taken to be $m_M \sim m_N$.
 
 \par
-Writing optimistically, we can also excess our differential rate as:
+Writing optimistically, we can also excess our differential rate as \cite{simple_eft_ref}:
 \begin{equation}
     \frac{d\sigma}{dE_R} \approx G_F^2 \sum_{i} R_i (\vec{v}^{\perp 2}, \frac{\vec{q}^2}{m_N^2}) W_i(q^2b^2)
 \end{equation}

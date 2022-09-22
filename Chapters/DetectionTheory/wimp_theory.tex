@@ -104,19 +104,10 @@ For a review of how these affect sensitivity to a dark matter discovery, the rea
 \end{table}
 
 \subsection{Differential cross-section}
-%\par
-%In order to allow for comparisons between experiments with different target nuclei, it is typical to convert from a WIMP-nucleus cross-section ($\sigma_A$) to a WIMP-nucleon cross-section ($\sigma_N$).
-In the zero-momentum transfer regime, the WIMP-nucleus cross-section can be expressed as:
-\begin{equation}
-    \frac{d\sigma}{d|q|^2} = \frac{\sigma_0}{4\mu^2 v^2} F^2(q)
-\end{equation}
-where $\sigma_0$ is the total cross-section at zero-momentum transfer and $F(q)$ is the nuclear form factor that encapsulates the momentum dependence of the cross-section \cite{shaunalsum_thesis_ref}.
-This identity is known as Fermi's Golden rule \cite{shaunalsum_thesis_ref}.
 \par
 As has already been said, we are constraining ourselves to non-relativistic scattering.
-Therefore only interactions which do not vanish in the zero-momentum transfer limit are considered.
-In this zero-momentum transfer limit, there are two forms of interactions: a spin-independent (SI) and a spin-dependent (SD) component  \cite{wimp_lagrangian_ref}.
-Therefore the differential cross-section is actually given by:
+Therefore only interactions which do not vanish in the zero-momentum transfer limit need to be considered, of which there are two: a spin-independent (SI) and a spin-dependent (SD) component \cite{wimp_lagrangian_ref}.
+The differential cross-section is then given by:
 \begin{equation}
     \frac{d\sigma}{d|q|^2} = \bigg(\frac{d\sigma}{d|q|^2}\bigg)_{SI} + \bigg(\frac{d\sigma}{d|q|^2}\bigg)_{SD}
 \end{equation}
@@ -124,11 +115,18 @@ The SI interaction arises from the WIMP coupling to quarks mediated via a Higgs,
 As the weighted contributions of the SI and SD components are not known and to make experimentalists lives easier, each interaction is generally considered independently, but for those interested in mixing these terms, the interaction Lagrangian can be found in \cite{wimp_lagrangian_ref}.
 %, following \cite{supersymetry_wimpy_again_ref}.
 \par
+In this zero-momentum transfer regime, the WIMP-nucleus cross-section can be expressed as:
+\begin{equation}
+    \frac{d\sigma}{d|q|^2} = \frac{\sigma_0}{4\mu^2 v^2} F^2(q)
+\end{equation}
+where $\sigma_0$ is the total cross-section at zero-momentum transfer and $F(q)$ is the nuclear form factor that encapsulates the momentum dependence of the cross-section \cite{shaunalsum_thesis_ref}.
+This identity is known as Fermi's Golden rule \cite{shaunalsum_thesis_ref}.
+\par
 Taking the SI case only, and so setting the contribution from SD to zero, the WIMP-nucleus cross-section is:
 \begin{equation}
     \sigma_0 = \frac{4\mu^2}{\pi} [f_pZ + f_n (A-Z)]^2
 \end{equation}
-where $A$ and $Z$ are the atomic mass and atomic number respectively.
+where $A$ and $Z$ are the atomic mass and atomic number, respectively.
 $f_n$ and $f_p$ are the dark matter couplings to neutrons and protons.
 \par
 If we assume that the coupling for WIMPs to protons and neutrons is similar\footnote{so isospin is conserved} ($f_p \backsim f_n$) then the relation between the WIMP-nucleus and WIMP-nucleon cross-sections is given by \cite{wimp_sd_form_factor_ref}:
@@ -137,7 +135,7 @@ If we assume that the coupling for WIMPs to protons and neutrons is similar\foot
 \end{equation}
 where $\mu_n$ is the WIMP-nucleon reduced mass and $\sigma_n$ is the WIMP-nucleon cross-section.
 \par
-The final WIMP-nucleon elastic scattering differential rate for an SI interaction is then given by:
+The final WIMP-nucleon elastic scattering differential rate for an SI interaction is then given by \cite{wimp_theory_ref}:
 \begin{equation}
     \frac{dR}{dE_R} = \frac{\rho_\chi}{2 m_\chi \mu^2} F^2(q) \int^{\infty}_{v_{min}} \frac{f(\vec{v})}{v} A^2 \sigma_{0n} d\vec{v}
     \label{eq:wimp_si_differential_rate}

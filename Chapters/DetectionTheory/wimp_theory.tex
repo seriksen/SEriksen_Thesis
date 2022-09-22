@@ -12,7 +12,7 @@ Within a detector, the rate of these WIMP scatter interactions, $R$, is given by
     R = \sigma N_{T} n_{\chi} \langle v \rangle
     \label{eq:wimp_nucleon_rate}
 \end{equation}
-where N$_{T}$ is the number of nucleons in the detector, $n_\chi$ is the number density of dark matter particles travelling with an average speed $\langle v \rangle$ relative to the target, and $\sigma$ is the interaction cross-section, representing the interaction strength between the dark matter and the nucleon.
+where N$_{T}$ is the number of nuclei in the detector, $n_\chi$ is the number density of dark matter particles travelling with an average speed $\langle v \rangle$ relative to the target, and $\sigma$ is the interaction cross-section, representing the interaction strength between the dark matter and the nucleus.
 \par
 Given that each direct detector is sensitive to different recoil energies depending upon the design, it is beneficial to describe the event rate in an energy region as the differential scattering rate with respect to recoil energy \cite{supersymetry_wimpy_boi_ref}:
 \begin{equation}
@@ -24,20 +24,9 @@ Given that each direct detector is sensitive to different recoil energies depend
 \end{equation}
 where $f(\vec{v})$ is the dark matter velocity distribution in the galactic halo, $\rho_{\chi}$ is the dark matter density, $m_\chi$ is the dark matter mass, $m_A$ is the target nucleus mass, and $q$ is the momentum transfer associated with the recoil given by $q = \sqrt{2m_A E_R}$ and $v_{min}$ is the minimum velocity of dark matter to induce a recoil of energy $E_R$.
 It is therefore a detector specific limit given by $v_{min} = \sqrt{(m_\chi E_R)/(2\mu^2)}$ where $\mu = (m_\chi m_A)/(m_\chi + m_A)$, the WIMP-nucleus reduced mass.
-\par 
-We can relate the WIMP-nucleon differential cross-section with respect to the momentum transfer to the WIMP-nucleon scattering amplitude, $\mathcal{M}$, using Fermi's Golden Rule \cite{shaunalsum_thesis_ref}:
-\begin{equation}
-    \frac{d\sigma}{d|q|^2} = \frac{1}{\pi v^2} |\mathcal{M}|^2
-    \label{eq:fermi_golden_rule_for_cross_section}
-\end{equation}
-Substituting this into \autoref{eq:wimp_differential_rate} we obtain the differential rate: 
-\begin{equation}
-    \frac{dR}{dE_R} = \frac{2\rho_{\chi}}{\pi m_{\chi}} \int^{\infty}_{v_{min}} \frac{f(\vec{v})}{v} | \mathcal{M} |^2 d\vec{v}
-    \label{eq:wimp_differential_rate_scattering_amplitude}
-\end{equation}
 \par
 We are able to control the detector size and target properties (within reason).
-This leaves us with two parameters outside of our direct control but which we need to constrain in order to determine an expected rate in any given detector: the dark matter velocity distribution and the WIMP-nucleon scattering amplitude.
+This leaves us with two parameters outside of our direct control but which we need to constrain in order to determine an expected rate in any given detector: the dark matter velocity distribution and the differential cross-section.
 
 \subsection{Local Astrophysical Dark Matter Properties}
 \par
@@ -99,7 +88,7 @@ where $\vec{v}$ is the velocity of the dark matter with respect to the Earth, $\
 \par
 Depending upon the values used for both the dark matter density and the velocities, the scattering rate will vary, and therefore the sensitivity of any given experiment will vary.
 Historically the parameters used for determining the event rate have varied between experiments, making comparisons between results difficult.
-However, resent collaboration between dark matter experiments have now agreed upon a common set of parameters \cite{standard_halo_model_conventions_ref} summarised in \autoref{tab:standard_parameters_for_dm}.
+However, recent collaboration between dark matter experiments have now agreed upon a common set of parameters \cite{standard_halo_model_conventions_ref} summarised in \autoref{tab:standard_parameters_for_dm}.
 For a review of how these affect sensitivity to a dark matter discovery, the reader is directed to \cite{dm_velocity_effects_on_limits_ref}.
 
 \begin{table}[]
@@ -107,43 +96,27 @@ For a review of how these affect sensitivity to a dark matter discovery, the rea
     \begin{tabular}{c|c|c}
         Parameter                               & Description                       & Value         \\ \hline
         $\rho_{\chi}$                           & Local dark matter density         & 0.3 GeV/cm$^2$ \cite{shm_derivation_ref}           \\
-        $\nu_{esc}$                             & Galactic escape velocity          & 544 km/s  \cite{dm_v_esc_ref}           \\
-        $\Vec{v}_0$                             & Local standard of rest velocity   & 238 km/s   \cite{dm_v_0_ref}           
+        $v_{esc}$                             & Galactic escape velocity          & 544 km/s  \cite{dm_v_esc_ref}           \\
+        $v_0$                             & Local standard of rest velocity   & 238 km/s   \cite{dm_v_0_ref}           
     \end{tabular}
     \caption{Suggested Standard Halo Model parameters adapted from \cite{standard_halo_model_conventions_ref}}
     \label{tab:standard_parameters_for_dm}
 \end{table}
 
-\subsection{Scattering Amplitude}
-\par
-Turning back to the scattering amplitude, we can use the identity $|M|^2=\pi G^2_F C F^2(q)$ to factor out the nucleus momentum dependence into the nuclear form factor $F^2(q)$ \cite{introduction_to_elementary_particles_ref}.
-$G_F$ is the Fermi constant.
-$C$ is a dimensionless parameter containing the particle physics of the interaction.
-This allows for the differential WIMP-nucleon cross-section to be written as:
+\subsection{Differential cross-section}
+%\par
+%In order to allow for comparisons between experiments with different target nuclei, it is typical to convert from a WIMP-nucleus cross-section ($\sigma_A$) to a WIMP-nucleon cross-section ($\sigma_N$).
+In the zero-momentum transfer regime, the WIMP-nucleus cross-section can be expressed as:
 \begin{equation}
-    \frac{d\sigma}{d|q|^2} = \frac{G_F^2}{v^2} F^2(q)
-    \label{eq:wimp_scattering_cross_section_form_factor_1}
+    \frac{d\sigma}{d|q|^2} = \frac{\sigma_0}{4\mu^2 v^2} F^2(q)
 \end{equation}
-
+where $\sigma_0$ is the total cross-section at zero-momentum transfer and $F(q)$ is the nuclear form factor that encapsulates the momentum dependence of the cross-section \cite{shaunalsum_thesis_ref}.
+This identity is known as Fermi's Golden rule \cite{shaunalsum_thesis_ref}.
 \par
 As has already been said, we are constraining ourselves to non-relativistic scattering.
 Therefore only interactions which do not vanish in the zero-momentum transfer limit are considered.
-The zero-momentum transfer cross-section is defined as \cite{supersymetry_wimpy_again_ref}:
-\cite{supersymetry_wimpy_again_ref}:
-\begin{equation}
-    \sigma_0 = \int^{q_{\text{max}}^2}_{0} \frac{d\sigma}{d|q|^2}(q=0) d|q|^2 = 4G^2_F \mu^2 C
-\end{equation}
-where the limit is just $q_\text{max}=2\mu v$.
-\par
-Substituting this into \autoref{eq:wimp_scattering_cross_section_form_factor_1} we arrive at:
-\begin{equation}
-    \frac{d\sigma}{d|q|^2} = \frac{\sigma_0}{4 \mu^2 v^2} F^2(q)
-    \label{eq:wimp_scattering_cross_section_form_factor_2}
-\end{equation}
-\par
-The scattering cross-section is actually comprised of a number of interactions \cite{wimp_lagrangian_ref}.
-However, only two are preserved in the zero-momentum transfer limit: a spin-independent (SI) and a spin-dependent (SD) component.
-Therefore our differential cross-section is actually given by:
+In this zero-momentum transfer limit, there are two forms of interactions: a spin-independent (SI) and a spin-dependent (SD) component  \cite{wimp_lagrangian_ref}.
+Therefore the differential cross-section is actually given by:
 \begin{equation}
     \frac{d\sigma}{d|q|^2} = \bigg(\frac{d\sigma}{d|q|^2}\bigg)_{SI} + \bigg(\frac{d\sigma}{d|q|^2}\bigg)_{SD}
 \end{equation}
@@ -153,21 +126,25 @@ As the weighted contributions of the SI and SD components are not known and to m
 \par
 Taking the SI case only, and so setting the contribution from SD to zero, the dimensionless constant $C$ is:
 \begin{equation}
-    C = \frac{1}{\pi G^2_F} [f_pZ + f_n (A-Z)]^2
+    \sigma_0 = \frac{4\mu^2}{\pi} [f_pZ + f_n (A-Z)]^2
 \end{equation}
 where $A$ and $Z$ are the atomic mass and atomic number respectively.
 $f_n$ and $f_p$ are the dark matter couplings to neutrons and protons.
 \par
-If we assume that the coupling for WIMPs to protons and neutrons is similar\footnote{so isospin is conserved} ($f_p \backsim f_n$) then the differential cross-section becomes:
+If we assume that the coupling for WIMPs to protons and neutrons is similar\footnote{so isospin is conserved} ($f_p \backsim f_n$) then the relation between the WIMP-nucleus and WIMP-nucleon cross-sections is given by:
 \begin{equation}
-    \frac{d\sigma}{d|q|^2} = \frac{\sigma_0 A^2}{4 \mu^2 v^2} F^2(q)
+    \sigma_{0} = \frac{\mu^2}{\mu^2_n}A^2 \sigma_{n}
 \end{equation}
-By substituting this into \autoref{eq:wimp_differential_rate_scattering_amplitude} we arrive at the SI differential recoil spectrum for WIMP-nucleon elastic scattering:
+where $\mu_n$ is the WIMP-nucleon reduced mass and $\sigma_n$ is the WIMP0nucleons cross-section.
+\par
+The final WIMP-nucleon elastic scattering differential rate for an SI interaction is then given by:
 \begin{equation}
-    \frac{dR}{dE_R} = \frac{\rho_\chi}{2 m_\chi \mu^2} F^2(q) \int^{\infty}_{v_{min}} \frac{f(\vec{v})}{v} A^2 \sigma_0 d\vec{v}
+    \frac{dR}{dE_R} = \frac{\rho_\chi}{2 m_\chi \mu^2} F^2(q) \int^{\infty}_{v_{min}} \frac{f(\vec{v})}{v} A^2 \sigma_{0N} d\vec{v}
     \label{eq:wimp_si_differential_rate}
 \end{equation}
 An equivalent derivation for SD interactions can be found in \cite{wimp_theory_ref}.
+It is typical to report any result in terms of WIMP-nucleon cross-section as it removes the dependence on the target nuclei, allowing different experiments to compare results easily.
+
 \par
 In the left plot of \autoref{fig:si_recoil_and_form_factor}, the differential event rate for a selection of frequently used targets is shown.
 In \autoref{fig:si_recoil_and_form_factor}, a WIMP mass of 100 GeV/c$^2$ is used with a WIMP-nucleon cross-section of 10$^{-45}$ cm$^2$ (i.e. 1 zb).

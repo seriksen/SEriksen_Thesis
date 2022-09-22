@@ -6,7 +6,7 @@
         xlabel=Pulse Area,
         ylabel=Rate (Hz),
         width=15cm, height=10cm,
-        xmin=0, xmax=1000,
+        xmin=20, xmax=1000,
         %ymax=1e-7, 
         ymode=log,
         legend pos=north east,
@@ -21,11 +21,11 @@
         
         \addplot[red, const plot]
             table [x=centre,y=rate]
-            {Data/OD_Backgrounds/background_fit/scaling_options/total_improved_scaling_4.77_phd.dat};
+            {Data/OD_Backgrounds/background_fit/scaling_options/total_improved_scaling_4.54_phd.dat};
             
         \addplot[green, const plot]
             table [x=centre,y=rate]
-            {Data/OD_Backgrounds/background_fit/scaling_options/total_original_scaling_4.77_phd.dat};
+            {Data/OD_Backgrounds/background_fit/scaling_options/total_original_scaling_4.54_phd.dat};
         
         \legend{Data, Original purification, Improved purification};
         
@@ -33,6 +33,7 @@
     \end{tikzpicture}
     \caption{OD pulse area spectrum from using the Random Trigger. 
     Only the noise cut has been applied to the data.
-    Overlaid are the expected rates from all backgrounds with the improved and original GdLS internal rates.}
+    Overlaid are the expected rates from all backgrounds with the improved and original GdLS internal rates.
+    The pulse areas of the simulated dataset have been scaled by 4.54.}
     \label{fig:od_random_trigger}
 \end{figure}

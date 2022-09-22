@@ -25,7 +25,7 @@ Given that each direct detector is sensitive to different recoil energies depend
 where $f(\vec{v})$ is the dark matter velocity distribution in the galactic halo, $\rho_{\chi}$ is the dark matter density, $m_\chi$ is the dark matter mass, $m_A$ is the target nucleus mass, and $q$ is the momentum transfer associated with the recoil given by $q = \sqrt{2m_A E_R}$ and $v_{min}$ is the minimum velocity of dark matter to induce a recoil of energy $E_R$.
 It is therefore a detector specific limit given by $v_{min} = \sqrt{(m_\chi E_R)/(2\mu^2)}$ where $\mu = (m_\chi m_A)/(m_\chi + m_A)$, the WIMP-nucleus reduced mass.
 \par 
-We can relate the differential cross section with respect to the momentum transfer to the scattering amplitude, $\mathcal{M}$, using Fermi's Golden Rule \cite{shaunalsum_thesis_ref}:
+We can relate the WIMP-nucleon differential cross-section with respect to the momentum transfer to the WIMP-nucleon scattering amplitude, $\mathcal{M}$, using Fermi's Golden Rule \cite{shaunalsum_thesis_ref}:
 \begin{equation}
     \frac{d\sigma}{d|q|^2} = \frac{1}{\pi v^2} |\mathcal{M}|^2
     \label{eq:fermi_golden_rule_for_cross_section}
@@ -116,12 +116,15 @@ For a review of how these affect sensitivity to a dark matter discovery, the rea
 
 \subsection{Scattering Amplitude}
 \par
-Turning back to the scattering amplitude, we can use the identity $|M|^2=\pi G^2_F C F^2(q)$ to factor out the nucleus momentum dependence into the nuclear form factor $F^2(q)$ \cite{introduction_to_elementary_particles_ref}:
+Turning back to the scattering amplitude, we can use the identity $|M|^2=\pi G^2_F C F^2(q)$ to factor out the nucleus momentum dependence into the nuclear form factor $F^2(q)$ \cite{introduction_to_elementary_particles_ref}.
+$G_F$ is the Fermi constant.
+$C$ is a dimensionless parameter containing the particle physics of the interaction.
+This allows for the differential WIMP-nucleon cross-section to be written as:
 \begin{equation}
-    \frac{d\sigma}{d|q|^2} = \frac{G^2_F C}{v^2} F^2(q)
+    \frac{d\sigma}{d|q|^2} = \frac{G_F^2}{v^2} F^2(q)
     \label{eq:wimp_scattering_cross_section_form_factor_1}
 \end{equation}
-where $G_F$ is the Fermi constant, $C$ is a dimensionless parameter containing the particle physics of the interaction.
+
 \par
 As has already been said, we are constraining ourselves to non-relativistic scattering.
 Therefore only interactions which do not vanish in the zero-momentum transfer limit are considered.
@@ -161,7 +164,7 @@ If we assume that the coupling for WIMPs to protons and neutrons is similar\foot
 \end{equation}
 By substituting this into \autoref{eq:wimp_differential_rate_scattering_amplitude} we arrive at the SI differential recoil spectrum for WIMP-nucleon elastic scattering:
 \begin{equation}
-    \frac{dR}{dE_R} = \frac{A^2 \sigma_0 \rho_\chi}{2 m_\chi \mu^2} F^2(q) \int^{\infty}_{v_{min}} \frac{f(\vec{v})}{v} d\vec{v}
+    \frac{dR}{dE_R} = \frac{\rho_\chi}{2 m_\chi \mu^2} F^2(q) \int^{\infty}_{v_{min}} \frac{f(\vec{v})}{v} A^2 \sigma_0 d\vec{v}
     \label{eq:wimp_si_differential_rate}
 \end{equation}
 An equivalent derivation for SD interactions can be found in \cite{wimp_theory_ref}.

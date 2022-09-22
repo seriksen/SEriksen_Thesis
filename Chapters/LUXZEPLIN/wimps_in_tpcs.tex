@@ -49,9 +49,9 @@ This process is referred to as recombination luminescence and is shown below for
 \par
 The difference in how these interactions appear between electronic recoils and nuclear recoils is shown in \autoref{fig:er_nr_tracks}.
 From a nuclear recoil, the initial atom has a number of scatters, but these are typically below the ionisation level.
-On the other hand, an electron recoil will result in a number of photons.
+On the other hand, an electron recoil are able to produce significant ionisation.
 Additionally, as the electron is less stopped by the LXe, the track length is significantly greater.
-If the interaction occurs in an electric field, not all of the electrons will recombine, allowing for potentially a second scintillation sighting.
+If the interaction occurs in an electric field, not all of the freed electrons will recombine, allowing for potentially a second scintillation sighting.
 
 \begin{figure}
     \centering
@@ -69,7 +69,7 @@ The energy deposited in LXe, is split between the atoms and liberated electrons,
 Here, W is the W-factor for LXe, generally taken to be 13.7 $\pm$ 0.2 eV \cite{light_and_charge_of_xenon_ref}, though there are more recent measurements indicating it could be as low as 11.5 eV \cite{electron_excitation_energy_of_xenon_ref}. 
 N$_i$ and N$_{ex}$ are the number of ionised atoms and number of excited atoms, respectively.
 L corresponds to the ``Lindhard factor" or ``quenching" which accounts for the reduced light and charge that is lost to heat.
-It is generally taken that L=1 for electron recoils as the heat loss does not vary with energy, allowing the impact this has to be taken into W.
+It is generally taken that L=1 for electron recoils as the heat loss does not vary with energy, with any impact it does have being placed into W.
 \par
 The ratio between the excitation atoms to ionised atoms allows for ER and NR events to be distinguished, with the resultant number of photons observed differing between the two.
 Experimentally, N$_{ex}$/N$_i$ has been measured as $\approx$ 1 for nuclear recoils, and 0.06 for electron recoils \cite{ionisation_to_excitation_ratio_xenon_ref}.
@@ -81,7 +81,7 @@ Modern variants of these detectors contain a single element in a majority liquid
 \par
 An interaction event in a TPC is characterised by two signals.
 Firstly a prompt scintillation signal in the liquid region - referred to as the S1.
-This is caused by excimers and recombination previously discussed.
+This is caused by excimers and recombination.
 Secondly, there is a delayed scintillation signal or S2.
 This is observed in the gas phase via electroluminescence.
 Both of these signals produce VUV light ($\approx$175 nm), which can be detected by photomultiplier tubes (PMTs) or silicon photomultipliers (SiPMs).
@@ -101,7 +101,7 @@ The preferred unit of this is ``photons detected" (phd)\footnote{Historically, t
 
 \par
 The position of an interaction in the TPC can be reconstructed using only the S1 and S2 signals.
-Firstly the $x-y$ position of an interaction can be reconstructed by the hit-pattern of photons on the gas phase PMTs. 
+Firstly the $x-y$ position can be reconstructed by the hit-pattern of photons on the gas phase PMTs. 
 As the electrons will not deviate significantly from the interaction site while drifting, the hit-pattern is a good approximation of this location, with $\backsim$5 mm resolution demonstrated \cite{lux_position_reconstruction_ref}.
 The $z$-position can be directly measured by the time difference between the two signals.
 This is possible as the electrons reach a terminal drift velocity rapidly within the LXe, allowing for a resolution $\backsim$5 mm \cite{LZ_TechnicalDesignReview_ref}.
@@ -133,11 +133,15 @@ S1$_c$ and S2$_c$ are then just both linear relationships to the original quanta
 \begin{align}
     S1_c = g_1 n_\gamma && S2_c = g_2 n_e
 \end{align}
-With this linear relationship, the reconstructed recoil energy from the event of two pulses (and S1 and S2) becomes:
+With this linear relationship, the reconstructed recoil energy from an interaction is given by:
 \begin{equation}
     E_R = \frac{W}{L}(\frac{S1_c}{g_1} + \frac{S2_c}{g_2})
 \end{equation}
 For NR events, L has an energy dependence.
+\par
+Modelling of detector responses from S1 and S2 signals has undergone a huge amount of development in recent years, with the Noble Element Simulation Technique (NEST) library leading this.
+Both Argon and Xenon detectors are modelled for energy deposits of sub-keV to several MeV \cite{nest_1_ref}.
+Additional details of response modelling can be found in \cite{gregrischbieter_thesis_ref, flamenest_ref}.
 \par
 An example of the possible discrimination between ER and NR from a xenon TPC is shown in \autoref{fig:er_nr_discrimination} for an arbitrary TPC detector.
 The discrimination between ER and NR events is not perfect, with a non-negligible amount of leakage between bands.
@@ -145,10 +149,7 @@ The viability of using TPCs for direct dark matter searches can be summarised by
 
 \input{Chapters/LUXZEPLIN/Figures/er_nr_discrimination}
 
-\par
-Modelling of detector responses from S1 and S2 signals have undergone a huge amount of development in recent years, with the Noble Element Simulation Technique (NEST) library leading this.
-Both Argon and Xenon detectors are modelled for energy deposits of sub-keV to several MeV \cite{nest_1_ref}.
-Additional details of response modelling can be found in \cite{gregrischbieter_thesis_ref, flamenest_ref}.
+
 
 
 \iffalse

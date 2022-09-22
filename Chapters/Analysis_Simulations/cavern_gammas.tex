@@ -7,13 +7,13 @@ LZ is not unique in this, it is a problem highlighted in a number of other under
 The rate of $\gamma$s from the cavern have been measured and can be attributed to the shotcreat and gravel \cite{LZ_Gamma_Ray_Background_ref} - though the rate has a significant uncertainty.
 Some of the most significant sources of background stems not from any internal component but rather from $^{238}$U, $^{232}$Th and $^{40}$K decays from the cavern walls in which the LZ detector is located.
 These decay chains are discussed in \autoref{chapter:lz_outer_detector} and can be seen in \autoref{fig:decay_chains}.
-It is very computationally intensive to simulate these $\gamma$-rays as the vast majority do not penetrate into reach into the detector.
+It is very computationally intensive to simulate these $\gamma$-rays as the vast majority do not reach the detectors.
 To compensate, a generator for these $\gamma$s was written - originally described in \cite{rg_generator_ref} and is summarised below.
 The generator simulates the decay chains originating in the shotcreat and gravel, but only contains $\gamma$s which have reached a pre-defined inner-surface, within the LZ experiment.
 To create this generator, a number of simulations are performed in stages.
-In the first stage, $\gamma$s from the cavern wall are simulated, and are propagate until they reach a surface closer to the detector, at which point they are saved, and the simulated stopped.
+In the first stage, $\gamma$s from the cavern wall are simulated, and are propagated until they reach a surface closer to the detector, at which point they are saved, and the simulation stopped.
 A second stage simulation is then performed where each of the saved $\gamma$s is generated a number of times and then saved at another pre-defined surface further into the detector.
-This boost occurs a number of times, until the final stage where the $\gamma$s which reach that surface are for event generation.
+This boost occurs a number of times, until the final stage where the $\gamma$s which reach that surface are saved for use in future event generation.
 When subsequent simulations are performed, these saved $\gamma$s are randomly sampled. 
 
 \par

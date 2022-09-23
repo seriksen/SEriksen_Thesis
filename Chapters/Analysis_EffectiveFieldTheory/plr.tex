@@ -25,11 +25,11 @@ The test statistic used to assess the POI is defined by a negative log-likelihoo
 where $\lambda$ is the actual PLR defined as:
 %$\lambda$ is comprised of the profile likelihood give by
 \begin{equation}
-    \lambda(\mu) = \frac{\mathcal{L}(\mu_0, \boldsymbol{\hat{\hat{\nu}}})}{\mathcal{L}(\hat{\mu}, \boldsymbol{\hat{\nu}})}
+    \lambda(\mu) = \frac{\mathcal{L}(\mu=0 , \boldsymbol{\hat{\hat{\nu}}})}{\mathcal{L}(\hat{\mu}, \boldsymbol{\hat{\nu}})}
 \end{equation}
 $\boldsymbol{\nu}$ are a set of nuisance parameters in each model which are the level of each background.
 The parameters with hats are allowed to float to maximise the likelihood.
-The difference between the single and double hat nuisance parameters is to take into account that the values of the nuisance parameters which maximise the likelihood when $\mu$ is fixed are not the same as those which maximise the likelihood when $\mu$ can float.
+The difference between the single and double hat on the nuisance parameters takes into account that the values which maximise the likelihood when $\mu$ is fixed are different than those which maximise the likelihood when $\mu$ can float.
 \par
 An unbinned likelihood has been used in the analyses in this chapter, which contains both signal and background components, defined as:
 \begin{equation}

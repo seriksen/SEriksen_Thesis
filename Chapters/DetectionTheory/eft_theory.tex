@@ -3,11 +3,11 @@
 \par
 Given the now decades of searching for SI and SD interactions with no success, it is right to ask if the assumptions made there are still the best.
 There may be dominant terms in the interaction that are ignored in the SI and SD case, such as momentum dependence.
-It is therefore useful to approach a direct dark matter search in a more generalised way - namely via an effective field theory (EFT).
-An EFT allows us to describe an unknown model by only describing the physics at a given scale \cite{eft_expo_ref}, with physics that isn't relevant being integrated out\footnote{This has rather elegantly been quoted as a way to ``parameterise our ignorance" in \cite{shaunalsum_thesis_ref}}.
+It is, therefore, useful to approach a direct dark matter search in a more generalised way - namely via an effective field theory (EFT).
+An EFT allows us to describe an unknown model by only describing the physics at a given scale \cite{eft_expo_ref}, with physics that isn't relevant being integrated out\footnote{This has rather elegantly been quoted as a way to ``parameterise our ignorance" \cite{shaunalsum_thesis_ref}}.
 
 \par
-In the remainder of this chapter, we describe the EFT description of a generalised WIMP-nucleon interaction presented in \cite{Fitzpatrick_2013_ref}.
+In the remainder of this chapter, we describe the EFT description of a generalised WIMP-nucleon interaction originally presented in \cite{Fitzpatrick_2013_ref}.
 Within this framework, all possible interactions in the non-relativistic limit are determined.
 
 \subsection{Possible Operators}
@@ -24,7 +24,7 @@ In this case, the interaction Lagrangian is given by:
 \end{align}
 We can impose constraints on the allowed interactions by applying symmetries. 
 \par
-Firstly, any operator must be invariant with respect to constant shift in velocities, i.e. Galilean invariant.
+Firstly, any operator must be invariant with respect to constant shifts in velocities, i.e. Galilean invariant.
 This gives us four quantities with Galilean invariance: momentum transfer, $\vec{q} = \vec{p}_{\chi 1} - \vec{p}_{\chi 2} = \vec{p}_{N 2} - \vec{p}_{N 1}$, the incident WIMP velocity, $\vec{v}=\vec{v_\chi} - \vec{v}_N$, and the spins of the particles, $\vec{S}_N$ and $\vec{S}_\chi$.
 
 \par
@@ -45,7 +45,7 @@ This leaves us with:
 \begin{equation}
     \vec{v} \cdot \vec{q} = \frac{q^2}{2\mu_N}
 \end{equation}
-Finally, we want the operators to have real eigenvalues, corresponding to physical quantities, that is to say, Hermitian.
+Finally, we want the operators to have real eigenvalues corresponding to physical quantities, that is to say, Hermitian.
 Neither $\vec{q}$ nor $\vec{v}$ are Hermitian but can be made so by:
 \begin{equation}
 \begin{split}
@@ -80,7 +80,7 @@ Isoscalar particles are singlets with a total isospin of 0, whereas isovector pa
 Any analysis has to make a decision as to which basis to use.
 Historically there has been little consistency, with often the same experiment changing between $\{neutron, proton\}$ basis and $\{isoscalar, isovector\}$ basis between data runs.
 The choice for some experiments to adopt the $\{neutron, proton\}$ basis has been driven by similarity in reporting results with the standard spin-dependent analysis.
-In the last few years however, $\{isoscale, isovector\}$ basis has become more common, with CDMS \cite{cdms_eft_ref}, XENON100 \cite{xenon100_eft_ref}, DEAP-3600 \cite{deap3600_eft_ref} and PandaX-II \cite{pandax_2_eft_ref} all reporting results in this basis.
+In the last few years however, $\{isoscalar, isovector\}$ basis has become more common, with CDMS \cite{cdms_eft_ref}, XENON100 \cite{xenon100_eft_ref}, DEAP-3600 \cite{deap3600_eft_ref} and PandaX-II \cite{pandax_2_eft_ref} all reporting results in this basis.
 The translation is fairly trivial with the coupling constants between isoscalar ($c^0$), isovector ($c^1$), proton ($c^p$) and neutron ($c^n$) given by:
 \begin{equation}
 \begin{split}
@@ -123,7 +123,7 @@ Substituting \autoref{eq:eft_scattering_amplitude_in_terms_of_operator_form_fact
     \frac{dR}{dE_R} = \frac{\rho_{\chi}}{32 \pi m_\chi^3 m_N^2} \int^{\infty}_{v>v_{min}} \frac{f(\vec{v})}{v} \sum_{i,j=1}^{15} \sum_{a,b=0,1} c_i^a c_j^b F_{i,j}^{a,b} d^3 v
     \label{eq:final_eft_differential_cross_section}
 \end{equation}
-
+This recoil rate per recoil energy produced an expected signal which can then be searched for.
 
 \subsection{Experimental Searches}
 \par
@@ -137,7 +137,7 @@ In this case, for the isoscalar scatter rate of operator $i$, \autoref{eq:final_
 The current best limits come from LUX \cite{LUX_RUN4_EFT_2021}, which was a study performed in the \{$neutron,proton$\} basis.
 A mass point for each operator was also analysed in the $\{isoscale, isovector\}$ basis and compared to XENON100 \cite{xenon100_eft_ref} and shown to be roughly equivalent.
 The reader will have to wait until \autoref{chap:analysis_eft_work} to see these, along with the author's results.
-It is interesting to note, that a recent publication by Panda-X extended this to a generalised spin analysis, using linear combinations of the operators \cite{pandax_2_eft_ref}.
+It is interesting to note that a recent publication by Panda-X performed a generalised spin analysis using linear combinations of the operators \cite{pandax_2_eft_ref}.
 
 \par
 Thinking about the scattering slightly more simplistically, the differential rate can be expressed as \cite{simple_eft_ref}:

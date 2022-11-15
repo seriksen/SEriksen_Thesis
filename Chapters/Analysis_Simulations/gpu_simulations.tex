@@ -1,15 +1,16 @@
 \section{Graphics Card Simulations}
 
 \par
-The probabilistic approach described in \autoref{sec:s2lightmap} provides a significant performance improvement. 
+The probabilistic approach described in \autoref{sec:s2lightmap} provides a significant performance improvement over simulating each photon individually. 
 However, there are several significant factors which limit the feasibility of using similar methods for the rest of the detector, including:
 \begin{itemize}
     \item Optical propagation being required to be performed at least once
     \item Other regions of the detector containing significantly more complex geometry
 \end{itemize}
-For example, if a probabilistic map were to be applied to the entire TPC liquid xenon region, several weeks worth of a full computing cluster would be required to produce the equivalent statistics.
+For example, if a probabilistic map were to be applied to the entire TPC liquid xenon region, several weeks' worth of a full computing cluster would be required to produce the equivalent statistics.
 Although there are ways in which this could be reduced - such as Z-line symmetry - the initial overhead remains impractically high.
 Additionally, the computing cost\footnote{cost in terms of time and computing memory} of looking up the results are likely to mitigate any gain, so are not necessarily faster than just simulating them.
+This motivates looking for a different approach.
 
 \subsection{Geant4 Simulations}
 \par
@@ -33,16 +34,16 @@ For example, the solid must be implemented in such a way that it is possible to 
 These functions have to account for all relevant calculations that relate to a solid.
 \par
 All of the solids in a scene are contained within a geometry tree.
-The top of the tree contains the 'world' volume, inside which there are daughter volumes (which do not overlap with each other).
+The top of the tree contains the `world' volume, inside which there are daughter volumes (which do not overlap with each other).
 These volumes can contain their own daughters, and so on.
 To the user, this structure is often less obvious with solids connected to each other by logical volumes (LV) and physical volumes (PV).
 LVs contain information associated with a solid such as material. 
 PVs can contain one or more LV which are given positions and rotations inside of it. 
-A PV can be part of a higher up LV.
+A PV can be part of a higher-up LV.
 \par
 When a particle is simulated, its track starts inside a volume of a solid which is in the geometry tree.
 In the direction of travel, a check must be performed to determine intersections with the volume as well as all immediate daughter volumes.
-As each daughter is a subtraction in volume of its parent, the number of interactions is generally limited.
+As each daughter is a subtraction in volume of its parent, the number of possible interactions is generally limited.
 Even so, the number of sibling volumes is often a reliable indicator of particle tracking performance.
 Therefore it is logical for the tree to be as narrow as possible to reduce the number of sibling volumes.
 This can be at odds with how a detector is designed, such as if a solid has to have holes for other solids to pass through.
@@ -53,7 +54,7 @@ This must be the case to enforce the requirement that each volume is contained e
 GEANT4, in part, mitigates this by separating the geometry tree nodes into perpendicular facing boxes, called voxels \cite{geant4_voxel_ref} which are not part of the detector volumes.
 During particle propagation, the voxels are first checked for intersections.
 If there is an intersection, the detector volumes contained within that voxel are then checked.
-Though useful, the voxels are limited to a single tree level, with the check performed iteratively (1 axis at a time) to save memory and so can have a significant impact on computation speed.
+Though useful, the voxels are limited to a single tree level, with the check performed iteratively (1 axis at a time) to save memory and so can decrease the simulation speed.
 The GEANT4 approach can be summarised as:
 \begin{quote}
     A detector is a tree of nested solids, each composed of some material and mathematically implemented by a particular C++ class.
@@ -64,7 +65,7 @@ The GEANT4 approach can be summarised as:
 In addition to particle tracking, GEANT4 must also handle particle interactions inside a volume which can result in daughter particles that also need to be tracked.
 However, in LZ the bottleneck is in the photon propagation, taking up in excess of 95\% of computing time (after using the S2 Light Map).
 Optical photon simulations are relatively simple in that no daughter particles need to be tracked.
-There is some probability of a photon being absorbed and re-emitted during propagation, but otherwise photon propagation can be simplified to travelling in a straight line until they reach a boundary.
+There is some probability of a photon being absorbed and re-emitted during propagation, but otherwise, photon propagation can be simplified to travelling in a straight line until they reach a boundary.
 The simulation is therefore dominated by intersection calculations, or ``\textit{has the photon reached the edge of this volume yet?}".
 Therefore increasing the number of these calculations that can be evaluated per second will decrease the overall simulation time.
 \par
@@ -72,21 +73,21 @@ GEANT4-based simulations are performed on CPUs which have typically been designe
 Although it is possible to multi-thread simulations, it is rarely done due to simulation frameworks often originating decades ago.
 An alternative processor widely available is a GPU, which is designed to maximise throughput.
 This is achieved by having individual poorer thread performance but by having more threads available\footnote{Additionally, each task should be as independent as possible and require very few resources}.
-If a simulation can be moved onto a GPU it will allow for more concurrent tasks that will massively outweigh the slower performance of each task, resulting in more simulations per second.
+If a simulation can be moved onto a GPU it will allow for more concurrent tasks that will massively outweigh the slower performance of each task, resulting in more intersection calculations per second.
 \par
-There have been many different attempts to transfer parts of or entire simulations on to GPUs, such as Chroma \cite{chroma_whitepaper_ref}, ANTS2 \cite{ants2_whitepaper_ref}, Exascale Computing Project \cite{ExaSMR_whitepaper_ref} and MPEXS \cite{mpexs_whitepaper_ref}.
+There have been many different attempts to transfer parts of or entire simulations onto GPUs, such as Chroma \cite{chroma_whitepaper_ref}, ANTS2 \cite{ants2_whitepaper_ref}, Exascale Computing Project \cite{ExaSMR_whitepaper_ref} and MPEXS \cite{mpexs_whitepaper_ref}.
 The majority of these make use of NVIDIA CUDA \cite{cuda_ref}, an application programming interface (API) allowing for GPU hardware to be used for general-purpose computing.
 %[TODO XXX Geant4 VecGeom]
 \par
 Chroma is of particular interest as it was proposed and designed for optical simulations and it has been utilised in several experiments \cite{chroma_with_tpcs1_ref,chroma_with_tpcs2_ref,chroma_with_tpcs3_ref}, and has more recently received attention by 3rd generation direct detection dark matter experiments \cite{DARWIN_GPU_simulations_2022_ref}.
 Chroma uses surface-based modelling where a triangle mesh describes the geometry.
-This tessellation reduces the number of primitives to one, a triangle which is defined within CUDA programs written by the user.
+This tessellation reduces the number of primitives to one, a triangle, which is defined within CUDA programs written by the user.
 As the surface of a solid is described by a finite set of triangles, this naturally leads to curves not being represented as accurately as the GEANT4 method.
-To some extent this can be mitigated by increasing the density of the primitives, but this is a trade off between accuracy and performance.
-The complete geometry is typically defined as a union of non-intersecting closed meshes.
+To some extent, this can be mitigated by increasing the density of the primitives, but this is a trade-off between accuracy and performance.
+A complete geometry is typically defined as a union of non-intersecting closed meshes.
 \par
 As the geometry structure is broken during tessellation there is no geometry tree which can be navigated.
-As a result, Chroma implements a bounding volume hierarchy (BVH) tree structure, a method well used in industry \cite{real_time_collision_detection_ref}, and well tested so there are efficient ways of navigating it.
+As a result, Chroma implements a bounding volume hierarchy (BVH) tree structure, a method typically used in industry \cite{real_time_collision_detection_ref}, and is well tested so there are efficient ways of navigating it.
 In a BVH, the lead nodes contain subsets of primitive lists.
 To determine if there is an intersection in a BVH, starting at the root node a test is done for an intersection with the box associated with that node.
 If an intersection is found, the children are tested for an intersection - analogous to the GEANT4 voxel approach.
@@ -107,13 +108,14 @@ Chroma has been shown to be a 50-200x speed improvement when compared to GEANT4 
 \end{figure}
 \par
 Despite this, Chroma has some significant drawbacks.
-Firstly, the code-base is in python, which makes integration within the C++ GEANT4 simulation frameworks impractical.
+Firstly, the code base is in python, which makes integration within the C++ GEANT4 simulation frameworks impractical.
 Secondly, the inefficient handling of photon generation.
 Copying information between the GPU and CPU should be minimised in order to increase performance.
 Finally, although tessellation is adequate for some surfaces, many detectors are comprised of exclusively curved surfaces.
 In order to achieve adequate accuracy, the number of primitives required begins to eliminate any gain in the processing speed.
+\par
 Inspired by Chroma, a separate project called Opticks was created \cite{Opticks_Paper_2017_ref,Opticks_CHEP_2019_ref,Opticks_CHEP_2021_ref}, which aims to tackle these limitations.
-In the following section the working principle of Opticks is described including adaptations and improvements made by the author for use within the LZ framework.
+In the following section, the working principle of Opticks is described including adaptations and improvements made by the author for use within the LZ framework.
 
 \subsection{Opticks}
 \par
@@ -195,7 +197,8 @@ These would likely have been implemented as one subtraction at a time from the p
 A balanced approach would be to union subtractions together and then perform a single subtraction.
 \autoref{fig:UnionSolidBinaryTree} describes a solid made up of 4 primitive solids, as an unbalanced and a balanced tree.
 The balanced tree is less deep than the unbalanced tree and therefore is more efficient to navigate.
-During the geometry conversion, Opticks recognises large trees and attempts to balance them via De Morgan's law \cite{Opticks_CHEP_2019_ref}.
+During the geometry conversion, Opticks recognises large trees and attempts to balance them via De Morgan's theorem \cite{Opticks_CHEP_2019_ref}.
+De Morgan's theorem states that the complement of the union of two sets is the same as the intersection of their complements.
 This results in a tree with only union, intersection operators and complemented primitives.
 These complemented primitives are conceptually ``inside-out", but are implemented as just flipping the solid normal and classifying an intersection ``miss" becoming a volume ``exit".
 \begin{figure}
@@ -245,10 +248,10 @@ If perfectly balanced, this would still have a depth of 8, with 511 nodes which 
 A method inspired by JUNO was adopted in order to handle this \cite{Opticks_CHEP_2021_ref}.
 A primitive was created which defined the complex solid, so rather than being comprised of a CSG tree of multiple primitives, the tree became a single node of one complex primitive.
 The basic creation process is shown in \autoref{fig:Opticks_PTFE_primative}.
-In order to simplify the primitive code, the 3D shapes were reduced to 2D-intersections.
+In order to simplify the primitive code, the 3D shapes were reduced to 2D intersections.
 3D is then introduced by duplicating the primitive and adding a Z-range in which the intersection needs to be evaluated.
 Additional details of this approach can be found in \cite{optix_primitive_code_ref}.
-Given the depth of these primitives, they are also likely a bottle-neck in GEANT4 simulations, particularly the S2 light simulations mentioned in \autoref{sec:s2lightmap}.
+Given the depth of these primitives, they are also likely a bottleneck in GEANT4 simulations, particularly the S2 light simulations mentioned in \autoref{sec:s2lightmap}.
 In a branch of LZ code using GEANT4.10.6, 4 shapes were converted into G4MultiUnion solids which have built-in optimisation\footnote{At time of writing, LZ code uses GEANT4.10.3.p02 and this feature requiring unified solids was introduced in GEANT4.10.5 as an experimental feature} \cite{multiunion_ref}, with the computation time not increasing above 30-nodes\footnote{A boolean solid approach increases roughly linearly} \cite{multiunion_improvement_ref}.
 The four shapes were the titanium plate and PTFE on the top and bottom PMT arrays in the TPC.
 This adaptation decreased simulation time for S2 light by 56\%, a significant improvement.

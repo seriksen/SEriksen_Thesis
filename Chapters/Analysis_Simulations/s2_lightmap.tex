@@ -18,14 +18,14 @@ The position of the electron is used to determine the path it would have taken, 
 For each photon, the maps are randomly sampled to determine which PMT the photon hit (if any) as well as how long it took.
 
 \par
-A notable downside of this approach is that for different conditions one may wish to investigate (such as using a different purity of Xenon or the temperature and therefore pressure), a new light map is needed to account for these effects.
+A notable downside of this approach is that for different conditions one may wish to investigate (such as using a different purity of xenon or the temperature and therefore pressure), a new light map is needed to account for these effects.
 A version of this approach had been used within BACCARAT for a number of years \cite{lz_simulations_ref}, but was outdated due to detector design changes.
-The S2 Light Map now in use within BACCARAT, created by the author, took into account the latest geometry and detector physics.
+The S2 Light Map now in use within BACCARAT, created by the author, took into account the as-built TPC geometry and measured xenon purity.
 
 \subsection{S2 Radial Variation} \label{sec:s2radialvariation}
 \par
 The electric field originates from three electrodes: a cathode grid just above the bottom PMTs, a gate grid just below the surface of the liquid xenon, and an anode grid in the gaseous xenon.
-In previous simulations it was assumed that the anode and gate were both rigid structures and so had a fixed distance, and electric field between them.
+In previous simulations, it was assumed that the anode and gate were both rigid structures and so had a fixed distance, and the electric field between them.
 In this case, the number of photons produced in the gas gap by an electron is given by \autoref{eq:s2lightmap_nophotons} and is equal no matter the distance from the centre of the detector:
 \begin{equation}
     N_{photons/e} = eep \times (\alpha \times E_{gas} \times 1000 - \beta \times P - \gamma) \times d_{gas}

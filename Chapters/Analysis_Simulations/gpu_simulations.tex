@@ -198,7 +198,7 @@ A balanced approach would be to union subtractions together and then perform a s
 \autoref{fig:UnionSolidBinaryTree} describes a solid made up of 4 primitive solids, as an unbalanced and a balanced tree.
 The balanced tree is less deep than the unbalanced tree and therefore is more efficient to navigate.
 During the geometry conversion, Opticks recognises large trees and attempts to balance them via De Morgan's theorem \cite{Opticks_CHEP_2019_ref}.
-De Morgan's theorem states that the complement of the union of two sets is the same as the intersection of their complements.
+De Morgan's theorem states that the complement of the union of two sets is the same as the intersection of their complements \cite{demorgans_law_ref}.
 This results in a tree with only union, intersection operators and complemented primitives.
 These complemented primitives are conceptually ``inside-out", but are implemented as just flipping the solid normal and classifying an intersection ``miss" becoming a volume ``exit".
 \begin{figure}
@@ -268,10 +268,10 @@ Given the complications with solids such as the titanium plate, the scope of the
 This still leaves 9,000 unique shapes, which is 30-times greater than that of experiments which have previously used Opticks, such as JUNO and DayaBay \cite{Opticks_CHEP_2021_ref}.
 Given this increased complexity many problems arose during the translation including GEANT4 optical properties used by LZ not having CUDA equivalent ones implemented in Opticks.
 Where possible the LZ geometry was simplified to allow for progress to be made.
-The most significant issue was with the GEANT4``groundfrontpainted" surface finish not having a CUDA implementation in Opticks.
+The most significant issue was with the GEANT4 ``groundfrontpainted" surface finish not having a CUDA implementation in Opticks.
 This is where the surface of a volume is rough, so the normal of the surface is offset by some angle depending upon the micro-facet that the photon is incident upon and there can be internal Lambertian reflections \cite{optical_photons_in_geant4_ref}.
-The author did develop this but it was not used within the conversion here as it requires significant validation to ensure the results are comparable to the GEANT4 implementation.
-Instead, where-ever this optical surface occurred, it was replaced by the optical properties of another part of the detector, which was well defined.
+The author did develop this, but it was not used within the conversion here as it requires significant validation to ensure the results are comparable to the GEANT4 implementation.
+Instead, wherever this optical surface occurred, it was replaced by the optical properties of another part of the detector, which was well-defined.
 The completed TPC conversion is shown in \autoref{fig:OpticksLZTPC}.
 \begin{figure}
 \includegraphics[width=8cm]{Figures/Simulations/LZ_In_Opticks.png}

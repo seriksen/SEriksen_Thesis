@@ -7,7 +7,7 @@ Not only does the high atomic mass give good sensitivity to SI interactions, but
 \par
 The target medium (xenon) will have to be held in place by some other material.
 This casing will contribute some amount of background due to radioactive impurities, which will be observed as interactions in the target medium.
-Xenon in a liquid phase (LXe) is particularly good to counter this due to its high density (approximately 3g/cm${}^{3}$), and twinned with the large atomic mass has a high stopping power to both $\beta$ and $\gamma$ radioactive decays\footnote{for reference, aluminium has a density of 2.7 g/cm${}^{3}$}.
+Xenon in a liquid phase (LXe) is particularly good to counter this due to its high density (approximately 3g/cm${}^{3}$), and twinned with the large atomic mass, has a high stopping power to both $\beta$ and $\gamma$ radioactive decays\footnote{for reference, aluminium has a density of 2.7 g/cm${}^{3}$}.
 The inner volume of the LXe medium will contain a very low background rate from the detector components.
 
 %Though the sensitivity to WIMP-proton spin-dependent interactions is less obvious as it requires neutron-proton mixing and is very dependent upon the nuclear model used.
@@ -23,9 +23,9 @@ In both cases, the recoiling particle scatters with nearby atomic electrons and 
 Regardless of which type of recoil occurs, an ionisation track is produced, which culminates in scintillation light.
 The reader is directed towards both \cite{xenon_physics_ref}, and \cite{carldahl_thesis_ref} for thorough reviews of these processes, which are summarised below.
 \par
-An excited atom of xenon can bond to another xenon atom to form an excited molecule, or excimer, denoted as Xe$_2^{*\nu}$, which is both electronically and vibrationally excited.
+An excited atom of xenon can bond to another xenon atom to form an excited molecule, or excimer denoted as Xe$_2^{*\nu}$, which is both electronically and vibrationally excited.
 This excimer will eventually vibrationally relax via collisions with other xenon atoms and will decay to the ground state via the emission of a photon.
-This process of excition luminescence and is shown below starting from an electronic recoil:
+This process of excition luminescence is shown below, starting from an electronic recoil:
 \begin{align*}
     e^- + Xe &\rightarrow Xe^* + e^-  &\text{impact excitation} \\ 
     Xe^* + Xe &\rightarrow Xe_2^{*,\nu} &\text{excimer formation} \\
@@ -36,7 +36,7 @@ An ionised atom can also produce scintillation light, though the path to it is s
 The ionised atom can form diatomic molecules with nearby atoms.
 Some of the electrons which were liberated during the cascade will recombine with the molecule, causing it to split, leaving one of the atoms in a highly excited state (Xe$^{**}$).
 The excited atom will then relax down, allowing for photon emission as before.
-This process is referred to as recombination luminescence and is shown below starting from an electronic recoil:
+This process is referred to as recombination luminescence and is shown below, starting from an electronic recoil:
 \begin{align*}
     e^- + Xe &\rightarrow Xe^+ + 2e^- &\text{ionisation} \\ 
     Xe^+ + Xe + Xe &\rightarrow Xe_2^{+} + Xe &\text{diatomic molecule formation} \\
@@ -47,9 +47,9 @@ This process is referred to as recombination luminescence and is shown below sta
     Xe_2^* &\rightarrow Xe + Xe + \gamma &\text{VUV emission} 
 \end{align*}
 \par
-The difference in how these interactions appear between electronic recoils and nuclear recoils is shown in \autoref{fig:er_nr_tracks}.
+The difference in how these interactions manifest depending upon whether the primary recoil is a nuclear or electronic recoil is shown in \autoref{fig:er_nr_tracks}.
 From a nuclear recoil, the initial atom has a number of scatters, but these are typically below the ionisation level.
-On the other hand, an electron recoil are able to produce significant ionisation.
+On the other hand, an electron recoil is able to produce significant ionisation.
 Additionally, as the electron is less stopped by the LXe, the track length is significantly greater.
 If the interaction occurs in an electric field, not all of the freed electrons will recombine, allowing for potentially a second scintillation sighting.
 
@@ -57,7 +57,7 @@ If the interaction occurs in an electric field, not all of the freed electrons w
     \centering
     \includegraphics[width=\textwidth]{Figures/LZ/er_nr_tracks.png}
     \caption[Depiction of a 20 keV recoil on liquid xenon]{Depiction of 20 keV recoil of electronic recoil (top) and nuclear recoil (bottom) in liquid xenon.
-    Figure is from RIVAL simulations by C. Dahl \cite{carldahl_thesis_ref}, with adaptations by C. Fahan \cite{carlosfahan_thesis_ref}.}
+    The figure is from RIVAL simulations by C. Dahl \cite{carldahl_thesis_ref}, with adaptations by C. Fahan \cite{carlosfahan_thesis_ref}.}
     \label{fig:er_nr_tracks}
 \end{figure}
 
@@ -66,9 +66,9 @@ The energy deposited in LXe, is split between the atoms and liberated electrons,
 \begin{equation}
     E = \frac{W}{L}(N_i + N_{ex})
 \end{equation}
-Here, W is the W-factor for LXe, generally taken to be 13.7 $\pm$ 0.2 eV \cite{light_and_charge_of_xenon_ref}, though there are more recent measurements indicating it could be as low as 11.5 eV \cite{electron_excitation_energy_of_xenon_ref}. 
-N$_i$ and N$_{ex}$ are the number of ionised atoms and number of excited atoms, respectively.
-L corresponds to the ``Lindhard factor" or ``quenching" which accounts for the reduced light and charge that is lost to heat.
+Here, W is the average excitation energy for LXe, generally taken to be 13.7 $\pm$ 0.2 eV \cite{light_and_charge_of_xenon_ref}, though there are more recent measurements indicating it could be as low as 11.5 eV \cite{electron_excitation_energy_of_xenon_ref}. 
+N$_i$ and N$_{ex}$ are the number of ionised atoms and the number of excited atoms, respectively.
+L corresponds to the ``Lindhard factor" or ``quenching," which accounts for the reduced light and charge that is lost to heat.
 It is generally taken that L=1 for electron recoils as the heat loss does not vary with energy, with any impact it does have being placed into W.
 \par
 The ratio between the excitation atoms to ionised atoms allows for ER and NR events to be distinguished, with the resultant number of photons observed differing between the two.
@@ -143,7 +143,7 @@ Modelling of detector responses from S1 and S2 signals has undergone a huge amou
 Both Argon and Xenon detectors are modelled for energy deposits of sub-keV to several MeV \cite{nest_1_ref}.
 Additional details of response modelling can be found in \cite{gregrischbieter_thesis_ref, flamenest_ref}.
 \par
-An example of the possible discrimination between ER and NR from a xenon TPC is shown in \autoref{fig:er_nr_discrimination} for an arbitrary TPC detector.
+An example of the discrimination that is possible between ER and NR in a xenon TPC is shown in \autoref{fig:er_nr_discrimination} for an arbitrary TPC detector.
 The discrimination between ER and NR events is not perfect, with a non-negligible amount of leakage between bands.
 The viability of using TPCs for direct dark matter searches can be summarised by two requirements: understanding backgrounds and understanding ER and NR bands.
 

@@ -29,7 +29,7 @@ The full design is detailed in the Technical Design Review (TDR) \cite{LZ_Techni
 \subsection{Time Projection Chamber}
 \label{sec:lz_tpc}
 \par
-At the core of LZ is a dual-phase (liquid and gas) Xenon TPC.
+At the core of LZ is a dual-phase (liquid and gas) xenon TPC.
 The schematic of the LZ TPC is shown in \autoref{fig:lz_tpc_schematic}.
 Photons which are emitted inside of the TPC are detected by 494 Hamamatsu R11410-22 3-inch diameter PMTs, arranged into two arrays.
 The first array contains 253 PMTs and is located at the top of the TPC in the GXe, looking down.
@@ -48,7 +48,7 @@ Other current generation xenon TPC experiments include PandaX-4T (3.7 tonne) \ci
 \par
 The electroluminescence region is defined as the distance from the surface of the LXe to the anode grid, a distance of 8 mm.
 The distance between the gate grid and the anode grid is 13 mm.
-In the region, the electric field can reach 10 kV/cm.
+In this region, the electric field can reach 10 kV/cm.
 This is typically referred to as the extraction field.
 The electric field in the active region can reach 310 V/cm when applying an operating voltage of -50 keV to the cathode.
 \par
@@ -86,7 +86,7 @@ It is designed primarily to veto $\gamma$ events.
 Outside of the cryostat is the second veto detector, the Outer Detector (OD).
 This is made up of a number of acrylic tanks which contain a liquid scintillator doped with gadolinium (GdLS).
 Together these provide near 4$\pi$ coverage around the TPC and act to identify neutron interactions.
-The OD is described in more detail in \autoref{chapter:lz_outer_detector}.
+The OD is described in more detail in Chapter \ref{chapter:lz_outer_detector}.
 
 \begin{figure}
     \centering
@@ -177,7 +177,7 @@ The xenon is constantly circulated in the detector, during which time radon is r
 \par
 $\gamma$s from any of the aforementioned backgrounds have the potential to scatter multiple times but with a suppressed S2 signal.
 These events are referred to as $\gamma$-X.
-A $\gamma$-X event occurs typically when there is a scatter in the RFR followed by a scatter in the fiducial region.
+A $\gamma$-X event occurs typically when there is a scatter in the RFR followed by a scatter in the active region.
 As there are two scatters, the S1 size is enhanced.
 However, only the contribution from the second scatter will result in an S2.
 The resultant interactions appear as a single scatter with a larger S1 than a typical ER event.
@@ -210,9 +210,9 @@ As such, the above list should be considered as a ``core" selection, with a requ
 
 \subsection{Dark Matter Search Strategy}
 \par
-The primary direct dark matter search strategy is to search for an excess in NR events.
-In order to do this, an event needs to be defined and recorded, and ultimately the pulses to be reconstructed.
-The planned approach is detailed in \cite{LZ_TechnicalDesignReview_ref}, with the approach adapted for the first data run in \cite{lz_ws_sr1_ref}.
+The primary direct dark matter search strategy of LZ is to search for an excess in NR events.
+In order to do this, an event needs to be defined and recorded, and ultimately the pulses which are output from the PMTs need to be reconstructed.
+The planned approach is detailed in \cite{LZ_TechnicalDesignReview_ref}, with the approach adopted for the first data run detailed in \cite{lz_ws_sr1_ref}.
 
 \par
 An event is defined simply as a window of time in which the read-out from all PMTs is saved, typically for LZ this is a window of 4 ms in length.
@@ -232,12 +232,12 @@ Often referred to as the ``heartbeat trigger", data is recorded at fixed time in
 It can act as a measurement of backgrounds as it is a fixed amount of data recorded periodically.
 
 \par
-On data which passes the cuts above, a statistical analysis is performed.
+On data which passes the analysis cuts, a statistical analysis is performed.
 A multidimensional Profile Likelihood Ratio (PLR) fit is used to probe how well a background-only model vs a background and WIMP signal model fit to the data.
-In both projected sensitivity and SR1, LZ has limited this to two dimensions, \{S1$_c$, log$_{10}$S2$_c$\}.
+In both projected sensitivity and SR1 studies, LZ has limited this to two dimensions, \{S1$_c$, log$_{10}$S2$_c$\}.
 However, future analysis will extend this to include \{$x,y,z$\} as has been done in previous TPC experiments \cite{LUX_RUN1_EFT_2021,LUX_RUN4_EFT_2021,shaunalsum_thesis_ref}.
 A full description of the PLR used for the WIMP sensitivity projections and SR1 can be found in \cite{LZ_Ibles_LZStats_Thesis_ref}. 
-A detailed description of the application to LZ monte-carlo data generated between the sensitivity projection and SR1 is described in \cite{jonathannikoleyczik_thesis_ref}.
+A detailed description of the application to LZ monte-carlo data generated prior to SR1 is described in \cite{jonathannikoleyczik_thesis_ref}.
 
 \subsection{Simulations}
 \label{sec:lz_simluations_chain}
@@ -262,7 +262,6 @@ The photons which hit PMTs are converted into waveforms by the Detector Electron
 The output of the DER should match, or be close to, what is observed in data.
 The waveforms are then processed by the same analysis package (LZAP) that the data is processed with, where pulses are found, classified and reconstructed.
 The output of this is the same quantities as from LZLAMA.
-
 
 \begin{figure}
     \centering

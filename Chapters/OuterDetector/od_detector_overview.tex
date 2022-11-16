@@ -6,7 +6,7 @@ In this section, a detailed explanation of the OD is provided.
 \subsection{Function}
 \par
 As previously discussed in \autoref{sec:lz_detector_chapter}, it is hoped that a dark matter candidate will scatter once in the target medium and then leave the experiment.
-Being able to detect this excess of events is the foundation of the LZ experiment.
+Being able to detect this excess of events is the foundation of the LZ experiment dark matter search strategy.
 The limiting factor is backgrounds, some of which will also interact just once in the target medium, producing a single scatter.
 This is particularly true for neutrons, which produce nuclear recoils and are indistinguishable from a dark matter scatter in the TPC.
 There is, however, a reasonable probability that some of these backgrounds will also scatter or be captured after they exit the TPC volume.
@@ -17,7 +17,7 @@ LZ makes use of this feature using veto detectors, the Skin and OD:
 \end{itemize}
 Each of these detectors is instrumented with photomultiplier tubes (PMTs).
 If an interaction is detected in either of these within a certain time window around when a single scatter is observed in the TPC then the event can be tagged as a background, as it is inconsistent with dark matter.
-These veto detectors also allow for a continuous characterisation of backgrounds in the proximity of LZ, which can be fed into parameterising background models.
+These veto detectors also allow for the continuous characterisation of backgrounds in the proximity of LZ, which can be fed into parameterising background models.
 
 \par
 The OD is a gadolinium-doped liquid scintillator (GdLS) housed in a number of acrylic tanks that provide near complete coverage to the outer cryostat (OCV) designed to detect neutrons.
@@ -26,9 +26,7 @@ This is shown in \autoref{fig:simulated_neutron_capture_volumes}.
 Once captured, the neutrons can be detected and flag that the event should be vetoed. 
 Without the OD, there is the potential for 46\% of neutrons which scatter in the TPC to be missed, effectively doubling the background rate of nuclear recoils.
 In the worst case, this could be linked to a false discovery claim, having observed an excess of nuclear recoils.
-It is therefore vital to have a working OD detector.
-
-\par
+It is, therefore, vital to have a working OD detector.
 In the remainder of this section, the key parts of the OD are described.
 
 \input{Chapters/OuterDetector/Figures/neutron_capture_volumes}
@@ -50,7 +48,7 @@ To improve neutron capture, the LS is doped with 0.1\% by mass (0.23 - 0.34\% by
 This is dissolved into the LS via a chelating agent 3,5,5-trimethylhexanoic acid (TMHA), with three TMHA ions per Gd creating Gd(${}_{9}$H${}_{17}$O${}_{2}$)${}_{3}$.
 The GdLS used in LZ was produced in a batch used for DayaBay, details of which can be found in \cite{dayabay_gd_doping_ref}.
 The complete cocktail of components in the GdLS is shown in \autoref{tab:GdLS_Components}.
-Although only a small amount of gadolinium is added, it is sufficient to reduce the neutron capture time down from $\approx$218$\mu$s of pure LAB down to $\approx$28$\mu$s \cite{ucsb_gdls_dicebox_simulations_ref}.
+Although only a small amount of gadolinium is added, it is sufficient to reduce the neutron capture time from $\approx$218$\mu$s for pure LAB to $\approx$28$\mu$s \cite{ucsb_gdls_dicebox_simulations_ref}.
 
 \begin{table}
     \centering
@@ -84,7 +82,7 @@ Details of the construction of the tanks can be found in \cite{scotthaselschward
   \centering
   \includegraphics[height=10cm]{Figures/LZ/pmt_in_ladder.png}
   \end{subfigure}
-\caption{Schematic of OD components. \textbf{Left:} Exploded view of the OD acrylic tanks. \textbf{Right:} PMT held in ladder.
+\caption{Schematic of OD components. \textbf{Left:} Exploded view of the OD acrylic tanks and foam which surround the OCV. The side tanks and the YBe plug are shown in green, the top and bottom tanks are in blue, and the foam is shown in red. The stainless steel table on which the side tanks sit is also shown. \textbf{Right:} PMT held in ladder.
          Both figures are from \cite{LZ_TechnicalDesignReview_ref}.}
 \label{fig:LZ_OD_schematic}
 \end{figure}
@@ -100,7 +98,7 @@ This is shown in more detail in \autoref{sec:od_construction_sec}.
 Light is collected from the OD by an array of 120 Hamamatsu R5912 8"-diameter PMTs suspended in water $\approx$80cm from the acrylic tanks.
 The PMTs are arranged as 20-ladders spaced evenly around the water tank as shown in \autoref{fig:LZ_OD_schematic}.
 These PMTs are biased to provide a gain on the input of in-excess of $10^{5}$.
-The quantum efficiency of these PMTs to GdLS light is around 20\% at the dominant wavelengths with the full spectrum shown in \autoref{fig:od_detection_properties}.
+The quantum efficiency of these PMTs to GdLS light is around 20\% at the dominant wavelengths with the full response shown in \autoref{fig:od_detection_properties}.
 
 \par
 To increase the amount of light collected by the PMTs, the OD is encased in Tyvek, a highly reflective paper-like material.

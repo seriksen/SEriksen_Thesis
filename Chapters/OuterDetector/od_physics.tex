@@ -8,27 +8,28 @@ Ionisation quenching in GdLS will produce a light yield that can be described by
     \frac{dL}{dx} = S \frac{\frac{dE}{dx}}{1 + kB\frac{dE}{dx} + C\frac{dE}{dx}^2}
     \label{eq:birkslaw}
 \end{equation}
-where L is the light yield, S is the scintillation efficiency, $\frac{dE}{dx}$ is the energy loss of the particle per path length, and $kB$ and $C$ are Birk's law parameters which differ depending upon the source: $\gamma$s, electron recoils, etc.
-This suppressed light yield is due to recombination and the quenching of exciting molecules via transfer to surrounding ones.
+where L is the light yield, S is the scintillation efficiency, $\frac{dE}{dx}$ is the energy loss of the particle per path length, and $kB$ and $C$ are Birk's law parameters which differ depending upon the source.
+This suppressed light yield is due to recombination and the quenching of exciting molecules via transfer to surrounding ones due to local saturation.
 This results in highly ionised particles producing significantly lower amplitude signals than their energy would indicate.
 
 \par
-The parameters of Birk's law have to be measured for each material as the coefficient, $kB$, contains the probability of quenching and links the local density of ionised molecules to the energy loss, a factor that is material-dependent. 
+The parameters of Birk's law have to be measured for each material as the coefficients, $kB$, contains the probability of quenching and links the local density of ionised molecules to the energy loss, a factor that is material-dependent. 
 These parameters have been well studied for cocktails of similar makeup to the LZ GdLS with identical PPO and bis-MSB concentrations \cite{ls_alpha_quenching_ref,ls_proton_quenching_ref}.
 The low amount of gadolinium-doping means that these should not differ significantly from those studies.
 The parameters for LAB quenching are shown in \autoref{tab:Birks_law_parameters}.
 The effect on observed energy using these parameters is shown in \autoref{fig:gdls_quenching} where $\alpha$ particles are the most heavily quenched.
 In GdLS, a 100 keV electron will produce roughly the same amount of light as a 2 MeV $\alpha$.
+In \autoref{tab:Birks_law_parameters} the photons-per-MeV is the rounded number between two separate measurements in \cite{scotthaselschwardt_thesis_ref}.
 
 \begin{table}[]
     \centering
     \begin{tabular}{c | c | c | c }
-                   & S (photons/MeV) & $k_{B}$ & $C$ \\ \hline
-    $\alpha$       &                 & 4.63E-3 & 1.77E-6 \\
-    $\beta/\gamma$ & 9,000           & 0.03    & 0 \\ 
-    proton         &                 & 8.26E-3 & 0
+                   & $S$ (photons/MeV) & $kB$ & $C$ \\ \hline
+    $\alpha$       &                   & 4.63E-3 & 1.77E-6 \\
+    $\beta/\gamma$ & 9,000             & 0.03    & 0 \\ 
+    proton         &                   & 8.26E-3 & 0
     \end{tabular}
-    \caption{Birk's law parameters for LAB. Values used within LZ collaboration, originating from \cite{ls_proton_quenching_ref}.}
+    \caption{Birk's law parameters for LAB. $S$ is from \cite{scotthaselschwardt_thesis_ref}. Quenching values are from \cite{ls_proton_quenching_ref}.}
     \label{tab:Birks_law_parameters}
 \end{table} 
 
@@ -48,7 +49,7 @@ In the lab frame, the ratio between a neutron's initial energy ($E$) and final e
 where $\theta$ is the scattering angle in the centre of mass.
 Now, if the nucleus is a hard sphere, so independent of $\theta$, then an elastic scatter results in:
 \begin{equation}
-    E^{'} = E\bigg(\frac{A}{A+1}\bigg)^{2}
+    E^{'} = E\frac{A}{A+1}
 \end{equation}
 If A = 1 (so is a proton), then this reduces further to $E^{'} = \frac{1}{2}E$, meaning that the neutron loses half its energy on average per collision.
 The scattered proton has energy $E - E^{'}$.
@@ -56,15 +57,15 @@ Neutrons are most effectively moderated down on Hydrogen atoms \cite{neutron_the
 If the scatter occurs in the GdLS, the light is quenched as previously described.
 \par
 Once thermalised, the neutron will be captured.
-In GdLS this will happen on a gadolinium isotope 87\% of the time, and on hydrogen the remaining times\footnote{Other isotopes can capture the neutron, but the probability is sufficiently low that they are omitted here.}.
+In GdLS, this will happen on a gadolinium isotope 87\% of the time, and on hydrogen the remaining times\footnote{Other isotopes can capture the neutron, but the probability is sufficiently low that they are omitted here.}.
 Despite only making up a small fraction of the GdLS cocktail, the capture cross-section of two gadolinium isotopes (${}^{155}$Gd and ${}^{157}$Gd) is orders of magnitude above that of hydrogen and so dominate this process, as can be seen in \autoref{fig:gdls_capture_cross_sections}.
 
 \input{Chapters/OuterDetector/Figures/gdls_capture_cross_sections}
 
 \par
 Once a neutron is captured, the new isotope de-excites as either direct $\gamma$ emission or internal conversion resulting in ejected auger electrons or characteristic x-rays.
-For an n-H capture, a single 2.2 MeV $\gamma$ is emitted, which may leave the GdLS without scattering, and so the neutron is not detected.
-However, n-Gd capture produces $\backsim$ 8 MeV worth of particles, typically as a number of $\gamma$s.
+For an n-H capture, a single 2.2 MeV $\gamma$ is emitted, which may leave the GdLS without scattering, so the neutron is not detected.
+However, n-Gd capture produces $\backsim$ 8 MeV worth of particles, typically as several $\gamma$s.
 Between the excited and ground states of the gadolinium isotopes, ${}^{156}$Gd and ${}^{158}$Gd, there are in excess of $10^{6}$ nuclear excitation levels.
 When the simulation framework was set up for the LZ experiment, GEANT4 was not adequate for modelling high atomic mass de-excitations where there are a huge number of possible cascade combinations \cite{ucsb_gdls_dicebox_simulations_ref}.
 Other experiments with GdLS have the same problem, such as DayaBay \cite{dayabay_overview_ref} and RENO \cite{reno_overview_ref}.

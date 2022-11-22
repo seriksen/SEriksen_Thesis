@@ -1,9 +1,6 @@
-\chapter{Playground}
-
-\clearpage
 \newcommand{\nodewidth}{1cm}
 \newcommand{\textnodewidth}{0.2cm}
-\newcommand{\nodeminimumwidth}{33pt}
+\newcommand{\nodeminimumwidth}{32pt}
 \newcommand{\nodespacing}{10pt}
 
 
@@ -11,7 +8,7 @@
 \begin{figure}
     \centering
 \begin{tikzpicture}
-  [node distance=0.05cm,text centered, thick, every node/.style={scale=0.6}]
+  [node distance=0.05cm,text centered, thick]
   \tikzstyle{every node}=[font=\fontsize{5}{5}\selectfont]
  
     % For 3 chains, need 13 across
@@ -193,7 +190,7 @@
  \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of polonium_node_0] (bismuth_node_0) {};
  \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of polonium_node_1] (bismuth_node_1) {${}^{214}_{83}$Bi $20$m};
  \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of polonium_node_2] (bismuth_node_2) {};
- \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of polonium_node_3] (bismuth_node_3) {${}^{210}_{83}$Bi $138$d};
+ \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of polonium_node_3] (bismuth_node_3) {${}^{210}_{83}$Bi $5.0$d};
  \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of polonium_node_4] (bismuth_node_4) {};
  \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of polonium_node_5] (bismuth_node_5) {};
  \node[draw, circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of polonium_node_6] (bismuth_node_6) {${}^{215}_{83}$Bi $8$m};
@@ -284,8 +281,8 @@
  \node[circle, inner sep=0pt, text width=\nodewidth, minimum width=\nodeminimumwidth, below=of thallium_chain_sep_2] (mercury_chain_sep_2) {};
  
   % U238 chain
-  \draw[-stealth] (uranium_node_2) to node [right, align=left, text width=\nodewidth] (u238_decay_0) {$\alpha$} (thorium_node_2);
-  \draw[-stealth] (thorium_node_2) to node [right, align=left, text width=\nodewidth] (u238_decay_1) {$\beta$} (protactinium_node_1);
+  \draw[-stealth] (uranium_node_2) to node [right, align=left, text width=\nodewidth] (u238_decay_0) {$\alpha$ $4.2$} (thorium_node_2);
+  \draw[-stealth] (thorium_node_2) to node [right, align=left, text width=\nodewidth] (u238_decay_1) {$\beta$ $0.27$} (protactinium_node_1);
   \draw[-stealth] (protactinium_node_1) to node [right, align=left, text width=\nodewidth] (u238_decay_2) {$\beta$} (uranium_node_0);
   \draw[-stealth] (uranium_node_0) to node [right, align=left, text width=\nodewidth] (u238_decay_3) {$\alpha$} (thorium_node_0);
   \draw[-stealth] (thorium_node_0) to node [right, align=left, text width=\nodewidth] (u238_decay_4) {$\alpha$} (radium_node_0);
@@ -331,56 +328,87 @@
   \draw[-stealth] (thallium_node_8) to node [right, align=left, text width=\nodewidth] (u235_decay_20) {$\beta$} (lead_node_9);
   
   % Th232 chain
-  \draw[-stealth] (thorium_node_12) to node [right, align=left, text width=\nodewidth] (th232_decay_0) {$\alpha$ 4.0MeV} (radium_node_12);
-  \draw[-stealth] (radium_node_12) to node [right, align=left, text width=\nodewidth] (th232_decay_1) {$\beta$ 46keV} (actinium_node_11);
-  \draw[-stealth] (actinium_node_11) to node [right, align=left, text width=\nodewidth] (th232_decay_2) {$\beta$ 2.1MeV} (thorium_node_10);
-  \draw[-stealth] (thorium_node_10) to node [right, align=left, text width=\nodewidth] (th232_decay_3) {$\alpha$ 5.4MeV} (radium_node_10);
-  \draw[-stealth] (radium_node_10) to node [right, align=left, text width=\nodewidth] (th232_decay_4) {$\alpha$ 5.7MeV} (radon_node_10);
-  \draw[-stealth] (radon_node_10) to node [right, align=left, text width=\nodewidth] (th232_decay_5) {$\alpha$ 6.4MeV} (polonium_node_10);
-  \draw[-stealth] (polonium_node_10) to node [right, align=left, text width=\nodewidth] (th232_decay_6) {$\alpha$ 6.8MeV} (lead_node_10);
-  \draw[-stealth] (lead_node_10) to node [right, align=left, text width=\nodewidth] (th232_decay_7) {$\beta$ 0.6MeV} (bismuth_node_11);
-  \draw[-stealth] (bismuth_node_11) to node [right, align=left, text width=\nodewidth] (th232_decay_8) {$\beta$ 2.3MeV} (polonium_node_12);
-  \draw[-stealth] (bismuth_node_11) to node [right, align=left, text width=\nodewidth] (th232_decay_9) {$\alpha$ 6.2MeV} (thallium_node_11);
-  \draw[-stealth] (polonium_node_12) to node [right, align=left, text width=\nodewidth] (th232_decay_10) {$\alpha$ 8.8MeV} (lead_node_12);
-  \draw[-stealth] (thallium_node_11) to node [right, align=left, text width=\nodewidth] (th232_decay_11) {$\beta$ 5.0MeV} (lead_node_12);
-  
-  % Th232 early subchain
-  \draw[dashed, red] (protactinium_label_sep.center) to (francium_label_sep.center);
-  \draw[dashed, red] (francium_label_sep.center) to (francium_node_12.center);
-  \draw[dashed, red] (francium_node_12.center) to (actinium_node_10.center);
-  \draw[dashed, red] (actinium_node_10.center) to (protactinium_node_11.east);
-  \draw[dashed, red] (protactinium_node_11.east) to (protactinium_label_sep.center);
+  \draw[-stealth] (thorium_node_12) to node [right, align=left, text width=\nodewidth] (th232_decay_0) {$\alpha$} (radium_node_12);
+  \draw[-stealth] (radium_node_12) to node [right, align=left, text width=\nodewidth] (th232_decay_1) {$\beta$} (actinium_node_11);
+  \draw[-stealth] (actinium_node_11) to node [right, align=left, text width=\nodewidth] (th232_decay_2) {$\beta$} (thorium_node_10);
+  \draw[-stealth] (thorium_node_10) to node [right, align=left, text width=\nodewidth] (th232_decay_3) {$\alpha$} (radium_node_10);
+  \draw[-stealth] (radium_node_10) to node [right, align=left, text width=\nodewidth] (th232_decay_4) {$\alpha$} (radon_node_10);
+  \draw[-stealth] (radon_node_10) to node [right, align=left, text width=\nodewidth] (th232_decay_5) {$\alpha$} (polonium_node_10);
+  \draw[-stealth] (polonium_node_10) to node [right, align=left, text width=\nodewidth] (th232_decay_6) {$\alpha$} (lead_node_10);
+  \draw[-stealth] (lead_node_10) to node [right, align=left, text width=\nodewidth] (th232_decay_7) {$\beta$} (bismuth_node_11); % 0.6MeV
+  \draw[-stealth] (bismuth_node_11) to node [right, align=left, text width=\nodewidth] (th232_decay_8) {$\beta$} (polonium_node_12);
+  \draw[-stealth] (bismuth_node_11) to node [right, align=left, text width=\nodewidth] (th232_decay_9) {$\alpha$} (thallium_node_11);
+  \draw[-stealth] (polonium_node_12) to node [right, align=left, text width=\nodewidth] (th232_decay_10) {$\alpha$} (lead_node_12);
+  \draw[-stealth] (thallium_node_11) to node [right, align=left, text width=\nodewidth] (th232_decay_11) {$\beta$} (lead_node_12);
 
-  % Th232 late subchain
-  \draw[dashed, blue] (protactinium_node_11.center) to (actinium_node_10.center);
-  \draw[dashed, blue] (actinium_node_10.center) to (astatine_label_sep.center);
-  \draw[dashed, blue] (actinium_node_10.center) to (astatine_label_sep.center);
-  %\draw[dashed, blue] (francium_node_11.center) to (astatine_label_sep.center);
+  % U238e
+  \draw[dashed, red] (neptunium_node_minus1.west) to (francium_node_minus1.west);
+  \draw[solid, red] (francium_node_minus1.west) to (francium_node_3.west);
+  \draw[dashed, red] (francium_node_3.west) to (neptunium_node_3.west);
+  \draw[dashed, red] (neptunium_node_3.west) to (neptunium_node_minus1.west);
+  \node[right=of radium_node_1, text=red] (u238_e) {\large ${}^{238}$U$_e$}; 
+   
+  % U238m
+  \draw[dashed, green] (francium_node_minus1.west) to (francium_node_3.west);
+  \draw[dashed, green] (francium_node_3.west) to (polonium_node_3.west);
+  \draw[dashed, green] (polonium_node_3.west) to (polonium_node_3.south west);
+  \draw[solid, green] (polonium_node_3.south west) to (bismuth_node_2.center);
+  \draw[solid, green] (bismuth_node_2.center) to (bismuth_node_2.west);
+  \draw[solid, green] (bismuth_node_2.west) to (mercury_node_1.east);
+  \draw[dashed, green] (mercury_node_1.east) to (mercury_node_1.east);
+  \draw[dashed, green] (mercury_node_1.east) to (mercury_node_minus1.west);
+  \draw[dashed, green] (mercury_node_minus1.west) to (francium_node_minus1.west);
+  \node[right=of radon_node_1, text=green] (u238_m) {\large ${}^{238}$U$_m$}; 
+  
+  % U238l
+  \draw[dashed, blue] (bismuth_node_2.west) to (bismuth_node_2.center);
+  \draw[dashed, blue] (bismuth_node_2.center) to (astatine_node_4.center);
+  \draw[dashed, blue] (astatine_node_4.center) to (astatine_chain_sep_1.center);
+  \draw[dashed, blue] (astatine_chain_sep_1.center) to (mercury_chain_sep_1.south);
+  \draw[dashed, blue] (mercury_chain_sep_1.south) to (mercury_node_2.south);
+  \draw[dashed, blue] (bismuth_node_2.west) to (mercury_node_1.east);
+  \draw[dashed, blue] (mercury_node_1.east) to[out=-90,in=270,distance=0.2cm] (mercury_node_2.south);
+  \node[right=of mercury_node_3, text=blue] (u238_l) {\large ${}^{238}$U$_l$}; 
+
+  % U235e
+  \draw[dashed, red] (neptunium_chain_sep_1.center) to (neptunium_node_7.center);
+  \draw[dashed, red] (neptunium_node_7.center) to (protactinium_node_7.center);
+  \draw[solid, red] (protactinium_node_7.center) to (actinium_node_5.center);
+  \draw[dashed, red] (actinium_node_5.center) to (actinium_chain_sep_1.center);
+  \draw[dashed, red] (actinium_chain_sep_1.center) to (neptunium_chain_sep_1.center);
+  \node[right=of uranium_node_5, text=red] (u235_e) {\large ${}^{235}$U$_e$}; 
+  
+  % U235l
+  \draw[dashed, blue] (protactinium_node_7.center) to (actinium_node_5.center);
+  \draw[dashed, blue] (protactinium_node_7.center) to (protactinium_node_9.east);
+  \draw[dashed, blue] (protactinium_node_9.east) to (mercury_node_9.east);
+  \draw[dashed, blue] (mercury_node_9.east) to (mercury_node_5.east);
+  \draw[dashed, blue] (mercury_node_5.east) to (mercury_node_5.center);
+  \draw[dashed, blue] (mercury_node_5.center) to (actinium_node_5.center);
+  \node[right=of radium_node_7, text=blue] (u235_l) {\large ${}^{235}$U$_l$}; 
+
+  % Th232e
+  \draw[dashed, red] (uranium_label_sep.center) to (francium_label_sep.center);
+  \draw[dashed, red] (protactinium_node_11.east) to (uranium_node_12.center);
+  \draw[dashed, red] (francium_label_sep.center) to (francium_node_12.west);
+  \draw[solid, red] (francium_node_12.west) to (actinium_node_10.south east);
+  \draw[solid, red] (actinium_node_10.south east) to (actinium_node_10.north east);
+  \draw[solid, red] (actinium_node_10.north east) to (protactinium_node_11.east);
+  \draw[dashed, red] (uranium_node_12.center) to (uranium_label_sep.center);
+  \node[right=of protactinium_node_11, text=red] (th232_e) {\large ${}^{232}$Th$_e$}; 
+  
+  % Th232l
+  \draw[dashed, blue] (protactinium_node_11.east) to (actinium_node_10.north east);
+  \draw[dashed, blue] (actinium_node_10.north east) to (actinium_node_10.south east);
+  \draw[dashed, blue] (actinium_node_10.south east) to (francium_node_12.west);
+  \draw[dashed, blue] (francium_node_12.west) to (astatine_label_sep.center);
   \draw[dashed, blue] (astatine_label_sep.center) to (mercury_label_sep.center);
   \draw[dashed, blue] (mercury_label_sep.center) to (mercury_chain_sep_2.center);
   \draw[dashed, blue] (mercury_chain_sep_2.center) to (protactinium_chain_sep_2.center);
-  \draw[dashed, blue] (protactinium_chain_sep_2.center) to (protactinium_node_11.center);
-
-  % U238 early 
-  \draw[dashed, red] (neptunium_node_minus1.north west) to (francium_node_minus1.north west);
-  \draw[dashed, red] (francium_node_minus1.north west) to (francium_node_3.north west);
-  \draw[dashed, red] (francium_node_3.north west) to (neptunium_node_3.north west);
-  \draw[dashed, red] (neptunium_node_3.north west) to (neptunium_node_minus1.north west);
-
-  % U238 Mid 
-  \draw[dashed, green] (francium_node_minus1.south) to (francium_node_minus1.north);
-  \draw[dashed, green] (francium_node_minus1.north west) to (francium_node_3.north west);
-  \draw[dashed, green] (francium_node_3.north west) to (polonium_node_3.south west);
-  \draw[dashed, green] (polonium_node_3.south west) to (bismuth_node_2.west);
-  \draw[dashed, green] (bismuth_node_2.west) to (mercury_node_1.east);
-  \draw[dashed, green] (mercury_node_1.east) to (mercury_node_1.east);
-  
-  
-  
-  %\draw[-stealth] (radium_node_12) to node [right, align=left, text width=\nodewidth] (th232_decay_1) {$\beta$ 46keV} (actinium_node_11);
-
+  \draw[dashed, blue] (protactinium_chain_sep_2.center) to (protactinium_node_11.east);
+  \node[right=of astatine_node_11, text=blue] (th232_l) {\large ${}^{232}$Th$_l$}; 
   \end{tikzpicture}
-      \caption{${}^{238}U$, ${}^{235}U$ and ${}^{232}Th$ decay chains with sub-chain definitions.}
+      \caption{${}^{238}$U, ${}^{235}$U and ${}^{232}$Th decay chains with sub-chain definitions. Decay values from \cite{radon_chains_ref}.}
     \label{fig:decay_chains}
 \end{figure}
 \end{landscape}

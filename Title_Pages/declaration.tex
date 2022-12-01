@@ -20,18 +20,50 @@
 %
 \chapter*{Author's declaration}
 \begin{SingleSpace}
+I hereby declare that the contents in this thesis are my own work, except where explicit reference is made to the work of others.
+My specific contributions in each chapter are listed below.
+\vspace{1cm}
+\par
+Chapter \ref{chap:dark_matter_evidence}, \ref{chap:detection_theory} and \ref{sec:lz_detector_chapter} review the evidence for dark matter, proposed candidates and direct detection theory with the LZ experiment finally introduced.
+All of the figures are borrowed and are referenced as such, except for \autoref{fig:er_nr_discrimination}.
+Chapter \ref{sec:lz_detector_chapter} is based on the LZ Technical Design Review \cite{LZ_TechnicalDesignReview_ref} but adapted to include the latest knowledge of backgrounds from the first science run \cite{lz_sr1_backgrounds_ref}.
+\par
+In Chapter \ref{chap:lz_simulations} CPU and GPU simulation contributions are described.
+A background generator and simulation speedup technique for CPU simulations are improvements on what already existed, but were updated by the author to be significantly more accurate.
+All GPU contributions to LZ simulations are the authors own original work, but inspired by works from JUNO and DayaBay collaborations \cite{Opticks_CHEP_2019_ref}.
+The package used for GPU simulations is Opticks, which is an open source code-base which the author has contributed to as needed for the LZ framework.
+\par
+Chapter \ref{chapter:lz_outer_detector} begins as a review of the outer detector and how it functions as a neutron detector.
+This is followed by details of the construction and installation which the author was a key contributor to, having been part of most of the installation.
+This chapter concludes with a review of the performance requirements of the OD which are taken from \cite{LZ_TechnicalDesignReview_ref}.
+Two performance metrics are evaluated on simulations which are the authors own and compared to the study in \cite{LZ_TechnicalDesignReview_ref} to understand the design changes that occurred.
+A review of the backgrounds in the OD is presented which takes into account the mass of components measured by the author.
+\par
+Chapter \ref{chap:analysis_of_the_od} evaluates the performance requirements of the previous chapter on data.
+This is all the authors own work, except for the OD energy scale which is referenced as such.
+In this chapter the OD background rate and components are evaluated and fit to.
+Additionally, the neutron veto efficiency is calculated and the neutron capture time is measured.
+\par
+In Chapter \ref{chap:analysis_eft_work} a dark matter search is performed for effect field theory operator coupling strengths.
+In this chapter a projected sensitivity is calculated using the projected detector parameters from the WIMP projected sensitivity \cite{LZ_projected_sensitivity_paper_ref}.
+The author simulated all backgrounds and signal models and applied analysis cuts.
+The sensitivity was evaluated using the collaboration tool LZStats described in \cite{LZ_Ibles_LZStats_Thesis_ref}.
+Limits on the coupling strength from the first science run was performed with the author but making use of the background evaluation and analysis cuts described in \cite{lz_ws_sr1_ref}.
+
+
+
 \begin{quote}
-I declare that the work in this dissertation was carried out in accordance with the requirements of  the University's Regulations and Code of Practice for Research Degree Programmes and that it has not been submitted for any other academic award. Except where indicated by specific  reference in the text, the work is the candidate's own work. Work done in collaboration with, or with the assistance of, others, is indicated as such. Any views expressed in the dissertation are those of the author.
+I declare that the work in this dissertation was carried out in accordance with the requirements of the University's Regulations and Code of Practice for Research Degree Programmes and that it has not been submitted for any other academic award. Except where indicated by specific reference in the text, the work is the candidate's own work. Work done in collaboration with, or with the assistance of, others, is indicated as such. Any views expressed in the dissertation are those of the author.
 
 \begin{flushright}
 Samuel Rymer Eriksen \\
 September 2022
 \end{flushright}
 
-
 %\vspace{1.5cm}
 %\noindent
 %\hspace{-0.75cm}\textsc{SIGNED: .................................................... DATE: ..........................................}
 \end{quote}
+
 \end{SingleSpace}
 \clearpage

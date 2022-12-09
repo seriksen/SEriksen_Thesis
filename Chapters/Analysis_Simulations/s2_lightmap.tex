@@ -12,7 +12,7 @@ This is essentially the number of photons which hit this PMT divided by the numb
 The second is the likely path taken by the photon, as this affects the time it takes for the photon to hit the PMT and thus the resultant waveform.
 \par
 In order to create this light map, large-scale simulations of the photons have to be performed at least once.
-For every simulation after the map has been generated, there is a significant speed increase as the photons themselves no longer need to be simulated.
+For every simulation, after the map has been generated, there is a significant speed increase as the photons themselves no longer need to be simulated.
 In the subsequent simulations, the electrons are stopped once they reach the liquid surface.
 The position of the electron is used to determine the path it would have taken, and points along this path are taken to be the photon's origins. % to the anode.
 For each photon, the maps are randomly sampled to determine which PMT the photon hit (if any) as well as how long it took.
@@ -25,13 +25,13 @@ The S2 Light Map now in use within BACCARAT, created by the author, took into ac
 \subsection{S2 Radial Variation} \label{sec:s2radialvariation}
 \par
 The electric field originates from three electrodes: a cathode grid just above the bottom PMTs, a gate grid just below the surface of the liquid xenon, and an anode grid in the gaseous xenon.
-In previous simulations, it was assumed that the anode and gate were both rigid structures and so had a fixed distance, and the electric field between them.
+In previous simulations, it was assumed that the anode and gate were both rigid structures and so had a fixed distance, and electric field between them.
 In this case, the number of photons produced in the gas gap by an electron is given by \autoref{eq:s2lightmap_nophotons} and is equal no matter the distance from the centre of the detector:
 \begin{equation}
     N_{photons/e} = eep \times (\alpha \times E_{gas} \times 1000 - \beta \times P - \gamma) \times d_{gas}
     \label{eq:s2lightmap_nophotons}
 \end{equation}
-Where $\alpha$, $\beta$ and $\gamma$ are constants, $E_{gas}$ is the electric field in the gas, P is the pressure of the liquid, and $d_{gas}$ is the distance from the top of the liquid to the anode \cite{NoPhotonsPerElectron}.
+Where $\alpha$, $\beta$ and $\gamma$ are constants, $E_{gas}$ is the electric field in the gas, $P$ is the pressure of the liquid, and $d_{gas}$ is the distance from the top of the liquid to the anode \cite{NoPhotonsPerElectron}.
 $eep$ is the electron emission probability at the surface.
 %is taken from PiXeY data and fitted to give $eta = -0.03754 \times (eliq^{2}) + 0.5266 \times eliq - 0.84645$, where $eliq$ is the electric field in the liquid Xenon \cite{ElectronExtractionEfficiency}.
 The emission probability is included as we want to use the average number of photons per electron.
@@ -41,7 +41,7 @@ Tests conducted at SLAC, by LZ collaborators, indicated that there is bending of
     x(r,E) = A \sqrt{ \bigg( 1 + \cos{ \Big( \frac{r \pi}{R} } \Big) \bigg) \bigg( B^2 + r^2 \bigg) } \bigg( e^{(r-C)} + 1 \bigg)^{-1} 
     \label{WireDeflection}
 \end{equation}
-Where R is the radius of the wire, r is the point on the wire and A, B and C are all polynomials of the form: $A(E) = \sum_{j=0}^{M} a_{j} E^{j}$. E is the electric field, $a_{j}$ are constants and $M$ is just the number of terms, which for A and B is 2 and for C is 1.
+where $R$ is the radius of the wire, $r$ is the point on the wire and $A$, $B$ and $C$ are all polynomials of the form: $A(E) = \sum_{j=0}^{M} a_{j} E^{j}$. $E$ is the electric field, $a_{j}$ are constants and $M$ is just the number of terms, which for $A$ and $B$ is 2 and for $C$ is 1.
 As such, the electric field is not constant with radius and thus the number of photons produced by electroluminescence varies.
 \par
 These changes were implemented into the simulation package as a scaling on the number of photons which the S2 Light Map is probed for.

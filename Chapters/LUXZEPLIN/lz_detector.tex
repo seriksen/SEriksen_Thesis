@@ -258,6 +258,7 @@ In the detector model response, the energy deposits are converted into reconstru
 The detector model response is informed by both data and optical photon simulations.
 \par
 If optical photon propagation simulations are used, then individual photons are propagated and recorded if they reach a PMT.
+A photon is considered to be optical when its wavelength is much greater than the typical atomic spacing.
 The photons that hit PMTs are converted into waveforms by the Detector Electronics Response (DER) package, which models the PMT response.
 The output of the DER should match, or be close to, what is observed in data.
 The waveforms are then processed by the same analysis package (LZAP) that the data is processed with, where pulses are found, classified and reconstructed.
@@ -265,7 +266,7 @@ The output of this is the same quantities as from LZLAMA.
 \par
 For example, if the spontaneous fission of Uranium is simulated, originating from a PMT in the TPC, then both the $\gamma$s and neutrons from the fission will be simulated.
 These will propagate within BACCARAT and all energy deposits recorded.
-Each particle and secondary particles\footnote{secondary particles are particles produced as a result of the first particle.} will be tracked and recorded until all particles are absorbed or until the particle energy is below an energy threshold.
+Each particle and all secondary particles\footnote{secondary particles are particles produced as a result of the first particle except optical photons.} will be tracked and recorded until all particles are absorbed or until the particle energy is below some energy threshold.
 On these energy deposits, depending upon the simulation type this will be the end of the simulation or the optical photons will be generated and propagated.
 \begin{figure}
     \centering

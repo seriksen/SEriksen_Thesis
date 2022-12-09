@@ -35,10 +35,10 @@ In the remainder of this section, the key parts of the OD are described.
 \par
 The liquid scintillator (LS) contains three components: a solvent made from linear-alkylbenzene (LAB), a fluor of 2,5-diphenyloxazole (PPO), and a wavelength shifter of \\ 1,4-bis(2-methylstyryl(benzene)) (bis-MSB).
 Energy deposited in the LS will excite LAB molecules, which will generally transfer their energy to the fluor. 
-The fluor will emit light at a wavelength peaking below 380 nm, which is not ideal for detection due to self-absorption.
-This scintillation is absorbed by bis-MSB and emitted at a better wavelength in terms of detectability, as it is less absorbed by the LS and matches closer to the PMT response (discussed later in this section), peaking at around 410-425 nm.
+The fluor will emit light at a wavelength peaking below 380~nm, which is not ideal for detection due to self-absorption.
+This scintillation is absorbed by bis-MSB and emitted at a better wavelength in terms of detectability, as it is less absorbed by the LS and matches closer to the PMT response (discussed later in this section), peaking at around 410-425~nm.
 The absorption length and emission spectrum are shown in \autoref{fig:od_detection_properties}.
-Importantly, the absorption length of the LS increases from 1 m to in excess of 10 m in that range - and continues to rise.
+Importantly, the absorption length of the LS increases from 1~m to in excess of 10 m in that range - and continues to rise.
 This makes the emitted light more readily able to reach the PMTs.
 
 \input{Chapters/OuterDetector/Figures/gdls_wavelengths}
@@ -95,24 +95,24 @@ This is shown in more detail in \autoref{sec:od_construction_sec}.
 
 \subsection{Light Collection}
 \par
-Light is collected from the OD by an array of 120 Hamamatsu R5912 8"-diameter PMTs suspended in water $\approx$80cm from the acrylic tanks.
+Light is collected from the OD by an array of 120 Hamamatsu R5912 8"-diameter PMTs suspended in water $\approx$80~cm from the acrylic tanks.
 The PMTs are arranged as 20-ladders spaced evenly around the water tank as shown in \autoref{fig:LZ_OD_schematic}.
 These PMTs are biased to provide a gain on the input of in-excess of $10^{5}$.
 The quantum efficiency of these PMTs to GdLS light is around 20\% at the dominant wavelengths with the full response shown in \autoref{fig:od_detection_properties}.
 
 \par
 To increase the amount of light collected by the PMTs, the OD is encased in Tyvek, a highly reflective paper-like material.
-In dominant scintillation wavelengths (400-500 nm), the reflectivity of Tyvek is above 80\% in water \cite{tyvek_thesis_ref,tyvek_reflectivity_ref}. 
+In dominant scintillation wavelengths (400-500~nm), the reflectivity of Tyvek is above 80\% in water \cite{tyvek_thesis_ref,tyvek_reflectivity_ref}. 
 Tyvek was selected over other reflective boundaries (such as Lumirror) due to its lower radioactivity \cite{LZ_assay_ref}.
 Details of the Tyvek placement are discussed in \autoref{sec:od_construction_sec}.
-The simulated light collection efficiency (LCE) from \\ 420 nm photons in the OD is shown in \autoref{fig:od_lce}, where there is an average LCE of 7.4\%.
+The simulated light collection efficiency (LCE) from 420~nm photons in the OD is shown in \autoref{fig:od_lce}, where there is an average LCE of 7.4\%.
 
 \begin{figure}
 \centering
 \resizebox{\textwidth}{!}{
 \input{Data/GdLS_Physics/Light_Collection/od_tanks_lce}
 }
-\caption[Light Collection Efficiency for 420 nm photons originating in GdLS]{Light Collection Efficiency for 420 nm photons originating in GdLS, producing a mean LCE of 7.4\%.
+\caption[Light Collection Efficiency for 420~nm photons originating in GdLS]{Light Collection Efficiency for 420~nm photons originating in GdLS, producing a mean LCE of 7.4\%.
 The LCE map is what is expected after the design changes discussed in \autoref{sec:od_construction_sec}.}
 \label{fig:od_lce}
 \end{figure}

@@ -149,14 +149,14 @@ In order for this to be achievable, a deep understanding of the backgrounds that
 In this section, the dominant backgrounds expected in the TPC are discussed.
 
 \par
-The first background of note are from detector components.
+The first set of backgrounds are from detector components.
 Given that the detector has to be made of something, there is no getting away from the fact that this will contribute to the recoils detected.
 As this can be a limiting factor for sensitivity to dark matter, LZ undertook a comprehensive screening campaign prior to construction \cite{LZ_assay_ref}.
 In addition to radioactivity embedded within the detector materials, there is also surface contamination.
 The greatest contribution to this is from plate-out of ${}^{222}$Rn progeny as well as any dust on the detector.
 The frequent $\alpha$-decays within the decay chain also lead to ($\alpha$,$n$) reactions.
 These are the most dangerous backgrounds as they are NR events and indistinguishable from a dark matter scatter in the TPC.
-To reduce the levels of surface contamination introduced during detector assembly, the TPC was assembled in a radon-reduced clean room\footnote{better than a class 1000 cleanroom} with extensive UV inspections to ensure that the dust levels were kept to a minimum.
+To reduce the levels of surface contamination introduced during detector assembly, the TPC was assembled in a radon-reduced clean room\footnote{better than a class 1000 cleanroom.} with extensive UV inspections to ensure that the dust levels were kept to a minimum.
 
 \par
 The environment in which the detector is placed also contributes to the background rate.
@@ -192,7 +192,7 @@ Nuclear recoil neutrinos fall into two categories: low energy recoils from solar
 
 \par
 There are far more ER backgrounds than NR backgrounds.
-As a WIMP scatter is an NR event, each NR background is much more important than any ER background.
+As a WIMP scatter is an NR event, each NR background is much more important than any ER background assuming that there is good separation between recoil types.
 
 \subsection{Analysis Cuts}
 \label{sec:lz_analysis_cuts}
@@ -215,7 +215,7 @@ In order to do this, an event needs to be defined and recorded, and ultimately t
 The planned approach is detailed in \cite{LZ_TechnicalDesignReview_ref}, with the approach adopted for the first data run detailed in \cite{lz_ws_sr1_ref}.
 
 \par
-An event is defined simply as a window of time in which the read-out from all PMTs is saved, typically for LZ this is a window of 4 ms in length.
+An event is defined simply as a window of time in which the output from all PMTs is saved, typically for LZ this is 4 ms in length.
 LZ utilises a number of different triggers to determine when data should be recorded, utilising the logic based upon \cite{lux_trigger_logic_ref}, with application to LZ detailed in \cite{nicolasangelides_thesis_ref}.
 From the trigger activation, a period of time before and after the trigger is recorded.
 The two triggers of relevance to this thesis are briefly discussed below.
@@ -225,7 +225,7 @@ The two triggers of relevance to this thesis are briefly discussed below.
 This is the primary dark matter search trigger.
 Tuned to trigger on a large pulse in the TPC that is in line with what is expected from an S2 pulse.
 The S1 pulse will reside within the pre-trigger time window.
-The Veto detectors search the post-trigger window for $\gamma$ and neutron events.
+The veto detectors search the post-trigger window for $\gamma$ and neutron events.
 
 \paragraph{Random Trigger}
 Often referred to as the ``heartbeat trigger", data is recorded at fixed time intervals.
@@ -247,22 +247,26 @@ Additionally, these simulations influenced the design and construction of the ex
 A brief overview of the simulation chain is given below and in \autoref{fig:lz_simulation_chain}.
 A more thorough explanation is available in \cite{lz_simulations_ref} and \cite{theresafruth_thesis_ref}.
 \par
-The primary simulation package used by LZ is called BACCARAT\footnote{The acronym comes from, \textbf{B}asically \textbf{A} \textbf{C}omponent-\textbf{C}entric \textbf{A}nalog \textbf{R}esponse to \textbf{A}ny\textbf{T}hing}.
+The primary simulation package used by LZ is called BACCARAT\footnote{The acronym comes from, \textbf{B}asically \textbf{A} \textbf{C}omponent-\textbf{C}entric \textbf{A}nalog \textbf{R}esponse to \textbf{A}ny\textbf{T}hing.}.
 BACCARAT is used to simulate particle interactions built upon the GEANT4 simulation package \cite{geant4_geometry_ref}.
 Inside BACCARAT, the LZ experiment is built as a detector geometry.
 From a simulation of a particle, interactions and energy deposits are recorded.
 If the deposit occurred within the xenon volume, the Noble Element Simulation Technique (NEST) is used to convert the deposit into scintillation photons, and ionisation electrons \cite{nest_1_ref}.
 There are two running modes for BACCARAT: energy deposits only and optical photon propagation.
 If energy deposit-only simulations are run, then the output is run through a detector model response, LZLAMA.
-In the detector model response, the energy deposits are converted into reconstructed quantities, such as S1$_c$ and log$_{10}$S2$_c$, which characterise an event.
+In the detector model response, the energy deposits are converted into reconstructed quantities, such as S1$_c$ and log$_{10}$(S2$_c$), which characterise an event.
 The detector model response is informed by both data and optical photon simulations.
 \par
 If optical photon propagation simulations are used, then individual photons are propagated and recorded if they reach a PMT.
-The photons which hit PMTs are converted into waveforms by the Detector Electronics Response (DER) package, which models the PMT response.
+The photons that hit PMTs are converted into waveforms by the Detector Electronics Response (DER) package, which models the PMT response.
 The output of the DER should match, or be close to, what is observed in data.
 The waveforms are then processed by the same analysis package (LZAP) that the data is processed with, where pulses are found, classified and reconstructed.
 The output of this is the same quantities as from LZLAMA.
-
+\par
+For example, if the spontaneous fission of Uranium is simulated, originating from a PMT in the TPC, then both the $\gamma$s and neutrons from the fission will be simulated.
+These will propagate within BACCARAT and all energy deposits recorded.
+Each particle and secondary particles\footnote{secondary particles are particles produced as a result of the first particle.} will be tracked and recorded until all particles are absorbed or until the particle energy is below an energy threshold.
+On these energy deposits, depending upon the simulation type this will be the end of the simulation or the optical photons will be generated and propagated.
 \begin{figure}
     \centering
     \includegraphics[width=15cm]{Figures/LZ/FullAndFastChains.png}

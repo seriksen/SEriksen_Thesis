@@ -9,37 +9,41 @@
             xmin=0, xmax=90,
             %ymin=0, %ymax=100,
             %minor y tick num=4,
+            legend pos=south east,
             grid=major,]
             
             % ER Band
-            \addplot[blue, opacity = 0.4, name path = er_high] table[x=x, y=high_er]
+            \addplot[blue, opacity = 0.4, name path = er_high, forget plot] table[x=x, y=high_er]
                 {Data/tpc/bands.dat};
-            \addplot[blue, opacity = 0.4, name path = er_low] table[x=x, y=low_er]
+            \addplot[blue, opacity = 0.4, name path = er_low, forget plot] table[x=x, y=low_er]
                 {Data/tpc/bands.dat};
-            \addplot[blue, opacity = 0.4] fill between[of=er_high and er_low];
-            \addplot[blue, opacity = 0.8, name path = er_mid] table[x=x, y=mid_er]
+            \addplot[blue, opacity = 0.4, forget plot] fill between[of=er_high and er_low];
+            \addplot[blue, opacity = 0.8, name path = er_mid, forget plot] table[x=x, y=mid_er]
                 {Data/tpc/bands.dat};
             
             % NR Band
-            \addplot[red, opacity = 0.4, name path = nr_high] table[x=x, y=high_nr]
+            \addplot[red, opacity = 0.4, name path = nr_high, forget plot] table[x=x, y=high_nr]
                 {Data/tpc/bands.dat};
-            \addplot[red, opacity = 0.4, name path = nr_low] table[x=x, y=low_nr]
+            \addplot[red, opacity = 0.4, name path = nr_low, forget plot] table[x=x, y=low_nr]
                 {Data/tpc/bands.dat};
-            \addplot[red, opacity = 0.4] fill between[of=nr_high and nr_low];
-            \addplot[red, opacity = 0.8, name path = nr_mid] table[x=x, y=mid_nr]
+            \addplot[red, opacity = 0.4, forget plot] fill between[of=nr_high and nr_low];
+            \addplot[red, opacity = 0.8, name path = nr_mid, forget plot] table[x=x, y=mid_nr]
                 {Data/tpc/bands.dat};
             
             \addplot[blue, only marks,]
                    table [x=x,y=y]
               {Data/tpc/er_points.dat};
+            \addlegendentry{Electronic Recoil};
             \addplot[red, only marks,]
                    table [x=x,y=y]
               {Data/tpc/nr_points.dat};
+            \addlegendentry{Nuclear Recoil};    
+            
 
     \end{axis}
 \end{tikzpicture}
-    \caption[Discrimination between electronic recoil and nuclear recoil events by the light-to-charge ratio]{Discrimination between electronic recoil (Blue) events and nuclear recoil (Red) events by the light-to-charge ratio.
+    \caption[Discrimination between electronic recoil and nuclear recoil events by the light-to-charge ratio]{Discrimination between electronic recoil (blue) events and nuclear recoil (red) events by the light-to-charge ratio.
     The solid lines are the median response whilst the shading regions are the 10-90\% quantiles.  
-    Simulations were performed by G. Rischbieter and additional details can be found in \cite{gregrischbieter_thesis_ref}}
+    Simulations were performed by G. Rischbieter and additional details can be found in \cite{gregrischbieter_thesis_ref}.}
     \label{fig:er_nr_discrimination}
 \end{figure}

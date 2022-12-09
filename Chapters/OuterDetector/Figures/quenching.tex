@@ -22,17 +22,24 @@
             table [x=Energy,y=Quenched]
             {Data/GdLS_Physics/Quenching/alpha.dat};
 
-        %\addplot+[red, only marks]
-        %    table [x=x,y=y]
-        %    {Data/GdLS_Physics/Quenching/electron_data_points.dat};
-        %\addplot+[blue, only marks]
-        %    table [x=x,y=y]
-        %    {Data/GdLS_Physics/Quenching/alpha_data_points.dat};
+        \addplot+[black, only marks, mark=*, mark options={fill=red}]
+            table [x=x,y=y]
+            {Data/GdLS_Physics/Quenching/electron_points.dat};
+        \addplot+[black, only marks, mark=*, mark options={fill=green} ]
+            table [x=x,y=y]
+            {Data/GdLS_Physics/Quenching/proton_points.dat};
+        \addplot+[black, only marks, mark=*, mark options={fill=blue}]
+            table [x=x,y=y]
+            {Data/GdLS_Physics/Quenching/alpha_points.dat};
             
         \legend{$e^-$, $p$, $\alpha$};
     \end{axis}
             
 \end{tikzpicture}
-    \caption{Quenching of various particles in LS as predicted by Birks' Law.}
+    \caption{Quenching of various particles in LS as predicted by Birks' Law.
+    Each colour represents a different particle.
+    The points are measured energies.
+    The $\alpha$ and $e^-$ data points are from \cite{ls_alpha_quenching_ref} and the $p$ points from \cite{ls_proton_quenching_ref}.
+    The solid lines are Birks Law fits using the parameters in \autoref{tab:Birks_law_parameters}.}
     \label{fig:gdls_quenching}
 \end{figure}

@@ -15,9 +15,9 @@ The activity and locations of each source are summarised in \autoref{tab:amli_so
     \centering
     \begin{tabular}{c|c|c}
         CSD & AmLi Source No. & Activity (n/s) \\ \hline
-        1   & Source-2        & 13.8           \\
-        2   & Source-1        & 9.3            \\ 
-        3   & Source-3        & 11.9                
+        1   & Source-2        & 13.8$\pm$1.1           \\
+        2   & Source-1        & 9.3$\pm$0.7            \\ 
+        3   & Source-3        & 11.9$\pm$0.9                
     \end{tabular}
     \caption{AmLi source activities in each calibration source deployment tube (CSD).
              The activity of the sources is from \cite{LZ_TechnicalDesignReview_ref}.}
@@ -39,14 +39,14 @@ These cuts are a subset of the cuts developed for the SR1 WIMP search \cite{lz_w
     \item \textbf{SS}: Single Scatter cut as determined by an interaction finder algorithm. This was tuned on the dataset used here. In an event window, a single scatter is defined if there are only two significant pulses (an S1 and an S2) in the event window. Other pulses can exist, but they must be sufficiently small in size and multiplicity to not be classified as either an S1 or S2.
     \item \textbf{S1Cuts}: This cut ensures that the S1 pulse is not caused by a background process. An example of this is the removal of S1 pulses, where the contribution is primarily from a single PMT, indicating that it is actually an accidental event. S1 pulses which did not have a 3-fold coincidence are also removed.
     \item \textbf{S2Cuts}: This selection is designed to remove events which originate in or near the GXe. If the scatter occurs very close to the GXe then the time separation between the S1 and S2 is sufficiently low that the pulse-finding algorithm cannot separate them. Similarly, GXe scatters would have merged S1 and S2s. Events with a poor position reconstruction (which uses the S2 hit pattern) are also removed this way so as not to influence the \textbf{FID} selection. In combination with the \textbf{S1Cuts}, nonphysical events are removed by the time difference between the pulses.
-    \item \textbf{FID}: The inner volume of the TPC is defined in terms of \{$r,z$\}. $r$ is set to a distance [4.0 5.2] cm from the TPC wall depending on $z$. $z$ was defined by electron drift time of [86, 936.5] $\mu$s.
+    \item \textbf{FID}: The inner volume of the TPC is defined in terms of \{$r,z$\}. $r$ is set to a distance [4.0 5.2]~cm from the TPC wall depending on $z$. $z$ was defined by electron drift time of [86, 936.5]~$\mu$s.
     \item \textbf{ROI}: This cut selects scatters with recoil energies akin to a WIMP-nucleon scatter. Only events with an S1$_c$ between [3, 80] are selected and S2 $>$ 600. The latter is to ensure that at least 5 electrons are extracted.
     \item \textbf{NR}: Only events which fall within the 10-90\% quantile band of the nuclear recoil expectation are selected. The NR band used is from DD neutron calibrations described in the \autoref{chap:analysis_eft_work}.
 \end{itemize}
 These definitions differ from those in \autoref{sec:od_simulation_efficiency} as they are applied to data here rather than simulations.
 A summary of the number of events available for this analysis is presented in \autoref{tab:amli_calibration_summary}, and the resulting TPC events are shown in \autoref{fig:amli_tpc_events}.
 All OD pulses passing the noise cut and the TPC cuts are shown in \autoref{fig:amli_od_pulsearea_events}.
-The peak at $\backsim$400 phd is from n-H captures.
+The peak at $\backsim$400 phd is from n-H captures, which result in the remission of 2.2~MeV $\gamma$s.
 
 \begin{table}[]
     \centering
@@ -67,16 +67,16 @@ The peak at $\backsim$400 phd is from n-H captures.
 \par
 In a similar fashion to the previous chapter, the efficiency for vetoing a neutron is defined as:
 \begin{equation}
-    \epsilon = 1 - \frac{\text{events passing}\mathbf{SS, S1Cuts, S2Cuts, ROI, NR, FID, Veto}}{\text{events passing}\mathbf{SS, S1Cuts, S2Cuts, ROI, NR, FID}}
+    \epsilon = 1 - \frac{\text{events passing}(\mathbf{SS, S1Cuts, S2Cuts, ROI, NR, FID, Veto})}{\text{events passing}(\mathbf{SS, S1Cuts, S2Cuts, ROI, NR, FID})}
     \label{eq:data_neutron_efficiency}
 \end{equation}
-The efficiency vs the veto time window is shown in \autoref{fig:commissioning_amli_efficiency_with_bg_rate} for a 200 keV energy threshold.
-Overlaid in black is the rate of backgrounds above 200 keV in the OD.
+The efficiency vs the veto time window is shown in \autoref{fig:commissioning_amli_efficiency_with_bg_rate} for a 200~keV energy threshold.
+Overlaid in black is the rate of backgrounds above 200~keV in the OD.
 The red dashed line indicates when a 5\% false veto rate is reached, which can be considered the same as the impact on WIMP search live-time.
-The point where these two lines cross is the value of the veto window when 5\% of live time will be vetoed.
-For a 200 keV threshold, this is just above 1200 $\mu$s.
+The point where these two lines cross is the value of the veto window when 5\% of live-time will be vetoed.
+For a 200~keV threshold, this is just above 1200~$\mu$s.
 With this veto time window, the average neutron tagging efficiency is 84.6$\pm$1.2\%.
-This was the OD veto cut used for SR1: 200 keV energy threshold and a 1200 $\mu$s time window.
+This was the OD veto cut used for SR1: 200~keV energy threshold and a 1200~$\mu$s time window.
 
 %In order to maximise the veto efficiency, 1200 $\mu$s was selected as the time window for SR1.
 %Complimentary, to the efficiency vs time, \autoref{fig:commissioning_amli_efficiency_per_phd} shows the efficiency vs threshold.
@@ -93,27 +93,30 @@ Overlaid are the ER and NR bands.
 None of the events vetoed by the OD are near the NR band.
 This indicates that all events which were vetoed are not neutrons but rather backgrounds in the OD.
 Several events which weren't vetoed by the OD are in the NR band.
+This will become clear in the following chapter.
 These events are not neutrons but are consistent with ER leakage into the NR band.
 The lack of seeing any neutrons in this dataset is consistent with the low neutron rate from ($\alpha$,$n$) and spontaneous fission from the detector materials \cite{LZ_TechnicalDesignReview_ref}.
 
 \input{Chapters/Analysis_OuterDetector/Figures/efficiency/sr1_vetoed_events}
 
 \par
-Turning back to the veto efficiency, it is lower than was expected from simulations with not all of the performance requirements met (see \autoref{tab:veto_requirements})
-With a neutron tagging efficiency of 84.6\%, the requirement R-160001 is not met.
-However, in SR1, the impact on live-time in the \textbf{ROI} was 4.99\%, and so requirement R-160005 is satisfied.
+Turning back to the veto efficiency, it is lower than the 95\% requirement, at 84.6\%.
+As such requirement R-160001 is not satisfied.
+However, in SR1, the impact on live-time in the \textbf{ROI} was 4.99\%, and so requirement R-160005 is met.
 It may, in future, be possible to reduce the impact on live-time by un-vetoing OD events if it is possible to determine the cause of light.
 The most obvious starting point for this is to find back-to-back $\alpha$-decays, such as was done in the previous section.
 
 \par
-Looking at the shape of the efficiency curve in \autoref{fig:commissioning_amli_efficiency_with_bg_rate}, and compared to the simulation result (\autoref{fig:simulated_amli_full_propagation_efficiency} in the previous chapter) the curves appear to be slightly different in shape.
-This prompted the study in the next section into neutron propagation.
+Looking at the shape of the efficiency curve in \autoref{fig:commissioning_amli_efficiency_with_bg_rate}, and compared to the simulation result (\autoref{fig:simulated_amli_full_propagation_efficiency} in the previous chapter), the measured efficiency is lower than was expected.
+With a 200~keV threshold and a 1200 $\mu$s window, the simulation result predicts an efficiency of 91.8\%, whilst in data the measured efficiency is 84.6\%.
+Additionally, the shape of the curves appear to be slightly different.
+This indicates that the neutron propagation is not modelled accurately in the simulation, and prompted the study detailed in the next section.
 
 \subsection{Neutron Propagation}
 \par
 To study the neutron propagation differences between simulation and data, neutron captures were used.
 In order to do this, a high-purity sample of neutrons is needed, and ideally, high statistics.
-${}^{252}$Cf calibrations were deemed the most appropriate as the neutron rate is 430 per second.
+${}^{252}$Cf calibrations were deemed the most appropriate as the neutron rate is 430 per second. 
 It is deployed in the calibration source tube in the same manner as the AmLi source, so neutrons will travel from the OCV towards the OD.
 \par
 ${}^{252}$Cf decays via spontaneous fission, releasing on average 3.7 neutrons each time \cite{californium252_ref}.
@@ -134,21 +137,21 @@ The later pulses in the OD are then from neutron capture, two captures in this c
 \begin{figure}[]
 \includegraphics[width=\textwidth]{Figures/NeutronCaptureTime/cf252_eventviewer_5916.png}
 \centering
-\caption{Example event from ${}^{252}{Cf}$ calibration run showing the $\gamma$s causing coincident pulses in each detector followed by two neutrons being captured in the Outer Detector.}
+\caption{Example event from ${}^{252}$Cf calibration run showing the $\gamma$s causing coincident pulses in each detector followed by two neutrons being captured in the Outer Detector.}
 \label{fig:cf252_event_viewer}
 \end{figure}
 
 \par
-The ${}^{252}$Cf datasets selected for this study were from runs with a single source in CSD-1 at the 700 mm level.
-An event was only considered if a triple coincidence was observed, defined as both the Skin and TPC detectors seeing light within [-200, 200] ns of a pulse seen in the OD.
+The ${}^{252}$Cf datasets selected for this study were from runs with a single source in CSD-1 at the 700~mm level.
+An event was only considered if a triple coincidence was observed, defined as both the Skin and TPC detectors seeing light within [-200, 200]~ns of a pulse seen in the OD.
 The largest triple coincidence pulse in an event was taken to be $t_0$.
 Given that a neutron capture on gadolinium will release $\gamma$s with a combined energy of 8 MeV, there is a probability of some of these pulses being from a neutron capture.
 However, it is unlikely that this will result in a triple coincidence due to the starting location of the post-capture $\gamma$s.
-To avoid backgrounds contributing, an energy threshold in the OD of 250 keV was used.
+To avoid backgrounds contributing, an energy threshold in the OD of 250~keV was used.
 The spectra of OD pulses which make up the $t_0$ event are shown in \autoref{fig:cf252_pulse_selection}.
 The OD pulses both before and after $t_0$ are also shown.
 %The shapes are quite different between each selection.
-The peak around 450 phd in the before and after $t_0$ distributions are the 2.2 MeV $\gamma$ from n-H captures, and it is missing from the $t_0$ distribution as these are multiple $\gamma$ events.
+The peak around 450~phd in the before and after $t_0$ distributions are the 2.2~MeV $\gamma$ from n-H captures, and it is missing from the $t_0$ distribution as these are multiple $\gamma$ events.
 %The number of events after $t_0$ is consistent with neutrons being captured some time after the fission $\gamma$s are emitted.
 Some of the pulses after $t_0$ are background events.
 To remove these, only the largest pulse in an event was used for the capture time.
@@ -164,7 +167,7 @@ The final set of pulses after $t_0$ are neutrons which capture on gadolinium and
 \par
 The time difference between the capture pulse and $t_0$ is shown in \autoref{fig:cf252_gd_capture_time}.
 A fit (following \autoref{eq:neutron_capture_time}) was performed and found that two exponentials were best, with $\tau_0 = 31.39 \pm 0.4\mu$s and $\tau_1 = 124.5 \pm 1.7\mu$s, with a $\chi^2$/ndof$=0.821$.
-Included as well is the result of simulated neutrons from the same starting position.
+Included as well is the result of simulated ${}^{252}$Cf fission neutrons from the same starting position.
 $\tau_0$ is in good agreement with the simulations, indicating that once the neutrons reach the GdLS they are captured quite fast.
 However, neutrons are clearly being held up in other regions of the detector, somewhere between the calibration tube and the GdLS that isn't simulated.
 The simplest explanation is that water has gotten in between the OCV and acrylic tanks.
@@ -213,11 +216,12 @@ In \autoref{fig:data_vs_sim_gd_capture_time} are the simulated neutron capture t
 The 5\% saturation case provides a better match to the observed capture time.
 
 \par
-The measured neutron veto efficiency is 84.6\%, which is lower than the 91.0\% expected from simulations and the 95\% required by the design requirements.
-The most likely cause is neutrons taking a longer time to reach the GdLS as they thermalise in water that has penetrated the foam.
-Fewer neutrons are reaching the GdLS because of this as well, with a higher fraction being captured on hydrogen and a single 2.2 MeV $\gamma$ being released, which can escape the detector or deposit energy into the water.
-In both situations, the neutron is undetected, and the veto efficiency is reduced.
+The 5\% saturation case provides a better fit up to a capture time of 300~$\mu$s, but above this does not describe the data well.
+It is possible that other isotopes are playing an important role in the neutron thermalisation.
+Both Oxygen and Carbon are around the GdLS, in both the foam and acrylic.
+Although both of these have a much lower neutron cross-section, it is possible contributing to the extended neutron capture times.
 Further studies are needed to determine what other differences there may be between the simulated neutron propagation and what is observed, but water ingress appears to be the dominant factor.
+A future search should focus on the ratio of n-H captures to n-Gd captures, as this will allow for the water ingress theory to be tested.
 
 \input{Chapters/Analysis_OuterDetector/Figures/neutron_capture/foam_degredation}
 

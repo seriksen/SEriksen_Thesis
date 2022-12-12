@@ -46,7 +46,7 @@ These cuts are a subset of the cuts developed for the SR1 WIMP search \cite{lz_w
 These definitions differ from those in \autoref{sec:od_simulation_efficiency} as they are applied to data here rather than simulations.
 A summary of the number of events available for this analysis is presented in \autoref{tab:amli_calibration_summary}, and the resulting TPC events are shown in \autoref{fig:amli_tpc_events}.
 All OD pulses passing the noise cut and the TPC cuts are shown in \autoref{fig:amli_od_pulsearea_events}.
-The peak at $\backsim$400 phd is from n-H captures, which result in the remission of 2.2~MeV $\gamma$s.
+The peak at $\backsim$400~phd is from the 2.2~MeV $\gamma$ released from n-H captures.
 
 \begin{table}[]
     \centering
@@ -166,8 +166,8 @@ The final set of pulses after $t_0$ are neutrons which capture on gadolinium and
 
 \par
 The time difference between the capture pulse and $t_0$ is shown in \autoref{fig:cf252_gd_capture_time}.
-A fit (following \autoref{eq:neutron_capture_time}) was performed and found that two exponentials were best, with $\tau_0 = 31.39 \pm 0.4\mu$s and $\tau_1 = 124.5 \pm 1.7\mu$s, with a $\chi^2$/ndof$=0.821$.
-Included as well is the result of simulated ${}^{252}$Cf fission neutrons from the same starting position.
+A fit (following \autoref{eq:neutron_capture_time}) was performed and found that two exponentials were best, with $\tau_0 = 31.39 \pm 0.4~\mu$s and $\tau_1 = 124.5 \pm 1.7~\mu$s, with a $\chi^2$/ndof$=0.821$.
+Included as well is the result of simulated ${}^{252}$Cf fission neutrons from the same starting position, which fit best with three components; $\tau_{sim0} = 31.19\pm0.19~\mus$, $\tau_{sim1} = 70.14\pm1.42~\mus$, $\tau_{sim2} = 176.4\pm3.2~\mus$.
 $\tau_0$ is in good agreement with the simulations, indicating that once the neutrons reach the GdLS they are captured quite fast.
 However, neutrons are clearly being held up in other regions of the detector, somewhere between the calibration tube and the GdLS that isn't simulated.
 The simplest explanation is that water has gotten in between the OCV and acrylic tanks.
@@ -194,7 +194,7 @@ Images from \cite{foam_mri_data_ref}.
 
 
 \par
-The foam installed around the OCV (green Styrodur foam mentioned in \autoref{sec:od_construction_sec}) is a closed cell foam expanded using CO$_2$, foam 3000 CS in \cite{styrodur_water_ingress_ref}.
+The foam installed around the OCV (green Styrodur foam mentioned in \autoref{sec:od_construction_sec}) is a closed cell foam expanded using CO$_2$, foam 3000~CS in \cite{styrodur_water_ingress_ref}.
 As such, the foam is expected to experience a 0.7\% volume ingress of water due to long-term submersion and 5\% volume ingress of water from diffusion.
 Long-term refers to a 28-day test as is the industry standard\footnote{see BS EN ISO 16535 (previously BS EN 12087) and BS EN ISO 16536 (previously BS EN 12088)}.
 These values do not necessarily map onto how the foam was used in the OD, particularly given that water pressure is not considered in the industry tests and the submersion duration is significantly less than the LZ foam has already been exposed to.
@@ -216,10 +216,10 @@ In \autoref{fig:data_vs_sim_gd_capture_time} are the simulated neutron capture t
 The 5\% saturation case provides a better match to the observed capture time.
 
 \par
-The 5\% saturation case provides a better fit up to a capture time of 300~$\mu$s, but above this does not describe the data well.
-It is possible that other isotopes are playing an important role in the neutron thermalisation.
-Both Oxygen and Carbon are around the GdLS, in both the foam and acrylic.
-Although both of these have a much lower neutron cross-section, it is possible contributing to the extended neutron capture times.
+The 5\% saturation case provides a better fit up to a capture time of 300~$\mu$s, but above this, does not describe the data well.
+It is possible that other isotopes are playing an important role in neutron thermalisation.
+Oxygen and Carbon are around the GdLS, in both the foam and acrylic.
+Although these have a much lower neutron cross-section, they are possibly contributing to the extended neutron capture times.
 Further studies are needed to determine what other differences there may be between the simulated neutron propagation and what is observed, but water ingress appears to be the dominant factor.
 A future search should focus on the ratio of n-H captures to n-Gd captures, as this will allow for the water ingress theory to be tested.
 

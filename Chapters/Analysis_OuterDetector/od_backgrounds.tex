@@ -106,7 +106,7 @@ In future, it may be possible to accurately measure this rate using a volume cut
 \subsection{$\gamma$ constraints}
 \par
 Another area to look at is high energy $\gamma$s from ($\alpha$,$\gamma$) reactions, which were discussed in \autoref{sec:cavern_gamma_generator}.
-In \autoref{fig:od_high_energy} the expected and observed rate above 400 phd is shown.
+In \autoref{fig:od_high_energy}, the expected and observed rate above 400~phd is shown.
 The rate of events expected is significantly greater than that observed.
 The findings here support the discussion in \autoref{sec:cavern_gamma_generator} that the statistical model used by GEANT4 does not extend well to ${}^{17}$O.
 However, there are still events seen in data between 1000 and 1800~phd that are not accounted for in simulations.
@@ -123,7 +123,7 @@ Due to the safe's placement during SR1, it was not possible to determine if ther
 \par
 As was discussed in \autoref{sec:simulated_od_backgrounds}, the exact rate of backgrounds from GdLS internals components is not known, as the improved purification cocktail was not assayed.
 Fortunately, we are able to constrain some of the components. 
-The decays within the U and Th decay chains all have an isotope in them with a half-life shorter than the LZ event window, of 4.5~ms.
+The decays within the U and Th decay chains all have an isotope in them with a half-life shorter than the LZ event window of 4.5~ms.
 It is, therefore, possible to observe two decays from the same decay chain, which will appear as two pulses (one from each decay) in an event.
 There are three decay pairs for this, one from ${}^{238}$U, ${}^{235}$U, and ${}^{232}$Th.
 These are summarised in \autoref{tab:od_constrainable_decays_in_data}.
@@ -156,7 +156,7 @@ Only pulses above 200~keV in visible energy are included in the figure to make t
 \input{Chapters/Analysis_OuterDetector/Figures/background_constraints/od_bipo_pulses_2d}
 
 \par
-In \autoref{fig:od_all_pulse_pairs_2d}, there is a distribution where both the first and second pulse both have a signal size of around 170 phd.
+In \autoref{fig:od_all_pulse_pairs_2d}, there is a distribution where both the first and second pulse both have a signal size of around 170~phd.
 This corresponds to the double $\alpha$-decay of ${}^{219}$Rn$\to{}^{215}$Po$\to{}^{211}$Pb.
 The first pulse is slightly smaller than the second, which follows the pattern expected given the $\alpha$ energies shown in \autoref{tab:od_constrainable_decays_in_data}.
 The other two pulse pairs will be spread out (in the $x$-axis) as the first pulses are from $\beta$-decays and so are not visible as features in \autoref{fig:od_all_pulse_pairs_2d}.
@@ -241,7 +241,7 @@ In this region, the expected background rate is 78.43$\pm$2.51~Hz.
 This is slightly below the observed rate of 85.26$\pm$0.22~Hz.
 \par
 A fit was performed using RooFit \cite{roostats_ref}, where the contribution of each background component was allowed to float within a defined range.
-In order to keep the number of fit parameters small a number of steps were taken.
+In order to keep the number of fit parameters small, a number of steps were taken.
 Firstly, contributions from all detector components were combined.
 This means that the spectra of each sub-component were summed, with the shape fixed but the magnitude variable.
 ${}^{60}$Co decay from the OCV is the most significant contributor here.
@@ -257,9 +257,9 @@ Only components that contributed more than 0.5~Hz to the OD rate are included in
 The individual fitted rates for each component are shown in \autoref{tab:od_constrainable_decays_in_data}.
 Included as well in \autoref{tab:od_constrainable_decays_in_data} is the rate of each component from the initial assumption from an improved purification case.
 \par
-Generally, there is good agreement between the fit and what was observed with a $\chi^2$/ndf = 212.6/135.
+Generally, there is good agreement between the fit and what was observed with a $\chi^2$/ndf~=~212.6/135.
 There is a difference of less than 10\% over most of the range with the main features of the distribution captured.
-The most significant difference is at 50~phd where no background appears to be able to fill in this region.
+The most significant difference is at 50~phd, where no background appears to be able to fill in this region.
 This is likely an uncertainty from the scaling factor.
 The flat scaling of 4.54 did not take into account any position variation.
 Given that the light collection efficiency observed is significantly greater than simulated, it is logical to suggest that the variation in the light collection efficiency (shown in \autoref{fig:od_lce}) is also different.
